@@ -1,0 +1,45 @@
+/* 数学公式 */
+
+@import url(/appearance/themes/Dark+/style/module/config.css);
+@import url(/widgets/custom.css);
+
+/* 行内公式 */
+/* .protyle-wysiwyg [data-node-id] span[data-type='inline-math'] {
+    font-size: var(--custom-math-inline);
+}
+
+.b3-typography span[data-subtype="math"] {
+    font-size: var(--custom-math-inline);
+} */
+
+/* 行内分式 */
+/* [data-type='inline-math'] .mfrac {
+    font-size: var(--custom-math-inline);
+}
+
+[data-type='inline-math'] span.sqrt .mfrac {
+    font-size: var(--custom-math-inline);
+} */
+
+/* 公式块公式 */
+/* .b3-typography div[data-subtype="math"],
+.protyle-wysiwyg div[data-subtype="math"] {
+    font-size: var(--custom-math-inline);
+} */
+
+/* 公式整体 */
+.protyle-wysiwyg .katex,
+.b3-typography .katex {
+    font-size: var(--custom-math-size);
+}
+
+/* 公式子项(上标, 下标等) */
+.katex .msupsub {
+    font-size: var(--custom-math-sub-size);
+}
+
+/* 移除公式编号上移 */
+.protyle-wysiwyg .katex-display>.katex>.katex-html>.tag,
+.b3-typography .katex-display>.katex>.katex-html>.tag {
+    position: var(--custom-math-tag-position);
+}

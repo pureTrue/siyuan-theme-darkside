@@ -1,0 +1,10 @@
+{
+  "name": "DarkSide",
+  "author": "小笔载志",
+  "url": "https://github.com/",
+  "version": "1.0.0",
+  "minAppVersion": "3.1.17",
+  "modes": [
+    "dark",
+  ]
+}

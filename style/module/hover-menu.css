@@ -1,0 +1,190 @@
+/* 弹出菜单 */
+
+@import url(/appearance/themes/Dark+/style/module/config.css);
+@import url(/widgets/custom.css);
+
+/* 菜单底色 */
+#model,
+#commonMenu,
+.b3-menu__item>.b3-menu__submenu {
+    background-color: var(--custom-popover-function-menu-background-color);
+    backdrop-filter: var(--custom-backdrop-popover-filter);
+}
+
+/* 菜单项 */
+.b3-menu__item,
+.b3-menu__item>.b3-menu__submenu .b3-menu__item {
+    background-color: transparent;
+}
+
+/* 菜单项中输入框宽度 */
+#commonMenu input.b3-text-field {
+    min-width: var(--custom-popover-menu-input-min-width);
+}
+
+/* 菜单分割线 */
+.b3-menu__separator {
+    height: 2px;
+    background-color: var(--custom-popover-menu-separator-color);
+}
+
+/* '/' 菜单分隔线 */
+.b3-menu.b3-list.b3-list--background.hint--menu .b3-menu__separator {
+    background-color: var(--b3-theme-on-surface);
+}
+
+/* 鼠标悬停菜单项 */
+.b3-menu__item--current {
+    background-color: var(--b3-theme-background-light) !important;
+}
+
+/* 悬浮搜索菜单/功能菜单/设置菜单 */
+.b3-tab-bar.b3-list.b3-list--background,
+/* 块移动菜单 */
+#foldList.b3-list.b3-list--background,
+.b3-list.b3-list--background:not(ul) {
+    /* REF: [第一个子元素在未超过父元素高度的情况下设置margin-top导致出现竖向滚动条的问题_Andrasen的博客-CSDN博客](https://blog.csdn.net/Andrasen/article/details/105676175) */
+    padding: var(--custom-popover-menu-padding-width);
+    background-color: var(--custom-popover-menu-background-color);
+    backdrop-filter: var(--custom-backdrop-popover-filter);
+    width: var(--custom-popover-menu-width) !important;
+    outline: var(--custom-popover-menu-outline-width) var(--custom-popover-menu-outline-style) var(--custom-popover-menu-outline-color);
+    overflow-x: visible !important;
+}
+
+/* 未引用资源 */
+#assetsList,
+/* 块移动菜单 */
+#foldList.b3-list.b3-list--background,
+/* 快捷键菜单 */
+#keymapList>.b3-list.b3-list--background,
+/* 设置菜单 */
+.b3-tab-bar.b3-list.b3-list--background {
+    background-color: transparent;
+}
+
+/* 块移动菜单 */
+#foldList.b3-list.b3-list--background,
+.b3-list.b3-list--background:not(ul):not(#searchList) {
+    /* column-count: 4; */
+    /* max-height: 395px !important; */
+    width: var(--custom-popover-menu-width) !important;
+}
+
+/* 补偿第一项 */
+/* 移动端搜索菜单 */
+#searchPanel>.b3-list-item:first-child,
+/* 块移动菜单 */
+#foldList.b3-list.b3-list--background>.b3-list-item:first-child,
+
+.b3-tab-bar.b3-list.b3-list--background>.b3-list-item:first-child,
+.b3-list.b3-list--background:not(ul)>.b3-list-item:first-child {
+    margin-top: 0 !important;
+}
+
+/* 补偿最后一项 */
+/* 移动端搜索菜单 */
+#searchPanel>.b3-list-item:last-child,
+/* 块移动菜单 */
+#foldList.b3-list.b3-list--background>.b3-list-item:last-child,
+
+.b3-tab-bar.b3-list.b3-list--background>.b3-list-item:last-child,
+.b3-list.b3-list--background:not(ul)>.b3-list-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* 设置面板 */
+/* 移动端搜索菜单 */
+#searchPanel>.b3-list-item,
+/* 块移动菜单 */
+#foldList.b3-list.b3-list--background>.b3-list-item,
+
+.b3-tab-bar.b3-list.b3-list--background>.b3-list-item,
+/* 对话框搜索结果项 */
+.b3-list.b3-list--background:not(ul)>.b3-list-item {
+    /* padding-top: var(--custom-popover-menu-padding-width); */
+    /* border-bottom: var(--custom-popover-menu-outline-width) var(--custom-popover-menu-outline-style) var(--b3-theme-on-surface); */
+    margin: var(--custom-popover-menu-padding-width) 0;
+    /* padding: 0.5em; */
+    outline: var(--custom-popover-menu-outline-width) var(--custom-popover-menu-outline-style) var(--custom-popover-menu-outline-color);
+}
+
+/* 悬浮搜索结果项 */
+.b3-list.b3-list--background:not(ul)>button.b3-list-item {
+    /* padding-top: var(--custom-popover-menu-padding-width); */
+    /* border-bottom: var(--custom-popover-menu-outline-width) var(--custom-popover-menu-outline-style) var(--b3-theme-on-surface); */
+    margin: var(--custom-popover-menu-padding-width) auto !important;
+    /* padding: 0.5em; */
+    outline: var(--custom-popover-menu-outline-width) var(--custom-popover-menu-outline-style) var(--custom-popover-menu-outline-color);
+}
+
+/* 移动端搜索菜单文档可读路径 */
+#searchPanel>.b3-list-item>.b3-list-item__meta,
+/* 悬浮搜索结果文档可读路径 */
+.b3-list.b3-list--background:not(ul)>.b3-list-item>.b3-list-item__meta:not(.fn__flex) {
+    color: var(--custom-popover-menu-path-color);
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+/* 悬浮搜索结果块属性 */
+.b3-list.b3-list--background:not(ul)>.b3-list-item>.b3-list-item__meta.fn__flex {
+    padding: 0.5em;
+    color: var(--custom-popover-menu-attribute-color);
+}
+
+/* 搜索结果匹配关键词样式 */
+/* 移动端搜索菜单搜索结果匹配关键词样式 */
+#searchPanel .b3-list-item mark,
+.protyle-wysiwyg [data-node-id] span[data-type="search-mark"],
+.b3-list.b3-list--background .b3-list-item mark {
+    margin: 0 0.25em;
+    border: 0;
+    padding: 0 0.125em;
+    color: inherit;
+    background-color: transparent;
+    outline-width: var(--custom-popover-menu-outline-width);
+    outline-style: var(--custom-popover-menu-outline-style);
+}
+
+/* 菜单分栏 */
+/* .b3-list.fn__flex-1.b3-list--background:not(#globalSearchList) {
+    column-count: 4;
+    column-gap: 5px;
+    min-width: 50vw !important;
+    font-size: 90%;
+    border: 0.05em solid #ffffff4d;
+} */
+
+.b3-menu.b3-list.b3-list--background.hint--menu {
+    column-count: 4;
+    column-gap: 1em;
+    column-rule: var(--custom-list-guides-line-width) solid var(--b3-border-color);
+    /* column-fill: auto; */
+    /* height: 32em !important; */
+    max-height: none !important;
+}
+
+/* .b3-menu.b3-list.b3-list--background.hint--menu>.b3-list-item:nth-of-type(1),
+.b3-menu.b3-list.b3-list--background.hint--menu>.b3-list-item:nth-last-of-type(5),
+.b3-menu.b3-list.b3-list--background.hint--menu>.b3-list-item:nth-last-of-type(4),
+.b3-menu.b3-list.b3-list--background.hint--menu>.b3-list-item:nth-last-of-type(3),
+.b3-menu.b3-list.b3-list--background.hint--menu>.b3-list-item:nth-last-of-type(2),
+.b3-menu.b3-list.b3-list--background.hint--menu>.b3-list-item:nth-last-of-type(1) {
+    column-span: all;
+} */
+
+.b3-menu.b3-list.b3-list--background.hint--menu>div.b3-menu__separator:first-of-type {
+    height: 35px;
+    background-color: transparent;
+}
+
+.b3-menu.b3-list.b3-list--background.hint--menu>div.b3-menu__separator:nth-of-type(4) {
+    height: 0;
+    background-color: transparent;
+}
+
+.b3-menu.b3-list.b3-list--background.hint--menu>.b3-list-item:last-child>div.b3-list-item__first {
+    margin: auto;
+}
