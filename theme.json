@@ -1,8 +1,8 @@
 {
   "name": "DarkSide",
-  "author": "小笔载志",
+  "author": "pureTure",
   "url": "https://github.com/pureTrue/siyuan-theme-darkside",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": {
     "default": "DarkSide",
     "zh_CN": "暗夜君王"
@@ -10,6 +10,9 @@
  "description": {
     "default": "Aspire to be the dark theme with the best SiYuan aesthetic",
     "zh_CN": "立志做思源审美最佳的暗色主题"
+  },
+ "readme": {
+    "default": "README.md"
   }
   "modes": [
     "dark",
