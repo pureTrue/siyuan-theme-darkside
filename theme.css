@@ -1401,37 +1401,37 @@ span[data-type="tag"][data-content="低优先级"]{
 /*大纲树：文字样式*/
 .file-tree ul.b3-list.b3-list--background [data-subtype="h1"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h1"]{
-	font-family:"XHei apple Mono"; 
+	font-family:"unifont"; 
 	font-size:13px;
     color:var(--h1-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h2"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h2"]{
-	font-family:"XHei apple Mono"; 
+	font-family:"unifont"; 
 	font-size:13px;
     color:var(--h2-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h3"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h3"]{
-	font-family:"XHei apple Mono"; 
+	font-family:"unifont"; 
 	font-size:13px;
     color:var(--h3-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h4"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h4"]{
-	font-family:"XHei apple Mono"; 
+	font-family:"unifont"; 
 	font-size:13px;
     color:var(--h4-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h5"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h5"]{
-	font-family:"XHei apple Mono"; 
+	font-family:"unifont"; 
 	font-size:13px;
     color:var(--h5-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h6"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h6"]{
-	font-family:"XHei apple Mono"; 
+	font-family:"unifont"; 
 	font-size:13px;
     color:var(--h6-color);
 }
@@ -1459,7 +1459,7 @@ span[data-type="tag"][data-content="低优先级"]{
 
 /*左右侧边正文字体*/
 .b3-list-item__text{
-	font-family:"XHei apple Mono","Hiragino Sans GB";
+	font-family:"unifont","Hiragino Sans GB";
 	font-size:90%; 
 }
 
@@ -1468,7 +1468,7 @@ span[data-type="inline-math"]{
 }
 
 span[data-type="inline-math"] .katex{
-	font-size:100% !important;font-family:KaTeX_Main, 字体管家细黑体, Times New Roman, serif !important
+	font-size:100% !important;font-family:KaTeX_Main,unifont,Times New Roman, serif !important
 }
 
 
@@ -3087,11 +3087,6 @@ li.protyle-breadcrumb__item.svelte-1x3krj2{
 }
 div.docs-flow__doc.svelte-1x3krj2{
 	border-top:1px solid var(--b3-theme-primary-lighter) !important;
-}
-
-/*预览折叠列表JS display*/
-.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="siyuan://"]{
-	display:none !important;
 }
 
 .protyle-wysiwyg [data-node-id].li[fold='1']>.p>[spellcheck]:not(.fn__flex-1.history__text.protyle [data-node-id].li[fold="1"]>.p>[spellcheck])::after {
