@@ -15,23 +15,16 @@
 
 /**** 0.3 字体 ****/
 
-
-@font-face{
-	font-family:'OpenSerif';
-	font-style:normal;
-	src:url("fonts/OpenSerif.ttf");
-}
-
 @font-face{
 	font-family:'unifont';
 	font-style:normal;
-	src:url("fonts/unifont.otf");
+	src:url("fonts/unifont.woff2");
 }
 
 @font-face{
 	font-family:'霞鹜文楷';
 	font-style:normal;
-	src:url("fonts/霞鹜文楷.ttf");
+	src:url("fonts/LXGWWenKaiMonoLite-Regular.woff2");
 }
 
 /**** 0.4 动效 ****/
@@ -223,7 +216,7 @@
     --b3-theme-on-error:     #fff;
  
     /* 字体 */
-    --b3-font-family: "OpenSerif","霞鹜文楷","Hiragino sans GB","quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
+    --b3-font-family: "霞鹜文楷","Hiragino sans GB","quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
     --b3-font-family-code: 霞鹜文楷, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
     --b3-font-family-graph: 霞鹜文楷 !important;
 	--b3-font-family-math: KaTeX_Math !important; 
