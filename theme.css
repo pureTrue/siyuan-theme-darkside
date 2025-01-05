@@ -457,6 +457,10 @@
 	--emoji-icon-hover:#41555f;
 	--b3-counter:#ef9a9ab9;
 	--b3-li-color:148,168,164;
+	
+	
+	/*插件-子弹线-颜色与主题统一*/
+	--text-brand: rgb(65, 130, 123);
 }
 
 
@@ -3086,3 +3090,12 @@ div.docs-flow__doc.svelte-1x3krj2{
 	display:none !important;
 }
 
+/*102.标签页：新建标签、页签切换样式调整*/
+.layout-tab-bar .item--readonly{
+
+    width:60px;
+	background-color:inherit;
+}
+.layout-tab-bar .item--readonly:hover{
+	background-color:inherit !important;
+}
