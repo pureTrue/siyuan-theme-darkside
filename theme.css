@@ -2,7 +2,7 @@
 /* ☆Light☆明亮主题配色文件 */
 /* @import url("style/config/light.css?v=1.10.3");*/
 /* ☆Dark☆暗黑主题配色文件 */
-/*@import url("style/config/dark.css?v=1.10.3");*/
+/*@import url("style/config/dark.css?v=1.10.3");*/ 
 
 /**** 0.1 移动端 ****/
 @import url(/appearance/themes/Dark+/style/module/mobile.css);
@@ -10,16 +10,9 @@
 /**** 0.2 配置文件 ****/
 /* 0.2.1 Dark+样式*/
 @import url(/appearance/themes/Dark+/style/module/config.css);
-/* 导入超链接图标link icon css */
-@import url("style/link_icon.css");
+
 
 /**** 0.3 字体 ****/
-
-@font-face{
-	font-family:'unifont';
-	font-style:normal;
-	src:url("fonts/unifont.woff2");
-}
 
 @font-face{
 	font-family:'霞鹜文楷';
@@ -216,7 +209,7 @@
     --b3-theme-on-error:     #fff;
  
     /* 字体 */
-    --b3-font-family: "霞鹜文楷","Hiragino sans GB","quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
+    --b3-font-family: "Hiragino sans GB","quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","霞鹜文楷",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
     --b3-font-family-code: 霞鹜文楷, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
     --b3-font-family-graph: 霞鹜文楷 !important;
 	--b3-font-family-math: KaTeX_Math !important; 
@@ -670,6 +663,7 @@ div#custom-tooldock.float-tooldock {
     padding: 3px; 
 	text-align: left;
 	min-width: 1px;
+	-webkit-mask-image:none;
 }
 
 /*钉住*/
@@ -1068,7 +1062,6 @@ div#custom-tooldock.float-tooldock {
     padding: 0 4px;
     margin:  0 2px;
 	font-size:90%;
-	font-family:unifont;
 }
 
 /* 标签前加#号 */
@@ -1261,7 +1254,6 @@ span[data-type="tag"][data-content="低优先级"]{
 
 .protyle-wysiwyg [data-type="NodeHeading"] [contenteditable]:before{
 	text-shadow:none;
-	font-family:unifont;
 	font-weight:300;
 	color:var(--b3-theme-on-surface) !important;
 	font-size:13px;
@@ -1315,7 +1307,6 @@ span[data-type="tag"][data-content="低优先级"]{
     background-color: var(--quote-background);
 
     padding: 0.0em 0.7em;
-	font-family:"open serif","霞鹜文楷";/
 
 }
 /* 调整引述在超级块中的样式 */
@@ -1376,7 +1367,6 @@ span[data-type="tag"][data-content="低优先级"]{
  .b3-typography table thead td,
  .protyle-wysiwyg table thead th,
  .protyle-wysiwyg table thead td{
-	font-family:unifont;
 	color:#e0e0e0;/*zhs*/
 	background-color:var(--b3-theme-background);
  }
@@ -1386,7 +1376,6 @@ span[data-type="tag"][data-content="低优先级"]{
 
 /* -------------------主题增强面板区分度Start-------------------- */
 .block__logo {
-	font-family:unifont;
 }
 
 .block__icons{
@@ -1398,37 +1387,37 @@ span[data-type="tag"][data-content="低优先级"]{
 /*大纲树：文字样式*/
 .file-tree ul.b3-list.b3-list--background [data-subtype="h1"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h1"]{
-	font-family:"unifont"; 
+
 	font-size:13px;
     color:var(--h1-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h2"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h2"]{
-	font-family:"unifont"; 
+ 
 	font-size:13px;
     color:var(--h2-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h3"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h3"]{
-	font-family:"unifont"; 
+
 	font-size:13px;
     color:var(--h3-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h4"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h4"]{
-	font-family:"unifont"; 
+
 	font-size:13px;
     color:var(--h4-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h5"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h5"]{
-	font-family:"unifont"; 
+
 	font-size:13px;
     color:var(--h5-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h6"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h6"]{
-	font-family:"unifont"; 
+
 	font-size:13px;
     color:var(--h6-color);
 }
@@ -1456,7 +1445,7 @@ span[data-type="tag"][data-content="低优先级"]{
 
 /*左右侧边正文字体*/
 .b3-list-item__text{
-	font-family:"unifont","Hiragino Sans GB";
+
 	font-size:90%; 
 }
 
@@ -1465,7 +1454,7 @@ span[data-type="inline-math"]{
 }
 
 span[data-type="inline-math"] .katex{
-	font-size:100% !important;font-family:KaTeX_Main,unifont,Times New Roman, serif !important
+	font-size:100% !important;font-family:KaTeX_Main,Times New Roman, serif !important
 }
 
 
@@ -2006,7 +1995,6 @@ body.body--win32{
 /*7.块嵌入NodeBlockQueryEmbed */
 .protyle-wysiwyg__embed {
     position: relative;
-	font-family:"open serif","霞鹜文楷";
 }
 .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]{
 	background-color:rgba(0,0,0,0.05);
@@ -2021,7 +2009,7 @@ li[data-type='navigation-file'] .counter {
     color: var(--b3-counter);
     /* background-color: #dfdfdf9e; */
     font-weight: 500;
-	font-family:unifont;
+
     background: transparent !important;
 }
 /* 内容中计数 */
@@ -2266,7 +2254,7 @@ body{
 
 /*28. 面包屑字体*/
 .protyle-breadcrumb__item{
-	font-family:unifont;
+
 	opacity:85%;
 	font-size:85%;
 }
@@ -2274,7 +2262,7 @@ body{
 .b3-list-item__meta{
 	opacity:0.6;
 	font-size:12px;
-	font-family:unifont;
+
 	line-height:1.5;
 }
 
@@ -2342,14 +2330,14 @@ body{
 
 /*42.别名、命名等附属标识样式修改*/
 .protyle-wysiwyg--attr .protyle-attr>div{
-	font-family:unifont;
+
 	font-weight:500;
 	font-size:110%;
 	
 }
 .protyle-attr--refcount{
 	color:var(--b3-counter);
-	font-family:unifont !important;
+
 	font-size:110% !important;
 }
 
@@ -2362,7 +2350,7 @@ body{
  /*45.笔记本样式*/
 .b3-list--background [data-type="navigation-root"] .b3-list-item__text{
 	 color:#d4cab6;/*zhs*/
-	 font-family:unifont;
+
  }
 
 
@@ -2551,7 +2539,7 @@ body{
 .layout-tab-bar .item{
 	min-height:20px !important;
 	font-size:85%;
-	font-family:unifont;
+
 }
 
 
@@ -2892,7 +2880,7 @@ div#tooltip {
 .protyle-breadcrumb__icon{
 	color:rgb(251, 188, 5,0.8);
 	background:rgba(251, 188, 5,0.05);
-	font-family:unifont;
+
 	padding:0px 3px;
 	margin:0px -5px;
 }
