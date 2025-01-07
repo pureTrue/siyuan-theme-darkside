@@ -2,10 +2,9 @@
   "name": "siyuan-theme-darkside",
   "author": "pureTure",
   "url": "https://github.com/pureTrue/siyuan-theme-darkside",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "displayName": {
-    "default": "DarkSide",
-    "zh_CN": "嘿，轨！"
+    "default": "DarkSide"
   },
  "description": {
     "default": "Aspire to be the dark theme with the best SiYuan aesthetic",
