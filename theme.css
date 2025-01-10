@@ -660,7 +660,7 @@ div#custom-tooldock.float-tooldock {
 }
 /* 页签字体样式：左对齐 */
 .layout-tab-bar .item__text{
-    padding: 3px; 
+    padding: 3px;
 	text-align: left;
 	min-width: 1px;
 	-webkit-mask-image:none;
@@ -984,9 +984,12 @@ div#custom-tooldock.float-tooldock {
 }
 
 /**** 6.21 思源内部链接siyuan:// ****/
+.protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="siyuan://"]{
+    border-bottom: 1px solid var(--block-ref-bottomline);
+}
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="siyuan://"]:hover{
-    color: var(--block-ref-bottomline) !important;
-    border-bottom: 1px solid var(--b3-protyle-inline-link-hover-color);
+    color: var(--b3-protyle-inline-link-hover-color) !important;
+    border-bottom: 1px solid var(--block-ref-bottomline);
 }
 
 
@@ -998,17 +1001,9 @@ div#custom-tooldock.float-tooldock {
 }
 
 /**** 6.4 下划线、删除线 ****/
-[style*="background-color"] s{
-    color: inherit;
-	border-bottom: 1px solid var(--b3-theme-on-background);
-} 
-.protyle-wysiwyg u, .b3-typography u{
-    text-decoration: none;
-    border-bottom: 1px solid var(--b3-theme-on-background);
-    border-color: inherit;
-    padding: 2px 0;
+.protyle-wysiwyg span[data-type~=u]{
+	border-bottom:1px dotted ;/*下划线设置为“点虚线”*/
 }
-
 /**** 6.5 高亮 ****/
 
 
@@ -1056,60 +1051,20 @@ div#custom-tooldock.float-tooldock {
 /**** 6.10 标签 ****/
 .protyle-wysiwyg [data-node-id] span[data-type="tag"]{
 	color: var(--tag-color);
-	background-color:var(--tag-background-color);
 	border:none ;
 	border-radius:3px;
-    padding: 0 4px;
-    margin:  0 2px;
-	font-size:90%;
+    padding: 0 1px;
+    margin:  0 1px;
+	font-size:80%;
 }
 
 /* 标签前加#号 */
 .protyle-wysiwyg [data-node-id] span[data-type='tag']:not(:empty)::before {
     content: "#";
-	font-size:85%;
+	font-size:120%;
 }
 
-/* 6.10.1 红色标签 */
-span[data-type="tag"][data-content="紧急"],
-span[data-type="tag"][data-content="高优先级"],
-span[data-type="tag"][data-content="待办"],
-span[data-type="tag"][data-content="重要"],
-span[data-type="tag"][data-content="高"],
-span[data-type="tag"][data-content="注意"],
-span[data-type="tag"][data-content="问题"]{
-    background-color: var(--b3-card-error-background) !important;
-    color: var(--b3-card-error-color) !important;
-    border: none !important;
-    padding: 0 4px;
-    margin:  0 2px;
-    border-radius: 2px;
-}
-/* 6.10.2 橙色标签 */
-span[data-type="tag"][data-content="TODO"],
-span[data-type="tag"][data-content="todo"],
-span[data-type="tag"][data-content="待办"],
-span[data-type="tag"][data-content="中"],
-span[data-type="tag"][data-content="中优先级"],
-span[data-type="tag"][data-content="NOTE"]{
-    background-color: var(--b3-card-warning-background) !important;
-    color: var(--b3-card-warning-color) !important;
-    border: none !important;
-    padding: 0 4px;
-    margin:  0 2px;
-    border-radius: 2px;
-}
-/* 6.10.3 绿色标签 */
-span[data-type="tag"][data-content="完成"],
-span[data-type="tag"][data-content="低"],
-span[data-type="tag"][data-content="低优先级"]{
-    background-color: var(--b3-card-success-background) !important;
-    color: var(--b3-card-success-color) !important;
-    border: none !important;
-    padding: 0 4px;
-    margin:  0 2px;
-    border-radius: 2px;
-}
+
 
 /**** 6.11 颜色卡片（用得很少） ****/
 /* 超级块内颜色卡片增加padding */
@@ -1317,28 +1272,18 @@ span[data-type="tag"][data-content="低优先级"]{
 
 
 /**** 7.8 代码块 ****/
-.protyle-linenumber__rows{
-    line-height: var(--line-height);
-    font-size: 85%;
-}
 .b3-typography .code-block, .protyle-wysiwyg .code-block{
     padding: 0;
     margin: 1em 0;
 }
 /** 7.8.1代码块：背景颜色统一 **/
-.protyle-reset .hljs,
-.protyle-wysiwyg .hljs,.b3-typography .hljs {
+							
+.b3-typography div.hljs, .protyle-wysiwyg div.hljs{
     overflow: auto;
     font-family: var(--b3-font-family-code);
-    background-image: none !important;
-    background: transparent;
-} 
-
-.code-block {
-    position: relative; 
-    display: block;
-    border-radius: 4px;
-    background: var(--b3-protyle-code-background);
+    border-radius: 0px;
+    background-color: rgb(44, 57, 64);
+	border-left:var(--quote-border-width) solid rgba(180, 142, 173,0.7);/*var(--inline-code-color)*/		  
 }
 
 
@@ -1366,7 +1311,7 @@ span[data-type="tag"][data-content="低优先级"]{
 .b3-typography table thead th,
  .b3-typography table thead td,
  .protyle-wysiwyg table thead th,
- .protyle-wysiwyg table thead td{
+ .protyle-wysiwyg table thead td{										 
 	color:#e0e0e0;/*zhs*/
 	background-color:var(--b3-theme-background);
  }
@@ -1376,6 +1321,7 @@ span[data-type="tag"][data-content="低优先级"]{
 
 /* -------------------主题增强面板区分度Start-------------------- */
 .block__logo {
+	font-weight:900;					 
 }
 
 .block__icons{
@@ -1387,37 +1333,32 @@ span[data-type="tag"][data-content="低优先级"]{
 /*大纲树：文字样式*/
 .file-tree ul.b3-list.b3-list--background [data-subtype="h1"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h1"]{
-
 	font-size:13px;
     color:var(--h1-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h2"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h2"]{
- 
+
 	font-size:13px;
     color:var(--h2-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h3"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h3"]{
-
 	font-size:13px;
     color:var(--h3-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h4"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h4"]{
-
 	font-size:13px;
     color:var(--h4-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h5"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h5"]{
-
 	font-size:13px;
     color:var(--h5-color);
 }
 .file-tree ul.b3-list.b3-list--background [data-subtype="h6"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h6"]{
-
 	font-size:13px;
     color:var(--h6-color);
 }
@@ -1445,7 +1386,6 @@ span[data-type="tag"][data-content="低优先级"]{
 
 /*左右侧边正文字体*/
 .b3-list-item__text{
-
 	font-size:90%; 
 }
 
@@ -1454,7 +1394,8 @@ span[data-type="inline-math"]{
 }
 
 span[data-type="inline-math"] .katex{
-	font-size:100% !important;font-family:KaTeX_Main,Times New Roman, serif !important
+	font-size:100% !important;
+	font-family:KaTeX_Main,Times New Roman, serif !important
 }
 
 
@@ -2350,7 +2291,6 @@ body{
  /*45.笔记本样式*/
 .b3-list--background [data-type="navigation-root"] .b3-list-item__text{
 	 color:#d4cab6;/*zhs*/
-
  }
 
 
@@ -2497,10 +2437,7 @@ body{
     background-color: var(--b3-menu-item-background-light) !important ;
 }
 
-/*71、 2.1.13版本 解决最后一个标签页阴影错误问题*/
-.layout-tab-bar .item:last-child:not(.item--readonly){
-	box-shadow:none !important;
-}
+
 
 
 
