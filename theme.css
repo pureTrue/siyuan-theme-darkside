@@ -209,7 +209,7 @@
     --b3-theme-on-error:     #fff;
  
     /* 字体 */
-    --b3-font-family: "Hiragino sans GB","quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","霞鹜文楷",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
+    --b3-font-family: "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","霞鹜文楷",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
     --b3-font-family-code: 霞鹜文楷, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
     --b3-font-family-graph: 霞鹜文楷 !important;
 	--b3-font-family-math: KaTeX_Math !important; 
@@ -1050,18 +1050,22 @@ div#custom-tooldock.float-tooldock {
 
 /**** 6.10 标签 ****/
 .protyle-wysiwyg [data-node-id] span[data-type="tag"]{
-	color: var(--tag-color);
-	border:none ;
-	border-radius:3px;
-    padding: 0 1px;
-    margin:  0 1px;
-	font-size:80%;
+	border-bottom:none;
+	border:1px solid rgba(137, 181, 250) !important;
+	font-variant-ligatures:none;
+    padding:.1em .3em;
+	margin:0px 2.5px 0px 2.5px;
+	font-size:85%;
+	border-radius:var(--b3-border-radius);
+	font-family:var(--b3-font-family-code);
+	word-break:break-word;
+	white-space:pre-wrap;
+	color:rgba(137, 181, 250);
 }
 
 /* 标签前加#号 */
 .protyle-wysiwyg [data-node-id] span[data-type='tag']:not(:empty)::before {
     content: "#";
-	font-size:120%;
 }
 
 
@@ -1311,7 +1315,7 @@ div#custom-tooldock.float-tooldock {
 .b3-typography table thead th,
  .b3-typography table thead td,
  .protyle-wysiwyg table thead th,
- .protyle-wysiwyg table thead td{										 
+ .protyle-wysiwyg table thead td{
 	color:#e0e0e0;/*zhs*/
 	background-color:var(--b3-theme-background);
  }
@@ -2202,7 +2206,6 @@ body{
 /*搜索框面包屑*/
 .b3-list-item__meta{
 	opacity:0.6;
-	font-size:12px;
 
 	line-height:1.5;
 }
@@ -2212,8 +2215,10 @@ body{
 }
 .b3-list .b3-list-item--two .b3-list-item__meta,.b3-list--background .b3-list-item--two .b3-list-item__meta{
 }
-
-
+/*搜索框-文档分组-面包屑*/
+.b3-list-item__text.ariaLabel{
+	font-family:unifont;
+}
 
 
 /*32.focus、hover框添加圆角*/
@@ -2783,10 +2788,6 @@ div#tooltip {
 	margin:0.5em 0;
 }
 
-/*85.线性文本段间距优化*/
-.b3-typography, .protyle-wysiwyg, .protyle-title{
-	font-size:16.5px !important;
-}
 
 /*聚焦块-面包屑文本删除（优化显示效果）*/
 /*本来想抄Sovar主题的，结果它也只有反链面板可以实现，正文面包屑、嵌入块无法实现，遂作罢*/
@@ -2834,9 +2835,7 @@ div#tooltip {
 	border-radius:3px;
 }
 
-.b3-button--cancel{
-	display: none;
-}
+
 
 .protyle-wysiwyg--attr .protyle-attr>div:not(.protyle-attr--memo):not(.protyle-attr--refcount){
 	margin-top:15px;
@@ -2991,13 +2990,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 /*99.引用块-样式调整-取消前置的两条线*/
 .b3-typography blockquote:before, .b3-typography .bq:before, .protyle-wysiwyg blockquote:before, .protyle-wysiwyg .bq:before{ content: none !important; }
 
-/*100、插件-enhance-lifelog 隐藏*/
-.EnLifeLogDailyNoteGraph[data-v-ea1f862f]{
-	display:none !important;
-}
-.EnLifeLogDailyNoteGraph[data-v-ea1f862f]:hover{
-	display:none;
-}
+
 
 
 /*101、插件-文档流-样式调整-优化题头*/
@@ -3023,4 +3016,17 @@ div.docs-flow__doc.svelte-1x3krj2{
 }
 .layout-tab-bar .item--readonly:hover{
 	background-color:inherit !important;
+}
+/*103.滑块：颜色修复*/
+.b3-slider{
+	background-color:rgba(0,0,0,0.05);
+}
+/*104.按钮：颜色修复*/
+.b3-switch:checked{
+	background-color:var(--b3-theme-primary-lighter);
+}
+
+/*105.输入框：颜色修复*/
+.b3-text-field{
+	background-color:rgba(0,0,0,0.05);
 }
