@@ -2,15 +2,16 @@
   "name": "siyuan-theme-darkside",
   "author": "pureTure",
   "url": "https://github.com/pureTrue/siyuan-theme-darkside",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "displayName": {
     "default": "DarkSide"
   },
  "description": {
-    "default": "Aspire to be the dark theme with the best SiYuan aesthetic",
-    "zh_CN": "立志做思源审美最佳的暗色主题"
+    "default": "Determined to be the best theme for Siyuan aesthetics, it now supports bright/dark mode switching!",
+    "zh_CN": "立志做思源审美最佳的主题，现已支持明亮/暗黑双模切换！"
   },
   "modes": [
+    "light",
     "dark"
   ]
 }
