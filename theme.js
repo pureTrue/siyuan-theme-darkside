@@ -12,6 +12,14 @@ window.theme = {
         iconDefaultScript: document.getElementById('iconDefaultScript'),
         iconScript: document.getElementById('iconScript'),
     },
+    elements: new Set(), // 需要移除的 HTML 元素集合
+    eventTarget: new EventTarget(), // 事件总线目标
+    addEventListener: function (target, ...args) {
+        target.addEventListener(...args);
+        this.eventTarget.addEventListener("destroy", () => {
+            target.removeEventListener(...args);
+        });
+    }, // 添加在主题销毁时自动移除的监听器
     // REF https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent
     coords: { // 鼠标坐标
         screenX: undefined, // 鼠标指针相对于全局（屏幕）的 X 坐标
@@ -28,15 +36,28 @@ window.theme = {
     },
 };
 
+// REF: https://github.com/siyuan-note/siyuan/issues/8178
+window.destroyTheme = function () {
+    window.theme?.elements.forEach(element => {
+        element.remove();
+    });
+    window.theme?.eventTarget.dispatchEvent(new Event("destroy"));
+    window[Symbol.for("Dark+destroy")] = true;
+    delete window.theme;
+    delete window.destroyTheme;
+}
+
 /**
  * 静态资源请求 URL 添加参数
- * @params {string} url 资源请求 URL
- * @return {string} 返回添加参数后的 URL
+ * @param {string} url 资源请求 URL
+ * @returns {string} 返回添加参数后的 URL
  */
 window.theme.addURLParam = function (
     url,
     param = {
-        // t: Date.now().toString(),
+        t: window[Symbol.for("Dark+destroy")]
+            ? Date.now().toString()
+            : undefined,
         v: window.siyuan.config.appearance.themeVer,
     },
 ) {
@@ -74,28 +95,29 @@ window.theme.addURLParam = function (
 
 /**
  * 加载 meta 标签
- * @params {object} attributes 属性键值对
- * @params {string} position 节点插入位置
- * @params {HTMLElementNode} element 节点插入锚点
+ * @param {object} attributes 属性键值对
+ * @param {string} position 节点插入位置
+ * @param {HTMLElementNode} element 节点插入锚点
  */
 window.theme.loadMeta = function (attributes, position = "afterbegin", element = document.head) {
-    let meta = document.createElement('meta');
+    const meta = document.createElement('meta');
     for (let [key, value] of Object.entries(attributes)) {
         meta.setAttribute(key, value);
     }
     // document.head.insertBefore(meta, document.head.firstChild);
     // [Element.insertAdjacentElement() - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentElement)
     element.insertAdjacentElement(position, meta);
+    window.theme.elements.add(meta);
 }
 
 /**
  * 加载脚本文件
- * @params {string} url 脚本地址
- * @params {string} type 脚本类型
- * @params {boolean} async 是否异步加载 & 非阻塞运行
- * @params {boolean} defer 是否异步加载 & 阻塞运行
- * @params {string} position 节点插入位置
- * @params {HTMLElementNode} element 节点插入锚点
+ * @param {string} url 脚本地址
+ * @param {string} type 脚本类型
+ * @param {boolean} async 是否异步加载 & 非阻塞运行
+ * @param {boolean} defer 是否异步加载 & 阻塞运行
+ * @param {string} position 节点插入位置
+ * @param {HTMLElementNode} element 节点插入锚点
  */
 window.theme.loadScript = function (
     src,
@@ -112,14 +134,15 @@ window.theme.loadScript = function (
     script.src = src;
     // document.head.appendChild(script);
     element.insertAdjacentElement(position, script);
+    window.theme.elements.add(script);
 }
 
 /**
  * 加载样式文件
- * @params {string} innerHTML 样式内容
- * @params {string} id 样式 ID
- * @params {string} position 节点插入位置
- * @params {HTMLElementNode} element 节点插入锚点
+ * @param {string} innerHTML 样式内容
+ * @param {string} id 样式 ID
+ * @param {string} position 节点插入位置
+ * @param {HTMLElementNode} element 节点插入锚点
  */
 window.theme.loadStyle = function (
     innerHTML,
@@ -127,19 +150,20 @@ window.theme.loadStyle = function (
     position = "afterend",
     element = window.theme.element.themeStyle,
 ) {
-    let style = document.createElement('style');
+    const style = document.createElement('style');
     if (id) style.id = id;
     style.innerHTML = innerHTML;
     // document.head.appendChild(style);
     element.insertAdjacentElement(position, style);
+    window.theme.elements.add(style);
 }
 
 /**
  * 加载样式文件引用
- * @params {string} href 样式地址
- * @params {string} id 样式 ID
- * @params {string} position 节点插入位置
- * @params {HTMLElementNode} element 节点插入锚点
+ * @param {string} href 样式地址
+ * @param {string} id 样式 ID
+ * @param {string} position 节点插入位置
+ * @param {HTMLElementNode} element 节点插入锚点
  */
 window.theme.loadLink = function (
     href,
@@ -147,22 +171,23 @@ window.theme.loadLink = function (
     position = "afterend",
     element = window.theme.element.themeStyle,
 ) {
-    let link = document.createElement('link');
+    const link = document.createElement('link');
     if (id) link.id = id;
     link.type = 'text/css';
     link.rel = 'stylesheet';
     link.href = href;
     // document.head.appendChild(link);
     element.insertAdjacentElement(position, link);
+    window.theme.elements.add(link);
 }
 
 /**
  * 更新样式文件
- * @params {string} id 样式文件 ID
- * @params {string} href 样式文件地址
+ * @param {string} id 样式文件 ID
+ * @param {string} href 样式文件地址
  */
 window.theme.updateStyle = function (id, href) {
-    let style = document.getElementById(id);
+    const style = document.getElementById(id);
     if (style) {
         style.setAttribute('href', href);
     }
@@ -176,7 +201,7 @@ window.theme.ID_CUSTOM_STYLE = 'custom-color-style';
 
 /**
  * 获取主题模式
- * @return {string} light 或 dark
+ * @returns {string} light 或 dark
  */
 window.theme.themeMode = (() => {
     /* 根据浏览器主题判断颜色模式 */
@@ -201,7 +226,7 @@ window.theme.themeMode = (() => {
 
 /**
  * 获取窗口宽高模式
- * @return {string} landscape 或 portrait
+ * @returns {string} landscape 或 portrait
  */
 window.theme.orientation = () => {
     /* 根据浏览器主题判断颜色模式 */
@@ -219,7 +244,7 @@ window.theme.orientation = () => {
 
 /**
  * 获取客户端模式
- * @return {string} 'app' 或 'desktop' 或 'mobile'
+ * @returns {string} 'app' 或 'desktop' 或 'mobile'
  */
 window.theme.clientMode = (() => {
     const url = new URL(window.location.href);
@@ -239,13 +264,13 @@ window.theme.clientMode = (() => {
 
 /**
  * 获取语言模式
- * @return {string} 'zh_CN', 'zh_CNT', 'fr_FR', 'en_US'
+ * @returns {string} 'zh_CN', 'zh_CNT', 'fr_FR', 'en_US'
  */
 window.theme.languageMode = window.siyuan.config.lang;
 
 /**
  * 获取思源版本号
- * @return {string} 思源版本号
+ * @returns {string} 思源版本号
  */
 window.theme.kernelVersion = window.siyuan.config.system.kernelVersion;
 
@@ -264,14 +289,14 @@ window.theme.root = (() => {
 
 /**
  * 获取一个 Lute 对象
- * @return {Lute} Lute 对象
+ * @returns {Lute} Lute 对象
  */
 window.theme.lute = window.Lute.New();
 
 /**
  * 设置原生主题模式
- * @params {number} mode: 主题模式
- * @params {boolean} modeOS: 是否启用系统主题
+ * @param {number} mode: 主题模式
+ * @param {boolean} modeOS: 是否启用系统主题
  */
 window.theme.setNativeTheme = function (
     mode = window.siyuan.config.appearance.mode,
@@ -297,10 +322,10 @@ window.theme.setNativeTheme = function (
 
 /**
  * 更换主题模式
- * @params {string} lightStyle 浅色主题配置文件路径
- * @params {string} darkStyle 深色主题配置文件路径
- * @params {string} customLightStyle 浅色主题自定义配置文件路径
- * @params {string} customDarkStyle 深色主题自定义配置文件路径
+ * @param {string} lightStyle 浅色主题配置文件路径
+ * @param {string} darkStyle 深色主题配置文件路径
+ * @param {string} customLightStyle 浅色主题自定义配置文件路径
+ * @param {string} customDarkStyle 深色主题自定义配置文件路径
  */
 window.theme.changeThemeMode = function (
     customLightStyle,
