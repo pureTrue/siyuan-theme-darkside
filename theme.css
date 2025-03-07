@@ -1,15 +1,3 @@
-/**************** 0、引入各配置模块 ********************/
-/* ☆Light☆明亮主题配色文件 */
-/* @import url("style/config/light.css?v=1.10.3");*/
-/* ☆Dark☆暗黑主题配色文件 */
-/*@import url("style/config/dark.css?v=1.10.3");*/ 
-
-/**** 0.1 移动端 ****/
-@import url(/appearance/themes/Dark+/style/module/mobile.css);
-
-/**** 0.2 配置文件 ****/
-/* 0.2.1 Dark+样式*/
-@import url(/appearance/themes/Dark+/style/module/config.css);
 
 
 /**** 0.3 字体 ****/
@@ -339,6 +327,7 @@
     --quote-background:             #E6E9EF; /* 引述背景色 */
 	
 	--code-border-color:rgba(194, 143, 185);/*代码块左边框颜色*/
+	--BlockEmbed-border-color:rgba(103, 124, 245,0.7);/*嵌入块左边框颜色*/																   
 	
     --gutters-hover-background:     var(--b3-theme-surface); /* 块图标悬浮时背景色（不要使用透明色） */
     --switch-uncheck-color:         #000000; /* switch 开关未开启时颜色 */
@@ -370,7 +359,7 @@
     --block-margin:     var(--margin-top-bottom)  var(--margin-left-right)  ; /* 块间距 */
     --block-padding:    var(--padding-top-bottom) var(--padding-left-right) ; /* 块内边距 */
 
-/**** 动画 ****/
+    /**** 动画 ****/
     --page-scrollbar-transition: opacity 800ms ease 0s; /* 分页加载条动画 */
     --flex-column-transition:    width 200ms cubic-bezier(0, 0.7, 0.4, 1); /* 侧边栏动画 */
     --common-transition:         all 1s cubic-bezier(0, 0.7, .2, 1) 0ms;   /* 通用动画 */
@@ -387,8 +376,8 @@
 	--b3-menu-item-background-light:rgba(0,0,0,0.05);
 	--block__icons-svg-background:var(--b3-theme-background-light);
 	--protyle-gutters-button-hover:rgba(190, 171, 161,0.8);/* ???增加块图标悬浮时背景色 */
-	--block-ref-bottomline:#677CF5;
-	--block-pdf-bottomline:#935ECC;/*PDF双向链接：紫色下标*/
+	--block-ref-bottomline:103, 124, 245;/*双向链接：蓝色下划线*/
+	--block-pdf-bottomline:147, 94, 204;/*PDF双向链接：紫色下划线*/
 	
 	--tag-color:#5899D1;
 	--tag-background-color:rgba(113, 175, 229,0.2);
@@ -411,7 +400,7 @@
     --breadcrumb-zoomin-backgroundcolor:rgba(223, 142, 29,0.1);
 	
 	--b3-protyle-li-color:var(--b3-block__icons);
-}  
+}
 
 :root[data-theme-mode=dark] {
     /*主字体颜色*/
@@ -575,7 +564,8 @@
     --quote-background:             rgba(0,0,0,0.05); /* 引述背景色 */
 
     --code-border-color:rgba(180, 142, 173,0.7);/*代码块左边框颜色*/
-
+	--BlockEmbed-border-color:rgba(135, 176, 249,0.45);/*嵌入块左边框颜色*/
+	
     --gutters-hover-background:     var(--b3-theme-surface); /* 块图标悬浮时背景色（不要使用透明色） */
     --switch-uncheck-color:         #FFF; /* switch 开关未开启时颜色 */
 
@@ -636,8 +626,8 @@
 	--b3-menu-item-background-light:rgba(255,255,255,0.08);
 	--block__icons-svg-background:#3b4d56;
 	--protyle-gutters-button-hover:rgba(65, 84, 94,0.8);/* 增加块图标悬浮时背景色 */
-	--block-ref-bottomline:#87B0F9;
-	--block-pdf-bottomline:#ab7ae0;/*PDF双向链接：紫色下标*/
+	--block-ref-bottomline:135, 176, 249;/*双向链接：蓝色下划线*/
+	--block-pdf-bottomline:171, 122, 224;/*PDF双向链接：紫色下标*/
 	
 	--tag-color:#71afe5;
 	--tag-background-color:rgba(113, 175, 229,0.2);
@@ -1132,7 +1122,7 @@ div#custom-tooldock.float-tooldock {
 .protyle-wysiwyg [data-node-id] span[data-type="block-ref"]{
 	color:inherit !important;
 
-	border-bottom: 1px solid var(--block-ref-bottomline);
+	border-bottom: 1px solid rgb(var(--block-ref-bottomline));
 	cursor: pointer;
 	word-break:break-all;  
 	transition:all 0.25s ease-in-out; 
@@ -1144,21 +1134,21 @@ div#custom-tooldock.float-tooldock {
 
 .protyle-wysiwyg [data-node-id] span[data-type="block-ref"]:hover{
     color: var(--block-ref-bottomline) !important;
-    border-bottom: 1px solid var(--block-ref-bottomline);
+    border-bottom: 1px solid rgb(var(--block-ref-bottomline));
 	transition:all 0.25s ease-in-out;
 }
 /*加粗*/
 .protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext){
 	color:var(--b3-protyle-inline-strong-color);
-	border-bottom: 1px solid var(--block-ref-bottomline);
+	border-bottom: 1px solid rgb(var(--block-ref-bottomline));
 	cursor: pointer;
 	word-break:break-all;  
 	transition:all 0.25s ease-in-out; 
 	
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:hover{
-	color: var(--block-ref-bottomline) !important;
-    border-bottom: 1px solid var(--block-ref-bottomline);
+	color: rgb(var(--block-ref-bottomline)) !important;
+    border-bottom: 1px solid rgb(var(--block-ref-bottomline));
 	transition:all 0.25s ease-in-out;
 }
 
@@ -1194,11 +1184,11 @@ div#custom-tooldock.float-tooldock {
 
 /**** 6.21 思源内部链接siyuan:// ****/
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="siyuan://"]{
-    border-bottom: 1px solid var(--block-ref-bottomline);
+    border-bottom: 1px solid rgb(var(--block-ref-bottomline));
 }
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="siyuan://"]:hover{
     color: var(--b3-protyle-inline-link-hover-color) !important;
-    border-bottom: 1px solid var(--block-ref-bottomline);
+    border-bottom: 1px solid rgb(var(--block-ref-bottomline));
 }
 
 
@@ -1390,7 +1380,7 @@ div#custom-tooldock.float-tooldock {
 .b3-typography .h1,.b3-typography h1,.b3-typography .h2,.b3-typography h2,.b3-typography .h3,.b3-typography h3,.b3-typography .h4,.b3-typography h4,.b3-typography .h5,.b3-typography h5,.b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h1,.protyle-wysiwyg h1,.protyle-wysiwyg .h2,.protyle-wysiwyg h2,.protyle-wysiwyg .h3,.protyle-wysiwyg h3,.protyle-wysiwyg .h4,.protyle-wysiwyg h4,.protyle-wysiwyg .h5,.protyle-wysiwyg h5,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 {
 	font-size: 1.10em;
 	font-weight:500;
-	padding:0px 0px !important;  
+ 
 }
 .b3-typography .h1, .b3-typography h1, .protyle-wysiwyg .h1, .protyle-wysiwyg h1{
     color: var(--h1-color);
@@ -2152,7 +2142,7 @@ body.body--win32{
 .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]{
 	background-color:rgba(0,0,0,0.05);
 	border-radius:0px;
-	border-left:3px solid rgba(135, 176, 249,0.45) !important;/*zhs*/
+	border-left:3px solid var(--BlockEmbed-border-color) !important;/*zhs*/
 	border:none;
 }
 
@@ -2389,15 +2379,15 @@ body{
 /*27.虚拟引用 设置*/
 .protyle-wysiwyg [data-node-id] span[data-type="virtual-block-ref"]{
 	color:inherit;
-	border-bottom: 1px dashed rgba(135, 176, 249,0.2);
+	border-bottom: 1px dashed rgba(var(--block-ref-bottomline),.25);
 	cursor: pointer;
 	word-break:break-all;  
 	transition:all 0.25s ease-in-out;  
 }
 
 .protyle-wysiwyg [data-node-id] span[data-type="virtual-block-ref"]:hover{
-	color: var(--block-ref-bottomline);
-    border-bottom: 1px dashed rgba(135, 176, 249,0.4);
+	color: rgb(var(--block-ref-bottomline));
+    border-bottom: 1px dashed rgba(var(--block-ref-bottomline),.45);
 }
 
 
@@ -2828,10 +2818,10 @@ body{
 	background-color:var(--b3-theme-background) ;
 }
 div#tooltip {
-   color:var(--b3-tooltips-color);
+    color:var(--b3-tooltips-color);
 	background-color:var(--b3-theme-background);
-   border:1px solid var(--b3-theme-surface-lighter);
-   box-shadow:var(--b3-dialog-shadow);
+    border:1px solid var(--b3-theme-surface-lighter);
+    box-shadow:var(--b3-dialog-shadow);
 
 }
 .b3-tooltips__s::before, .b3-tooltips__se::before, .b3-tooltips__sw::before{
@@ -2992,10 +2982,6 @@ div#tooltip {
 }
 
 
-/*聚焦块-面包屑文本删除（优化显示效果）*/
-/*本来想抄Sovar主题的，结果它也只有反链面板可以实现，正文面包屑、嵌入块无法实现，遂作罢*/
-
-
 /*86.数据库相关*/
 /*数据库背景色调整*/
 .av__row--util .b3-button:hover{
@@ -3061,49 +3047,7 @@ div#tooltip {
 }
 
 
-/*89、问题待解决、问题已有解:双链样式*/
-.protyle-wysiwyg [data-node-id] span[data-type="block-ref"][data-id="20240120081417-uv34vs9"]{
-	color:#df8984 !important; 
-	background: #603d42;
-	padding: 0.5px 3px;
-	border-radius: 4px;
 
-	box-sizing: border-box;
-	cursor: pointer;
-	opacity: 1;
-	outline: 0 solid transparent;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
-	width: fit-content;
-	word-break: break-word;
-	border: 0;
-}
-.protyle-wysiwyg [data-node-id] span[data-type="block-ref"][data-id="20240120081417-uv34vs9"]:not(:empty)::after{
-	/*content:"❓";*/
-	content:":";
-}
-.protyle-wysiwyg [data-node-id] span[data-type="block-ref"][data-id="20240120082222-r0aiz2q"]{
-	color:#6eb77f !important; 
-	background: #305e49;
-	padding: 0.5px 3px;
-	border-radius: 4px;
-
-	box-sizing: border-box;
-	cursor: pointer;
-	opacity: 1;
-	outline: 0 solid transparent;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
-	width: fit-content;
-	word-break: break-word;
-	border: 0;
-}
-.protyle-wysiwyg [data-node-id] span[data-type="block-ref"][data-id="20240120082222-r0aiz2q"]:not(:empty)::after{
-	/*content:"❕";*/
-	content:":";
-}
 
 /*90.面包屑宽度变动*/
 .protyle-breadcrumb__arrow{
@@ -3151,10 +3095,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 	/*text-overflow:clip;*/
 }
 
-/*94.标签页「关闭按钮」元素隐藏*/
-.layout-tab-bar .item__close{
-	display:none;
-}
+
 
 
 /*95.标题吸顶 */
@@ -3249,4 +3190,25 @@ div.docs-flow__doc.svelte-1x3krj2{
 /*107.侧边栏图标*/
 .dock__item{
 	color:var(--b3-toolbar-color);
+}
+
+/*设置-卡片*/
+.b3-card{
+	box-shadow:var(--shadow-1);
+	display:flex;
+	flex-wrap:wrap;
+}
+
+.b3-dialog {
+    & .b3-dialog__container {
+        & .config-bazaar__panel[data-type="downloaded"] {
+            .config-bazaar__content {
+				display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+                gap: 0px;
+                width: auto;
+
+            }
+        }
+    }
 }
