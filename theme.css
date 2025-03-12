@@ -2413,7 +2413,7 @@ body{
 }
 /*搜索框-文档分组-面包屑*/
 .b3-list-item__text.ariaLabel{
-	font-family:unifont;
+
 }
 
 
@@ -3197,6 +3197,7 @@ div.docs-flow__doc.svelte-1x3krj2{
 	box-shadow:var(--shadow-1);
 	display:flex;
 	flex-wrap:wrap;
+	margin:10px;
 }
 
 .b3-dialog {
@@ -3204,10 +3205,10 @@ div.docs-flow__doc.svelte-1x3krj2{
         & .config-bazaar__panel[data-type="downloaded"] {
             .config-bazaar__content {
 				display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
                 gap: 0px;
                 width: auto;
-
+                margin-bottom: 6px;
             }
         }
     }
