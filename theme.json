@@ -2,13 +2,13 @@
   "name": "siyuan-theme-darkside",
   "author": "pureTure",
   "url": "https://github.com/pureTrue/siyuan-theme-darkside",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "displayName": {
     "default": "DarkSide"
   },
  "description": {
-    "default": "Xihe's flame rends eternal night,Dawn's kiss dissolves frost into light.",
-    "zh_CN": "欲借曦和驱永夜，唤来旭日暖秋霜。现已支持明亮/暗黑双模式。"
+    "default": "Through blooms I wander, not a glance behind,Half for the path divine, half for thee enshrined.",
+    "zh_CN": "取次花丛懒回顾，半缘修道半缘君。"
   },
   "modes": [
     "light",
