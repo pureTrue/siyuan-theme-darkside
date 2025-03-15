@@ -8,6 +8,11 @@
 	src:url("fonts/LXGWWenKaiMonoLite-Regular.woff2");
 }
 
+@font-face{
+	font-family:'霞鹜新晰黑';
+	font-style:normal;
+	src:url("fonts/LXGWNeoXiHei.woff2");
+}
 /**** 0.4 动效 ****/
 /* 0.4.1 菜单：渐入渐出 */
 @keyframes menu {
@@ -35,63 +40,7 @@
   100%{transform: scale(1,1);}
 }
 
-/* 0.4.4 波浪特效(太吃内存,已弃用) */
-@keyframes waves {
-  from {
-    clip-path: polygon(
-      0% 17%,
-      9% 10%,
-      18% 4%,
-      30% 0%,
-      43% 1%,
-      49% 4%,
-      57% 7%,
-      66% 10%,
-      78% 11%,
-      89% 11%,
-      96% 9%,
-      100% 7%,
-      100% 100%,
-      0% 100%
-    );
-  }
-  50% {
-    clip-path: polygon(
-      0% 4%,
-      6% 9%,
-      13% 13%,
-      23% 15%,
-      31% 16%,
-      42% 15%,
-      49% 13%,
-      61% 10%,
-      71% 5%,
-      81% 3%,
-      90% 2%,
-      100% 5%,
-      100% 100%,
-      0% 100%
-    );
-  }
-  to {
-    clip-path: polygon(
-      0% 17%,
-      9% 10%,
-      18% 4%,
-      30% 0%,
-      43% 1%,
-      49% 4%,
-      57% 7%,
-      66% 10%,
-      78% 11%,
-      89% 11%,
-      96% 9%,
-      100% 7%,
-      100% 100%,
-      0% 100%
-    );
-  }
-}
+
 
 /* 0.4.5 圆角特效： */
 @-webkit-keyframes wnd-close-left{
@@ -200,7 +149,7 @@
     --b3-theme-on-error:     #000;
 	
 	/* 字体 */
-    --b3-font-family: "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","霞鹜文楷",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
+    --b3-font-family: "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","霞鹜新晰黑",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
     --b3-font-family-code: 霞鹜文楷, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
     --b3-font-family-graph: 霞鹜文楷 !important;
 	--b3-font-family-math: KaTeX_Math !important; 
@@ -327,7 +276,7 @@
     --quote-background:             #E6E9EF; /* 引述背景色 */
 	
 	--code-border-color:rgba(194, 143, 185);/*代码块左边框颜色*/
-	--BlockEmbed-border-color:rgba(103, 124, 245,0.7);/*嵌入块左边框颜色*/																   
+	--BlockEmbed-border-color:rgba(103, 124, 245,0.7);/*嵌入块左边框颜色*/
 	
     --gutters-hover-background:     var(--b3-theme-surface); /* 块图标悬浮时背景色（不要使用透明色） */
     --switch-uncheck-color:         #000000; /* switch 开关未开启时颜色 */
@@ -429,7 +378,7 @@
     --b3-theme-on-error:     #fff;
  
     /* 字体 */
-    --b3-font-family: "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","霞鹜文楷",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
+    --b3-font-family: "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","霞鹜新晰黑",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
     --b3-font-family-code: 霞鹜文楷, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
     --b3-font-family-graph: 霞鹜文楷 !important;
 	--b3-font-family-math: KaTeX_Math !important; 
@@ -684,11 +633,7 @@
 	color:white !important;
 }
 
-/*dark+JS脚本系统置顶*/
-div#custom-tooldock.float-tooldock {
-	position:fixed;
-	z-index:99999;
-}
+
 
 
 /**** 1.2 菜单 ****/
@@ -776,7 +721,8 @@ div#custom-tooldock.float-tooldock {
 /* 反链浮窗：初始尺寸限定 */
 .block__popover{
 	width:500px;
-	height:500px;
+	min-height:300px;
+	border:none;				 
 }
 
 
@@ -1301,11 +1247,7 @@ div#custom-tooldock.float-tooldock {
     opacity: 1 !important;
 }
 
-/* 调整折叠时引述块样式 */
-.protyle-wysiwyg [data-type="NodeBlockquote"][fold="1"]{
-    margin-left  : 0 !important;
-    margin-right : 0 !important;
-}
+
 /* 调整折叠时引述块下列表及段落样式 */
 .protyle-wysiwyg [data-type="NodeBlockquote"][fold="1"] .protyle-action{
    display: none; /* 隐藏大纲圆点 */
@@ -1379,7 +1321,7 @@ div#custom-tooldock.float-tooldock {
 /**** 7.5 标题 ****/
 .b3-typography .h1,.b3-typography h1,.b3-typography .h2,.b3-typography h2,.b3-typography .h3,.b3-typography h3,.b3-typography .h4,.b3-typography h4,.b3-typography .h5,.b3-typography h5,.b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h1,.protyle-wysiwyg h1,.protyle-wysiwyg .h2,.protyle-wysiwyg h2,.protyle-wysiwyg .h3,.protyle-wysiwyg h3,.protyle-wysiwyg .h4,.protyle-wysiwyg h4,.protyle-wysiwyg .h5,.protyle-wysiwyg h5,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 {
 	font-size: 1.10em;
-	font-weight:500;
+	font-weight:700;
  
 }
 .b3-typography .h1, .b3-typography h1, .protyle-wysiwyg .h1, .protyle-wysiwyg h1{
@@ -1463,6 +1405,7 @@ div#custom-tooldock.float-tooldock {
     background-color: var(--quote-background);
 
     padding: 0.0em 0.7em;
+	font-family:"霞鹜文楷"; 
 
 }
 /* 调整引述在超级块中的样式 */
@@ -1588,7 +1531,7 @@ div#custom-tooldock.float-tooldock {
 
 /*左右侧边正文字体*/
 .b3-list-item__text{
-	font-size:90%; 
+	font-size:95%; 
 }
 
 span[data-type="inline-math"]{
@@ -1939,173 +1882,6 @@ span[data-type="inline-math"] .katex{
 
 
 
-/* -------------------搬运语雀的提示区块 ---------Start----------------------------*/
-
-/* 卡片样式 */
-.bq[style*="background-color: var(--b3-card-error-background);"],
-blockquote[style*="background-color: var(--b3-card-error-background);"] {
-    /* border: 1px solid var(--b3-card-error-color) !important; */
-    /* border: 1px solid #deb8be !important; */
-    border: 1px solid var(--b3-font-color1) !important;
-    background-color: var(--b3-card-error-background) !important;
-}
-
-
-.bq[style*="background-color: var(--b3-card-warning-background);"],
-blockquote[style*="background-color: var(--b3-card-warning-background);"]{
-    /* border: 1px solid var(--b3-card-warning-color) !important ; */
-    /* border: 1px solid #e0d1b1 !important ; */
-    border: 1px solid var(--b3-font-color2) !important;
-
-
-    background-color: var(--b3-card-warning-background)!important;
-}
-blockquote[style*="background-color: var(--b3-card-info-background);"],
-.bq[style*="background-color: var(--b3-card-info-background);"] 
-{
-    /* border: 1px solid var(--b3-card-info-color) !important; */
-        /* border: 1px solid #abd2da !important; */
-    border: 1px solid var(--b3-font-color3) !important;
-    background-color: var(--b3-card-info-background) !important;
-}
-blockquote[style*="background-color: var(--b3-card-success-background);"],
-.bq[style*="background-color: var(--b3-card-success-background);"] {
-    /* border: 1px solid var(--b3-card-success-color) !important; */
-    /* border: 1px solid #c2d2b5 !important; */
-    border: 1px solid var(--b3-font-color4) !important;
-    background-color: var(--b3-card-success-background) !important;
-}
-blockquote[style*="background-color: var(--b3-card-warning-background);"] strong:not([style*="color: var(--b3"]),
-.bq[style*="background-color: var(--b3-card-warning-background);"] strong:not([style*="color: var(--b3"]) {
-    color:#ffc36f !important;
-}
-blockquote[style*="background-color: var(--b3-card-success-background);"] strong:not([style*="color: var(--b3"]),
-.bq[style*="background-color: var(--b3-card-success-background);"] strong:not([style*="color: var(--b3"]) {
-    color:#bcffbf !important;
-}
-
-blockquote[style*="background-color: var(--b3-card-error-background);"] strong:not([style*="color: var(--b3"]) ,
-.bq[style*="background-color: var(--b3-card-error-background);"] strong:not([style*="color: var(--b3"]) {
-    color:#fd7c78 !important;
-}
-blockquote[style*="background-color: var(--b3-card-info-background);"] strong:not([style*="color: var(--b3"]),
-.bq[style*="background-color: var(--b3-card-info-background);"] strong:not([style*="color: var(--b3"]) {
-    color:#79cdff !important;
-}
-/* 优化kbd */
-
-
-blockquote[style*="background-color: var(--b3-card-error-background);"] kbd,
-.bq[style*="background-color: var(--b3-card-error-background);"] kbd{
-    background-color: #69514a59 !important;
-}
-
-blockquote[style*="background-color: var(--b3-card-warning-background);"] kbd,
-.bq[style*="background-color: var(--b3-card-warning-background);"] kbd{
-    background-color: #52483259 !important;
-}
-
-blockquote[style*="background-color: var(--b3-card-info-background);"] kbd,
-.bq[style*="background-color: var(--b3-card-info-background);"] kbd{
-    background-color: #3e556359 !important;
-}
-
-blockquote[style*="background-color: var(--b3-card-success-background);"] kbd,
-.bq[style*="background-color: var(--b3-card-success-background);"] kbd{
-    background-color: #3b553459 !important;
-}
-
-
-/* 优化列表线 */
-blockquote[style*="background-color: var(--b3-card-error-background);"] [data-node-id].li>[data-node-id]:before,
-.bq[style*="background-color: var(--b3-card-error-background);"] [data-node-id].li>[data-node-id]:before{
-    border-left: 1px solid #a36e66 !important;
-}
-
-blockquote[style*="background-color: var(--b3-card-error-background);"] [data-node-id].li>[data-node-id]:before,
-.bq[style*="background-color: var(--b3-card-warning-background);"] [data-node-id].li>[data-node-id]:before{
-    border-left: 1px solid #d6c0a3 !important;
-}
-blockquote[style*="background-color: var(--b3-card-info-background);"] [data-node-id].li>[data-node-id]:before,
-.bq[style*="background-color: var(--b3-card-info-background);"] [data-node-id].li>[data-node-id]:before{
-    border-left: 1px solid #83a8c2 !important;
-}
-blockquote[style*="background-color: var(--b3-card-success-background);"] [data-node-id].li>[data-node-id]:before,
-.bq[style*="background-color: var(--b3-card-success-background);"] [data-node-id].li>[data-node-id]:before{
-    border-left: 1px solid #a7c4b8 !important;
-}
-/* 块背景色 */
-blockquote[style*="background-color: var(--b3-font-background1);"],
-.bq[style*="background-color: var(--b3-font-background1);"] {
-    border: 1px solid var(--b3-font-color1) !important;
-}
-
-blockquote[style*="background-color: var(--b3-font-background2);"],
-.bq[style*="background-color: var(--b3-font-background2);"] {
-    border: 1px solid var(--b3-font-color2) !important;
-
-}
-
-blockquote[style*="background-color: var(--b3-font-background3);"],
-.bq[style*="background-color: var(--b3-font-background3);"] {
-        border: 1px solid var(--b3-font-color3)  !important;
-}
-
-blockquote[style*="background-color: var(--b3-font-background4);"],
-.bq[style*="background-color: var(--b3-font-background4);"] {
-    border: 1px solid var(--b3-font-color4) !important;
-}
-
-blockquote[style*="background-color: var(--b3-font-background5);"],
-.bq[style*="background-color: var(--b3-font-background5);"] {
-    border: 1px solid var(--b3-font-color5) !important;
-}
-blockquote[style*="background-color: var(--b3-font-background6);"],
-.bq[style*="background-color: var(--b3-font-background6);"] {
-    border: 1px solid var(--b3-font-color6) !important;
-}
-blockquote[style*="background-color: var(--b3-font-background7);"],
-.bq[style*="background-color: var(--b3-font-background7);"] {
-    border: 1px solid var(--b3-font-color7) !important;
-}
-blockquote[style*="background-color: var(--b3-font-background8);"],
-.bq[style*="background-color: var(--b3-font-background8);"] {
-    border: 1px solid var(--b3-font-color8) !important;
-}
-blockquote[style*="background-color: var(--b3-font-background9);"],
-.bq[style*="background-color: var(--b3-font-background9);"] {
-    border: 1px solid var(--b3-font-color9) !important;
-}
-blockquote[style*="background-color: var(--b3-font-background10);"],
-.bq[style*="background-color: var(--b3-font-background10);"] {
-    border: 1px solid var(--b3-font-color10) !important;
-}
-blockquote[style*="background-color: var(--b3-font-background11);"],
-.bq[style*="background-color: var(--b3-font-background11);"] {
-    border: 1px solid var(--b3-font-color11) !important;
-}
-blockquote[style*="background-color: var(--b3-font-background12);"],
-.bq[style*="background-color: var(--b3-font-background12);"] {
-    border: 1px solid var(--b3-font-color12) !important;
-}
-blockquote[style*="background-color: var(--b3-font-background13);"],
-.bq[style*="background-color: var(--b3-font-background13);"] {
-    border: 1px solid var(--b3-font-color13) !important;
-}
-
-/* 选中块的优化 */
-.protyle-wysiwyg--select.bq[style*="background-color:"]>div{
-    background-color: rgba(31, 138, 93, 0.12) !important;
-
-}
-
-/* -------------------搬运语雀的提示区块 --END-----------------------------------*/
-
-
-
-
-
-
 /****自定义内容start****/
 
 /*1.最外侧边框消除*/
@@ -2114,7 +1890,9 @@ body.body--win32{
 }
 
 /*2.标题样式修改*/
-
+.protyle-title{
+	font-family:"霞鹜文楷" !important;
+}
 .protyle-title__input{
 	color:var(--b3-protyle-mainfont);/*页面标题颜色*/
 }
@@ -2152,7 +1930,7 @@ li[data-type='navigation-file'] .counter {
     color: var(--b3-counter);
     /* background-color: #dfdfdf9e; */
     font-weight: 500;
-
+	font-family:霞鹜文楷;
     background: transparent !important;
 }
 /* 内容中计数 */
@@ -2396,12 +2174,12 @@ body{
 /*28. 面包屑字体*/
 .protyle-breadcrumb__item{
 
-
-	font-size:85%;
+	opacity:0.85;
+	font-size:95%;
 }
 /*搜索框面包屑*/
 .b3-list-item__meta{
-	opacity:0.6;
+	opacity:0.85;
 
 	line-height:1.5;
 }
@@ -2497,13 +2275,13 @@ body{
 
 
 /*46.无序列表（大纲）竖向线条颜色（2.5.0修复bug）*/
-.protyle-wysiwyg [data-node-id].li:before{
-	border-left:1px solid var(--b3-protyle-li-color) !important;
+.protyle-wysiwyg [data-node-id].li::before{
+    border-left: .5px solid var(--b3-protyle-li-color);
 }
 
-
-
-
+.protyle-wysiwyg [data-node-id].li:hover::before {
+    border-left: .5px solid var(--b3-protyle-li-color);
+}
 
 /***** 文档树：折叠按钮 *****/
 .b3-list-item__arrow{
@@ -2673,7 +2451,7 @@ body{
 /*标签页：最小高度（厚度）限制*/
 .layout-tab-bar .item{
 	min-height:20px !important;
-	font-size:85%;
+	font-size:90%;
 
 }
 
@@ -2856,9 +2634,9 @@ div#tooltip {
 #status {
     position: fixed !important;
     background-color: var(--b3-theme-background) !important;
-    right: 41px !important;
-    bottom: -4px !important;
     border-radius:6px !important;
+	right: 41px !important;
+    bottom: -4px !important;
     height: 26px !important;
     border:0 !important;
     padding: 0 26px 0 0 !important;
@@ -3192,7 +2970,7 @@ div.docs-flow__doc.svelte-1x3krj2{
 	color:var(--b3-toolbar-color);
 }
 
-/*设置-卡片*/
+/*108.设置-卡片*/
 .b3-card{
 	box-shadow:var(--shadow-1);
 	display:flex;
@@ -3213,3 +2991,7 @@ div.docs-flow__doc.svelte-1x3krj2{
         }
     }
 }
+/*109.闪卡复习按钮-抬高底部，避免与底部状态栏重叠*/
+.card__action{
+	padding-bottom:40px;
+}											  
