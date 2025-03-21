@@ -4,7 +4,7 @@
 
 
 @font-face{
-	font-family:'霞鹜文楷';
+	font-family:'霞鹜文楷mono';
 	font-style:normal;
 	src:url("fonts/LXGWWenKaiMonoLite-Regular.woff2");
 }
@@ -151,8 +151,8 @@
 	
 	/* 字体 */
     --b3-font-family: "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","Hiragino sans GB","霞鹜新晰黑",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
-    --b3-font-family-code: 霞鹜文楷, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
-    --b3-font-family-graph: 霞鹜文楷 !important;
+    --b3-font-family-code: 霞鹜文楷mono, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
+    --b3-font-family-graph: 霞鹜文楷mono !important;
 	--b3-font-family-math: KaTeX_Math !important; 
 	
     /* 线条 */
@@ -381,8 +381,8 @@
  
     /* 字体 */
     --b3-font-family: "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","Hiragino sans GB","霞鹜新晰黑",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
-    --b3-font-family-code: 霞鹜文楷, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
-    --b3-font-family-graph: 霞鹜文楷 !important;
+    --b3-font-family-code: 霞鹜文楷mono, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
+    --b3-font-family-graph: 霞鹜文楷mono !important;
 	--b3-font-family-math: KaTeX_Math !important; 
 
     /* 线条 */
@@ -641,7 +641,7 @@
 
 /**** 1.2 菜单 ****/
 /*一级菜单*/ 
-.b3-menu{		 
+.b3-menu{
     box-shadow: var(--shadow-1);
     border: none !important;
 }
@@ -649,9 +649,7 @@
 /*二级菜单*/ 
 .b3-menu__submenu{
     box-shadow: var(--shadow-2);
-								
     border:none !important;
-							
 }
 
 /*[[弹窗*/
@@ -659,15 +657,13 @@
     max-width: 30vw !important;
     max-height: 480px !important;
     border: none !important;		
-
+}
 
 
 /**** 1.3 弹框 ****/
-/* 弹出设置框，如超级链接设置 */
+/* 工具菜单：弹出设置框，如超级链接设置*/
 .protyle-util{
-    padding: 10px;
-	border-radius:6px;
-	animation: menu 0.2s ease-in-out;
+    border:none;
 }
 
 
@@ -748,7 +744,7 @@
 .layout-tab-bar .item:hover{
 	background-color:var(--b3-theme-primary-lighter);
 }
-/* 页签字体样式*/
+/* 页签-字体样式*/
 .layout-tab-bar .item__text{
     padding: 2px;
 	-webkit-mask-image:none;/*取消：字体末端边缘发虚*/
@@ -814,7 +810,7 @@
 
 /**** 2.2 面包屑 ****/
 .protyle-breadcrumb .fn__flex-shrink{
-	background-color: var(--b3-theme-background);				
+	background-color: var(--b3-theme-background);
 }
 
 .protyle-breadcrumb .block__icon svg:hover{
@@ -901,7 +897,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 	margin:0px -5px;
 }
 
-										   
+
 
 /*2.2.X2 闪卡-面包屑-字体、文本长度*/
 .card__block .protyle-breadcrumb__bar span{
@@ -1076,8 +1072,9 @@ tem, .protyle-breadcrumb__text--ellipsis{
 	transition:all 0.25s ease-in-out;
 }
 /*修复-双向链接、PDF链接 显色1*/
-.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext), .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref]{	opacity:1;
-}										   
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext), .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref]{
+	opacity:1;
+}
 /**** 6.2 网络链接 ****/
 .b3-typography a,.protyle-wysiwyg [data-node-id] span[data-type="a"]{
 	color:inherit !important;
@@ -1165,7 +1162,6 @@ tem, .protyle-breadcrumb__text--ellipsis{
 
 .protyle-wysiwyg div[data-node-id] span.img[data-type="img"] img {
 	max-height:200px;
-	object-fit: cover;
 }
 
 
@@ -1309,7 +1305,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
     background-color: var(--quote-background);
 
     padding: 0.0em 0.7em;
-	font-family:"霞鹜文楷"; 
+	font-family:"霞鹜文楷mono"; 
 
 }
 /* 调整引述在超级块中的样式 */
@@ -1420,6 +1416,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 .b3-list-item__text{
 	font-size:95%;
 }
+/*math、katex数学*/
 span[data-type="inline-math"]{
 	margin:0 3px
 }
@@ -1483,7 +1480,7 @@ body.body--win32{
 
 /*2.标题样式修改*/
 .protyle-title{
-	font-family:"霞鹜文楷" !important;
+	font-family:"霞鹜文楷mono" !important;
 }
 .protyle-title__input{
 	color:var(--b3-protyle-mainfont);/*页面标题颜色*/
@@ -1522,7 +1519,7 @@ li[data-type='navigation-file'] .counter {
     color: var(--b3-counter);
  
 					 
-	font-family:"霞鹜文楷";
+	font-family:"霞鹜文楷mono";
     background: transparent !important;
 }
 
@@ -1826,11 +1823,6 @@ body{
 	border-radius:6px;
 }
 
-/*54.折叠样式*/
-.protyle-wysiwyg [data-node-id][fold="1"]
-:not(.sb, .li) [contenteditable="true"]{
-	
-}
 
 
 
@@ -1983,7 +1975,7 @@ body{
 
 /*81.tooltip主题悬浮提示条*/
 .b3-tooltips::after {
-   color:var(--b3-tooltips-color);
+	color:var(--b3-tooltips-color);
 	background-color:var(--b3-theme-background) ;
 }
 div#tooltip {
@@ -2292,7 +2284,9 @@ div.docs-flow__doc.svelte-1x3krj2{
 	flex-wrap:wrap;
 	margin:10px;
 }
-
+.b3-cards{
+	padding-top:20px;	
+}
 .b3-dialog {
     & .b3-dialog__container {
         & .config-bazaar__panel[data-type="downloaded"] {
@@ -2302,6 +2296,7 @@ div.docs-flow__doc.svelte-1x3krj2{
                 gap: 0px;
                 width: auto;
                 margin-bottom: 6px;
+				padding-top:20px;
             }
         }
     }
