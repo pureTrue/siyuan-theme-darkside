@@ -4,7 +4,8 @@
   "url": "https://github.com/pureTrue/siyuan-theme-darkside",
   "version": "2.1.2",
   "displayName": {
-    "default": "DarkSide"
+    "default": "DarkSide",
+    "zh_CN": "DarkSide"
   },
  "description": {
     "default": "Through blooms I wander, not a glance behind,Half for the path divine, half for thee enshrined.",
