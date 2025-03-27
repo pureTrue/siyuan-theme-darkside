@@ -198,14 +198,23 @@
     --h5-color: var(--b3-font-color5);/*#268F99*/
     --h6-color: var(--b3-font-color6);/*#AB5079*/				   
 
+	/*自定义-六配色*/
+	--color-1:235, 80, 66;
+	--color-2:222, 151, 9;
+	--color-3:76, 168, 99;
+	--color-4:94, 172, 235;
+	--color-5:107, 125, 230;
+	--color-6:142, 88, 204;
+
+
 
 	/* 自定义文字 */
-	--b3-font-color1: rgb(218, 25, 77);
-	--b3-font-color2: rgb(225, 113, 0);
-	--b3-font-color3: rgb(0, 153, 102);
-	--b3-font-color4: rgb(39, 139, 212);
-	--b3-font-color5: rgb(84, 105, 227);
-	--b3-font-color6: rgb(109, 44, 183);
+    --b3-font-color1: rgb(var(--color-1));
+    --b3-font-color2: rgb(var(--color-2));
+    --b3-font-color3: rgb(var(--color-3));
+	--b3-font-color4: rgb(var(--color-4));
+	--b3-font-color5: rgb(var(--color-5));
+	--b3-font-color6: rgb(var(--color-6));
 	
 	--b3-font-color7: rgb(223, 142, 29);
     --b3-font-color8:rgb(90, 173, 161);
@@ -215,12 +224,13 @@
     --b3-font-color12: rgb(137, 191, 119);
     --b3-font-color13: rgb(23, 146, 153);
 
-	--b3-font-background1: rgba(218, 25, 77,0.2);
-	--b3-font-background2: rgba(225, 113, 0,0.2);
-	--b3-font-background3: rgba(0, 153, 102,0.2);
-	--b3-font-background4: rgba(39, 139, 212,0.2);
-	--b3-font-background5: rgba(84, 105, 227,0.2);
-	--b3-font-background6: rgba(119, 49, 199,0.2);
+
+	--b3-font-background1: rgba(var(--color-1),0.2);
+	--b3-font-background2: rgba(var(--color-2),0.2);
+	--b3-font-background3: rgba(var(--color-3),0.2);
+	--b3-font-background4: rgba(var(--color-4),0.2);
+	--b3-font-background5: rgba(var(--color-5),0.2);
+	--b3-font-background6: rgba(var(--color-6),0.2);
 	
 	--b3-font-background7: rgba(223, 142, 29,0.2);
 	--b3-font-background8: rgba(90, 173, 161,0.2);
@@ -260,7 +270,7 @@
 
 	
     /* 所见即所得行内元素颜色 */
-    --b3-protyle-inline-strong-color:#E64553;/**/
+    --b3-protyle-inline-strong-color:inherit;/*#E64553*/
     --b3-protyle-inline-em-color: inherit;
     --b3-protyle-inline-s-color: inherit;
     --b3-protyle-inline-link-color: var(--b3-theme-background);
@@ -359,7 +369,7 @@
 
 :root[data-theme-mode=dark] {
     /*主字体颜色*/
-	--b3-protyle-mainfont:220, 216, 195;
+	--b3-protyle-mainfont:204, 208, 218;/*208, 214, 219*/
 	/* 主色 */
 	--b3-theme-primary:         rgba(80, 187, 167) ;
     --b3-theme-primary-light:   rgba(80, 187, 167, 0.54);
@@ -445,13 +455,24 @@
 	--h5-shadow:rgb(24, 33, 85);
 	--h6-shadow:rgb(65, 34, 100);
 	
+	
+	/*自定义-六配色*/
+	--color-1:235, 80, 66;
+	--color-2:222, 151, 9;
+	--color-3:76, 168, 99;
+	--color-4:94, 172, 235;
+	--color-5:107, 125, 230;
+	--color-6:142, 88, 204;
+
+
+	
 	/* 自定义文字 */
-    --b3-font-color1: rgb(235, 80, 66);
-    --b3-font-color2: rgb(222, 151, 9);
-    --b3-font-color3: rgb(76, 168, 99);
-	--b3-font-color4: rgb(94, 172, 235);
-	--b3-font-color5: rgb(107, 125, 230);
-	--b3-font-color6: rgb(142, 88, 204);
+    --b3-font-color1: rgb(var(--color-1));
+    --b3-font-color2: rgb(var(--color-2));
+    --b3-font-color3: rgb(var(--color-3));
+	--b3-font-color4: rgb(var(--color-4));
+	--b3-font-color5: rgb(var(--color-5));
+	--b3-font-color6: rgb(var(--color-6));
     --b3-font-color7: rgb(238, 212, 159);
     --b3-font-color8:rgb(139, 213, 202);
     --b3-font-color9: rgb(202, 211, 245);
@@ -462,11 +483,11 @@
 
 
 
-	--b3-font-background1: rgba(235, 80, 66,0.3);
-	--b3-font-background2: rgba(222, 151, 9,0.3);
-	--b3-font-background3: rgba(76, 168, 99,0.3);
-	--b3-font-background4: rgba(94, 172, 235,0.3);
-	--b3-font-background5: rgba(107, 125, 230,0.3);
+	--b3-font-background1: rgba(var(--color-1),0.3);
+	--b3-font-background2: rgba(var(--color-2),0.3);
+	--b3-font-background3: rgba(var(--color-3),0.3);
+	--b3-font-background4: rgba(var(--color-4),0.3);
+	--b3-font-background5: rgba(var(--color-5),0.3);
 	--b3-font-background6: rgba(142, 88, 204,0.3);
 	--b3-font-background7: rgba(238, 212, 159,0.3);
 	--b3-font-background8: rgba(139, 213, 202,0.3);
@@ -509,7 +530,7 @@
 	--b3-code-background:rgb(44, 57, 64);
 	
     /* 所见即所得行内元素颜色 */
-    --b3-protyle-inline-strong-color:#e2ce92;/**/
+    --b3-protyle-inline-strong-color:inherit;/*#e2ce92*/
     --b3-protyle-inline-em-color: inherit;
     --b3-protyle-inline-s-color: inherit;
     --b3-protyle-inline-link-color: var(--b3-theme-background);
@@ -537,7 +558,7 @@
     --inline-code-color:            #b48ead; /* 行内代码文字颜色 */
     --quote-border-width:           3px; /* 引述左边框宽度 */
     --quote-border-color:           rgba(152, 226, 198,0.45);/* 引述左边框颜色*/
-    --quote-color:                  #b8bfc6; /* 引述文字颜色 */
+    --quote-color:                  #BAC2DE; /* 引述文字颜色 */
     --quote-background:             rgba(0,0,0,0.05); /* 引述背景色 */
 
     --code-border-color:rgba(180, 142, 173,0.7);/*代码块左边框颜色*/
@@ -656,6 +677,7 @@
 .b3-menu{
     box-shadow: var(--shadow-1);
     border: none !important;
+
 }
 
 /*二级菜单*/ 
@@ -670,7 +692,9 @@
     max-height: 480px !important;
     border: none !important;		
 }
-
+/*菜单文本*/
+.b3-menu__item{
+}
 
 /**** 1.3 弹框 ****/
 /* 工具菜单：弹出设置框，如超级链接设置*/
@@ -1128,6 +1152,11 @@ tem, .protyle-breadcrumb__text--ellipsis{
 
 
 /**** 6.3 粗体、斜体 ****/
+.protyle-wysiwyg span[data-type~=strong]{
+
+}
+
+
 /* 颜色卡片内的粗体继承卡片颜色 */
 [style*="background-color"] strong, [style*="background-color"] em{
     color:var(--b3-protyle-inline-strong-color);/*inherit  */
@@ -1574,16 +1603,15 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* 13. 设置/搜索弹窗的链接 */
 .b3-dialog__container a {
     outline: 0;
-    text-decoration: underline;
     color: var(--b3-dialog-container);
+	transition:all 0.25s ease-in-out;
 }
 
 .b3-dialog__container a:hover,
 .b3-dialog__container .b3-card__info a:hover {
     outline: 0;
-    text-decoration: underline;
     color: var(--b3-menu-highlight-color);
-
+	transition:all 0.25s ease-in-out;
 }
 .b3-dialog__container .b3-card__info a {
     color: #74c1e2;
@@ -1702,7 +1730,8 @@ body{
  
 /*25. 关键字高亮 */
 .b3-list mark{
-	color:var(--b3-protyle-inline-strong-color);
+	background-color: rgba(var(--b3-protyle-inline-mark-background), 0.20);
+    border-bottom: 1px solid rgba(var(--b3-protyle-inline-mark-background), 0.64);
 }
 
 
@@ -1904,32 +1933,31 @@ body{
 /* 不同字体颜色，针对性修改样式 */
 [style*="color: var(--b3-font-color7)"]{
     color: rgb(var(--b3-protyle-mainfont)) !important;
-    text-shadow: 0px 0px 3px rgba(var(--b3-protyle-mainfont),.2), 0px 0px 6px rgba(var(--b3-protyle-mainfont),.2);
-	font-weight:700;
+    text-shadow: 0px 0px 3px rgba(var(--b3-protyle-mainfont),.4), 0px 0px 6px rgba(var(--b3-protyle-mainfont),.4);
 }
 [style*="color: var(--b3-font-color8)"]{
     color: var(--b3-font-color1) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background1), 0px 0px 6px var(--b3-font-background1);
+    text-shadow: 0px 0px 3px rgba(var(--color-1),0.4), 0px 0px 6px rgba(var(--color-1),0.4);
 }
 [style*="color: var(--b3-font-color9)"]{
     color: var(--b3-font-color2) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background2), 0px 0px 6px var(--b3-font-background2);
+    text-shadow: 0px 0px 3px rgba(var(--color-2),0.4), 0px 0px 6px rgba(var(--color-2),0.4);
 }
 [style*="color: var(--b3-font-color10)"]{
     color: var(--b3-font-color3) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background3), 0px 0px 6px var(--b3-font-background3);
+    text-shadow: 0px 0px 3px rgba(var(--color-3),0.4), 0px 0px 6px rgba(var(--color-3),0.4);
 }
 [style*="color: var(--b3-font-color11)"]{
     color: var(--b3-font-color4) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background4), 0px 0px 6px var(--b3-font-background4);
+    text-shadow: 0px 0px 3px rgba(var(--color-4),0.4), 0px 0px 6px rgba(var(--color-4),0.4);
 }
 [style*="color: var(--b3-font-color12)"]{
     color: var(--b3-font-color5) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background5), 0px 0px 6px var(--b3-font-background5);
+    text-shadow: 0px 0px 3px rgba(var(--color-5),0.4), 0px 0px 6px rgba(var(--color-5),0.6);
 }
 [style*="color: var(--b3-font-color13)"]{
     color: var(--b3-font-color6) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background6), 0px 0px 6px var(--b3-font-background6);
+    text-shadow: 0px 0px 3px rgba(var(--color-6),0.4), 0px 0px 6px rgba(var(--color-6),0.4);
 }
 
 /*背景色统一更换样式*/
@@ -2009,31 +2037,31 @@ body{
 /*字体选择面板样式*/
 .protyle-util .color__square[data-type="color"][style="color:var(--b3-font-color7)"]{
     color: rgb(var(--b3-protyle-mainfont)) !important;
-    text-shadow: 0px 0px 3px rgba(var(--b3-protyle-mainfont),.2), 0px 0px 6px rgba(var(--b3-protyle-mainfont),.2);	
+    text-shadow: 0px 0px 3px rgba(var(--b3-protyle-mainfont),.4), 0px 0px 6px rgba(var(--b3-protyle-mainfont),.4);	
 }
 .protyle-util .color__square[data-type="color"][style="color:var(--b3-font-color8)"]{
     color: var(--b3-font-color1) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background1), 0px 0px 6px var(--b3-font-background1);
+    text-shadow: 0px 0px 3px rgba(var(--color-1),0.4), 0px 0px 6px rgba(var(--color-1),0.4);
 }
 .protyle-util .color__square[data-type="color"][style="color:var(--b3-font-color9)"]{
     color: var(--b3-font-color2) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background2), 0px 0px 6px var(--b3-font-background2);
+    text-shadow: 0px 0px 3px rgba(var(--color-2),0.4), 0px 0px 6px rgba(var(--color-2),0.4);
 }
 .protyle-util .color__square[data-type="color"][style="color:var(--b3-font-color10)"]{
     color: var(--b3-font-color3) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background3), 0px 0px 6px var(--b3-font-background3);
+    text-shadow: 0px 0px 3px rgba(var(--color-3),0.4), 0px 0px 6px rgba(var(--color-3),0.4);
 }
 .protyle-util .color__square[data-type="color"][style="color:var(--b3-font-color11)"]{
     color: var(--b3-font-color4) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background4), 0px 0px 6px var(--b3-font-background4);
+    text-shadow: 0px 0px 3px rgba(var(--color-4),0.4), 0px 0px 6px rgba(var(--color-4),0.4);
 }
 .protyle-util .color__square[data-type="color"][style="color:var(--b3-font-color12)"]{
     color: var(--b3-font-color5) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background5), 0px 0px 6px var(--b3-font-background5);
+    text-shadow: 0px 0px 3px rgba(var(--color-5),0.4), 0px 0px 6px rgba(var(--color-5),0.4);
 }
 .protyle-util .color__square[data-type="color"][style="color:var(--b3-font-color13)"]{
     color: var(--b3-font-color6) !important;
-    text-shadow: 0px 0px 3px var(--b3-font-background6), 0px 0px 6px var(--b3-font-background6);
+    text-shadow: 0px 0px 3px rgba(var(--color-6),0.4), 0px 0px 6px rgba(var(--color-6),0.4);
 }
 
 
