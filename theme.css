@@ -345,7 +345,18 @@
 	--breadcrumb-zoomin-color:rgb(223, 142, 29);
     --breadcrumb-zoomin-backgroundcolor:rgba(223, 142, 29,0.1);
 	
+	/*大纲线*/
 	--b3-protyle-li-color:var(--b3-block__icons);
+	
+	
+	
+	/*插件-叶归-批注配置*/
+	--en-comment-background-color: none;
+	--en-comment-underline-color: rgba(var(--block-ref-bottomline),0);
+	--en-comment-line-underline-color: rgba(var(--block-ref-bottomline),.5);
+	--en-comment-style:underline dashed;
+	--en-comment-underline-width: 1.5px;
+	--en-comment-text-shadow: none;
 }
 
 :root[data-theme-mode=dark] {
@@ -508,7 +519,7 @@
 
     /* 代码片段背景*/
     --b3-protyle-code-background:rgba(15, 29, 42,0.43);
-	--b3-code-background:rgb(44, 57, 64);
+	--b3-code-background:rgb(46, 61, 67);
 	
     /* 所见即所得行内元素颜色 */
     --b3-protyle-inline-strong-color:#D8DCE6;/*#e2ce92*/
@@ -618,6 +629,14 @@
 
 	/*大纲线*/
 	--b3-protyle-li-color:#677f7a;
+	
+	/*插件-叶归-批注配置*/
+	--en-comment-background-color: none;
+	--en-comment-underline-color: rgba(var(--block-ref-bottomline),0);
+	--en-comment-line-underline-color: rgba(var(--block-ref-bottomline),.5);
+	--en-comment-style:underline dashed;
+	--en-comment-underline-width: 1.5px;
+	--en-comment-text-shadow: none;
 }
 
 
@@ -630,12 +649,10 @@
     background-color:var(--b3-toolbar-background) !important;
 }
 .toolbar__item--active{
-	background-color:var(--b3-theme-primary-lighter);
-	color:var(--b3-theme-primary);
+
 }
 .toolbar__item--active:hover{
-	background-color:var(--b3-theme-primary-lightest);
-	color:var(--b3-theme-primary);
+
 }
 
 .toolbar__item:hover{
@@ -857,15 +874,15 @@
 
 .protyle-breadcrumb__item--active{
 	color: var(--b3-theme-primary);
-    background-color:rgba(255,255,255,.0);
+    background-color:var(--b3-theme-primary-lightest);
 }
 
 .protyle-breadcrumb__item--active:hover{
-	background-color:rgba(255,255,255,.0);
-
+	color: var(--b3-theme-primary);
 }
-
-
+.protyle-breadcrumb__item--active svg{
+	color: var(--b3-theme-primary-light);	
+}
 /*2.2.3 面包屑：换行*/
 .protyle-breadcrumb__bar--nowrap{
 	flex-wrap:initial;
@@ -881,21 +898,23 @@
 
 
 .sy__backlink .protyle-breadcrumb__item:not(:first-child).protyle-breadcrumb__item--active>svg {
-    color: var(--b3-theme-primary);
-    background-color:var(--b3-theme-primary-lightest);
+	color: var(--b3-theme-primary);
 	border-radius:4px;
 	padding:3px 3px; 
 }
 /*2.2.5面包屑最大文本长度限制*/
 .protyle-breadcrumb__i
 tem, .protyle-breadcrumb__text--ellipsis{
-	max-width:120px !important;
+	max-width:;
 	overflow:hidden;
+	text-overflow:clip;
+	white-space: nowrap;
 }
 
 /*2.2.6未使用：面包屑文本取消省略号，改为剪切*/
 .protyle-breadcrumb__text{
 	/*text-overflow:clip;*/
+	/*-webkit-mask-image: linear-gradient(to left,rgba(0, 0, 0, 0)0,#000 12px);	*/
 }
 
 /*2.2.X1 退出聚焦*/
@@ -1323,7 +1342,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
     overflow: auto;
     font-family: var(--b3-font-family-code);
     border-radius: 0px;
-    background-color: var(--b3-code-background);
+    background-color: var(--b3-code-background) !important;
 	border-left:var(--quote-border-width) solid var(--code-border-color);/*var(--inline-code-color)*/
 }
 
@@ -1403,10 +1422,18 @@ tem, .protyle-breadcrumb__text--ellipsis{
     opacity: 1 !important;
 }
 
+.config-account__avatar{
+	box-shadow:var(--shadow-1);
+
+}
+.config-account__cover{
+	mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+}
+
 
 /*文档树、大纲-左右侧边正文字体*/
 .b3-list-item__text{
-	font-size:95%;
+	font-size:;
 }
 /*math、katex数学*/
 span[data-type="inline-math"]{
@@ -2215,6 +2242,12 @@ div.docs-flow__doc.svelte-1x3krj2{
 .dock__item{
 	color:var(--b3-toolbar-color);
 }
+
+.dock__item--activefocus{
+	background-color: var(--b3-theme-primary-light);
+}
+
+
 
 /*108.设置-卡片*/
 .b3-card{
