@@ -14,6 +14,7 @@ DarkSide 是一款精简美观的思源笔记主题，支持明亮/暗黑双模�
 ## 👪同心共创，玉汝于成
 本主题的建设完善离不开以下开源项目、思源同好的贡献，在此表达感谢：
 - [LXGW](https://github.com/lxgw)：开源字体`霞鹜文楷`、`霞鹜新晰黑`；
+- [twemoji](https://app.unpkg.com/twemoji-colr-font@15.0.3)：开源emoji表情字体；
 - [Roy](https://github.com/royc01)：思源主题`Savor`；
 - [StarDustSheep](https://github.com/StarDustSheep)：思源主题`StarDust`；
 - [Achuan-2](https://github.com/Achuan-2)：思源主题`Tsundoku`；
@@ -26,6 +27,10 @@ DarkSide 是一款精简美观的思源笔记主题，支持明亮/暗黑双模�
 
 
 ## 😇更新日志
+### v2.1.8
+* 调整字体样式顺序：表达为英字首选`Consolas`,中文前置`冬青黑、苹方、思源黑体`，表格字体直接调用`--b3-font-family-code`
+* **emoji**：调用最新[twemoji](https://app.unpkg.com/twemoji-colr-font@15.0.3)
+
 ### v2.1.7
 * 闪卡-面包屑：类Remnote复习界面
 * PDF：批注颜色与6主色统一；PDF背景色随主题色
