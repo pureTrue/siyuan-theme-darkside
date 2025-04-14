@@ -1,16 +1,18 @@
 /**** 0、字体 ****/
 @font-face{
 	font-family:'霞鹜文楷mono';
-	font-style:normal;
 	src:url("fonts/LXGWWenKaiMonoLite-Regular.woff2");
 }
 
 @font-face{
 	font-family:'霞鹜新晰黑';
-	font-style:normal;
 	src:url("fonts/LXGWNeoXiHei.woff2");
 }
 
+@font-face{
+	font-family:'Twemoji';
+	src:url("fonts/Twemoji.woff2");
+}
 
 
 /**** 1、配色方案 ****/
@@ -45,10 +47,11 @@
     --b3-theme-on-error:     #000;
 	
 	/* 字体 */
-    --b3-font-family: "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","Hiragino sans GB","霞鹜新晰黑",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
-    --b3-font-family-code: 霞鹜文楷mono, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
-    --b3-font-family-graph: 霞鹜文楷mono !important;
-	--b3-font-family-math: KaTeX_Math !important; 
+    --b3-font-family: Consolas, Helvetica,"Luxi Sans", "DejaVu Sans",arial, "Hiragino Sans GB","PingFang SC","Source Han Sans SC","霞鹜新晰黑", "Microsoft Yahei",  sans-serif,var(--b3-font-family-emoji) !important;
+    --b3-font-family-code: mononoki, Consolas, 霞鹜文楷mono, "Liberation Mono",var(--b3-font-family-emoji) !important; 
+    --b3-font-family-graph: var(--b3-font-family-code) !important;
+	--b3-font-family-math: KaTeX_Math,Times New Roman, serif !important; 
+	--b3-font-family-emoji: "Twemoji", "Emojis Additional", "Emojis Reset",emojis !important;
 	
     /* 线条 */
     --b3-border-color: rgba(25, 25, 25, .1);/*???var(--b3-theme-surface)*/
@@ -300,10 +303,11 @@
     --b3-theme-on-error:     #fff;
  
     /* 字体 */
-    --b3-font-family: "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans","Hiragino sans GB","霞鹜新晰黑",  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
-    --b3-font-family-code: 霞鹜文楷mono, Consolas, "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important; 
-    --b3-font-family-graph: 霞鹜文楷mono !important;
-	--b3-font-family-math: KaTeX_Math !important; 
+    --b3-font-family: Consolas, Helvetica,"Luxi Sans", "DejaVu Sans",arial, "Hiragino Sans GB","PingFang SC","Source Han Sans SC","霞鹜新晰黑", "Microsoft Yahei",  sans-serif,var(--b3-font-family-emoji) !important;
+    --b3-font-family-code: mononoki, Consolas, 霞鹜文楷mono, "Liberation Mono",var(--b3-font-family-emoji) !important; 
+    --b3-font-family-graph: var(--b3-font-family-code) !important;
+	--b3-font-family-math: KaTeX_Math,Times New Roman, serif !important; 
+	--b3-font-family-emoji: "Twemoji", "Emojis Additional", "Emojis Reset",emojis !important;
 
     /* 线条 */
     --b3-border-color: rgba(230, 230, 230, .1);/*#161c1d*/
@@ -1110,10 +1114,10 @@ tem, .protyle-breadcrumb__text--ellipsis{
 
 
 /**** 7.8 KBD键盘 ****/
-.protyle-wysiwyg span[data-type~=kbd]{
-    font-size: 85%;
+.b3-typography kbd, .b3-typography span[data-type~=kbd], .protyle-wysiwyg kbd, .protyle-wysiwyg span[data-type~=kbd]{
+    font-size: 80%;
 	font-family:var(--b3-font-family-code) !important;
-    margin:  0 1px;
+	border-radius:4px;
 }
 
 
@@ -1125,7 +1129,7 @@ span[data-type="inline-math"]{
 
 span[data-type="inline-math"] .katex{
 	font-size:100% !important;
-	font-family:KaTeX_Main,Times New Roman, serif !important
+	font-family:var(--b3-font-family-math) !important
 }
 
 
@@ -1282,7 +1286,7 @@ span[data-type="inline-math"] .katex{
     background-color: var(--quote-background);
 
     padding: 0.0em 0.7em;
-	font-family:"霞鹜文楷mono";
+	font-family:var(--b3-font-family-code);
 }
 /* 调整引述在超级块中的样式 */
 .protyle-wysiwyg .sb blockquote,  .protyle-wysiwyg .sb .bq{
@@ -1311,6 +1315,7 @@ span[data-type="inline-math"] .katex{
 
 /**** 8.8 表格 ****/
 .b3-typography .table table,.b3-typography table,.protyle-wysiwyg .table table,.protyle-wysiwyg table{
+	font-family:var(--b3-font-family-code);
 } 
 
 .b3-typography table tr:hover,
@@ -1459,7 +1464,7 @@ body.body--win32{
 
 /*2.标题样式修改*/
 .protyle-title{
-	font-family:"霞鹜文楷mono" !important;
+	font-family:var(--b3-font-family-code) !important;
 }
 .protyle-title__input{
 	color:rgb(var(--b3-protyle-mainfont));/*页面标题颜色*/
@@ -1493,7 +1498,7 @@ body.body--win32{
 /* 8.文件树中区别文件数和引用数 */
 li[data-type='navigation-file'] .counter {
     color: var(--b3-counter);
-	font-family:"霞鹜文楷mono";
+	font-family:var(--b3-font-family-code);
     background: transparent !important;
 }
 
@@ -1739,11 +1744,13 @@ body{
 }
 .protyle-attr--refcount{
 	color:var(--b3-counter);
-	font-family:"霞鹜文楷mono" !important;
+	font-family:var(--b3-font-family-code) !important;
 	font-size:110% !important;
 }
-
-
+/*43.计数*/
+.counter{
+	font-family:var(--b3-font-family-code) !important;	
+}
  
  /*45.笔记本样式*/
 .b3-list--background [data-type="navigation-root"] .b3-list-item__text{
@@ -2277,7 +2284,7 @@ div.docs-flow__doc.svelte-1x3krj2{
 /*115.数据库*/
 .protyle-attr--av > span{
 	font-weight:400;
-	font-family:"霞鹜文楷mono";
+	font-family:var(--b3-font-family-code);
 	font-size:90%;
 }
 
