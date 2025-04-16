@@ -48,7 +48,7 @@
 	
 	/* 字体 */
     --b3-font-family: Consolas, Helvetica,"Luxi Sans", "DejaVu Sans",arial, "Hiragino Sans GB","PingFang SC","Source Han Sans SC","霞鹜新晰黑", "Microsoft Yahei",  sans-serif,var(--b3-font-family-emoji) !important;
-    --b3-font-family-code: mononoki, Consolas, 霞鹜文楷mono, "Liberation Mono",var(--b3-font-family-emoji) !important; 
+    --b3-font-family-code: 霞鹜文楷mono,mononoki, Consolas,  "Liberation Mono",var(--b3-font-family-emoji) !important; 
     --b3-font-family-graph: var(--b3-font-family-code) !important;
 	--b3-font-family-math: KaTeX_Math,Times New Roman, serif !important; 
 	--b3-font-family-emoji: "Twemoji", "Emojis Additional", "Emojis Reset",emojis !important;
@@ -209,6 +209,7 @@
 	
 	--list-border-initial:			rgb(107, 87, 91);/*???*/
 	
+	
 
 	
 	/**** 设置 ****/
@@ -245,9 +246,10 @@
 	--tag-color:#5899D1;
 	--tag-background-color:rgba(113, 175, 229,0.2);
 	
-	--b3-dialog-container:#588699;/*???*/
+	--b3-dialog-container:var(--b3-protyle-inline-link-hover-color);/*设置-链接颜色*/
 	--emoji-icon-hover:#BEABA1;
-	--b3-counter:rgba(230, 69, 83,.8);
+	--b3-counter:var(--b3-font-color5);/*双向链接计数*/
+	--b3-counter-background:var(--b3-font-background5);
 	--b3-li-color:76, 79, 105;/*无序列表圆点、要rgb*/
 	
 	/*插件-子弹线-颜色与主题统一*/
@@ -258,14 +260,11 @@
 	/*主题悬浮提示条*/
 	--b3-tooltips-color:var(--b3-theme-on-surface);
 	
-	/*退出聚焦*/
-	--breadcrumb-zoomin-color:rgb(223, 142, 29);
-    --breadcrumb-zoomin-backgroundcolor:rgba(223, 142, 29,0.1);
 	
 	/*大纲线*/
 	--b3-protyle-li-color:var(--b3-block__icons);
 	
-	
+
 	
 	/*插件-叶归-批注配置*/
 	--en-comment-background-color: none;
@@ -526,9 +525,9 @@
 	--tag-color:#71afe5;
 	--tag-background-color:rgba(113, 175, 229,0.2);
 	
-	--b3-dialog-container:#588699;
-	--emoji-icon-hover:#41555f;
-	--b3-counter:#ef9a9ab9;
+	--b3-dialog-container:var(--b3-protyle-inline-link-hover-color);/*设置-链接颜色#588699*/
+	--b3-counter:var(--b3-font-color5);/*双向链接计数*/
+	--b3-counter-background:var(--b3-font-background5);
 	--b3-li-color:148,168,164;
 	
 	
@@ -540,9 +539,7 @@
     /*主题悬浮提示条*/
 	--b3-tooltips-color:rgb(141, 161, 157);
 	
-	/*退出聚焦*/
-	--breadcrumb-zoomin-color:rgb(251, 188, 5,0.8);
-    --breadcrumb-zoomin-backgroundcolor:rgba(251, 188, 5,0.05);
+
 
 	/*大纲线*/
 	--b3-protyle-li-color:#677f7a;
@@ -600,6 +597,16 @@
     box-shadow: var(--shadow-2);
     border:none !important;
 }
+/*siyuan菜单-退出应用*/ 
+.b3-menu__item--warning:hover, .b3-menu__item--warning.b3-menu__item--current{
+	color: var(--b3-card-error-color);
+	background-color:var(--b3-card-error-background);
+}
+/*文档树-笔记本-分割线*/
+.file-tree.sy__file .fn__flex-1 > ul {
+    border-bottom: 1px solid var(--b3-theme-background-light);
+    border-radius: 0px;
+}
 
 /*[[弹窗*/
 .protyle-hint{
@@ -614,9 +621,17 @@
 /* 2.3 弹框 */
 /* 工具菜单：弹出设置框，如超级链接设置*/
 .protyle-util{
-    border:none;
+    border:none !important;
 }
-
+.b3-typography iframe,.protyle-wysiwyg iframe{
+	border:none !important;
+}
+.protyle-speech{
+	border:none !important;
+}
+.mermaidTooltip{
+	border:none;
+}
 
 /**** 2.4 反链浮窗 ****/
 /* 反链浮窗：初始尺寸限定 */
@@ -849,12 +864,13 @@ tem, .protyle-breadcrumb__text--ellipsis{
 
 /*2.2.X1 退出聚焦*/
 .protyle-breadcrumb__icon{
-	color:var(--breadcrumb-zoomin-color);
-	background:var(--breadcrumb-zoomin-backgroundcolor);
-	padding:0px 3px;
-	margin:0px 2px;
+	color:var(--b3-theme-on-surface);
+	transition:var(--b3-transition);
 }
-
+.protyle-breadcrumb__icon:hover{
+	color:var(--b3-card-warning-color);
+	background:var(--b3-card-warning-background);
+}
 
 
 /*2.2.X2 闪卡-面包屑：类Remnote复习界面*/
@@ -1118,6 +1134,8 @@ tem, .protyle-breadcrumb__text--ellipsis{
     font-size: 80%;
 	font-family:var(--b3-font-family-code) !important;
 	border-radius:4px;
+
+
 }
 
 
@@ -1169,6 +1187,32 @@ span[data-type="inline-math"] .katex{
     content: "#";
 }
 
+
+/**** 7.12 引用计数 ****/
+.counter{
+	font-family:var(--b3-font-family-code) !important;	
+	color: var(--b3-counter);
+}
+/*引用计数-编辑器中的*/
+.protyle-attr--refcount{
+	color:var(--b3-counter);
+	background-color:var(--b3-counter-background) !important;
+	font-family:var(--b3-font-family-code) !important;
+}
+/*引用计数-编辑器中的-正文内：半透明*/
+.protyle-wysiwyg .counter,
+ .protyle-wysiwyg .protyle-attr--refcount{
+	opacity:.5;
+}
+
+/*42.别名、命名等附属标识样式修改*/
+.protyle-wysiwyg--attr .protyle-attr>div{
+	font-weight:500;
+	font-size:110%;
+	background-color:var(--b3-menu-item-background-black);
+	padding:2px 4px;
+	border-radius:6px;
+}
 
 
 /************** 8 排版 **************************/
@@ -1495,19 +1539,6 @@ body.body--win32{
 }
 
 
-/* 8.文件树中区别文件数和引用数 */
-li[data-type='navigation-file'] .counter {
-    color: var(--b3-counter);
-	font-family:var(--b3-font-family-code);
-    background: transparent !important;
-}
-
-
-/*侧边栏引用数-颜色*/
-.protyle-wysiwyg .counter,
-.protyle-attr--refcount:hover {
-    color: var(--b3-counter);
-}
 
 /* 「sql查找不到」字体颜色*/
 div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
@@ -1735,26 +1766,12 @@ body{
     color:inherit;/* 预览样式 */
 }
 
-/*42.别名、命名等附属标识样式修改*/
-.protyle-wysiwyg--attr .protyle-attr>div{
 
-	font-weight:500;
-	font-size:110%;
-	
-}
-.protyle-attr--refcount{
-	color:var(--b3-counter);
-	font-family:var(--b3-font-family-code) !important;
-	font-size:110% !important;
-}
-/*43.计数*/
-.counter{
-	font-family:var(--b3-font-family-code) !important;	
-}
- 
+
  /*45.笔记本样式*/
 .b3-list--background [data-type="navigation-root"] .b3-list-item__text{
-	color:rgb(var(--b3-protyle-mainfont));
+	font-size:1.05em;
+	font-weight:900;
  }
 
 
@@ -1772,14 +1789,8 @@ body{
 .b3-list-item__toggle--hl:hover{
 	background-color: var(--b3-list-hover);	
 }
-/*53.内容块引用计数符号样式*/
-.protyle-wysiwyg .counter,
- .protyle-wysiwyg .protyle-attr--refcount{
-	color: var(--b3-counter);
-	background-color:var(--b3-theme-surface);
-	border-radius:6px;
-	opacity:.7;
-}
+
+
 
 
 
@@ -2018,7 +2029,7 @@ body{
 div#tooltip {
     color:var(--b3-tooltips-color);
 	background-color:var(--b3-theme-background);
-    border:1px solid var(--b3-theme-surface-lighter);
+    border:none;
     box-shadow:var(--b3-dialog-shadow);
 
 }
@@ -2153,15 +2164,23 @@ div#tooltip {
 .b3-snackbar__content{
 	background-color:var(--b3-menu-background);
 	color:var(--b3-theme-on-surface);
+	box-shadow:var(--shadow-1);
 
-    border: 1px solid var(--b3-theme-surface-lighter);
 }
 .b3-snackbar__content a{
 	color: var(--b3-theme-primary);
 }
-.b3-snackbar--error .b3-snackbar__content:after{
-	color:#F03A17;
+
+
+.b3-snackbar--error .b3-snackbar__content{
+	background-color:var(--b3-card-error-background);
+	color:var(--b3-card-error-color);
+	border:1px solid var(--b3-card-error-color);
+	/*backdrop-filter:blur(4px);*/
+	backdrop-filter:blur(6px)
 }
+
+
 
 /*98.注释弹窗 第二级字体颜色*/
 .tooltip .ft__on-surface{
@@ -2224,6 +2243,7 @@ div.docs-flow__doc.svelte-1x3krj2{
 }
 .b3-card:hover{
 	background:var(--b3-theme-primary-lightest);
+	outline:1px solid var(--b3-theme-primary-lighter);
 }
 .b3-cards{
 	padding-top:20px;
@@ -2242,6 +2262,12 @@ div.docs-flow__doc.svelte-1x3krj2{
         }
     }
 }
+
+.b3-card--current{
+	background:var(--b3-theme-primary-lightest);
+	outline:1px solid var(--b3-theme-primary-lighter);	
+}
+
 /*109.闪卡复习按钮-抬高底部，避免与底部状态栏重叠*/
 .card__action{
 	padding-bottom:40px;
@@ -2287,4 +2313,3 @@ div.docs-flow__doc.svelte-1x3krj2{
 	font-family:var(--b3-font-family-code);
 	font-size:90%;
 }
-
