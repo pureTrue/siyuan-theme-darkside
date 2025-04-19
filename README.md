@@ -1,13 +1,12 @@
-# DarkSide，为你而作
+# PureColor，为你而作
 
-DarkSide 是一款精简美观的思源笔记主题，支持明亮/暗黑双模式。
+PureColor 是一款精简美观的思源笔记主题，支持明亮/暗黑双模式。
 
 ## 🥰主题特性，生而简洁
-- 🎨**美观界面**：细细打磨2款界面配色，耐看护眼；
-- 🍀**青色主调**：碧水清波，温润雅致；
+- 🎨**美观界面**：细细打磨8款界面配色，耐看护眼；
+- 🌈**多重主调**：碧水清波，温润雅致；
 - ✡**多彩字体**：精选13种→6种高辨识度字体样式：第1行普通色；第2行荧光色；第3行圆角色；第4行下划线；
-- 🔪**极简设计**：剔除多余元素，降低视觉干扰；
-- 🧵**非侵入式**：尽可能不改动官方主题设定，提高主题可维护性；
+- 🔪**极简设计**：剔除多余元素，降低视觉干扰。尽可能不改动官方主题设定，提高主题可维护性；
 - 🔗**统一观感**：统一引用块、嵌入块、代码块样式，统一双向链接、网络链接、PDF摘录链接样式；
 - 📰**合理间距**：为线性文本扩大1行间距，提高文章阅读体验。
 
@@ -16,7 +15,7 @@ DarkSide 是一款精简美观的思源笔记主题，支持明亮/暗黑双模�
 - [LXGW](https://github.com/lxgw)：开源字体`霞鹜文楷`、`霞鹜新晰黑`；
 - [twemoji](https://app.unpkg.com/twemoji-colr-font@15.0.3)：开源emoji表情字体；
 - [Roy](https://github.com/royc01)：思源主题`Savor`；
-- [StarDustSheep](https://github.com/StarDustSheep)：思源主题`StarDust`；
+- [StarDustSheep](https://github.com/StarDustSheep)：思源主题`StarDust`、`pink-room`；
 - [Achuan-2](https://github.com/Achuan-2)：思源主题`Tsundoku`；
 - [Zuoqiu Yingyi](https://github.com/Zuoqiu-Yingyi)：思源主题`Dark+`；
 - [TCOTC](https://github.com/TCOTC/Whisper)：思源主题`Whisper`。
@@ -27,6 +26,13 @@ DarkSide 是一款精简美观的思源笔记主题，支持明亮/暗黑双模�
 
 
 ## 😇更新日志
+### v3.0.0 主题名称：由DarkSide改为`PureColor`
+- 提供**4款**明亮主题样式、**4款**暗黑主题样式：参考Savor主题js脚本（顺便解决底部栏动态防遮挡）；
+- 提供**9种主调色**:参考pink-room主题js脚本；
+- 弹出框块标：改进圆角按钮，**增加标题颜色**，面包屑文本size缩小为95%；
+  - 侧边栏-大纲树：取消标题文本颜色；
+- 锁定编辑：设置info提示色；
+
 ### v2.2.0
 * 优化暗色模式显示效果；
 * 块外观：选择background1-6后统一为引述块样式；
