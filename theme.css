@@ -88,10 +88,11 @@
 	--pc-background-color-4:#CCD0DA;
 	
 	/*「配色」surface-color（由深到浅）*/
+	--b3-protyle-mainfont:76, 79, 105;/*编辑器字体颜色*/
 	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
-	--pc-surface-color-2:#7C7F93;
-	--pc-surface-color-3:#ACB0BE;
-	--pc-surface-color-4:#BCC0CC;
+	--pc-surface-color-2:#4C4F69b2;
+	--pc-surface-color-3:#4C4F698c;
+	--pc-surface-color-4:#4C4F6966;
 	
 	/*「配色」color-六配色*/
 	--pc-color-1:235, 80, 66;
@@ -128,7 +129,6 @@
 	
 	/* 文字颜色:从深到浅 */
 	/* 文字色1 */
-	--b3-protyle-mainfont:76, 79, 105;/*编辑器字体颜色*/
 	--b3-theme-on-background:var(--pc-surface-color-1);/*标签页、菜单字体*/
 	
 	/* 文字色2 */	
@@ -319,7 +319,7 @@
 	
 	/*「自定义」行内下划线*/
 	--block-ref-bottomline:103, 124, 245;/*双向链接：蓝色下划线*/
-	--b3-protyle-inline-link-hover-color: var(--b3-theme-primary);/*外部链接：绿色下划线*/
+	--b3-protyle-inline-link-hover-color: rgb(52, 174, 154);/*外部链接：绿色下划线*/
 	--block-pdf-bottomline:147, 94, 204;/*PDF双向链接：紫色下划线*/
 	
 	--b3-dialog-container:var(--b3-protyle-inline-link-hover-color);/*设置-链接颜色*/
@@ -331,7 +331,7 @@
 	--quote-background:var(--pc-background-color-2); /* 背景色 */
 		/* 引述块 */
     --quote-border-color:rgba(129, 200, 190);/* 左边框颜色*/
-    --quote-color:var(--pc-surface-color-2) ; /* 文字颜色 */
+    --quote-color:var(--pc-surface-color-1) ; /* 文字颜色 */
 	--b3-bq-background:var(--quote-background);/*背景色*/
 		/* 代码块 */
 	--code-border-color:rgba(194, 143, 185);/*左边框颜色*/
@@ -358,7 +358,7 @@
 	/****============= 1.4 插件 ================****/
 	
 	/*插件-子弹线-颜色与主题统一*/
-	--text-brand: var(--quote-border-color);
+	--text-brand: var(--pc-surface-color-2);
 	
 	
 	/*插件-叶归-批注配置*/
@@ -427,10 +427,11 @@
 	--pc-background-color-4:#263239;
 	
 	/*「配色」surface-color（由深到浅）*/
+	--b3-protyle-mainfont:214, 219, 230;/*编辑器字体颜色*/
 	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
-	--pc-surface-color-2:#b0b9be;
-	--pc-surface-color-3:#788389;
-	--pc-surface-color-4:#58656c;
+	--pc-surface-color-2:#D6DBE6b2;
+	--pc-surface-color-3:#D6DBE68c;
+	--pc-surface-color-4:#58656c4c;
 	
 	/*「配色」color-六配色*/
 	--pc-color-1:235, 80, 66;
@@ -467,7 +468,6 @@
 	
 	/* 文字颜色:从深到浅 */
 	/* 文字色1 */
-	--b3-protyle-mainfont:204, 208, 218;/*编辑器字体颜色*/
 	--b3-theme-on-background:var(--pc-surface-color-1);/*标签页、菜单字体*/
 	
 	/* 文字色2 */	
@@ -678,7 +678,7 @@
 	--quote-background:var(--pc-background-color-2); /* 背景色 */
 		/* 引述块 */
     --quote-border-color:#337c74;/* 左边框颜色rgba(129, 200, 190)取primary1-2中值*/
-    --quote-color:var(--pc-surface-color-2) ; /* 文字颜色 */
+    --quote-color:var(--pc-surface-color-1) ; /* 文字颜色 */
 	--b3-bq-background:var(--quote-background);/*背景色*/
 		/* 代码块 */
 	--code-border-color:rgba(180, 142, 173,0.7);/*左边框颜色*/
@@ -705,7 +705,7 @@
 	/****============= 1.4 插件 ================****/
 	
 	/*插件-子弹线-颜色与主题统一*/
-	--text-brand: var(--quote-border-color);
+	--text-brand: var(--pc-surface-color-2);
 	
 	
 	/*插件-叶归-批注配置*/
@@ -973,47 +973,55 @@
 	background-color:var(--b3-card-error-color);
 }
 
+
+
+
 /**** 3.2 面包屑 ****/
-.protyle-breadcrumb .fn__flex-shrink{
-	background-color: var(--b3-theme-background);
+.protyle-breadcrumb{
+	&>.protyle-breadcrumb__bar .protyle-breadcrumb__item{
+		&:hover{
+			background-color: var(--b3-menu-item-background-light);
+		}
+		&:first-child{
+			&::before{
+				content:"📄";
+				margin-right:-14px;
+				font-size: 12px;
+			}
+			&>svg.popover__block{
+				color:transparent;		
+				background-color: transparent;
+			}
+		}
+		&>svg.popover__block{
+			height: 10px !important;
+			width: 10px !important;
+			padding:4px;
+			border-radius:4px;
+			background-color: var(--b3-menu-item-background-light);
+		}
+	}
+
 }
 
-.protyle-breadcrumb .protyle-breadcrumb__item:hover{
-	background-color:var(--block__icons-svg-background);
-}
-
-.protyle-breadcrumb .protyle-breadcrumb__item svg.ft__primary{
-	color:var(--block__icons-svg-background);
-}
-
-.protyle-breadcrumb .block__icon:hover{
-	background-color:var(--block__icons-svg-background);
-}
-
-.protyle-breadcrumb .block__icon.ft__primary:hover{
-	background-color:var(--block__icons-svg-background);
-}
-
-
-
-
-/*面包屑覆盖样式*/
-.protyle-breadcrumb__item:hover{
-	background-color:var(--b3-menu-item-background-light);
-}
-
+/*面包屑-活动页：亮色*/
 .protyle-breadcrumb__item--active{
-	color: var(--b3-theme-primary);
-    background-color:var(--b3-theme-primary-lightest);
-}
-
-.protyle-breadcrumb__item--active:hover{
+	background-color:inherit;
 	color: var(--b3-theme-primary);
 }
-.protyle-breadcrumb__item--active svg{
-	color: var(--b3-theme-primary-light);	
-}
 
+/*面包屑-块标：圆角按钮*/
+svg.popover__block{
+		height: 10px !important;
+		width: 10px !important;
+		padding:4px;
+		border-radius:4px;
+		background-color: var(--b3-menu-item-background-light);
+}
+/*面包屑-文本：字体大小*/
+.protyle-breadcrumb__text{
+	font-size:95%;
+}
 
 
 /*面包屑：换行*/
@@ -1065,6 +1073,12 @@ tem, .protyle-breadcrumb__text--ellipsis{
 .protyle-breadcrumb__icon:hover{
 	color:var(--b3-card-warning-color);
 	background:var(--b3-card-warning-background);
+}
+
+/* 2.2.X2只读按钮：锁定后显示颜色 */
+[aria-label="解除锁定"],[aria-label="Make doc writable"]{
+    background-color: var(--b3-card-info-background);
+	color:var(--b3-card-info-color);
 }
 
 
@@ -1329,9 +1343,24 @@ tem, .protyle-breadcrumb__text--ellipsis{
 
 
 /**** 7.6 高亮 ****/
+/*高亮样式：改为鹅黄色渐变下划线*/
+.b3-typography span[data-type~=mark], .protyle-wysiwyg span[data-type~=mark] {
+	transition:color 0.2s ease-in-out;
+	background-color:rgba(var(--pc-mark-background),0.20);/*rgba(var(--b3-theme-primaryrgb), 0.2)*/
+	border-bottom:2px solid rgba(var(--pc-mark-background), 0.64);
+}
+.b3-list mark{/*搜索-高亮*/
+	background-color: rgba(var(--pc-mark-background), 0.40);
+}
+
+
 	/*双链计数：不高亮*/
 .protyle-wysiwyg [data-node-id] .def--mark{
 	background-color:transparent;
+}
+	/*搜索时的高亮*/
+.protyle-wysiwyg [data-node-id] span[data-type~=search-mark] {
+    background-color: rgba(var(--pc-mark-background),0.20);
 }
 
 
@@ -1508,6 +1537,8 @@ span[data-type="inline-math"] .katex{
 }
 
 
+
+
 /**** 8.5 大纲、列表 ****/
 	/* 无序列表大纲颜色 */
 .protyle-wysiwyg [data-node-id].li>.protyle-action:hover:after {
@@ -1673,7 +1704,6 @@ span[data-type="inline-math"] .katex{
     background-color:var(--b3-table-even-background);
 }
 
- 
 
 
 /**** 8.9 侧边栏、图标 ****/
@@ -1688,7 +1718,8 @@ span[data-type="inline-math"] .katex{
 
 
 
-/*8.10 侧边栏-大纲树：文字样式与六主色统一*/
+/*8.10 侧边栏-大纲树：文字样式与六主色统一
+/*
 .file-tree ul.b3-list.b3-list--background [data-subtype="h1"] .b3-list-item__text,
 .file-tree ul.b3-list.b3-list--background [data-subtype="h1"]{
     color:var(--h1-color);
@@ -1713,7 +1744,7 @@ span[data-type="inline-math"] .katex{
 .file-tree ul.b3-list.b3-list--background [data-subtype="h6"]{
     color:var(--h6-color);
 }
-
+*/
 
 
 /*8.10 侧边栏-文档树-活动页*/
@@ -1844,6 +1875,27 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 
 .protyle-gutters button:hover{
 	opacity:1
+}
+
+
+	/*弹出框块标：圆角*/
+.protyle-gutters{
+
+    & button{
+        padding:5px 0px;
+        svg {
+            color: var(--pc-surface-color-2);
+            padding:0 5px;
+            border-radius:6px;
+            height: 24px!important;
+        }
+        &[data-type="fold"] svg {
+            padding:0px 7px;
+        } 
+        &:hover svg {
+            background-color: var(--b3-menu-item-background-light);
+        }
+    }
 }
 
 
@@ -1988,15 +2040,7 @@ body{
 
 
 
-/*73.高亮样式：改为鹅黄色渐变下划线*/
-.b3-typography span[data-type~=mark], .protyle-wysiwyg span[data-type~=mark] {
-	transition:color 0.2s ease-in-out;
-	background-color:rgba(var(--pc-mark-background),0.20);/*rgba(var(--b3-theme-primaryrgb), 0.2)*/
-	border-bottom:2px solid rgba(var(--pc-mark-background), 0.64);
-}
-.b3-list mark{/*搜索-高亮*/
-	background-color: rgba(var(--pc-mark-background), 0.40);
-}
+
 
 
 
@@ -2192,34 +2236,44 @@ body{
 
 
 
-/* 底部栏浮动 */
-@media (min-width: 768px) {
-    #status {
-        position: fixed;
-        backface-visibility: hidden;
-        transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;
-        bottom: 5px;
-        border-radius: var(--b3-border-radius);
-        height: 26px !important;
-		right: 48px;/*++*/
-        overflow: hidden;
-        z-index: 3;
-		border: 1px solid var(--b3-theme-surface-lighter);
-        background-color: var(--b3-theme-background);
-        display: flex;
-        align-items: center;
-        box-shadow: var(--pc-shadow-1);
-    }
-    #barDock {
-        position: relative;
-        order:1;
-    }
-    #statusHelp {
-        position: relative;
+/* 80.底部栏浮动 */
+#savorToolbar button{
+    display: block!important;/*显示主题切换按钮们*/
+}
+#status {
+	position: fixed;
+	backface-visibility: hidden;
+	transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;
+	bottom: 5px;
+	border-radius: var(--b3-border-radius);
+	height: 26px !important;
+	right: 4px;/*++*/
+	overflow: hidden;
+	z-index: 3;
+	border: 1px solid var(--b3-theme-surface-lighter);
+	background-color: var(--b3-theme-background);
+	display: flex;
+	align-items: center;
+	box-shadow: var(--pc-shadow-1);
+    .status__msg:not(:empty){
+            padding-left: 26px!important;
+            padding-right: 10px;
+            &::after{
+                content: "📢";
+                font-size:12px;
+                padding:0 6px;
+                position: absolute;
+                left: 0px;
+            }
     }
 }
-
-
+#barDock {
+	position: relative;
+	order:1;
+}
+#statusHelp {
+	position: relative;
+}
 
 
 /*84.线性文本:段间距优化*/
@@ -2467,4 +2521,116 @@ div#tooltip {
 	/*隐藏部分提示条「类聊天框」气泡箭头*/
 .b3-tooltips__s::before, .b3-tooltips__se::before, .b3-tooltips__sw::before,.b3-tooltips__n::before, .b3-tooltips__ne::before, .b3-tooltips__nw::before,.b3-tooltips__e::before,.b3-tooltips__w::before{
 	border:none;
+}
+
+
+
+
+/*117. 图标svg：标题*/
+#iconH1{
+	color: var(--h1-color);
+}
+
+#iconH2{
+	color: var(--h2-color);
+}
+#iconH3{
+	color: var(--h3-color);
+}
+#iconH4{
+	color: var(--h4-color);
+}
+#iconH5{
+	color: var(--h5-color);
+}
+#iconH6{
+	color: var(--h6-color);
+}
+
+
+
+
+
+/*118. 主题配色切换*/
+#savorToolbar{
+	margin: 0 4px;
+	font-size:90%;
+	.b3-menu__item{
+        background-color:inherit;
+		&:hover{
+			background-color: var(--b3-menu-item-background-light) !important;
+		}
+	}
+    #buttonSavor-dark svg,#buttonSavor-light svg{
+        color: var(--b3-theme-primary);
+    }
+    .button_on svg,.button_on span{
+        color: var(--b3-theme-primary);
+    }
+}
+#commonMenu:not([data-name="barmode"])>#savorToolbar{
+    display: none;
+}
+
+[data-name="barmode"]{
+    display: grid;
+    .b3-menu__items {
+        display: flex ;
+        flex-direction: row ;
+        flex-wrap: nowrap ;
+		gap: 4px;
+		padding-bottom: 4px;
+		border-bottom:1px solid var(--b3-menu-item-background-light);
+        background-color: var(--b3-theme-background);
+        overflow:visible;
+        .b3-menu__item {
+            display: inline-block;
+            white-space: nowrap;
+            padding: 0;
+            line-height: 5px;
+            background-color: transparent;
+            &.b3-menu__item--selected,&:hover{
+                background-color: var(--b3-theme-primary-lightest);
+            }
+            .b3-menu__icon{
+                margin: 7px 12px;
+            }
+			&.b3-menu__item--selected .b3-menu__icon{
+				color: var(--b3-theme-primary);
+			}
+            .b3-menu__label{
+                position: absolute;
+                bottom: -28px;
+                left: 0;
+                color: var(--b3-tooltips-color);
+                background-color: var(--b3-tooltips-background);
+                height: 18px;
+                line-height: 38px;
+                padding: 5px 8px;
+                border-radius: 0px;
+                min-width:unset;
+                opacity: 0;
+                pointer-events: none;
+            }
+            &:hover>.b3-menu__label{
+                opacity: 1;
+                transition: var(--b3-transition);
+            }
+        }
+    }
+    & #savorToolbar{
+        order: 2;
+    }
+}
+#concealButton{
+    margin-top: 8px;
+    &::before{
+        content: "";
+        height: 1px;
+        width: calc(100% - 10px);
+        border-bottom: 1px solid var(--b3-theme-surface-lighter);
+        position: absolute;
+        top:-5px;
+        left: 5px;
+    }
 }
