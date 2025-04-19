@@ -1,0 +1,55 @@
+:root[data-theme-mode="dark"]{
+	/*「配色」background-color（由浅到深）*/
+	--pc-background-color-1:#363636;
+	--pc-background-color-2:#313131;
+	--pc-background-color-3:#2b2b2b;
+	--pc-background-color-4:#232323;
+	
+	/*「配色」surface-color（由深到浅）*/
+	--b3-protyle-mainfont:255, 255, 255, 0.85;/*编辑器字体颜色*/
+	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
+	--pc-surface-color-2:#ffffffb2;
+	--pc-surface-color-3:#ffffff8c;
+	--pc-surface-color-4:#ffffff4c;
+	
+	/*「配色」color-六配色*/
+	--pc-color-1:235, 80, 66;
+	--pc-color-2:222, 151, 9;
+	--pc-color-3:76, 168, 99;
+	--pc-color-4:94, 172, 235;
+	--pc-color-5:107, 125, 230;
+	--pc-color-6:142, 88, 204;
+
+	
+	
+	/* 「自定义」高亮色mark */
+    --pc-mark-background: 254, 240, 133;
+
+	
+	/* 代码 code*/
+    --b3-protyle-code-background:rgba(15, 29, 42,0.2);/*行级代码背景颜色*/
+	--inline-code-color:#b48ead;/*行级代码字体颜色*/
+	
+
+
+	/*「自定义」tag标签*/
+	--tag-color:#71afe5;
+	--tag-background-color:rgba(113, 175, 229,0.2);
+	
+	
+	/*「自定义」行内下划线*/
+	--block-ref-bottomline:95, 142, 217;/*双向链接：蓝色下划线*/
+	--b3-protyle-inline-link-hover-color: rgb(55, 161, 144);/*外部链接：绿色下划线*/
+	--block-pdf-bottomline:147, 94, 204;/*PDF双向链接：紫色下划线*/
+	
+
+
+	/*「自定义」特殊引述块 */
+		/* 引述块 */
+    --quote-border-color:#337c74;/* 左边框颜色rgba(129, 200, 190)取primary1-2中值*/
+		/* 代码块 */
+	--code-border-color:rgba(180, 142, 173,0.7);/*左边框颜色*/
+		/*嵌入块*/
+	--BlockEmbed-border-color:rgba(135, 176, 249,0.45);/*左边框颜色*/
+
+}
