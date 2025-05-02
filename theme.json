@@ -2,14 +2,14 @@
   "name": "siyuan-theme-darkside",
   "author": "pureTure",
   "url": "https://github.com/pureTrue/siyuan-theme-darkside",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "displayName": {
     "default": "PureColor",
     "zh_CN": "PureColor"
   },
  "description": {
     "default": "Through blooms I wander, not a glance behind,Half for the path divine, half for thee enshrined.",
-    "zh_CN": "原DarkSide现PureColor，提供8款主题配色、9款主调色！取次花丛懒回顾，半缘修道半缘君。"
+    "zh_CN": "取次花丛懒回顾，半缘修道半缘君。"
   },
   "readme": {
     "default": "README.md",
