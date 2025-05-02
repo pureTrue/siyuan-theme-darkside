@@ -1,9 +1,0 @@
-:root{
-	/****============= 1.3 配色方案 ================****/
-	/* 主色（紫） */
-	--b3-theme-primaryrgb:110, 59, 206 !important;
-	--b3-theme-primary:         rgba(var(--b3-theme-primaryrgb));
-    --b3-theme-primary-light:   rgba(var(--b3-theme-primaryrgb), 0.54);
-    --b3-theme-primary-lighter: rgba(var(--b3-theme-primaryrgb), 0.38);
-    --b3-theme-primary-lightest:rgba(var(--b3-theme-primaryrgb), 0.12);
-}
