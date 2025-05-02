@@ -34,9 +34,9 @@ PureColor 是一款精简美观的思源笔记主题。
 
 - [Zuoqiu Yingyi](https://github.com/Zuoqiu-Yingyi)：思源主题`Dark+`；
 
-- [TCOTC](https://github.com/TCOTC/Whisper)：思源主题`Whisper`。
+- [TCOTC](https://github.com/TCOTC/Whisper)：思源主题`Whisper`；
 
-
+- [QYL](https://github.com/QYLexpired/QYL-theme):思源主题`QYL`。
 
 ## 🤔问题反馈，持续服务ing
 
@@ -46,6 +46,13 @@ PureColor 是一款精简美观的思源笔记主题。
 
 
 ## 😇更新日志
+### v3.1.0
+- 更换主题切换js（参考QYL主题），使主题配色可固化，同时增加垂直页签、列表子弹线功能；底部提示栏可上浮[20](https://github.com/pureTrue/siyuan-theme-darkside/issues/20);
+- 页签：增加边框样式、淡化背景色，非聚焦页签灰色、聚焦页签主题色；
+- 插件-子弹线：颜色改为实线；
+- 网络链接：修复除原主题外其他主题均随配色变色；
+- 数据库：页签高度统一；网络链接样式统一；输入框字体虚影问题修复；
+
 ### v3.0.1
 - 主题icon看板娘更新背景色，寓意多彩界面配色；
 - 优化light-3木黄色界面配色；
