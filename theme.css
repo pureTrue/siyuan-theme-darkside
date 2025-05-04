@@ -82,7 +82,7 @@
 	
 	/****============= 1.3 配色方案 ================****/
 	/* 主色（青） */
-	--b3-theme-primaryrgb:0, 151, 136;
+	--b3-theme-primaryrgb:0, 82, 217;
 	--b3-theme-primary:         rgba(var(--b3-theme-primaryrgb));
     --b3-theme-primary-light:   rgba(var(--b3-theme-primaryrgb), 0.54);
     --b3-theme-primary-lighter: rgba(var(--b3-theme-primaryrgb), 0.38);
@@ -102,7 +102,7 @@
 	
 
 	/*「配色」surface-color（由深到浅）*/
-	--b3-protyle-mainfont:0,0,0,0.85;/*编辑器字体颜色*/
+	--b3-protyle-mainfont:38, 38, 38;/*编辑器字体颜色*/
 	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
 	--pc-surface-color-2:#000000b2;
 	--pc-surface-color-3:#0000008c;
@@ -128,7 +128,7 @@
 	/* 背景色b2：侧边栏 */
     --b3-theme-surface:var(--pc-background-color-2);/*侧边栏：原2b3a41 同上*/
     --b3-theme-surface-light: rgba(230, 233, 239,.8);
-    --b3-theme-surface-lighter: var(--b3-menu-item-background-light);
+    --b3-theme-surface-lighter: rgba(0,0,0,.1);
     
 	/* 背景色b3：顶栏 */	
 	--b3-toolbar-background:var(--pc-background-color-3);/*顶栏*/
@@ -196,13 +196,13 @@
 	--b3-font-color5: rgb(var(--pc-color-5));
 	--b3-font-color6: rgb(var(--pc-color-6));
 	
-	--b3-font-color7: rgb(223, 142, 29);
-    --b3-font-color8:rgb(90, 173, 161);
-    --b3-font-color9: rgb(53, 49, 33);
-    --b3-font-color10: rgb(231, 130, 132);
-    --b3-font-color11: rgb(239, 159, 118);
-    --b3-font-color12: rgb(137, 191, 119);
-    --b3-font-color13: rgb(23, 146, 153);
+	--b3-font-color7: rgba(6, 42, 153);
+    --b3-font-color8:rgba(237, 152, 117);
+    --b3-font-color9: rgba(17, 88, 127);
+    --b3-font-color10: rgba(39, 82, 127);
+    --b3-font-color11: rgba(65, 80, 102);
+    --b3-font-color12: rgba(244, 234, 197);
+    --b3-font-color13: rgba(1, 132, 126);
 
 	--b3-font-background1: rgba(var(--pc-color-1),0.2);
 	--b3-font-background2: rgba(var(--pc-color-2),0.2);
@@ -211,13 +211,13 @@
 	--b3-font-background5: rgba(var(--pc-color-5),0.2);
 	--b3-font-background6: rgba(var(--pc-color-6),0.2);
 	
-	--b3-font-background7: rgba(223, 142, 29,0.2);
-	--b3-font-background8: rgba(90, 173, 161,0.2);
-	--b3-font-background9: rgba(53, 49, 33,0.2);
-	--b3-font-background10: rgba(231, 130, 132,0.2);
-	--b3-font-background11: rgba(239, 159, 118,0.2);
-	--b3-font-background12: rgba(137, 191, 119,0.2);
-	--b3-font-background13: rgba(23, 146, 153,0.2);
+	--b3-font-background7: rgba(164, 225, 202);
+	--b3-font-background8: rgba(234, 238, 184);
+	--b3-font-background9: rgba(237, 183, 156);
+	--b3-font-background10: rgba(199, 225, 250);
+	--b3-font-background11: rgba(229, 198, 208);
+	--b3-font-background12: rgba(85, 150, 137);
+	--b3-font-background13: rgba(249, 210, 228);
 	
 
 	/* 卡片背景 */
