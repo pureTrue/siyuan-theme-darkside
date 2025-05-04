@@ -32,6 +32,14 @@ This theme's development benefits from contributions from the following open-sou
 
 
 ## 😇Changelog
+### v3.1.1
+Adjusted color schemes for various themes to enhance aesthetics; Font-related: Reduced unnecessary use of the serif font "Xiawu Wenkai"; Increased document title font weight to 900; Adjusted 7-13 color scheme and adapted it for the database; Dark mode: Brightened borders; Increased transparency of underline font effects and reduced corner radius;
+
+### v3.1.0 
+Changed theme switching js (referencing QYL theme) to solidify theme color schemes, while adding vertical tabs and list bullet line features; Bottom prompt bar can float up by 20; Tabs: Added border styles, muted background colors, non-focused tabs in gray, focused tabs in theme color; Plugin - Bullet line: Changed color to solid line; Network links: Fixed issue where other themes changed color with the scheme except the original theme; Database: Unified tab height; Unified network link styles; Fixed input box font ghosting issue; 
+
+### v3.0.1 
+Updated theme icon mascot background color, symbolizing a colorful interface palette; Updated theme icon mascot background color, symbolizing a colorful interface palette; Optimized light-3 wood yellow interface color scheme; Optimized light-3 wood yellow interface color scheme; Search box text fully displayed, [[search box spacing optimized;
 
 ### v3.0.0 Theme Renamed: DarkSide → `PureColor`
 - Added **4 light** & **4 dark** theme variants: Adapted from Savor theme's JS scripts (with dynamic bottom bar optimization);
