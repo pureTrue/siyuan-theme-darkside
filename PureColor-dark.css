@@ -123,8 +123,8 @@
 	
 	
 	/****============= 1.3 配色方案 ================****/
-	/* 主色（青） */
-	--b3-theme-primaryrgb:57, 198, 172;
+	/* 主色（正蓝） */
+	--b3-theme-primaryrgb:35, 150, 241;
 	--b3-theme-primary:         rgba(var(--b3-theme-primaryrgb));
     --b3-theme-primary-light:   rgba(var(--b3-theme-primaryrgb), 0.54);
     --b3-theme-primary-lighter: rgba(var(--b3-theme-primaryrgb), 0.38);
@@ -143,7 +143,7 @@
 	--pc-background-color-4:#232323;
 	
 	/*「配色」surface-color（由深到浅）*/
-	--b3-protyle-mainfont:255, 255, 255, 0.85;/*编辑器字体颜色*/
+	--b3-protyle-mainfont:225, 225, 225;/*编辑器字体颜色*/
 	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
 	--pc-surface-color-2:#ffffffb2;
 	--pc-surface-color-3:#ffffff8c;
@@ -169,7 +169,7 @@
 	/* 背景色b2：侧边栏 */
     --b3-theme-surface:var(--pc-background-color-2);/*侧边栏：原2b3a41 同上*/
     --b3-theme-surface-light: #1D25288C;
-    --b3-theme-surface-lighter: var(--b3-menu-item-background-light);/*menu分割线*/
+    --b3-theme-surface-lighter:rgba(209, 213, 219, 0.15);/*menu分割线*/
     
 	/* 背景色b3：顶栏 */	
 	--b3-toolbar-background:var(--pc-background-color-3);/*顶栏*/
@@ -235,13 +235,13 @@
 	--b3-font-color5: rgb(var(--pc-color-5));
 	--b3-font-color6: rgb(var(--pc-color-6));
 	
-	--b3-font-color7: rgb(238, 212, 159);
-	--b3-font-color8:rgb(139, 213, 202);
-	--b3-font-color9: rgb(202, 211, 245);
-	--b3-font-color10: rgb(238, 153, 160);
-	--b3-font-color11: rgb(245, 169, 127);
-	--b3-font-color12: rgb(166, 218, 149);
-	--b3-font-color13: rgb(0, 162, 123);
+	--b3-font-color7: rgba(6, 42, 153);
+    --b3-font-color8:rgba(237, 152, 117);
+    --b3-font-color9: rgba(17, 88, 127);
+    --b3-font-color10: rgba(39, 82, 127);
+    --b3-font-color11: rgba(65, 80, 102);
+    --b3-font-color12: rgba(244, 234, 197);
+    --b3-font-color13: rgba(1, 132, 126);
 
 
 	--b3-font-background1: rgba(var(--pc-color-1),0.2);
@@ -251,13 +251,13 @@
 	--b3-font-background5: rgba(var(--pc-color-5),0.2);
 	--b3-font-background6: rgba(var(--pc-color-6),0.2);
 	
-	--b3-font-background7: rgba(238, 212, 159,0.3);
-	--b3-font-background8: rgba(139, 213, 202,0.3);
-	--b3-font-background9: rgba(202, 211, 245,0.3);
-	--b3-font-background10: rgba(238, 153, 160,0.3);
-	--b3-font-background11: rgba(245, 169, 127,0.3);
-	--b3-font-background12: rgba(166, 218, 149,0.3);
-	--b3-font-background13: rgba(0, 162, 123,0.3);
+	--b3-font-background7: rgba(164, 225, 202);
+	--b3-font-background8: rgba(234, 238, 184);
+	--b3-font-background9: rgba(237, 183, 156);
+	--b3-font-background10: rgba(199, 225, 250);
+	--b3-font-background11: rgba(229, 198, 208);
+	--b3-font-background12: rgba(85, 150, 137);
+	--b3-font-background13: rgba(249, 210, 228);
 	
 
 	/* 卡片背景 */
@@ -422,3 +422,43 @@
 
 
 }
+
+
+/*字体效果：下划线透明度提升*/
+[style*="background-color: var(--b3-font-background7);"] {
+    background-color: rgba(0, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, rgba(var(--b3-protyle-mainfont),.2) 0%, rgba(var(--b3-protyle-mainfont),.2) 100%) center bottom / 100% .6em no-repeat;
+    border-radius:0px;
+}
+[style*="background-color: var(--b3-font-background8);"] {
+    background-color: rgba(0, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-1),0.4) 0%, rgba(var(--pc-color-1),0.4) 100%) center bottom / 100% .6em no-repeat;
+    border-radius:0px;
+}
+[style*="background-color: var(--b3-font-background9);"] {
+    background-color: rgba(0, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-2),0.4) 0%, rgba(var(--pc-color-2),0.4) 100%) center bottom / 100% .6em no-repeat;
+    border-radius:0px;
+}
+[style*="background-color: var(--b3-font-background10);"] {
+    background-color: rgba(0, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-3),0.4) 0%, rgba(var(--pc-color-3),0.4) 100%) center bottom / 100% .6em no-repeat;
+    border-radius:0px;
+}
+[style*="background-color: var(--b3-font-background11);"] {
+    background-color: rgba(0, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-4),0.4) 0%, rgba(var(--pc-color-4),0.4) 100%) center bottom / 100% .6em no-repeat;
+    border-radius:0px;
+}
+[style*="background-color: var(--b3-font-background12);"] {
+    background-color: rgba(0, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-5),0.4) 0%, rgba(var(--pc-color-5),0.4) 100%) center bottom / 100% .6em no-repeat;
+    border-radius:0px;
+}
+[style*="background-color: var(--b3-font-background13);"] {
+    background-color: rgba(0, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-6),0.4) 0%, rgba(var(--pc-color-6),0.4) 100%) center bottom / 100% .6em no-repeat;
+    border-radius:0px;
+}
+
+
