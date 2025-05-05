@@ -39,7 +39,11 @@ const I18N = {
         PureColorlbfzx: ' 列表子弹线',
         PureColorxyps: ' 配色：前卫·灰',
         PureColorslps: ' 配色：原木·黄',
-        PureColorhyps: ' 配色：护眼·绿',
+        PureColorhyps: ' 配色：松翠·绿',
+		PureColorps4: ' 配色：办公·蓝',
+		PureColorps5: ' 配色：湖漪·青',
+		PureColorps6: ' 配色：桃夭·粉',
+		PureColorps7: ' 配色：暮霞·紫',
     },
     en_US: {
         PureColorztsz: ' PureColor Settings',
@@ -47,12 +51,16 @@ const I18N = {
         PureColorlbfzx: ' List Bullet Line',
         PureColorxyps: ' Theme：Avant-garde·Grey',
         PureColorslps: ' Theme：Solid wood·Yellow',
-        PureColorhyps: ' Theme：Eye care·Green',
+        PureColorhyps: ' Theme：Turquoise·Green',
+		PureColorps4: ' Theme：Office·Blue',
+		PureColorps5: ' Theme：Lake Ripples·Azure',
+		PureColorps6: ' Theme：Peach Blossom·Pink',
+		PureColorps7: ' Theme：Twilight Haze·Purple',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
 
-// 添加Q按钮
+// 添加「主题设置」按钮
 (function() {
     addThemeToolBar();
 })();
@@ -66,7 +74,7 @@ function addThemeToolBar() {
         PureColorToolBar.className = "toolbar__item ariaLabel";
         PureColorToolBar.style.width = "23.5px";
         PureColorToolBar.style.height = "23.5px";
-        PureColorToolBar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" fill="var(--b3-toolbar-color)" opacity=".9" p-id="4701"></path></svg>`;
+        PureColorToolBar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="m838.10705,601.58105c-72.69236,93.21198 -148.69816,167.82284 -236.68331,236.36867c72.89616,42.09605 243.9216,118.38839 299.3332,62.99109c37.82438,-37.81519 20.44147,-156.10143 -62.64989,-299.35976m-327.21727,177.50572c101.23891,-74.05002 193.91406,-166.70167 267.9319,-267.91504c-73.71188,-100.85685 -166.33595,-193.61065 -267.9319,-267.91555c-101.95247,74.5087 -194.42331,167.36415 -267.98246,267.91555c74.01784,101.26445 166.74355,193.86502 267.98246,267.91504m-90.58452,58.86296c-88.18947,-68.74964 -164.19476,-143.36049 -236.68331,-236.36867c-83.09136,143.25834 -100.47427,261.54458 -62.64989,299.35976c54.90133,54.83647 224.44857,-19.67223 299.3332,-62.99109m-236.68331,-417.18732c72.64128,-93.21249 148.64708,-167.77227 236.68331,-236.36918c-72.79452,-42.09554 -243.87103,-118.43896 -299.3332,-62.99058c-37.82438,37.81468 -20.44147,156.10143 62.64989,299.35976m417.80179,-236.36918c88.18896,68.69907 164.14368,143.30942 236.68331,236.36918c184.43191,-318.06356 44.96102,-399.14652 -236.68331,-236.36918m300.86248,326.77851c277.56574,433.69935 38.99662,667.01048 -391.39644,391.65438c-429.37354,274.69362 -669.93062,43.47209 -391.39593,-391.65438c-275.67994,-430.69289 -43.22794,-669.71201 391.39593,-391.65489c430.24034,-275.25395 669.21706,-42.40149 391.39644,391.65489m-337.05543,-54.17449c29.82095,29.86488 29.82095,78.28031 0,108.0936c-29.87203,29.86488 -78.29972,29.86488 -108.17175,0c-29.87203,-29.81329 -29.87203,-78.22872 0,-108.0936c29.87203,-29.86436 78.29972,-29.86436 108.17175,0" fill="var(--b3-toolbar-color)" p-id="4701"></path></svg>`;
         PureColorToolBar.ariaLabel = i18n.PureColorztsz;
         PureColorToolBar.style.userSelect = 'none';
         const handleToolbarClick = () => {
@@ -112,6 +120,10 @@ let isChecked2;
 let isChecked3;
 let isChecked4;
 let isChecked5;
+let isChecked6;
+let isChecked7;
+let isChecked8;
+let isChecked9;
 
 
 function createSettingsWindow() {
@@ -201,6 +213,50 @@ function createSettingsWindow() {
     label5.style.fontSize = '14px';
     label5.style.userSelect= 'none';
 	
+    const checkbox6 = document.createElement('input');
+    checkbox6.type = 'checkbox';
+    checkbox6.id = 'PureColorps4-checkbox';
+    checkbox6.checked = isChecked6;
+
+    const label6 = document.createElement('label');
+    label6.htmlFor = 'PureColorps4-checkbox';
+    label6.textContent = i18n.PureColorps4;
+    label6.style.fontSize = '14px';
+    label6.style.userSelect= 'none';
+	
+    const checkbox7 = document.createElement('input');
+    checkbox7.type = 'checkbox';
+    checkbox7.id = 'PureColorps5-checkbox';
+    checkbox7.checked = isChecked7;
+
+    const label7 = document.createElement('label');
+    label7.htmlFor = 'PureColorps5-checkbox';
+    label7.textContent = i18n.PureColorps5;
+    label7.style.fontSize = '14px';
+    label7.style.userSelect= 'none';	
+	
+	const checkbox8 = document.createElement('input');
+    checkbox8.type = 'checkbox';
+    checkbox8.id = 'PureColorps6-checkbox';
+    checkbox8.checked = isChecked8;
+
+    const label8 = document.createElement('label');
+    label8.htmlFor = 'PureColorps6-checkbox';
+    label8.textContent = i18n.PureColorps6;
+    label8.style.fontSize = '14px';
+    label8.style.userSelect= 'none';
+	
+	const checkbox9 = document.createElement('input');
+    checkbox9.type = 'checkbox';
+    checkbox9.id = 'PureColorps7-checkbox';
+    checkbox9.checked = isChecked9;
+
+    const label9 = document.createElement('label');
+    label9.htmlFor = 'PureColorps7-checkbox';
+    label9.textContent = i18n.PureColorps7;
+    label9.style.fontSize = '14px';
+    label9.style.userSelect= 'none';
+	
 	
     // 将复选框和标签组合
     const PureColorfunctionpair1 = document.createElement('div');
@@ -233,6 +289,29 @@ function createSettingsWindow() {
     PureColorfunctionpair5.appendChild(label5);
     PureColorfunctionpair5.style.animation = 'PureColorbounceRight2 0.1s';
 	
+	const PureColorfunctionpair6 = document.createElement('div');
+    PureColorfunctionpair6.className = 'checkbox-label-pair';
+    PureColorfunctionpair6.appendChild(checkbox6);
+    PureColorfunctionpair6.appendChild(label6);
+    PureColorfunctionpair6.style.animation = 'PureColorbounceRight2 0.1s';
+
+	const PureColorfunctionpair7 = document.createElement('div');
+    PureColorfunctionpair7.className = 'checkbox-label-pair';
+    PureColorfunctionpair7.appendChild(checkbox7);
+    PureColorfunctionpair7.appendChild(label7);
+    PureColorfunctionpair7.style.animation = 'PureColorbounceRight2 0.1s';
+	
+	const PureColorfunctionpair8 = document.createElement('div');
+    PureColorfunctionpair8.className = 'checkbox-label-pair';
+    PureColorfunctionpair8.appendChild(checkbox8);
+    PureColorfunctionpair8.appendChild(label8);
+    PureColorfunctionpair8.style.animation = 'PureColorbounceRight2 0.1s';
+
+	const PureColorfunctionpair9 = document.createElement('div');
+    PureColorfunctionpair9.className = 'checkbox-label-pair';
+    PureColorfunctionpair9.appendChild(checkbox9);
+    PureColorfunctionpair9.appendChild(label9);
+    PureColorfunctionpair9.style.animation = 'PureColorbounceRight2 0.1s';	
 	
 
     //分割线
@@ -260,7 +339,10 @@ function createSettingsWindow() {
 	settingsWindow.appendChild(PureColorfunctionpair3);
     settingsWindow.appendChild(PureColorfunctionpair4);
     settingsWindow.appendChild(PureColorfunctionpair5);
-	
+	settingsWindow.appendChild(PureColorfunctionpair6);
+	settingsWindow.appendChild(PureColorfunctionpair7);
+	settingsWindow.appendChild(PureColorfunctionpair8);
+	settingsWindow.appendChild(PureColorfunctionpair9);
 
 
 // 将设置窗口添加到body
@@ -278,7 +360,10 @@ async function saveConfig() {
         isChecked3: checkbox3.checked,
         isChecked4: checkbox4.checked,
         isChecked5: checkbox5.checked,
-
+		isChecked6: checkbox6.checked,
+		isChecked7: checkbox7.checked,
+		isChecked8: checkbox8.checked,
+		isChecked9: checkbox9.checked,
 
     })], { type: 'application/json' }), 'PureColor-light-config.json');
 
@@ -309,6 +394,10 @@ checkbox3.addEventListener('change', async function() {
     state ? isChecked3 = true : isChecked3 = false;
     if (isChecked4 === true) { checkbox4.click(); }
     if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -323,6 +412,10 @@ checkbox4.addEventListener('change', async function() {
     state ? isChecked4 = true : isChecked4 = false;
     if (isChecked3 === true) { checkbox3.click(); }
     if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -337,6 +430,10 @@ checkbox5.addEventListener('change', async function() {
     state ? isChecked5 = true : isChecked5 = false;
     if (isChecked3 === true) { checkbox3.click(); }
     if (isChecked4 === true) { checkbox4.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -344,6 +441,79 @@ checkbox5.addEventListener('change', async function() {
     }
 });
 
+
+// light4配色开关
+checkbox6.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorps4() : disablePureColorps4();
+    state ? isChecked6 = true : isChecked6 = false;
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked4 === true) { checkbox4.click(); }
+	if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+// light5配色开关
+checkbox7.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorps5() : disablePureColorps5();
+    state ? isChecked7 = true : isChecked7 = false;
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked4 === true) { checkbox4.click(); }
+	if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// light6配色开关
+checkbox8.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorps6() : disablePureColorps6();
+    state ? isChecked8 = true : isChecked8 = false;
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked4 === true) { checkbox4.click(); }
+	if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// light7配色开关
+checkbox9.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorps7() : disablePureColorps7();
+    state ? isChecked9 = true : isChecked9 = false;
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked4 === true) { checkbox4.click(); }
+	if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
 
 
 
@@ -870,6 +1040,98 @@ function disablePureColorocean() {
     }
 }   
 
+// 开启light-4配色
+function enablePureColorps4() {
+    let linkElement = document.getElementById("PureColorps4-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorps4-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/light-4.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭light-4配色
+function disablePureColorps4() {
+    const linkElement = document.getElementById("PureColorps4-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}   
+
+// 开启light-5配色
+function enablePureColorps5() {
+    let linkElement = document.getElementById("PureColorps5-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorps5-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/light-5.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭light-5配色
+function disablePureColorps5() {
+    const linkElement = document.getElementById("PureColorps5-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}   
+
+// 开启light-6配色
+function enablePureColorps6() {
+    let linkElement = document.getElementById("PureColorps6-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorps6-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/light-6.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭light-6配色
+function disablePureColorps6() {
+    const linkElement = document.getElementById("PureColorps6-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}   
+
+// 开启light-7配色
+function enablePureColorps7() {
+    let linkElement = document.getElementById("PureColorps7-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorps7-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/light-7.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭light-7配色
+function disablePureColorps7() {
+    const linkElement = document.getElementById("PureColorps7-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}   
+
+
+
+
+
 // 开启糖果配色
 function enablePureColorsugar() {
     let linkElement = document.getElementById("PureColorsugar-style");
@@ -1230,6 +1492,37 @@ async function loadAndCheckConfig() {
             isChecked5 = false;
         }
 
+        if (config?.isChecked6 === true) {
+            enablePureColorps4();
+            isChecked6 = true;
+        } else if (config?.isChecked6 === false) {
+            disablePureColorps4();
+            isChecked6 = false;
+        }
+		
+		if (config?.isChecked7 === true) {
+            enablePureColorps5();
+            isChecked7 = true;
+        } else if (config?.isChecked7 === false) {
+            disablePureColorps5();
+            isChecked7 = false;
+        }
+		
+		if (config?.isChecked8 === true) {
+            enablePureColorps6();
+            isChecked8 = true;
+        } else if (config?.isChecked8 === false) {
+            disablePureColorps6();
+            isChecked8 = false;
+        }
+		
+		if (config?.isChecked9 === true) {
+            enablePureColorps7();
+            isChecked9 = true;
+        } else if (config?.isChecked9 === false) {
+            disablePureColorps7();
+            isChecked9 = false;
+        }
 
     } catch (e) {
         console.error("加载配置失败:", e);
