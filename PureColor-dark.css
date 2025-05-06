@@ -338,7 +338,7 @@
 	
 	
 	/*「自定义」行内下划线*/
-	--block-ref-bottomline:109, 128, 243,0.8;/*双向链接：蓝色下划线*/
+	--block-ref-bottomline:109, 128, 243;/*双向链接：蓝色下划线*/
 	--b3-protyle-inline-link-hover-color: rgba(91, 184, 173,0.8);/*外部链接：绿色下划线*/
 	--block-pdf-bottomline:208, 111, 190,0.8;/*PDF双向链接：紫色下划线*/
 	
@@ -365,7 +365,7 @@
 
 
 	/* 表格 */
-    --b3-table-even-background: rgba(0, 0, 0, .03);/*隔一行变色*/
+    --b3-table-even-background: rgba(255, 255, 255, .03);/*隔一行变色*/
 
 
 	/* 文本选中颜色 */

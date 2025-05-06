@@ -9,8 +9,8 @@
 #barWorkspace.ariaLabel.toolbar__item.toolbar__item--active {
 	position: relative;
 	transition: all 0.3s;
-	background-color: var(--b3-menu-item-background-light);
-	border: 1px solid #00000000;
+	background-color: var(--pc-background-color-4);
+	border: 1px solid var(--b3-menu-item-background-light);
 	overflow: hidden;
 	cursor: pointer;
 }
@@ -153,7 +153,7 @@
 	margin: 4px 0px;
 	border-radius: var(--b3-border-radius) !important;
 	background-color:var(--pc-background-color-3);
-	border:1px solid var(--b3-theme-surface-lighter);
+	border:1px solid var(--b3-menu-item-background-light);
     opacity: 1;
 		/*标签页：最小高度（厚度）限制*/
     min-height: 20px;
@@ -162,7 +162,7 @@
 }
 
 .layout-tab-bar .item--focus{
-    background-color: var(--b3-theme-primary-lightest) !important;
+    background-color: var(--pc-background-color-4) !important;
     opacity: 1; 
 	border:1px solid var(--b3-theme-primary-lighter) !important;
 	.item__text{
@@ -502,7 +502,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 /**** 7.1 双向链接、块引用（下标蓝线填充） ****/
 .protyle-wysiwyg [data-node-id] span[data-type="block-ref"]{
 	color:inherit !important;
-	border-bottom: 1px solid rgb(var(--block-ref-bottomline));
+	border-bottom: 1px solid rgba(var(--block-ref-bottomline));
 	cursor: pointer;
 	word-break:break-all;  
 	transition:all 0.25s ease-in-out; 
@@ -514,7 +514,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 
 .protyle-wysiwyg [data-node-id] span[data-type="block-ref"]:hover{
     color: var(--block-ref-bottomline) !important;
-    border-bottom: 1px solid rgb(var(--block-ref-bottomline));
+    border-bottom: 1px solid rgba(var(--block-ref-bottomline));
 	transition:all 0.25s ease-in-out;
 }
 /*加粗*/
@@ -528,7 +528,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:hover{
 	color: rgb(var(--block-ref-bottomline)) !important;
-    border-bottom: 1px solid rgb(var(--block-ref-bottomline));
+    border-bottom: 1px solid rgba(var(--block-ref-bottomline));
 	transition:all 0.25s ease-in-out;
 }
 /*修复-双向链接、PDF链接 显色1*/
@@ -569,11 +569,11 @@ tem, .protyle-breadcrumb__text--ellipsis{
 
 /**** 7.3 思源内部链接siyuan:// ****/
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="siyuan://"]{
-    border-bottom: 1px solid rgb(var(--block-ref-bottomline));
+    border-bottom: 1px solid rgba(var(--block-ref-bottomline));
 }
 .protyle-wysiwyg [data-node-id] span[data-type='a'][data-href^="siyuan://"]:hover{
     color: var(--b3-protyle-inline-link-hover-color) !important;
-    border-bottom: 1px solid rgb(var(--block-ref-bottomline));
+    border-bottom: 1px solid rgba(var(--block-ref-bottomline));
 }
 
 
@@ -594,7 +594,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 /* 7.5 pdf双向链接（下标紫线填充） */
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref'] {
 	color:inherit;
-	border-bottom: 1px solid rgb(var(--block-pdf-bottomline));
+	border-bottom: 1px solid rgba(var(--block-pdf-bottomline));
 	cursor: pointer;
 	word-break:break-all;  
 	transition:all 0.25s ease-in-out;
@@ -603,7 +603,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 
 .protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']:hover {
     color: rgb(var(--block-pdf-bottomline));
-    border-bottom: 1px solid rgb(var(--block-pdf-bottomline));
+    border-bottom: 1px solid rgba(var(--block-pdf-bottomline));
 }
 
 
@@ -940,16 +940,14 @@ span[data-type="inline-math"] .katex{
 .b3-typography .code-block, .protyle-wysiwyg .code-block{
     padding: 0;
     margin: 1em 0;
-}
-
-	/** 代码块hljs：背景颜色统一 **/
-.b3-typography div.hljs, .protyle-wysiwyg div.hljs{
-    overflow: auto;
+		/** 代码块hljs：背景颜色统一 **/
+	overflow: auto;
     font-family: var(--b3-font-family-code);
     border-radius: 0px;
     background-color: var(--b3-code-background) !important;
 	border-left:var(--quote-border-width) solid var(--code-border-color);/*var(--inline-code-color)*/
 }
+
 
 
 
@@ -1413,49 +1411,49 @@ body{
 
 .protyle-wysiwyg [style*="background-color: var(--b3-font-background7);"] {
     background-color: rgba(0, 0, 0, 0) !important;
-    background: linear-gradient(to bottom, rgba(var(--b3-protyle-mainfont),.2) 0%, rgba(var(--b3-protyle-mainfont),.2) 100%) center bottom / 100% .6em no-repeat;
+    background: linear-gradient(to bottom, rgba(var(--b3-protyle-mainfont),.35) 0%, rgba(var(--b3-protyle-mainfont),.35) 100%) center bottom / 100% .6em no-repeat;
     border-radius:0px;
 	padding: 0px 0px;
     margin: 0px 0px;
 }
 .protyle-wysiwyg [style*="background-color: var(--b3-font-background8);"] {
     background-color: rgba(0, 0, 0, 0) !important;
-    background: linear-gradient(to bottom, var(--b3-font-background1) 0%, var(--b3-font-background1) 100%) center bottom / 100% .6em no-repeat;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-1),0.35) 0%, rgba(var(--pc-color-1),0.35) 100%) center bottom / 100% .6em no-repeat;
     border-radius:0px;
 	padding: 0px 0px;
     margin: 0px 0px;
 }
 .protyle-wysiwyg [style*="background-color: var(--b3-font-background9);"] {
     background-color: rgba(0, 0, 0, 0) !important;
-    background: linear-gradient(to bottom, var(--b3-font-background2) 0%, var(--b3-font-background2) 100%) center bottom / 100% .6em no-repeat;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-2),0.35) 0%, rgba(var(--pc-color-2),0.35) 100%) center bottom / 100% .6em no-repeat;
     border-radius:0px;
 	padding: 0px 0px;
     margin: 0px 0px;
 }
 .protyle-wysiwyg [style*="background-color: var(--b3-font-background10);"] {
     background-color: rgba(0, 0, 0, 0) !important;
-    background: linear-gradient(to bottom, var(--b3-font-background3) 0%, var(--b3-font-background3) 100%) center bottom / 100% .6em no-repeat;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-3),0.35) 0%, rgba(var(--pc-color-3),0.35) 100%) center bottom / 100% .6em no-repeat;
     border-radius:0px;
 	padding: 0px 0px;
     margin: 0px 0px;
 }
 .protyle-wysiwyg [style*="background-color: var(--b3-font-background11);"] {
     background-color: rgba(0, 0, 0, 0) !important;
-    background: linear-gradient(to bottom, var(--b3-font-background4) 0%, var(--b3-font-background4) 100%) center bottom / 100% .6em no-repeat;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-4),0.35) 0%, rgba(var(--pc-color-4),0.35) 100%) center bottom / 100% .6em no-repeat;
     border-radius:0px;
 	padding: 0px 0px;
     margin: 0px 0px;
 }
 .protyle-wysiwyg [style*="background-color: var(--b3-font-background12);"] {
     background-color: rgba(0, 0, 0, 0) !important;
-    background: linear-gradient(to bottom, var(--b3-font-background5) 0%, var(--b3-font-background5) 100%) center bottom / 100% .6em no-repeat;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-5),0.35) 0%, rgba(var(--pc-color-5),0.35) 100%) center bottom / 100% .6em no-repeat;
     border-radius:0px;
 	padding: 0px 0px;
     margin: 0px 0px;
 }
 .protyle-wysiwyg [style*="background-color: var(--b3-font-background13);"] {
     background-color: rgba(0, 0, 0, 0) !important;
-    background: linear-gradient(to bottom, var(--b3-font-background6) 0%, var(--b3-font-background6) 100%) center bottom / 100% .6em no-repeat;
+    background: linear-gradient(to bottom, rgba(var(--pc-color-6),0.35) 0%, rgba(var(--pc-color-6),0.35) 100%) center bottom / 100% .6em no-repeat;
     border-radius:0px;
 	padding: 0px 0px;
     margin: 0px 0px;
