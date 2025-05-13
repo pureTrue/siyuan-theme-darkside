@@ -16,8 +16,8 @@
 	/*「配色」surface-color（由深到浅）*/
 	--b3-protyle-mainfont:179, 216, 224;/*编辑器字体颜色*/
 	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
-	--pc-surface-color-2:#d2f4fbb2;
-	--pc-surface-color-3:#d2f4fb8c;
-	--pc-surface-color-4:#d2f4fb4c;
+	--pc-surface-color-2:rgba(var(--b3-protyle-mainfont),.7);
+	--pc-surface-color-3:rgba(var(--b3-protyle-mainfont),.55);
+	--pc-surface-color-4:rgba(var(--b3-protyle-mainfont),.4)
 	
 }

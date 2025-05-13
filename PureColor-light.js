@@ -35,6 +35,7 @@ async function getFile(path) {
 const I18N = {
     zh_CN: {
         PureColorztsz: ' PureColor主题设置',
+		PureColorycdl: ' 隐藏顶栏',
         PureColorczyq: ' 垂直页签',
         PureColorlbfzx: ' 列表子弹线',
         PureColorxyps: ' 配色：前卫·灰',
@@ -44,9 +45,13 @@ const I18N = {
 		PureColorps5: ' 配色：湖漪·青',
 		PureColorps6: ' 配色：桃夭·粉',
 		PureColorps7: ' 配色：暮霞·紫',
+		PureColorps8: ' 配色：奔放·红',
+		PureColorps9: ' 配色：青柠·绿',
+		PureColorps10: ' 配色：生机·绿',
     },
     en_US: {
         PureColorztsz: ' PureColor Settings',
+		PureColorycdl: ' Hide Topbar',
         PureColorczyq: ' Vertical Tabs',
         PureColorlbfzx: ' List Bullet Line',
         PureColorxyps: ' Theme：Avant-garde·Grey',
@@ -56,6 +61,9 @@ const I18N = {
 		PureColorps5: ' Theme：Lake Ripples·Azure',
 		PureColorps6: ' Theme：Peach Blossom·Pink',
 		PureColorps7: ' Theme：Twilight Haze·Purple',
+		PureColorps8: ' Theme：Exuberant·Red',
+		PureColorps9: ' Theme：Lemon·Green',
+		PureColorps10: ' Theme：Vitality·Green',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -124,7 +132,10 @@ let isChecked6;
 let isChecked7;
 let isChecked8;
 let isChecked9;
-
+let isChecked10;
+let isChecked11;
+let isChecked12;
+let isChecked14;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -257,6 +268,50 @@ function createSettingsWindow() {
     label9.style.fontSize = '14px';
     label9.style.userSelect= 'none';
 	
+	const checkbox10 = document.createElement('input');
+    checkbox10.type = 'checkbox';
+    checkbox10.id = 'PureColorps8-checkbox';
+    checkbox10.checked = isChecked10;
+
+    const label10 = document.createElement('label');
+    label10.htmlFor = 'PureColorps8-checkbox';
+    label10.textContent = i18n.PureColorps8;
+    label10.style.fontSize = '14px';
+    label10.style.userSelect= 'none';
+	
+	const checkbox11 = document.createElement('input');
+    checkbox11.type = 'checkbox';
+    checkbox11.id = 'PureColorps9-checkbox';
+    checkbox11.checked = isChecked11;
+
+    const label11 = document.createElement('label');
+    label11.htmlFor = 'PureColorps9-checkbox';
+    label11.textContent = i18n.PureColorps9;
+    label11.style.fontSize = '14px';
+    label11.style.userSelect= 'none';
+	
+	const checkbox12 = document.createElement('input');
+    checkbox12.type = 'checkbox';
+    checkbox12.id = 'PureColorps10-checkbox';
+    checkbox12.checked = isChecked12;
+
+    const label12 = document.createElement('label');
+    label12.htmlFor = 'PureColorps10-checkbox';
+    label12.textContent = i18n.PureColorps10;
+    label12.style.fontSize = '14px';
+    label12.style.userSelect= 'none';
+	
+	const checkbox14 = document.createElement('input');//隐藏顶栏
+    checkbox14.type = 'checkbox';
+    checkbox14.id = 'PureColorycdl-checkbox';
+    checkbox14.checked = isChecked14;
+
+    const label14 = document.createElement('label');
+    label14.htmlFor = 'PureColorycdl-checkbox';
+    label14.textContent = i18n.PureColorycdl;
+    label14.style.fontSize = '14px';
+    label14.style.userSelect= 'none';
+	
 	
     // 将复选框和标签组合
     const PureColorfunctionpair1 = document.createElement('div');
@@ -313,6 +368,30 @@ function createSettingsWindow() {
     PureColorfunctionpair9.appendChild(label9);
     PureColorfunctionpair9.style.animation = 'PureColorbounceRight2 0.1s';	
 	
+	const PureColorfunctionpair10 = document.createElement('div');
+    PureColorfunctionpair10.className = 'checkbox-label-pair';
+    PureColorfunctionpair10.appendChild(checkbox10);
+    PureColorfunctionpair10.appendChild(label10);
+    PureColorfunctionpair10.style.animation = 'PureColorbounceRight2 0.1s';	
+	
+	const PureColorfunctionpair11 = document.createElement('div');
+    PureColorfunctionpair11.className = 'checkbox-label-pair';
+    PureColorfunctionpair11.appendChild(checkbox11);
+    PureColorfunctionpair11.appendChild(label11);
+    PureColorfunctionpair11.style.animation = 'PureColorbounceRight2 0.1s';	
+	
+	const PureColorfunctionpair12 = document.createElement('div');
+    PureColorfunctionpair12.className = 'checkbox-label-pair';
+    PureColorfunctionpair12.appendChild(checkbox12);
+    PureColorfunctionpair12.appendChild(label12);
+    PureColorfunctionpair12.style.animation = 'PureColorbounceRight2 0.1s';	
+	
+	const PureColorfunctionpair14 = document.createElement('div');
+    PureColorfunctionpair14.className = 'checkbox-label-pair';
+    PureColorfunctionpair14.appendChild(checkbox14);
+    PureColorfunctionpair14.appendChild(label14);
+    PureColorfunctionpair14.style.animation = 'PureColorbounceRight2 0.1s';
+	
 
     //分割线
     const PureColorfunctionpairdivider1 = document.createElement('hr');
@@ -333,6 +412,7 @@ function createSettingsWindow() {
 
 
     // 将复选框和标签添加到设置窗口
+	settingsWindow.appendChild(PureColorfunctionpair14); //隐藏顶栏
 	settingsWindow.appendChild(PureColorfunctionpair1);  //垂直页签
 	settingsWindow.appendChild(PureColorfunctionpair2); //列表子弹线
 	settingsWindow.appendChild(PureColorfunctionpairdivider1); //以下是主题配色
@@ -343,7 +423,9 @@ function createSettingsWindow() {
 	settingsWindow.appendChild(PureColorfunctionpair7);
 	settingsWindow.appendChild(PureColorfunctionpair8);
 	settingsWindow.appendChild(PureColorfunctionpair9);
-
+	settingsWindow.appendChild(PureColorfunctionpair10);
+	settingsWindow.appendChild(PureColorfunctionpair11);
+	settingsWindow.appendChild(PureColorfunctionpair12);
 
 // 将设置窗口添加到body
 document.body.appendChild(settingsWindow);
@@ -364,11 +446,30 @@ async function saveConfig() {
 		isChecked7: checkbox7.checked,
 		isChecked8: checkbox8.checked,
 		isChecked9: checkbox9.checked,
+		isChecked10: checkbox10.checked,
+		isChecked11: checkbox11.checked,
+		isChecked12: checkbox12.checked,
+		isChecked14: checkbox14.checked,
 
     })], { type: 'application/json' }), 'PureColor-light-config.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
 }
+
+
+// ==== ③.①开关 ====
+// 隐藏顶栏开关
+checkbox14.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enabletoolbarhidden() : disabletoolbarhidden();
+    state ? isChecked14 = true : isChecked14 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
 
 // 列表子弹线开关
 checkbox2.addEventListener('change', async function() {
@@ -398,6 +499,9 @@ checkbox3.addEventListener('change', async function() {
 	if (isChecked7 === true) { checkbox7.click(); }
 	if (isChecked8 === true) { checkbox8.click(); }
 	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -416,6 +520,9 @@ checkbox4.addEventListener('change', async function() {
 	if (isChecked7 === true) { checkbox7.click(); }
 	if (isChecked8 === true) { checkbox8.click(); }
 	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -434,6 +541,9 @@ checkbox5.addEventListener('change', async function() {
 	if (isChecked7 === true) { checkbox7.click(); }
 	if (isChecked8 === true) { checkbox8.click(); }
 	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -453,6 +563,9 @@ checkbox6.addEventListener('change', async function() {
 	if (isChecked7 === true) { checkbox7.click(); }
 	if (isChecked8 === true) { checkbox8.click(); }
 	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -472,6 +585,9 @@ checkbox7.addEventListener('change', async function() {
 	if (isChecked6 === true) { checkbox6.click(); }
 	if (isChecked8 === true) { checkbox8.click(); }
 	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -490,6 +606,9 @@ checkbox8.addEventListener('change', async function() {
 	if (isChecked6 === true) { checkbox6.click(); }
 	if (isChecked7 === true) { checkbox7.click(); }
 	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -508,12 +627,82 @@ checkbox9.addEventListener('change', async function() {
 	if (isChecked6 === true) { checkbox6.click(); }
 	if (isChecked7 === true) { checkbox7.click(); }
 	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
         this.checked = !state;
     }
 });
+
+
+// light8配色开关
+checkbox10.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorps8() : disablePureColorps8();
+    state ? isChecked10 = true : isChecked10 = false;
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked4 === true) { checkbox4.click(); }
+	if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+// light9配色开关
+checkbox11.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorps9() : disablePureColorps9();
+    state ? isChecked11 = true : isChecked11 = false;
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked4 === true) { checkbox4.click(); }
+	if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+// light10配色开关
+checkbox12.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorps10() : disablePureColorps10();
+    state ? isChecked12 = true : isChecked12 = false;
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked4 === true) { checkbox4.click(); }
+	if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
 
 
 
@@ -565,45 +754,8 @@ function closeSettingsWindow() {
     }
 }
 
-// 开启标记挖空
-function enableMarkStyles() {
-    let linkElement = document.getElementById("mark-styles");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "mark-styles";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/标记挖空.css";
-        document.head.appendChild(linkElement);
-    }
-}
 
-// 关闭标记挖空
-function disableMarkStyles() {
-    const linkElement = document.getElementById("mark-styles");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
 
-// 开启文档树缩进线功能
-function enableIndentStyle() {
-    let linkElement = document.getElementById("indent-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "indent-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/文档树缩进线.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭文档树缩进功能
-function disableIndentStyle() {
-    const linkElement = document.getElementById("indent-style");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
 
 // 开启隐藏顶栏功能
 function enabletoolbarhidden() {
@@ -634,7 +786,7 @@ function enabletoolbarhidden() {
 
 // 防止窗口化时隐藏顶栏后无法呼出
 function PureColorcheckMaximize() {
-    if (!isChecked3) {
+    if (!isChecked14) {
         disabletoolbarhidden();
         return;
     }
@@ -678,217 +830,8 @@ function disabletoolbarhidden() {
     }
 }
 
-// 开启鼠标所在块高亮功能
-function enablehoverblockremind() {
-    let styleSheet = document.getElementById("hoverblock-style");
-    if (!styleSheet) {
-        styleSheet = document.createElement("style");
-        styleSheet.id = "hoverblock-style";
-        document.head.appendChild(styleSheet);
-    }
-    styleSheet.innerText = `
-        .protyle-wysiwyg [data-node-id]:hover {
-            box-shadow: var(--PureColor-shadow-highlight) !important;
-            transition: 0.3s !important;
-        }
-    `;
-}
-
-// 关闭鼠标所在块高亮功能
-function disablehoverblockremind() {
-    const styleSheet = document.getElementById("hoverblock-style");
-    if (styleSheet) {
-        styleSheet.innerText = '';
-    }
-}
-
-// 开启超级块范围提示功能
-function enablesbremind() {
-    let styleSheet = document.getElementById("sbremind-style");
-    if (!styleSheet) {
-        styleSheet = document.createElement("style");
-        styleSheet.id = "sbremind-style";
-        document.head.appendChild(styleSheet);
-    }
-    styleSheet.innerText = `
-        .sb:hover {
-            box-shadow: var(--PureColor-shadow-highlight) !important;
-            transition: 0.3s !important;
-        }
-    `;
-}
-
-// 关闭超级块范围提示功能
-function disablesbremind() {
-    const styleSheet = document.getElementById("sbremind-style");
-    if (styleSheet) {
-        styleSheet.innerText = '';
-    }
-}
-
-// 关闭鼠标所在块高亮功能
-function disablehoverblockremind() {
-    const styleSheet = document.getElementById("hoverblock-style");
-    if (styleSheet) {
-        styleSheet.innerText = '';
-    }
-}
-
-// 聚焦块高亮
-function enablefocusblockremind() {
-    // 块提示
-    let cachedEditor = null;
-    let lastHighlightedElement = null;
-    function throttle(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments, context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        };
-    }
-    function handleSelection() {
-        const selection = window.getSelection();
-        if (selection.rangeCount === 0) return;
-        const range = selection.getRangeAt(0);
-        const node = range.startContainer;
-        const editor = getEditorContainer(node);
-        if (!editor) return;
-        if (lastHighlightedElement) {
-            lastHighlightedElement.classList.remove('highlight');
-            lastHighlightedElement = null;
-        }
-        const targetElement = (node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement)
-            .closest('[data-node-id]');
-
-        if (targetElement && editor.contains(targetElement)) {
-            targetElement.classList.add('highlight');
-            lastHighlightedElement = targetElement;
-        }
-    }
-    function getEditorContainer(node) {
-        if (cachedEditor && cachedEditor.contains(node)) return cachedEditor;
-        let element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-        while (element && !element.classList.contains('protyle-wysiwyg')) {
-            element = element.parentElement;
-        }
-        cachedEditor = element || cachedEditor;
-        return cachedEditor;
-    }
-    document.addEventListener('selectionchange', throttle(handleSelection, 100));
-
-    let styleSheet = document.getElementById("focusblockremind-style");
-    if (!styleSheet) {
-        styleSheet = document.createElement("style");
-        styleSheet.id = "focusblockremind-style";
-        document.head.appendChild(styleSheet);
-    }
-    styleSheet.innerText = `
-    `;
-}
-
-// 取消聚焦块高亮
-function disablefocusblockremind() {
-    const styleSheet = document.getElementById("focusblockremind-style");
-    if (styleSheet) {
-        styleSheet.innerText = `
-            [data-node-id].highlight, [data-node-id].highlight:hover { box-shadow: none !important; transition: none !important; }
-        `;
-    }
-}
-
-// 开启全宽显示功能
-function enablefullwidth() {
-    let styleSheet = document.getElementById("fullwidth-style");
-    if (!styleSheet) {
-        styleSheet = document.createElement("style");
-        styleSheet.id = "fullwidth-style";
-        document.head.appendChild(styleSheet);
-    }
-    styleSheet.innerText = `
-        .protyle-wysiwyg {
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-        }
-        .protyle-title.protyle-wysiwyg--attr {
-            margin-left: 20px !important;
-            margin-right:20px !important;
-        }
-        .protyle-background__ia {
-            margin-left: 20px !important;
-        }
-    `;
-}
-
-// 关闭全宽显示功能
-function disablefullwidth() {
-    const styleSheet = document.getElementById("fullwidth-style");
-    if (styleSheet) {
-        styleSheet.innerText = `
-            @keyframes PureColorbounceRightspecial {
-                    0% {
-                        transform: translateX(-100%);
-                    }
-                    30% {
-                        transform: translateX(10%);
-                    }
-                    70% {
-                        transform: translateX(-5%);
-                    }
-                    100% {
-                        transform: translateX(0);
-                    }
-            }
-            .protyle-background__icon, .protyle-background__icon img, .protyle-background__icon svg, .b3-chips__doctag .b3-chip {
-                animation: PureColorbounceRightspecial 0.3s forwards;
-            }
-    `;
-    }
-}
 
 
-// 开启多彩文档树功能
-function enablecolorfulfiletree() {
-    let linkElement = document.getElementById("colorfulfiletree-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "colorfulfiletree-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/多彩文档树-light.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭多彩文档树
-function disablecolorfulfiletree() {
-    const linkElement = document.getElementById("colorfulfiletree-style");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
-
-// 开启边框化文档树
-function enableborderfiletree() {
-    let linkElement = document.getElementById("borderfiletree-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "borderfiletree-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/边框化文档树.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭边框化文档树
-function disableborderfiletree() {
-    const linkElement = document.getElementById("borderfiletree-style");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
 
 // 开启列表子弹线
 function enablePureColorlihelp() {
@@ -914,66 +857,6 @@ function disablePureColorlihelp() {
     }
 }
 
-// 开启主题动画
-function enablePureColoranimation() {
-    let linkElement = document.getElementById("PureColoranimation-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColoranimation-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/动画.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭主题动画
-function disablePureColoranimation() {
-    const linkElement = document.getElementById("PureColoranimation-style");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
-
-// 开启毛玻璃效果
-function enablePureColorAero() {
-    let linkElement = document.getElementById("PureColorAero-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorAero-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/毛玻璃.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭毛玻璃效果
-function disablePureColorAreo() {
-    const linkElement = document.getElementById("PureColorAero-style");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
-
-
-// 多彩标签和多彩行级代码
-function enablePureColorcolorfultag() {
-    let linkElement = document.getElementById("PureColorcolorfultag-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorcolorfultag-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/多彩标签和多彩代码.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 多彩标签和多彩行级代码
-function disablePureColorcolorfultag() {
-    const linkElement = document.getElementById("PureColorcolorfultag-style");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
 
 // 开启light1配色
 function enablePureColorsunset() {
@@ -1128,297 +1011,75 @@ function disablePureColorps7() {
     }
 }   
 
-
-
-
-
-// 开启糖果配色
-function enablePureColorsugar() {
-    let linkElement = document.getElementById("PureColorsugar-style");
+// 开启light-8配色
+function enablePureColorps8() {
+    let linkElement = document.getElementById("PureColorps8-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
-        linkElement.id = "PureColorsugar-style";
+        linkElement.id = "PureColorps8-style";
         linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/糖果配色.css";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/light-8.css";
         document.head.appendChild(linkElement);
     }
 }
 
-// 关闭糖果配色
-function disablePureColorsugar() {
-    const linkElement = document.getElementById("PureColorsugar-style");
+// 关闭light-8配色
+function disablePureColorps8() {
+    const linkElement = document.getElementById("PureColorps8-style");
     if (linkElement) {
         setTimeout(() => {
             linkElement.remove();
         }, 300);
     }
-} 
+}   
 
-// 开启薰衣草配色
-function enablePureColorlavender() {
-    let linkElement = document.getElementById("PureColorlavender-style");
+// 开启light-9配色
+function enablePureColorps9() {
+    let linkElement = document.getElementById("PureColorps9-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
-        linkElement.id = "PureColorlavender-style";
+        linkElement.id = "PureColorps9-style";
         linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/薰衣草配色.css";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/light-9.css";
         document.head.appendChild(linkElement);
     }
 }
 
-// 关闭薰衣草配色
-function disablePureColorlavender() {
-    const linkElement = document.getElementById("PureColorlavender-style");
+// 关闭light-9配色
+function disablePureColorps9() {
+    const linkElement = document.getElementById("PureColorps9-style");
     if (linkElement) {
         setTimeout(() => {
             linkElement.remove();
         }, 300);
     }
-} 
+}   
 
-// 开启云雾配色
-function enablePureColorfog() {
-    let linkElement = document.getElementById("PureColorfog-style");
+
+// 开启light-10配色
+function enablePureColorps10() {
+    let linkElement = document.getElementById("PureColorps10-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
-        linkElement.id = "PureColorfog-style";
+        linkElement.id = "PureColorps10-style";
         linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/云雾配色.css";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/light-10.css";
         document.head.appendChild(linkElement);
     }
 }
 
-// 关闭云雾配色
-function disablePureColorfog() {
-    const linkElement = document.getElementById("PureColorfog-style");
+// 关闭light-10配色
+function disablePureColorps10() {
+    const linkElement = document.getElementById("PureColorps10-style");
     if (linkElement) {
         setTimeout(() => {
             linkElement.remove();
         }, 300);
     }
-} 
+}   
 
-// 开启墨水屏模式
-function enablePureColorinkmode() {
-    let linkElement = document.getElementById("PureColorinkmode-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorinkmode-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/墨水屏.css";
-        document.head.appendChild(linkElement);
-    }
-}
 
-// 关闭墨水屏模式
-function disablePureColorinkmode() {
-    const linkElement = document.getElementById("PureColorinkmode-style");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
 
-// 开启霜禾配色
-function enablePureColorshuanghe() {
-    let linkElement = document.getElementById("PureColorshuanghe-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorshuanghe-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/霜禾配色.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭霜禾配色
-function disablePureColorshuanghe() {
-    const linkElement = document.getElementById("PureColorshuanghe-style");
-    if (linkElement) {
-        setTimeout(() => {
-            linkElement.remove();
-        }, 300);
-    }
-}
-
-// 开启回忆配色
-function enablePureColormemory() {
-    let linkElement = document.getElementById("PureColormemory-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColormemory-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/回忆配色.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭回忆配色
-function disablePureColormemory() {
-    const linkElement = document.getElementById("PureColormemory-style");
-    if (linkElement) {
-        setTimeout(() => {
-            linkElement.remove();
-        }, 300);
-    }
-}
-
-// 开启湖畔配色
-function enablePureColorlakeside() {
-    let linkElement = document.getElementById("PureColorlakeside-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorlakeside-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/湖畔配色.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭湖畔配色
-function disablePureColorlakeside() {
-    const linkElement = document.getElementById("PureColorlakeside-style");
-    if (linkElement) {
-        setTimeout(() => {
-            linkElement.remove();
-        }, 300);
-    }
-}
-
-// 开启香雪兰配色
-function enablePureColorfreesia() {
-    let linkElement = document.getElementById("PureColorfreesia-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorfreesia-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/香雪兰配色.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭香雪兰配色
-function disablePureColorfreesia() {
-    const linkElement = document.getElementById("PureColorfreesia-style");
-    if (linkElement) {
-        setTimeout(() => {
-            linkElement.remove();
-        }, 300);
-    }
-}
-
-// 开启象牙配色
-function enablePureColorivory() {
-    let linkElement = document.getElementById("PureColorivory-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorivory-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/象牙配色.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭象牙配色
-function disablePureColorivory() {
-    const linkElement = document.getElementById("PureColorivory-style");
-    if (linkElement) {
-        setTimeout(() => {
-            linkElement.remove();
-        }, 300);
-    }
-}
-
-// 开启扁平化风格
-function enablePureColorflatstyle() {
-    let linkElement = document.getElementById("PureColorflatstyle-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorflatstyle-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/扁平化风格-light.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭扁平化风格
-function disablePureColorflatstyle() {
-    const linkElement = document.getElementById("PureColorflatstyle-style");
-    if (linkElement) {
-        setTimeout(() => {
-            linkElement.remove();
-        }, 300);
-    }
-}
-
-// 开启沉浸式顶栏
-function enablePureColorimmersivetopbar() {
-    let linkElement = document.getElementById("PureColorimmersivetopbar-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorimmersivetopbar-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/沉浸式顶栏.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭沉浸式顶栏
-function disablePureColorimmersivetopbar() {
-    const linkElement = document.getElementById("PureColorimmersivetopbar-style");
-    if (linkElement) {
-        setTimeout(() => {
-            linkElement.remove();
-        }, 300);
-    }
-}
-
-// 开启多彩标题和多彩大纲
-function enablePureColorcolorfulh() {
-    let linkElement = document.getElementById("PureColorcolorfulh-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorcolorfulh-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/多彩标题-light.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭多彩标题和多彩大纲
-function disablePureColorcolorfulh() {
-    const linkElement = document.getElementById("PureColorcolorfulh-style");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
-
-// 开启顶栏融合
-function enablePureColorfusion() {
-    setTimeout(PureColorwnd.start, 300);
-    fusion.start();
-    windowObserver.start();
-
-    let linkElement = document.getElementById("PureColorfusion-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "PureColorfusion-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/顶栏融合.css";
-        document.head.appendChild(linkElement);
-    }
-}
-
-// 关闭顶栏融合
-function disablePureColorfusion() {
-    PureColorwnd.stop();
-    fusion.stop();
-    windowObserver.stop();
-
-    const linkElement = document.getElementById("PureColorfusion-style");
-    if (linkElement) {
-        linkElement.remove();
-    }
-}
 
 // 开启垂直页签
 function enablePureColorverticaltab() {
@@ -1523,6 +1184,39 @@ async function loadAndCheckConfig() {
             disablePureColorps7();
             isChecked9 = false;
         }
+		
+		if (config?.isChecked10 === true) {
+            enablePureColorps8();
+            isChecked10 = true;
+        } else if (config?.isChecked10 === false) {
+            disablePureColorps8();
+            isChecked10 = false;
+        }
+		
+		if (config?.isChecked11 === true) {
+            enablePureColorps9();
+            isChecked11 = true;
+        } else if (config?.isChecked11 === false) {
+            disablePureColorps9();
+            isChecked11 = false;
+        }
+		
+		if (config?.isChecked12 === true) {
+            enablePureColorps10();
+            isChecked12 = true;
+        } else if (config?.isChecked12 === false) {
+            disablePureColorps10();
+            isChecked12 = false;
+        }
+		
+		if (config?.isChecked14 === true) {
+            enabletoolbarhidden();
+            isChecked14 = true;
+        } else if (config?.isChecked14 === false) {
+            disabletoolbarhidden();
+            isChecked14 = false;
+        }
+		
 
     } catch (e) {
         console.error("加载配置失败:", e);
@@ -1590,33 +1284,6 @@ init().catch(error => {
 })();
 
 
-// 连点三次Q开启或关闭隐藏顶栏
-let qKeyPressTimes = [];
-document.addEventListener('keydown', function(event) {
-    if (event.key.toLowerCase() === 'q') {
-        const now = Date.now();
-        qKeyPressTimes.push(now);
-        if (qKeyPressTimes.length > 3) {
-            qKeyPressTimes.shift();
-        }
-        if (qKeyPressTimes.length === 3) {
-            const timeDiff = qKeyPressTimes[2] - qKeyPressTimes[0];
-            
-            if (timeDiff <= 500) {
-                if (isChecked3) {
-                    isChecked3 = false;
-                    disabletoolbarhidden();
-                } else {
-                    isChecked3 = true;
-                    enabletoolbarhidden();
-                }
-                qKeyPressTimes = [];
-            } else {
-                qKeyPressTimes.shift();
-            }
-        }
-    }
-});
 
 // 寻找第一个wnd
 const PureColorwnd = (function() {
@@ -1839,186 +1506,7 @@ const PureColorStatusInitialize = () => {
 };
 PureColorStatusInitialize();
 
-// 顶栏融合
-function PureColorfusion() {
-    let isRunning = false;
-    let retryTimeout;
-    let updateTimeout;
-    function getElements() {
-        return {
-            centerElem: document.querySelector('#layouts .layout__center'),
-            dragElem: document.querySelector('#drag')
-        };
-    }
-    function updateCSSVariables(centerElem, dragElem) {
-        const centerLeft = centerElem.getBoundingClientRect().left;
-        const dragLeft = dragElem.getBoundingClientRect().left;
-        const dragRight = window.innerWidth - dragElem.getBoundingClientRect().right;
-        
-        centerElem.style.setProperty('--PureColor-fusion-center-left', `${centerLeft}px`);
-        centerElem.style.setProperty('--PureColor-fusion-drag-left', `${dragLeft}px`);
-        centerElem.style.setProperty('--PureColor-fusion-drag-right', `${dragRight}px`);
-    }
-    function scheduleUpdate() {
-        if (!isRunning) return;
-        clearTimeout(updateTimeout);
-        updateTimeout = setTimeout(() => {
-            const { centerElem, dragElem } = getElements();
-            
-            if (centerElem && dragElem) {
-                updateCSSVariables(centerElem, dragElem);
-                scheduleUpdate();
-            } else {
-                startRetrying();
-            }
-        }, 1000);
-    }
-    function startRetrying() {
-        if (!isRunning) return;
-        clearTimeout(retryTimeout);
-        
-        retryTimeout = setTimeout(() => {
-            const { centerElem, dragElem } = getElements();
-            if (centerElem && dragElem) {
-                scheduleUpdate();
-            } else {
-                startRetrying();
-            }
-        }, 1000);
-    }
-    function stopAll() {
-        clearTimeout(updateTimeout);
-        clearTimeout(retryTimeout);
-    }
-    return {
-        start() {
-            if (isRunning) return;
-            isRunning = true;
-            scheduleUpdate();
-        },       
-        stop() {
-            isRunning = false;
-            stopAll();
-        }
-    };
-}
-const fusion = PureColorfusion();
-class PureColorFusionWindowWidth {
-    constructor(options = {}) {
-      this.config = { debounceTime: 50, ...options };
-      this.cssVarName = '--PureColor-fusion-window-width';
-      this.lastWidth = 0;
-      this.isActive = false;
-      this.rafId = null;
-      this.debouncedHandler = null;
-      this.handleResize = this.handleResize.bind(this);
-    }
-  
-    #updateCSSVariable(width) {
-      document.documentElement.style.setProperty(this.cssVarName, `${width}px`);
-    }
-  
-    #debounce(func, wait) {
-      let timeout;
-      return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-      };
-    }
-  
-    handleResize() {
-      if (!this.isActive) return;
-      this.rafId && cancelAnimationFrame(this.rafId);
-      this.rafId = requestAnimationFrame(() => {
-        const currentWidth = window.innerWidth;
-        if (currentWidth !== this.lastWidth) {
-          this.#updateCSSVariable(currentWidth);
-          this.lastWidth = currentWidth;
-        }
-      });
-    }
-  
-    start() {
-      if (this.isActive) return;
-      this.debouncedHandler = this.#debounce(this.handleResize, this.config.debounceTime);
-      window.addEventListener('resize', this.debouncedHandler);
-      this.isActive = true;
-      this.handleResize();
-    }
-  
-    stop() {
-      if (!this.isActive) return;
-      window.removeEventListener('resize', this.debouncedHandler);
-      this.rafId && cancelAnimationFrame(this.rafId);
-      this.isActive = false;
-      this.debouncedHandler = null;
-    }
-  }
-  const windowObserver = new PureColorFusionWindowWidth();
 
-//css自定义属性
-function PureColorcssApplyCustomCSS() {
-    PureColorcssObserver.disconnect();
-    const elements = document.querySelectorAll('div[custom-css]');
-    const cssRules = [];
-    const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"])';
-    elements.forEach(element => {
-        const cssValue = element.getAttribute('custom-css');
-        const nodeId = element.getAttribute('data-node-id');       
-        if (cssValue) {
-            if (nodeId) {
-                cssRules.push(
-                    `${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`
-                );
-            } else {
-                let uid = element.getAttribute('data-css-uid');
-                if (!uid) {
-                    uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
-                    element.setAttribute('data-css-uid', uid);
-                }
-                const prevSibling = element.previousElementSibling;
-                if (prevSibling && prevSibling.classList.contains('protyle-top')) {
-                    prevSibling.setAttribute('data-css-uid', uid);
-                }
-                cssRules.push(
-                    `${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`
-                );
-            }
-        }
-    });
-    const existingStyle = document.getElementById('snippet-PureColorcss-dynamic-css');
-    if (existingStyle) existingStyle.remove();    
-    const style = document.createElement('style');
-    style.id = 'snippet-PureColorcss-dynamic-css';
-    style.textContent = cssRules.join('\n');
-    document.head.appendChild(style);
-    PureColorcssObserver.observe(document.body, PureColorcssObserverConfig);
-}
-function PureColorcssDebounce(fn, delay) {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => fn.apply(this, args), delay);
-    };
-}
-const PureColorcssObserverConfig = {
-    attributes: true,
-    attributeFilter: ['custom-css', 'data-node-id', 'data-css-uid'],
-    subtree: true
-};
-const PureColorcssObserver = new MutationObserver((mutations) => {
-    mutations.forEach(mutation => {
-        if (mutation.type === 'attributes' && 
-            (mutation.attributeName === 'custom-css' || 
-             mutation.attributeName === 'data-node-id' ||
-             mutation.attributeName === 'data-css-uid')) {
-            PureColorcssDebouncedApplyCSS();
-        }
-    });
-});
-const PureColorcssDebouncedApplyCSS = PureColorcssDebounce(PureColorcssApplyCustomCSS, 100);
-PureColorcssObserver.observe(document.body, PureColorcssObserverConfig);
-PureColorcssApplyCustomCSS();
 
 //列表子弹线
 const PureColorlihelp = (function() {
@@ -2233,1574 +1721,7 @@ const PureColorlihelp = (function() {
       return button
     }
 
-/* -----------------------------------------超级块------------------------------------- */
-function PureColorNodeSuperBlocksub(selectid) {//创建超级块二级菜单
-    let div = document.createElement("div")
-    div.id = "PureColorNodeSuperBlocksub"
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorNodeSuperBlocksubitems(selectid))//准备创建超级块二级菜单的b3-menu__items
-    return div
 
-    function PureColorNodeSuperBlocksubitems(selectid) {//创建超级块二级菜单的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrcssitem(selectid))//准备创建css属性选项
-        div.appendChild(PureColorattrcolsbgapitem(selectid))//准备创建水平排列超级块间距选项
-        div.appendChild(PureColorattrstyleitem(selectid))//准备创建块样式选项
-        div.appendChild(PureColorattrimgitem(selectid))//准备创建图片样式选项
-        div.appendChild(PureColorattrfontfamilyitem(selectid))//准备创建字体选项
-        div.appendChild(PureColorattrheightitem(selectid))//准备创建最大高度选项
-        return div
-    }
-}
-function PureColorattrcolsbgapitem(selectid) {//创建水平排列超级块间距选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label" style="">水平排列超级块间距</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrcolsbgapsub(selectid))//准备创建水平排列超级块间距选项的二级菜单
-    return button
-}
-function PureColorattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrcolsbgapsubitems(selectid))//准备创建水平排列超级块间距选项的b3-menu__items
-    return div
-
-    function PureColorattrcolsbgapsubitems(selectid) {//创建水平排列超级块间距选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrcolsbgaplianxu(selectid))//水平连续排列
-        div.appendChild(PureColorattrcolsbgapjincou(selectid))//水平紧凑排列
-        div.appendChild(PureColorattrcolsbgapjiaojincou(selectid))//水平较紧凑排列
-        div.appendChild(PureColorattrcolsbgapjiaokuansong(selectid))//水平较宽松排列
-        div.appendChild(PureColorattrcolsbgapkuansong(selectid))//水平宽松排列
-        div.appendChild(PureColorattrcolsbgapdelete(selectid))//恢复默认
-        return div
-
-        function PureColorattrcolsbgaplianxu(selectid) {//水平连续排列
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "sb-colgap")
-            button.setAttribute("custom-attr-value", "水平连续排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平连续排列</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrcolsbgapjincou(selectid) {//水平紧凑排列
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "sb-colgap")
-            button.setAttribute("custom-attr-value", "水平紧凑排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平紧凑排列</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrcolsbgapjiaojincou(selectid) {//水平较紧凑排列
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "sb-colgap")
-            button.setAttribute("custom-attr-value", "水平较紧凑排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平较紧凑排列</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrcolsbgapjiaokuansong(selectid) {//水平较宽松排列
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "sb-colgap")
-            button.setAttribute("custom-attr-value", "水平较宽松排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平较宽松排列</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrcolsbgapkuansong(selectid) {//水平宽松排列
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "sb-colgap")
-            button.setAttribute("custom-attr-value", "水平宽松排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平宽松排列</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrcolsbgapdelete(selectid) {//默认
-            let button = document.createElement("button")
-            button.className = "b3-menu__item b3-menu__item--warning"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "sb-colgap")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-    }
-}
-
-/* -----------------------------------------列表块------------------------------------- */
-function PureColorNodeListsub(selectid) {//创建列表块二级菜单
-    let div = document.createElement("div")
-    div.id = "PureColorNodeListsub"
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorNodeListsubitems(selectid))//准备创建列表块二级菜单的b3-menu__items
-    return div
-
-    function PureColorNodeListsubitems(selectid) {//创建列表块二级菜单的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrcssitem(selectid))//准备创建css属性选项
-        div.appendChild(PureColorattrlistviewitem(selectid))//准备创建列表视图选项
-        div.appendChild(PureColorattrstyleitem(selectid))//准备创建块样式选项
-        div.appendChild(PureColorattrimgitem(selectid))//准备创建图片样式选项
-        div.appendChild(PureColorattrfontfamilyitem(selectid))//准备创建字体选项
-        div.appendChild(PureColorattrheightitem(selectid))//准备创建最大高度选项
-        return div
-    }
-}
-function PureColorattrlistviewitem(selectid) {//创建列表视图选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconList"></use></svg><span class="b3-menu__label" style="">列表视图</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrlistviewsub(selectid))//准备创建列表视图选项的二级菜单
-    return button
-}
-function PureColorattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrlistviewsubitems(selectid))//准备创建列表视图选项的b3-menu__items
-    return div
-
-    function PureColorattrlistviewsubitems(selectid) {//创建列表视图选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrlistviewnaotu(selectid))//脑图
-        div.appendChild(PureColorattrlistviewkanban(selectid))//看板
-        div.appendChild(PureColorattrlistviewbiaoge(selectid))//表格
-        div.appendChild(PureColorattrlistviewlist(selectid))//默认
-        return div
-
-        function PureColorattrlistviewnaotu(selectid) {//脑图
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "list-view")
-            button.setAttribute("custom-attr-value", "脑图")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label">脑图</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrlistviewkanban(selectid) {//看板
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "list-view")
-            button.setAttribute("custom-attr-value", "看板")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">看板</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrlistviewbiaoge(selectid) {//表格
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "list-view")
-            button.setAttribute("custom-attr-value", "表格")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">表格</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrlistviewlist(selectid) {//默认
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "list-view")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">默认</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-    }
-}
-
-/* -----------------------------------------文档块------------------------------------- */
-function PureColorfilesub(selectid) {//创建文档块二级菜单
-    let div = document.createElement("div")
-    div.id = "PureColorfilesub"
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorfilesubitems(selectid))//准备创建文档块二级菜单的b3-menu__items
-    return div
-
-    function PureColorfilesubitems(selectid) {//创建文档块二级菜单的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrcssitem(selectid))//准备创建css属性选项
-        div.appendChild(PureColorattrfilestyleitem(selectid))//准备创建文档样式选项
-        div.appendChild(PureColorattrlineheightitem(selectid))//准备创建文字行间距选项
-        div.appendChild(PureColorattrhstyleitem(selectid))//准备创建标题样式选项
-        div.appendChild(PureColorattrtablestyleitem(selectid))//准备创建表格样式选项
-        div.appendChild(PureColorattrimgitem(selectid))//准备创建图片样式选项
-        div.appendChild(PureColorattrfontfamilyitem(selectid))//准备创建字体选项
-        div.appendChild(PureColorattrfullwidthitem(selectid))//准备创建全宽显示选项
-        div.appendChild(PureColorattrblankblockreminditem(selectid))//准备创建空块提醒选项
-        return div
-    }
-}
-function PureColorattrlineheightitem(selectid) {//创建文字行间距选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label" style="">文字行间距</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrlineheightsub(selectid))//准备创建文字行间距选项的二级菜单
-    return button
-}
-function PureColorattrlineheightsub(selectid) {//创建文字行间距选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrlineheightsubitems(selectid))//准备创建文字行间距选项的b3-menu__items
-    return div
-
-    function PureColorattrlineheightsubitems(selectid) {//创建文字行间距选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrlineheight1(selectid))//单倍行距
-        div.appendChild(PureColorattrlineheight15(selectid))//1.5倍行距
-        div.appendChild(PureColorattrlineheight18(selectid))//1.8倍行距
-        div.appendChild(PureColorattrlineheight2(selectid))//双倍行距
-        div.appendChild(PureColorattrlineheightdelete(selectid))//恢复默认
-        return div
-
-        function PureColorattrlineheight1(selectid) {//单倍行距
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "line-height")
-            button.setAttribute("custom-attr-value", "单倍行距")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">单倍行距</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrlineheight15(selectid) {//1.5倍行距
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "line-height")
-            button.setAttribute("custom-attr-value", "1.5倍行距")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">1.5倍行距</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrlineheight18(selectid) {//1.8倍行距
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "line-height")
-            button.setAttribute("custom-attr-value", "1.8倍行距")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">1.8倍行距</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrlineheight2(selectid) {//双倍行距
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "line-height")
-            button.setAttribute("custom-attr-value", "双倍行距")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">双倍行距</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrlineheightdelete(selectid) {//恢复默认
-            let button = document.createElement("button")
-            button.className = "b3-menu__item b3-menu__item--warning"
-            button.style.color = "var(--b3-theme-error)"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "line-height")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-    }
-}
-
-function PureColorattrfullwidthitem(selectid) {//创建全宽显示选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconMax"></use></svg><span class="b3-menu__label" style="">全宽显示</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrfullwidthsub(selectid))//准备创建全宽显示选项的二级菜单
-    return button
-}
-function PureColorattrfullwidthsub(selectid) {//创建全宽显示选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrfullwidthsubitems(selectid))//准备创建全宽显示选项的b3-menu__items
-    return div
-
-    function PureColorattrfullwidthsubitems(selectid) {//创建全宽显示选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrfullwidthon(selectid))//启用
-        div.appendChild(PureColorattrfullwidthoff(selectid))//禁用
-        return div
-
-        function PureColorattrfullwidthon(selectid) {//启用全宽显示
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "fullwidth")
-            button.setAttribute("custom-attr-value", "启用")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSelect"></use></svg><span class="b3-menu__label">启用</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrfullwidthoff(selectid) {//禁用全宽显示
-            let button = document.createElement("button")
-            button.className = "b3-menu__item b3-menu__item--warning"
-            button.style.color = "var(--b3-theme-error)"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "fullwidth")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">禁用</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-    }
-}
-
-function PureColorattrblankblockreminditem(selectid) {//创建空块提醒选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label" style="">空块提醒</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrblankblockremindsub(selectid))//准备创建空块提醒选项的二级菜单
-    return button
-}
-function PureColorattrblankblockremindsub(selectid) {//创建空块提醒选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrblankblockremindsubitems(selectid))//准备创建空块提醒选项的b3-menu__items
-    return div
-
-    function PureColorattrblankblockremindsubitems(selectid) {//创建空块提醒选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrblankblockremindon(selectid))//启用
-        div.appendChild(PureColorattrblankblockremindoff(selectid))//禁用
-        return div
-
-        function PureColorattrblankblockremindon(selectid) {//启用空块提醒
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "blankblock-remind")
-            button.setAttribute("custom-attr-value", "开启")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSelect"></use></svg><span class="b3-menu__label">启用</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorattrblankblockremindoff(selectid) {//禁用空块提醒
-            let button = document.createElement("button")
-            button.className = "b3-menu__item b3-menu__item--warning"
-            button.style.color = "var(--b3-theme-error)"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "blankblock-remind")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">禁用</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-    }
-}
-
-/* -----------------------------------------任意块------------------------------------- */
-function PureColoranyblocksub(selectid) {//创建任意块二级菜单
-    let div = document.createElement("div")
-    div.id = "PureColoranyblocksub"
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColoranyblocksubitems(selectid))//准备创建任意块二级菜单的b3-menu__items
-    return div
-
-    function PureColoranyblocksubitems(selectid) {//创建任意块二级菜单的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrcssitem(selectid))//准备创建css属性选项
-        div.appendChild(PureColorattrstyleitem(selectid))//准备创建块样式选项
-        div.appendChild(PureColorattrimgitem(selectid))//准备创建图片样式选项
-        div.appendChild(PureColorattrfontfamilyitem(selectid))//准备创建字体选项
-        div.appendChild(PureColorattrheightitem(selectid))//准备创建最大高度选项
-        return div
-    }
-}
-
-/* -----------------------------------------表格块------------------------------------- */
-function PureColorNodeTablesub(selectid) {//创建表格块二级菜单
-    let div = document.createElement("div")
-    div.id = "PureColorNodeTablesub"
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorNodeTablesubitems(selectid))//准备创建表格块二级菜单的b3-menu__items
-    return div
-
-    function PureColorNodeTablesubitems(selectid) {//创建表格块二级菜单的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorattrcssitem(selectid))//准备创建css属性选项
-        div.appendChild(PureColorattrtablestyleitem(selectid))//准备创建表格样式选项
-        div.appendChild(PureColorattrstyleitem(selectid))//准备创建块样式选项
-        div.appendChild(PureColorattrimgitem(selectid))//准备创建图片样式选项
-        div.appendChild(PureColorattrfontfamilyitem(selectid))//准备创建字体选项
-        div.appendChild(PureColorattrheightitem(selectid))//准备创建最大高度选项
-        return div
-    }
-}
-function PureColorattrtablestyleitem(selectid) {//创建表格样式选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label" style="">表格样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrtablestylesub(selectid))//准备创建表格样式选项的二级菜单
-    return button
-}
-function PureColorattrtablestylesub(selectid) {//创建表格样式选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrtablestylesubitems(selectid))//准备创建表格样式选项的b3-menu__items
-    return div
-
-    function PureColorattrtablestylesubitems(selectid) {//创建表格样式选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColortablestylethreeline(selectid))//三线表
-        div.appendChild(PureColortablestyledelete(selectid))//清除属性
-        return div
-
-        function PureColortablestylethreeline(selectid) {//三线表
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "table-style")
-            button.setAttribute("custom-attr-value", "三线表")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">三线表</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColortablestyledelete(selectid) {//清除属性
-            let button = document.createElement("button")
-            button.className = "b3-menu__item b3-menu__item--warning"
-            button.style.color = "var(--b3-theme-error)"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "table-style")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-    }
-}
-
-/* -----------------------------------------标题块------------------------------------- */
-    function PureColorNodeHeadingsub(selectid) {//创建标题块二级菜单
-        let div = document.createElement("div")
-        div.id = "PureColorNodeHeadingsub"
-        div.className = "b3-menu__submenu"
-        div.appendChild(PureColorNodeHeadingsubitems(selectid))//准备创建标题块二级菜单的b3-menu__items
-        return div
-
-        function PureColorNodeHeadingsubitems(selectid) {//创建标题块二级菜单的b3-menu__items
-            let div = document.createElement("div")
-            div.className = "b3-menu__items"
-            div.appendChild(PureColorattrcssitem(selectid))//准备创建css属性选项
-            div.appendChild(PureColorattrhstyleitem(selectid))//准备创建标题样式选项
-            div.appendChild(PureColorattrstyleitem(selectid))//准备创建块样式选项
-            div.appendChild(PureColorattrimgitem(selectid))//准备创建图片样式选项
-            div.appendChild(PureColorattrfontfamilyitem(selectid))//准备创建字体选项
-            div.appendChild(PureColorattrheightitem(selectid))//准备创建最大高度选项
-            return div
-        }
-    }
-    function PureColorattrhstyleitem(selectid) {//创建标题样式选项
-        let button = document.createElement('button');
-        button.className = "b3-menu__item"
-        button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label" style="">标题样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-        button.appendChild(PureColorattrhstylesub(selectid))//准备创建标题样式选项的二级菜单
-        return button
-    }
-    function PureColorattrhstylesub(selectid) {//创建标题样式选项的二级菜单
-        let div = document.createElement('div');
-        div.className = "b3-menu__submenu"
-        div.appendChild(PureColorattrhstylesubitems(selectid))//准备创建标题样式选项的b3-menu__items
-        return div
-
-        function PureColorattrhstylesubitems(selectid) {//创建标题样式选项的b3-menu__items
-            let div = document.createElement("div")
-            div.className = "b3-menu__items"
-            div.appendChild(PureColorhstyleduocai(selectid))//多彩
-            div.appendChild(PureColorhstylejinbo(selectid))//金箔
-            div.appendChild(PureColorhstylexiahuaxian(selectid))//下划线
-            div.appendChild(PureColorhstylezuobiankuang(selectid))//左边框
-            div.appendChild(PureColorhstylecengji(selectid))//层级
-            div.appendChild(PureColorhstyledelete(selectid))//全部清除
-            return div
-        }
-
-        function PureColorhstyleduocai(selectid) {//多彩
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "h-style")
-            button.setAttribute("custom-attr-value", "多彩")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">多彩</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorhstylejinbo(selectid) {//金箔
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "h-style")
-            button.setAttribute("custom-attr-value", "金箔")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">金箔</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorhstylexiahuaxian(selectid) {//下划线
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "h-style-u")
-            button.setAttribute("custom-attr-value", "下划线")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">下划线</span><span class="b3-menu__accelerator">组别2</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorhstylezuobiankuang(selectid) {//左边框
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "h-style-u")
-            button.setAttribute("custom-attr-value", "左边框")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">左边框</span><span class="b3-menu__accelerator">组别2</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorhstylecengji(selectid) {//层级
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "h-style-l")
-            button.setAttribute("custom-attr-value", "层级")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">层级</span><span class="b3-menu__accelerator">组别3</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorhstyledelete(selectid) {//全部清除
-            let button = document.createElement("button")
-            button.className = "b3-menu__item b3-menu__item--warning"
-            button.style.color = "var(--b3-theme-error)"
-            button.setAttribute("data-node-id", selectid)
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">全部清除</span>`
-            button.onclick = function(e) {
-                button.setAttribute("custom-attr-name", "h-style");
-                button.setAttribute("custom-attr-value", "");
-                PureColorcustomattrset.call(button, e);
-        
-                button.setAttribute("custom-attr-name", "h-style-u");
-                button.setAttribute("custom-attr-value", "");
-                PureColorcustomattrset.call(button, e);
-
-                button.setAttribute("custom-attr-name", "h-style-l");
-                button.setAttribute("custom-attr-value", "");
-                PureColorcustomattrset.call(button, e);
-            };
-            return button
-        }
-    }
-
-
-
-
-/* -----------------------------------------css属性（通用）------------------------------------- */
-function PureColorattrcssitem(selectid) {//创建css属性选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSettings"></use></svg><span class="b3-menu__label" style="">CSS</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrcsssub(selectid))//准备创建css属性选项的二级菜单
-    return button
-}
-function PureColorattrcsssub(selectid) {//创建css属性选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrcsssubitems(selectid))//准备创建css属性选项的b3-menu__items
-    return div
-
-    function PureColorattrcsssubitems(selectid) {//创建css属性选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.style.padding = "4px 8px"
-        div.appendChild(PureColorattrcsstextarea(selectid))//输入区域
-        return div
-
-        function PureColorattrcsstextarea(selectid) {
-            let textarea = document.createElement("textarea");
-            textarea.className = "b3-text-field PureColorcssinput";
-            textarea.style.height = "150px";
-            textarea.style.width = "550px";
-            textarea.style.color = "var(--b3-theme-on-surface)";
-            textarea.setAttribute("spellcheck", "false");
-            textarea.setAttribute("data-node-id", selectid);
-            textarea.setAttribute("custom-attr-name", "css");
-            textarea.value = "";
-            textarea.placeholder = "在此输入CSS代码，注意首尾无需{ }包裹，支持&嵌套选择器\n例1：输入color:red;border:1px solid red使得块内文字变为红色且块具有红色边框\n例2：输入& span[data-type~=block-ref]:not(.av__celltext) { border-bottom: none }来取消块内所有块引用链接的下方虚线\n例3：输入&.protyle-top .protyle-background__icon {margin-bottom: 8px;& :is(img, svg) {max-width:100px;min-width:100px;width:100px;height:100px;}}来调整文档自定义表情的大小";
-        
-            查询css自定义块属性的内容(selectid)
-                .then(customcssvalue => {
-                    if (customcssvalue) {
-                        textarea.value = customcssvalue;
-                        textarea.setAttribute("custom-attr-value", customcssvalue);
-                    } else {
-                        textarea.setAttribute("custom-attr-value", "");
-                    }
-                })
-                .catch(err => {
-                    console.error("获取CSS值失败:", err);
-                });
-        
-            textarea.addEventListener('blur', function(e) {
-                const value = e.target.value;
-                e.target.setAttribute("custom-attr-value", value);
-                PureColorcustomattrset(e);
-            });
-        
-            return textarea;
-        }
-    }
-}
-
-/* -----------------------------------------img属性（通用）------------------------------------- */
-function PureColorattrimgitem(selectid) {//创建图片样式选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label" style="">图片样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrimgsub(selectid))//准备创建图片样式选项的二级菜单
-    return button
-}
-function PureColorattrimgsub(selectid) {//创建图片样式选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrimgsubitems(selectid))//准备创建图片样式选项的b3-menu__items
-    return div
-
-    function PureColorattrimgsubitems(selectid) {//创建图片样式选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorimgborder(selectid))//圆角
-        div.appendChild(PureColorimgcircle(selectid))//圆形
-        div.appendChild(PureColorimgshadow(selectid))//立体
-        div.appendChild(PureColorimginvert(selectid))//反色
-        div.appendChild(PureColorimgdelete(selectid))//全部清除
-        return div
-
-            function PureColorimgborder(selectid) {//圆角
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "img-border")
-                button.setAttribute("custom-attr-value", "圆角")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">圆角</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorimgcircle(selectid) {//圆形
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "img-border")
-                button.setAttribute("custom-attr-value", "圆形")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">圆形</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorimgshadow(selectid) {//立体
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "img-shadow")
-                button.setAttribute("custom-attr-value", "立体")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">立体</span><span class="b3-menu__accelerator">组别2</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorimginvert(selectid) {//反色
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "img-invert")
-                button.setAttribute("custom-attr-value", "反色")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">反色</span><span class="b3-menu__accelerator">组别3</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-
-            function PureColorimgdelete(selectid) {//全部清除
-                let button = document.createElement("button")
-                button.className = "b3-menu__item b3-menu__item--warning"
-                button.style.color = "var(--b3-theme-error)"
-                button.setAttribute("data-node-id", selectid)
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">全部清除</span>`
-                button.onclick = function(e) {
-                    button.setAttribute("custom-attr-name", "img-border");
-                    button.setAttribute("custom-attr-value", "");
-                    PureColorcustomattrset.call(button, e);
-            
-                    button.setAttribute("custom-attr-name", "img-shadow");
-                    button.setAttribute("custom-attr-value", "");
-                    PureColorcustomattrset.call(button, e);
-
-                    button.setAttribute("custom-attr-name", "img-invert");
-                    button.setAttribute("custom-attr-value", "");
-                    PureColorcustomattrset.call(button, e);
-                };
-                return button
-            }
-        }
-}
-
-/* -----------------------------------------height属性（通用）------------------------------------- */
-function PureColorattrheightitem(selectid) {//创建最大高度选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label" style="">最大高度</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrheightsub(selectid))//准备创建最大高度选项的二级菜单
-    return button
-}
-function PureColorattrheightsub(selectid) {//创建最大高度选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrheightsubitems(selectid))//准备创建最大高度选项的b3-menu__items
-    return div
-
-    function PureColorattrheightsubitems(selectid) {//创建最大高度选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorheight50(selectid))//50
-        div.appendChild(PureColorheight100(selectid))//100
-        div.appendChild(PureColorheight150(selectid))//150
-        div.appendChild(PureColorheight200(selectid))//200
-        div.appendChild(PureColorheightdelete(selectid))//清除属性
-        return div
-
-            function PureColorheight50(selectid) {//50
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "height")
-                button.setAttribute("custom-attr-value", "50")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">50px</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorheight100(selectid) {//100
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "height")
-                button.setAttribute("custom-attr-value", "100")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">100px</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorheight150(selectid) {//150
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "height")
-                button.setAttribute("custom-attr-value", "150")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">150px</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorheight200(selectid) {//200
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "height")
-                button.setAttribute("custom-attr-value", "200")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">200px</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorheightdelete(selectid) {//清除属性
-                let button = document.createElement("button")
-                button.className = "b3-menu__item b3-menu__item--warning"
-                button.style.color = "var(--b3-theme-error)"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "height")
-                button.setAttribute("custom-attr-value", "")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-        }
-}
-
-/* -----------------------------------------文档style属性（通用）------------------------------------- */
-function PureColorattrfilestyleitem(selectid) {//创建文档样式选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">文档样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrfilestylesub(selectid))//准备创建文档样式选项的二级菜单
-    return button
-}
-function PureColorattrfilestylesub(selectid) {//创建文档样式选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrfilestylesubitems(selectid))//准备创建文档样式选项的b3-menu__items
-    return div
-
-    function PureColorattrfilestylesubitems(selectid) {//创建文档样式选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorstylewangge(selectid))//网格
-        div.appendChild(PureColorstylesajinzhi(selectid))//洒金纸
-        div.appendChild(PureColorstyledelete(selectid))//清除属性
-        return div
-        function PureColorstylesajinzhi(selectid) {//洒金纸
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "style")
-            button.setAttribute("custom-attr-value", "洒金纸")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">洒金纸</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorstylewangge(selectid) {//网格
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "style")
-            button.setAttribute("custom-attr-value", "网格")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">网格</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorstyledelete(selectid) {//清除属性
-            let button = document.createElement("button")
-            button.className = "b3-menu__item b3-menu__item--warning"
-            button.style.color = "var(--b3-theme-error)"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "style")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-    }
-}
-
-/* -----------------------------------------style属性（通用）------------------------------------- */
-    function PureColorattrstyleitem(selectid) {//创建块样式选项
-        let button = document.createElement('button');
-        button.className = "b3-menu__item"
-        button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">块样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-        button.appendChild(PureColorattrstylesub(selectid))//准备创建块样式选项的二级菜单
-        return button
-    }
-    function PureColorattrstylesub(selectid) {//创建块样式选项的二级菜单
-        let div = document.createElement('div');
-        div.className = "b3-menu__submenu"
-        div.appendChild(PureColorattrstylesubitems(selectid))//准备创建块样式选项的b3-menu__items
-        return div
-
-        function PureColorattrstylesubitems(selectid) {//创建块样式选项的b3-menu__items
-            let div = document.createElement("div")
-            div.className = "b3-menu__items"
-            div.appendChild(PureColorstylewarning(selectid))//警告
-            div.appendChild(PureColorstyletip(selectid))//灵感
-            div.appendChild(PureColorstyleinfo(selectid))//信息
-            div.appendChild(PureColorstyleimportant(selectid))//重要
-            div.appendChild(PureColorstylecomment(selectid))//批注
-            div.appendChild(PureColorstylequote(selectid))//引用
-            div.appendChild(PureColorstyletodo(selectid))//待办
-            div.appendChild(PureColorstyledone(selectid))//完成
-            div.appendChild(PureColorstylesajinzhi(selectid))//洒金纸
-            div.appendChild(PureColorstylewangge(selectid))//网格
-            div.appendChild(PureColorstylenoteitem(selectid))//便签
-            div.appendChild(PureColorstyleleftborderitem(selectid))//左边框
-            div.appendChild(PureColorstyledelete(selectid))//清除属性
-            return div
-
-            function PureColorstylewarning(selectid) {//警告
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "警告")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">警告</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstyletip(selectid) {//灵感
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "灵感")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstyletip(selectid) {//灵感
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "灵感")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstyleinfo(selectid) {//信息
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "信息")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">信息</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstyleimportant(selectid) {//重要
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "重要")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">重要</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstylecomment(selectid) {//批注
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "批注")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">批注</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstylequote(selectid) {//引用
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "引用")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">引用</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstyletodo(selectid) {//待办
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "待办")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">待办</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstyledone(selectid) {//完成
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "完成")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">完成</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstylesajinzhi(selectid) {//洒金纸
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "洒金纸")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">洒金纸</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstylewangge(selectid) {//网格
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "网格")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">网格</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstyledelete(selectid) {//清除属性
-                let button = document.createElement("button")
-                button.className = "b3-menu__item b3-menu__item--warning"
-                button.style.color = "var(--b3-theme-error)"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
-                button.onclick = PureColorcustomattrset
-                return button
-            }
-            function PureColorstylenoteitem(selectid) {//创建便签选项
-                let button = document.createElement('button');
-                button.className = "b3-menu__item"
-                button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">便签</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button><span class="b3-menu__accelerator">组别1</span>'
-                button.appendChild(PureColorstylenotesub(selectid))//准备便签选项的二级菜单
-                return button
-                }
-                function PureColorstylenotesub(selectid) {//创建便签选项的二级菜单
-                    let div = document.createElement('div');
-                    div.className = "b3-menu__submenu"
-                    div.appendChild(PureColorstylenotesubitems(selectid))//准备便签选项的b3-menu__items
-                    return div
-
-                    function PureColorstylenotesubitems(selectid) {//创建便签选项的b3-menu__items
-                        let div = document.createElement("div")
-                        div.className = "b3-menu__items"
-                        div.appendChild(PureColorstylerednote(selectid))//红色便签
-                        div.appendChild(PureColorstyleorangenote(selectid))//橙色便签
-                        div.appendChild(PureColorstyleyellownote(selectid))//黄色便签
-                        div.appendChild(PureColorstylegreennote(selectid))//绿色便签
-                        div.appendChild(PureColorstylecyannote(selectid))//青色便签
-                        div.appendChild(PureColorstylebluenote(selectid))//蓝色便签
-                        div.appendChild(PureColorstylepurplenote(selectid))//紫色便签
-                        div.appendChild(PureColorstylepinknote(selectid))//粉色便签
-                        div.appendChild(PureColorstyleblacknote(selectid))//黑色便签
-                        div.appendChild(PureColorstylegraynote(selectid))//灰色便签
-
-                        return div
-
-                        function PureColorstylerednote(selectid) {//红色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "红色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">红色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                        function PureColorstyleorangenote(selectid) {//橙色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "橙色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">橙色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                        function PureColorstyleyellownote(selectid) {//黄色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "黄色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黄色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                        function PureColorstylegreennote(selectid) {//绿色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "绿色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">绿色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                        function PureColorstylecyannote(selectid) {//青色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "青色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">青色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                        function PureColorstylebluenote(selectid) {//蓝色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "蓝色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">蓝色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                        function PureColorstylepurplenote(selectid) {//紫色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "紫色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">紫色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                        function PureColorstylepinknote(selectid) {//粉色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "粉色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">粉色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                        function PureColorstyleblacknote(selectid) {//黑色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "黑色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黑色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                        function PureColorstylegraynote(selectid) {//灰色便签
-                            let button = document.createElement("button")
-                            button.className = "b3-menu__item"
-                            button.setAttribute("data-node-id", selectid)
-                            button.setAttribute("custom-attr-name", "style")
-                            button.setAttribute("custom-attr-value", "灰色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灰色便签</span><span class="b3-menu__accelerator">组别1</span>`
-                            button.onclick = PureColorcustomattrset
-                            return button
-                        }
-                    }
-                }
-                function PureColorstyleleftborderitem(selectid) {//创建左边框选项
-                    let button = document.createElement('button');
-                    button.className = "b3-menu__item"
-                    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">左边框</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button><span class="b3-menu__accelerator">组别1</span>'
-                    button.appendChild(PureColorstyleleftbordersub(selectid))//准备左边框选项的二级菜单
-                    return button
-                    }
-                    function PureColorstyleleftbordersub(selectid) {//创建左边框选项的二级菜单
-                        let div = document.createElement('div');
-                        div.className = "b3-menu__submenu"
-                        div.appendChild(PureColorstyleleftbordersubitems(selectid))//准备左边框选项的b3-menu__items
-                        return div
-    
-                        function PureColorstyleleftbordersubitems(selectid) {//创建左边框选项的b3-menu__items
-                            let div = document.createElement("div")
-                            div.className = "b3-menu__items"
-                            div.appendChild(PureColorstylerednote(selectid))//红左边框
-                            div.appendChild(PureColorstyleorangenote(selectid))//橙左边框
-                            div.appendChild(PureColorstyleyellownote(selectid))//黄左边框
-                            div.appendChild(PureColorstylegreennote(selectid))//绿左边框
-                            div.appendChild(PureColorstylecyannote(selectid))//青左边框
-                            div.appendChild(PureColorstylebluenote(selectid))//蓝左边框
-                            div.appendChild(PureColorstylepurplenote(selectid))//紫左边框
-                            div.appendChild(PureColorstylepinknote(selectid))//粉左边框
-                            div.appendChild(PureColorstyleblacknote(selectid))//黑左边框
-                            div.appendChild(PureColorstylegraynote(selectid))//灰左边框
-    
-                            return div
-    
-                            function PureColorstylerednote(selectid) {//红左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "红左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">红左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                            function PureColorstyleorangenote(selectid) {//橙左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "橙左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">橙左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                            function PureColorstyleyellownote(selectid) {//黄左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "黄左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黄左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                            function PureColorstylegreennote(selectid) {//绿左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "绿左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">绿左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                            function PureColorstylecyannote(selectid) {//青左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "青左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">青左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                            function PureColorstylebluenote(selectid) {//蓝左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "蓝左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">蓝左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                            function PureColorstylepurplenote(selectid) {//紫左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "紫左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">紫左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                            function PureColorstylepinknote(selectid) {//粉左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "粉左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">粉左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                            function PureColorstyleblacknote(selectid) {//黑左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "黑左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黑左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                            function PureColorstylegraynote(selectid) {//灰左边框
-                                let button = document.createElement("button")
-                                button.className = "b3-menu__item"
-                                button.setAttribute("data-node-id", selectid)
-                                button.setAttribute("custom-attr-name", "style")
-                                button.setAttribute("custom-attr-value", "灰左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灰左边框</span><span class="b3-menu__accelerator">组别1</span>`
-                                button.onclick = PureColorcustomattrset
-                                return button
-                            }
-                        }
-                    }
-        }
-    }
-
-
-/* -----------------------------------------font-family属性（通用）------------------------------------- */
-function PureColorattrfontfamilyitem(selectid) {//创建字体选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label" style="">字体</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(PureColorattrfontfamilysub(selectid))//准备创建字体选项的二级菜单
-    return button
-}
-function PureColorattrfontfamilysub(selectid) {//创建字体选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(PureColorattrfontfamilysubitems(selectid))//准备创建字体选项的b3-menu__items
-    return div
-    
-    function PureColorattrfontfamilysubitems(selectid) {//创建字体选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(PureColorfontsongti(selectid))//宋体
-        div.appendChild(PureColorfontyouyuan(selectid))//幼圆
-        div.appendChild(PureColorfontheiti(selectid))//黑体
-        div.appendChild(PureColorfontwryahei(selectid))//微软雅黑
-        div.appendChild(PureColorfontxinsongti(selectid))//新宋体
-        div.appendChild(PureColorfontkaiti(selectid))//楷体
-        div.appendChild(PureColorfontlishu(selectid))//隶书
-        div.appendChild(PureColorfontfangsong(selectid))//仿宋
-        div.appendChild(PureColorfonthwsongti(selectid))//华文宋体
-        div.appendChild(PureColorfonthwzhongsong(selectid))//华文中宋
-        div.appendChild(PureColorfonthwfangsong(selectid))//华文仿宋
-        div.appendChild(PureColorfonthwcaiyun(selectid))//华文彩云
-        div.appendChild(PureColorfonthwxinwei(selectid))//华文新魏
-        div.appendChild(PureColorfonthwkaiti(selectid))//华文楷体
-        div.appendChild(PureColorfonthwhupo(selectid))//华文琥珀
-        div.appendChild(PureColorfonthwxihei(selectid))//华文细黑
-        div.appendChild(PureColorfonthwxingkai(selectid))//华文行楷
-        div.appendChild(PureColorfonthwlishu(selectid))//华文隶书
-        div.appendChild(PureColorfontfzyaoti(selectid))//方正姚体
-        div.appendChild(PureColorfontfzshuti(selectid))//方正舒体
-        div.appendChild(PureColorfonttnm(selectid))//Times New Roman
-        div.appendChild(PureColorfontdelete(selectid))//清除属性
-        return div
-
-        function PureColorfontsongti(selectid) {//宋体
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "SimSun"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "宋体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">宋体</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontyouyuan(selectid) {//幼圆
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "YouYuan"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "幼圆")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">幼圆</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontheiti(selectid) {//黑体
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "SimHei"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "黑体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">黑体</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontwryahei(selectid) {//微软雅黑
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "Microsoft YaHei"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "微软雅黑")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">微软雅黑</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontxinsongti(selectid) {//新宋体
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "NSimSun"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "新宋体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">新宋体</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontkaiti(selectid) {//楷体
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "KaiTi"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "楷体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">楷体</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontlishu(selectid) {//隶书
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "LiSu"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "隶书")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">隶书</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontfangsong(selectid) {//仿宋
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "FangSong"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "仿宋")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">仿宋</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwsongti(selectid) {//华文宋体
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STSong"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文宋体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文宋体</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwzhongsong(selectid) {//华文中宋
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STZhongsong"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文中宋")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文中宋</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwfangsong(selectid) {//华文仿宋
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STFangsong"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文仿宋")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文仿宋</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwcaiyun(selectid) {//华文彩云
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STCaiyun"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文彩云")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文彩云</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwxinwei(selectid) {//华文新魏
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STXinwei"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文新魏")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文新魏</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwkaiti(selectid) {//华文楷体
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STKaiti"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文楷体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文楷体</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwhupo(selectid) {//华文琥珀
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STHupo"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文琥珀")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文琥珀</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwxihei(selectid) {//华文细黑
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STXihei"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文细黑")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文细黑</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwxingkai(selectid) {//华文行楷
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STXingkai"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文行楷")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文行楷</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonthwlishu(selectid) {//华文隶书
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "STLiti"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "华文隶书")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文隶书</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontfzyaoti(selectid) {//方正姚体
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "FZYaoti"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "方正姚体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">方正姚体</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontfzshuti(selectid) {//方正舒体
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "FZShuTi"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "方正舒体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">方正舒体</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfonttnm(selectid) {//Times New Roman
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.style.fontFamily = "Times New Roman"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "Times New Roman")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">Times New Roman</span><span class="b3-menu__accelerator">组别1</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-        function PureColorfontdelete(selectid) {//清除属性
-            let button = document.createElement("button")
-            button.className = "b3-menu__item b3-menu__item--warning"
-            button.style.color = "var(--b3-theme-error)"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "font-family")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
-            button.onclick = PureColorcustomattrset
-            return button
-        }
-    }
-}
 
 /* -----------------------------------------块属性API------------------------------------- */
     function PureColorcustomattrset(event) {//设置自定义块属性

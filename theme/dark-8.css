@@ -1,7 +1,7 @@
 :root[data-theme-mode="dark"] {
 
-	/* 主色（Steam蓝） */
-	--b3-theme-primaryrgb: 22,145,232;
+	/* 主色（马尔斯·绿） */
+	--b3-theme-primaryrgb: 66, 202, 193;
 	--b3-theme-primary:         rgba(var(--b3-theme-primaryrgb));
 	--b3-theme-primary-light:   rgba(var(--b3-theme-primaryrgb), 0.54);
 	--b3-theme-primary-lighter: rgba(var(--b3-theme-primaryrgb), 0.38);
@@ -9,16 +9,15 @@
 
 
 	/*「配色」background-color（由浅到深）*/
-	--pc-background-color-1:#274056;
-	--pc-background-color-2:#253d51;
-	--pc-background-color-3:#23394d;
-	--pc-background-color-4:#203245;
+	--pc-background-color-1:#0c4546;
+	--pc-background-color-2:#0d3d3e;
+	--pc-background-color-3:#0e3637;
+	--pc-background-color-4:#0f2e2f;
 	
 	/*「配色」surface-color（由深到浅）*/
-	--b3-protyle-mainfont:202, 219, 226;/*编辑器字体颜色*/
+	--b3-protyle-mainfont:186, 207, 204;/*编辑器字体颜色*/
 	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
 	--pc-surface-color-2:rgba(var(--b3-protyle-mainfont),.7);
 	--pc-surface-color-3:rgba(var(--b3-protyle-mainfont),.55);
 	--pc-surface-color-4:rgba(var(--b3-protyle-mainfont),.4)
-	
 }
