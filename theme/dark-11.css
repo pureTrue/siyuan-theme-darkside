@@ -1,7 +1,7 @@
 :root[data-theme-mode="dark"] {
 
 	/* 主色（不溜秋·黑） */
-	--b3-theme-primaryrgb:228, 254, 100;
+	--b3-theme-primaryrgb:181, 201, 85;
 	--b3-theme-primary:         rgba(var(--b3-theme-primaryrgb));
 	--b3-theme-primary-light:   rgba(var(--b3-theme-primaryrgb), 0.54);
 	--b3-theme-primary-lighter: rgba(var(--b3-theme-primaryrgb), 0.38);
@@ -15,9 +15,29 @@
 	--pc-background-color-4:#07080c;
 	
 	/*「配色」surface-color（由深到浅）*/
-	--b3-protyle-mainfont:211, 212, 199;/*编辑器字体颜色*/
+	--b3-protyle-mainfont:192, 193, 197;/*编辑器字体颜色*/
 	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
 	--pc-surface-color-2:rgba(var(--b3-protyle-mainfont),.7);
 	--pc-surface-color-3:rgba(var(--b3-protyle-mainfont),.55);
-	--pc-surface-color-4:rgba(var(--b3-protyle-mainfont),.4)
+	--pc-surface-color-4:rgba(var(--b3-protyle-mainfont),.4);
+	
+	
+	
+	--quote-background:rgba(255,255,255,0.03);
+	
+	--b3-theme-background-light:rgba(255,255,255,0.05);
+	
+	/* 代码 code*/
+    --b3-protyle-code-background:rgba(255,255,255,0.05);
+}
+
+/*左上角：设置按钮*/
+#barWorkspace.ariaLabel.toolbar__item.toolbar__item--active {
+	background-color: var(--b3-menu-item-background-light);
+	border: 1px solid var(--b3-menu-item-background-light);
+}
+
+/*数据库：角标*/
+.protyle-wysiwyg--attr .protyle-attr>div{
+	    background-color: var(--b3-menu-item-background-light);
 }

@@ -1,0 +1,172 @@
+
+/* 卡片式界面 */
+.layout__empty .b3-list-item:hover {
+    color: var(--b3-theme-primary);
+    & .b3-list-item__meta {
+        color: var(--b3-theme-primary);
+    }
+}
+.toolbar {
+    border: none;
+}
+
+body:not(.body--mobile,.body--window).fn__flex-column {
+    background-color: var(--pc-background-color-3);
+}
+body:not(.body--mobile,.body--window) #layouts {
+    border: none;
+    background-color: var(--pc-background-color-3);
+    padding: 8px 0 8px 0;
+    min-height: 50%;
+}
+.dock#dockLeft {
+    border: none;
+	background-color: var(--pc-background-color-3);
+}
+.dock#dockRight {
+    border: none;
+	background-color: var(--pc-background-color-3);
+}
+#layouts .fn__flex.layout-tab-bar {  
+    border-top-left-radius: var(--b3-border-radius-b);
+	padding:4px 8px;
+}
+#layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {
+    border-top-right-radius: var(--b3-border-radius-b);
+	padding:4px 0px;
+}
+#layouts .layout__center .layout-tab-container {
+    border-radius: 0 0 var(--b3-border-radius-b) var(--b3-border-radius-b);
+	
+}   
+#layouts .layout__center .layout-tab-container:has(.layout__empty) {
+    border-radius: var(--b3-border-radius-b) !important;
+}
+#layouts .fn__flex-column:not(.layout__center) .fn__flex .layout-tab-container {
+    border-radius: var(--b3-border-radius-b);
+    background-color: var(--b3-theme-background);
+	
+}
+.file-tree:is(.sy__graph, .sy__globalGraph) canvas {
+    background-color: var(--b3-theme-background);
+}
+.protyle-preview__action {
+    background-color: var(--b3-theme-background);
+}
+.graph__panel {
+    border-radius: var(--b3-border-radius-b);
+    border: none;
+    box-shadow: var(shadow-1);
+}
+#layouts .file-tree .block__icons :is(.block__logo, .block__logoicon, .block__icon) {
+    /*color: var(--b3-theme-primary);
+	侧边栏主字体颜色*/
+}
+
+#layouts .layout__resize.layout__resize--lr {
+    margin: 0 1px;
+    &:hover::after {
+        transition: none;
+    }
+}
+#layouts .layout__resize.layout__resize--lr::after {
+    visibility: hidden;
+    width: 8px;
+    height: 100%;
+    border-radius: var(--b3-border-radius-q);
+}
+#layouts .layout__resize.layout__resize--lr:hover::after {
+    visibility: visible;
+}
+#layouts .layout__resize {
+    margin: 1px 0;
+    &:hover::after {
+        transition: none;
+		display:none;
+    }
+}
+#layouts .layout__resize::after {
+    visibility: hidden;
+    height: 8px;
+    width: 100%;
+    border-radius: var(--b3-border-radius-q);
+    transform: translateY(-3px);
+}
+#layouts .layout__resize:hover::after {
+    visibility: visible;
+}
+#layouts .layout--float {
+    border: 1px solid  var(--b3-theme-surface-lighter);
+    box-shadow: var(--b3-dialog-shadow);
+    background-color: var(--b3-theme-background);
+    padding: 0;
+    border-radius: var(--b3-border-radius-b);
+}
+.file-tree.sy__graph {
+    background-color: var(--b3-theme-background);
+}
+#dockLeft.fn__none + #layouts {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+#layouts .block__icons {
+    border: none;
+}
+.dock#dockBottom {
+    border: none;
+      &:not(.fn__none) {
+        margin-top: -8px;
+      }
+}
+.dock__item {
+    color: var(--b3-toolbar-color);
+}
+#layouts .layout__dockb .fn__flex-1.fn__flex .layout-tab-container {
+    border-radius: var(--b3-border-radius-b);
+    background-color: var(--b3-theme-background);
+}
+.block__icons--menu {
+    background-color: var(--b3-theme-background);
+}
+.layout__dockb[style="height: 0px;"] {
+    opacity: 0;
+}
+.layout__center .layout-tab-container:has( > :is(.sy__outline, .sy__backlink)) {
+    background-color: var(--b3-theme-background);
+}
+.layout__dockb.layout--float {
+    margin-left: 42px;
+    margin-right: 42px;
+    margin-bottom: -25px;
+}
+
+/*垂直页签修复*/
+#layouts .layout__center .PureColorwndthe1 > .fn__flex {
+	border-right:none;
+	margin-right:8px;
+	
+}
+
+.PureColorwndthe1 > .fn__flex .layout-tab-bar:not(.layout-tab-bar--readonly) {
+	background-color:var(--pc-background-color-1);
+	padding:6px 4px !important;
+	border-radius:0px 12px 0px 0px;
+}
+
+#layouts .layout__center .PureColorwndthe1 > .fn__flex > .layout-tab-bar--readonly {
+	background-color:var(--pc-background-color-1);
+	border-radius:0px 0px 12px 12px;
+}
+
+#layouts .layout__center .PureColorwndthe1 > .layout-tab-container {
+    border-radius: var(--b3-border-radius-b) !important;
+}
+
+
+/*底部栏：位置修复*/
+#status {
+	bottom: 15px;
+	right: -8px;/*++*/
+	box-shadow: none ;
+	background-color:var(--b3-theme-surface);
+}

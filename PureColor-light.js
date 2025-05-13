@@ -35,7 +35,8 @@ async function getFile(path) {
 const I18N = {
     zh_CN: {
         PureColorztsz: ' PureColor主题设置',
-		PureColorycdl: ' 隐藏顶栏',
+		PureColorkpsjm: ' ☆卡片式界面☆',
+		PureColorycdl: ' 隐藏顶栏&无框线',
         PureColorczyq: ' 垂直页签',
         PureColorlbfzx: ' 列表子弹线',
         PureColorxyps: ' 配色：前卫·灰',
@@ -51,7 +52,8 @@ const I18N = {
     },
     en_US: {
         PureColorztsz: ' PureColor Settings',
-		PureColorycdl: ' Hide Topbar',
+		PureColorkpsjm: ' ☆Card-based interface☆',
+		PureColorycdl: ' Hide Topbar&Frameless',
         PureColorczyq: ' Vertical Tabs',
         PureColorlbfzx: ' List Bullet Line',
         PureColorxyps: ' Theme：Avant-garde·Grey',
@@ -135,7 +137,9 @@ let isChecked9;
 let isChecked10;
 let isChecked11;
 let isChecked12;
+
 let isChecked14;
+let isChecked15;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -312,6 +316,17 @@ function createSettingsWindow() {
     label14.style.fontSize = '14px';
     label14.style.userSelect= 'none';
 	
+	const checkbox15 = document.createElement('input');//卡片式界面
+    checkbox15.type = 'checkbox';
+    checkbox15.id = 'PureColorkpsjm-checkbox';
+    checkbox15.checked = isChecked15;
+
+    const label15 = document.createElement('label');
+    label15.htmlFor = 'PureColorkpsjm-checkbox';
+    label15.textContent = i18n.PureColorkpsjm;
+    label15.style.fontSize = '14px';
+    label15.style.userSelect= 'none';
+	
 	
     // 将复选框和标签组合
     const PureColorfunctionpair1 = document.createElement('div');
@@ -392,6 +407,12 @@ function createSettingsWindow() {
     PureColorfunctionpair14.appendChild(label14);
     PureColorfunctionpair14.style.animation = 'PureColorbounceRight2 0.1s';
 	
+	const PureColorfunctionpair15 = document.createElement('div');
+    PureColorfunctionpair15.className = 'checkbox-label-pair';
+    PureColorfunctionpair15.appendChild(checkbox15);
+    PureColorfunctionpair15.appendChild(label15);
+    PureColorfunctionpair15.style.animation = 'PureColorbounceRight2 0.1s';
+	
 
     //分割线
     const PureColorfunctionpairdivider1 = document.createElement('hr');
@@ -412,6 +433,7 @@ function createSettingsWindow() {
 
 
     // 将复选框和标签添加到设置窗口
+	settingsWindow.appendChild(PureColorfunctionpair15); //卡片式界面
 	settingsWindow.appendChild(PureColorfunctionpair14); //隐藏顶栏
 	settingsWindow.appendChild(PureColorfunctionpair1);  //垂直页签
 	settingsWindow.appendChild(PureColorfunctionpair2); //列表子弹线
@@ -450,6 +472,7 @@ async function saveConfig() {
 		isChecked11: checkbox11.checked,
 		isChecked12: checkbox12.checked,
 		isChecked14: checkbox14.checked,
+		isChecked15: checkbox15.checked,
 
     })], { type: 'application/json' }), 'PureColor-light-config.json');
 
@@ -458,6 +481,19 @@ async function saveConfig() {
 
 
 // ==== ③.①开关 ====
+// 卡片式界面开关
+checkbox15.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablecardbasedinterface() : disablecardbasedinterface();
+    state ? isChecked15 = true : isChecked15 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
 // 隐藏顶栏开关
 checkbox14.addEventListener('change', async function() {
     const state = this.checked;
@@ -781,6 +817,9 @@ function enabletoolbarhidden() {
             transform: translateY(0px);
             transition: all 200ms;
         }
+		:root[data-theme-mode=light],:root[data-theme-mode=dark]{
+			--b3-border-color: var(--b3-theme-surface);
+		}
     `;
 }
 
@@ -1081,6 +1120,31 @@ function disablePureColorps10() {
 
 
 
+
+// 开启卡片式界面
+function enablecardbasedinterface() {
+    let linkElement = document.getElementById("cardbasedinterface-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "cardbasedinterface-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/卡片式界面.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭卡片式界面
+function disablecardbasedinterface() {
+    const linkElement = document.getElementById("cardbasedinterface-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+
+
 // 开启垂直页签
 function enablePureColorverticaltab() {
     setTimeout(PureColorwnd.start, 300);
@@ -1215,6 +1279,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked14 === false) {
             disabletoolbarhidden();
             isChecked14 = false;
+        }
+		
+		if (config?.isChecked15 === true) {
+            enablecardbasedinterface();
+            isChecked15 = true;
+        } else if (config?.isChecked15 === false) {
+            disablecardbasedinterface();
+            isChecked15 = false;
         }
 		
 

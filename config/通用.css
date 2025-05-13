@@ -75,7 +75,7 @@
 }
 /*文档树-笔记本-分割线*/
 .file-tree.sy__file .fn__flex-1 > ul {
-    border-bottom: 1px solid var(--b3-menu-item-background-light);
+    border-bottom: 1px dotted var(--b3-block__icons);
     border-radius: 0px;
 }
 
@@ -1010,6 +1010,7 @@ span[data-type="inline-math"] .katex{
 		background-color:var(--b3-block__icons) !important;
 	}
 }
+.layout-tab-container .block__icons{transition:all 1s cubic-bezier(0, 0, .2, 1) 0ms;}
 
 
 
@@ -1287,7 +1288,7 @@ body{
 }
 /*搜索框-文档分组-面包屑*/
 .b3-list-item__text.ariaLabel{
-/*会联动文档树*/
+	color:var(--pc-surface-color-2);
 }
 
 
@@ -1605,14 +1606,14 @@ body{
 	bottom: 5px;
 	border-radius: var(--b3-border-radius);
 	height: 26px !important;
-	right: 4px;/*++*/
+	right: -10px;/*++*/
 	overflow: hidden;
 	z-index: 3;
 	border: 1px solid var(--b3-theme-surface-lighter);
 	background-color: var(--b3-theme-background);
 	display: flex;
 	align-items: center;
-	box-shadow: var(--pc-shadow-1);
+	box-shadow: none;
     .status__msg:not(:empty){
             padding-left: 26px!important;
             padding-right: 10px;
@@ -2176,7 +2177,7 @@ div#tooltip {
 }
 #layouts .layout__center .PureColorwndthe1 > .fn__flex > .layout-tab-bar--readonly {
     flex: none;/*1*/
-	background-color:var(--pc-background-color-3);
+	background-color:var(--pc-background-color-2);
 	min-height:28px;/*-*/
 	flex: initial;
 }
@@ -2225,3 +2226,12 @@ div#tooltip {
 [isThisDoc=true].svelte-shn1w3{
   color:rgb(var(--b3-protyle-mainfont)) !important;
 }
+
+
+
+
+/*编辑框：纸质质感
+.protyle-content,.protyle-breadcrumb,.layout-tab-bar,.layout-tab-bar .item{
+	background-image: url('/appearance/themes/siyuan-theme-darkside/theme/paper.png');
+}
+*/
