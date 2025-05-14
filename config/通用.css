@@ -161,6 +161,16 @@
 
 }
 
+#layouts .fn__flex.layout-tab-bar {  
+	padding:4px 8px;/*控制页签与界面边缘8px间距*/
+}
+
+
+#layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {
+	padding:4px 0px;/*控制页签选项按钮与界面边缘8px间距*/
+}
+
+
 .layout-tab-bar .item--focus{
     background-color: var(--pc-background-color-4) !important;
     opacity: 1; 
@@ -1603,14 +1613,14 @@ body{
 	position: fixed;
 	backface-visibility: hidden;
 	transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;
-	bottom: 5px;
+	bottom: 6px;
 	border-radius: var(--b3-border-radius);
 	height: 26px !important;
-	right: -10px;/*++*/
+	right: -8px;/*++*/
 	overflow: hidden;
 	z-index: 3;
 	border: 1px solid var(--b3-theme-surface-lighter);
-	background-color: var(--b3-theme-background);
+	background-color: var(--b3-theme-surface);
 	display: flex;
 	align-items: center;
 	box-shadow: none;

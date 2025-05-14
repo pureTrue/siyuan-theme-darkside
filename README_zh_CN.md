@@ -4,7 +4,7 @@ PureColor 是一款精简美观的思源笔记主题。
 
 ## 最近更新
 
-### v3.1.6-v3.1.7
+### v3.1.6-v3.1.8
 
 - 主题配色
 
@@ -13,6 +13,9 @@ PureColor 是一款精简美观的思源笔记主题。
   - 原有配色优化（编辑器栏颜色淡化，主调色加深以增强对比度）；
 
 - 新增「卡片式界面」：通过右上角按钮开启，默认仍为「直角边框界面」；
+
+  - 卡片新增边框元素；侧边栏顶部上色；顶栏设置为棒状卡片；
+
 - 新增「隐藏顶栏&无框线」：通过右上角按钮开启，可隐藏顶栏并去除编辑器与侧边栏间的边框线，使得软件界面设计更加“前卫”。
 
 ## 🥰主题特性，生而简洁
@@ -36,7 +39,7 @@ PureColor 是一款精简美观的思源笔记主题。
 - [Achuan-2](https://github.com/Achuan-2)：思源主题`Tsundoku`；
 - [Zuoqiu Yingyi](https://github.com/Zuoqiu-Yingyi)：思源主题`Dark+`；
 - [TCOTC](https://github.com/TCOTC/Whisper)：思源主题`Whisper`；
-- [QYL](https://github.com/QYLexpired/QYL-theme):思源主题`QYL`（主题切换功能）。
+- [QYL](https://github.com/QYLexpired/QYL-theme):思源主题`QYL`（js主题切换、卡片式界面、隐藏顶栏等功能）。
 
 ## 🤔问题反馈，持续服务ing
 

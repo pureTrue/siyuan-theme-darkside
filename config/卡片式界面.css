@@ -6,8 +6,24 @@
         color: var(--b3-theme-primary);
     }
 }
+
+/*顶栏：同样卡片化*/
 .toolbar {
-    border: none;
+    background-color:var(--pc-background-color-1) !important;
+	margin:6px 7px 0px 7px;/*左右与区块图标对齐*/
+	border:1px solid var(--pc-background-color-4) !important;
+	border-radius:8px;
+	height: 32px;
+    line-height: 32px;
+}
+	/*顶栏内边框位置调整*/
+body.body--win32 .toolbar{
+	padding: 0px 0px 0px 2px !important;
+}
+#barWorkspace.ariaLabel.toolbar__item.toolbar__item--active {
+	/*顶栏总按钮：淡化*/
+	background-color: var(--pc-background-color-2);
+	border: none;
 }
 
 body:not(.body--mobile,.body--window).fn__flex-column {
@@ -19,21 +35,22 @@ body:not(.body--mobile,.body--window) #layouts {
     padding: 8px 0 8px 0;
     min-height: 50%;
 }
-.dock#dockLeft {
+.dock#dockLeft,.dock#dockRight {
     border: none;
 	background-color: var(--pc-background-color-3);
+	padding:2px 0;/*高度与卡片平齐*/
 }
-.dock#dockRight {
-    border: none;
-	background-color: var(--pc-background-color-3);
-}
+
+/*编辑器-页签*/
 #layouts .fn__flex.layout-tab-bar {  
     border-top-left-radius: var(--b3-border-radius-b);
-	padding:4px 8px;
+	border-top:1px solid var(--pc-background-color-4);
+	border-left:1px solid var(--pc-background-color-4);
 }
 #layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {
     border-top-right-radius: var(--b3-border-radius-b);
-	padding:4px 0px;
+	border-top:1px solid var(--pc-background-color-4);
+	border-right:1px solid var(--pc-background-color-4);
 }
 #layouts .layout__center .layout-tab-container {
     border-radius: 0 0 var(--b3-border-radius-b) var(--b3-border-radius-b);
@@ -42,10 +59,11 @@ body:not(.body--mobile,.body--window) #layouts {
 #layouts .layout__center .layout-tab-container:has(.layout__empty) {
     border-radius: var(--b3-border-radius-b) !important;
 }
+/*侧边栏*/
 #layouts .fn__flex-column:not(.layout__center) .fn__flex .layout-tab-container {
     border-radius: var(--b3-border-radius-b);
     background-color: var(--b3-theme-background);
-	
+	border:1px solid var(--pc-background-color-4);
 }
 .file-tree:is(.sy__graph, .sy__globalGraph) canvas {
     background-color: var(--b3-theme-background);
@@ -58,6 +76,14 @@ body:not(.body--mobile,.body--window) #layouts {
     border: none;
     box-shadow: var(shadow-1);
 }
+
+/*编辑器-正文区*/
+.protyle-content{
+	border-top:none !important;
+	border:1px solid var(--pc-background-color-4);
+	border-radius:0px 0px var(--b3-border-radius-b) var(--b3-border-radius-b) ;
+}
+
 #layouts .file-tree .block__icons :is(.block__logo, .block__logoicon, .block__icon) {
     /*color: var(--b3-theme-primary);
 	侧边栏主字体颜色*/
@@ -96,7 +122,7 @@ body:not(.body--mobile,.body--window) #layouts {
     visibility: visible;
 }
 #layouts .layout--float {
-    border: 1px solid  var(--b3-theme-surface-lighter);
+
     box-shadow: var(--b3-dialog-shadow);
     background-color: var(--b3-theme-background);
     padding: 0;
@@ -151,11 +177,15 @@ body:not(.body--mobile,.body--window) #layouts {
 	background-color:var(--pc-background-color-1);
 	padding:6px 4px !important;
 	border-radius:0px 12px 0px 0px;
+	border-bottom:none !important;/*解决垂直页签边框线问题*/
+	border-right:1px solid var(--pc-background-color-4);
 }
 
 #layouts .layout__center .PureColorwndthe1 > .fn__flex > .layout-tab-bar--readonly {
 	background-color:var(--pc-background-color-1);
 	border-radius:0px 0px 12px 12px;
+	border-top:none !important;/*解决垂直页签边框线问题*/
+	border:1px solid var(--pc-background-color-4);
 }
 
 #layouts .layout__center .PureColorwndthe1 > .layout-tab-container {
@@ -166,7 +196,32 @@ body:not(.body--mobile,.body--window) #layouts {
 /*底部栏：位置修复*/
 #status {
 	bottom: 15px;
-	right: -8px;/*++*/
-	box-shadow: none ;
-	background-color:var(--b3-theme-surface);
+
 }
+
+/*编辑器-面包屑*/
+
+.protyle-breadcrumb{
+	border-radius:0px !important;/*「修复」面包屑：导致的界面圆角错误*/
+	
+	border-left:1px solid var(--pc-background-color-4);
+	border-right:1px solid var(--pc-background-color-4);
+}
+
+
+
+/*侧边栏-图标区块：加上背景色与文本区块区分*/
+.block__icons{
+    background-color:var(--b3-theme-surface) !important;
+    border-bottom:none !important;
+}
+
+.layout-tab-container:hover{
+    .block__icons{
+        background-color:var(--b3-theme-surface) !important;
+    }
+}
+
+
+
+

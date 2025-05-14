@@ -803,7 +803,7 @@ function enabletoolbarhidden() {
     }
     styleSheet.innerText = `
         .toolbar {
-            margin-bottom: -32px;
+            margin-bottom: -32px !important;
             opacity: 0;
             transition: all 200ms;
             transform: translateY(-30px);
