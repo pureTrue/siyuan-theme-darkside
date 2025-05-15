@@ -381,3 +381,36 @@
 .b3-typography .h1,.b3-typography h1,.b3-typography .h2,.b3-typography h2,.b3-typography .h3,.b3-typography h3,.b3-typography .h4,.b3-typography h4,.b3-typography .h5,.b3-typography h5,.b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h1,.protyle-wysiwyg h1,.protyle-wysiwyg .h2,.protyle-wysiwyg h2,.protyle-wysiwyg .h3,.protyle-wysiwyg h3,.protyle-wysiwyg .h4,.protyle-wysiwyg h4,.protyle-wysiwyg .h5,.protyle-wysiwyg h5,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 {
     opacity:1;			
 } 
+
+
+.card__main{
+	border-left:1px solid var(--pc-background-color-4);
+	border-right:1px solid var(--pc-background-color-4);
+	border-bottom:1px solid var(--pc-background-color-4);
+	border-radius:0 0 12px 12px;
+	.block__icons{
+		border-radius:0px;
+	}
+	.protyle-content{
+		border:none !important;
+	}
+	.protyle-breadcrumb{
+		border:none !important;
+	}
+}
+
+
+
+.block__popover,.b3-dialog__body .card__main {
+	
+	.block__icons{
+		background-color:inherit !important;
+		border-radius:var(--b3-border-radius-b);
+	}
+	.protyle-content{
+		border:none !important;
+	}
+	.protyle-breadcrumb{
+		border:none !important;
+	}
+}

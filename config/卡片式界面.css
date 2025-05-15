@@ -125,7 +125,6 @@ body:not(.body--mobile,.body--window) #layouts {
 
     box-shadow: var(--b3-dialog-shadow);
     background-color: var(--b3-theme-background);
-    padding: 0;
     border-radius: var(--b3-border-radius-b);
 }
 .file-tree.sy__graph {
@@ -222,6 +221,37 @@ body:not(.body--mobile,.body--window) #layouts {
     }
 }
 
+
+/*双链浮窗：排除*/
+.block__popover,.b3-dialog__body .card__main {
+	.block__icons{
+		background-color:inherit !important;
+		border-radius:var(--b3-border-radius-b);
+	}
+	.protyle-content{
+		border:none !important;
+	}
+	.protyle-breadcrumb{
+		border:none !important;
+	}
+}
+
+/*闪卡界面：修复*/
+.card__main{
+	border-left:1px solid var(--pc-background-color-4);
+	border-right:1px solid var(--pc-background-color-4);
+	border-bottom:1px solid var(--pc-background-color-4);
+	border-radius:0 0 12px 12px;
+	.block__icons{
+		border-radius:0px;
+	}
+	.protyle-content{
+		border:none !important;
+	}
+	.protyle-breadcrumb{
+		border:none !important;
+	}
+}
 
 
 
