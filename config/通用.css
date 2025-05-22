@@ -109,8 +109,12 @@
 .block__popover{
 	width:550px;
 	min-height:300px;
+	border: 1px solid var(--b3-theme-surface-lighter);
+	box-shadow:var(--pc-shadow-1);
 }
-
+.block__popover>.block__icons{
+	background-color:var(--pc-background-color-2) !important;
+}
 
 /**** 2.5 滚动条 ****/
 /* 通用滚动条 （v2.2.0：改回官方主题的细滚动条）*/
@@ -714,6 +718,11 @@ span[data-type="inline-math"] .katex{
     border-radius: 0px;
 }
 
+.b3-typography .img .protyle-action__title,
+ .protyle-wysiwyg .img .protyle-action__title{
+	background-color:var(--pc-background-color-2);
+	padding:4px 8px;
+}
 
 .b3-typography .img>span:nth-child(2), .protyle-wysiwyg .img>span:nth-child(2){
     width: 33%;
@@ -881,9 +890,26 @@ span[data-type="inline-math"] .katex{
 }
 
 
-/**** 8.6 引述 ****/
-.b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
+	/*todo按钮-折叠样式下划线*/
+.protyle-wysiwyg [data-node-id].li[fold="1"][data-subtype=t]>.protyle-action::after{
+    background-color: var(--pc-surface-color-2) !important;
+	height:2px;
+	top:100%;
+	border-radius:1px;
 }
+
+
+/**** 8.6 blockquote引述 ****/
+.b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq ,
+.protyle-wysiwyg [data-node-id].bq:not([style*='background-color']){
+	border-left: var(--quote-border-width) solid  var(--quote-border-color);
+	border-radius:0px;
+	color: var(--quote-color);
+	background-color: var(--quote-background);
+	padding: 0.0em 0.7em;
+	font-family:var(--b3-font-family-code);
+}
+
 /* 调整引述在超级块中的样式 */
 .protyle-wysiwyg .sb blockquote,  .protyle-wysiwyg .sb .bq{
     margin:  var(--allen-block-margin);
@@ -892,17 +918,6 @@ span[data-type="inline-math"] .katex{
 
 
 
-/* -----------------------blockquote 引述块----------------------- */
-
-.b3-typography blockquote,
-.protyle-wysiwyg [data-node-id].bq:not([style*='background-color']) {
-	border-left: var(--quote-border-width) solid  var(--quote-border-color);
-	border-radius:0px;
-	color: var(--quote-color);
-	background-color: var(--quote-background);
-	padding: 0.0em 0.7em;
-	font-family:var(--b3-font-family-code);
-}
 
 
 /*外观：background1-6（变为引述块样式，但并非引述块）*/
@@ -970,7 +985,7 @@ span[data-type="inline-math"] .katex{
 .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]{
 	background-color:var(--quote-background);
 	border-radius:0px;
-	border-left:3px solid var(--BlockEmbed-border-color) !important;/*zhs*/
+	border-left:var(--quote-border-width) solid var(--BlockEmbed-border-color) !important;/*zhs*/
 	border:none;
 }
 
@@ -986,16 +1001,14 @@ span[data-type="inline-math"] .katex{
 .b3-typography table tr:hover,
 .protyle-wysiwyg table tr:hover {
 	/* 鼠标悬浮行 */
-  outline: 1px solid var(--b3-theme-primary-lighter);
-
+	background-color:var(--b3-theme-primary-lightest);
 }
 .b3-typography table tr th:hover,
 .protyle-wysiwyg table tr th:hover,
 .b3-typography table tr td:hover,
 .protyle-wysiwyg table tr td:hover {
 	/* 鼠标悬浮单元格 */
-  box-shadow: 0 0 0 1px var(--b3-theme-primary-lighter) inset !important;
-
+	background-color:var(--b3-theme-primary-lightest);
 }
 
 	/*表格首行样式*/
@@ -1727,10 +1740,11 @@ body{
 
 /*97.右上角的弹窗通知样式*/
 .b3-snackbar__content{
-	background-color:var(--b3-menu-background);
+	background-color:var(--pc-background-color-1);
 	color:var(--b3-theme-on-surface);
 	box-shadow:var(--pc-shadow-1);
 	border: 1px solid var(--b3-theme-surface-lighter);
+	border-radius:var(--b3-border-radius-b);
 }
 .b3-snackbar__content a{
 	color: var(--b3-theme-primary);
@@ -1738,12 +1752,12 @@ body{
 
 	/*弹窗-发生错误*/
 .b3-snackbar--error .b3-snackbar__content{
-	background-color: var(--pc-background-color-2);
-	transition:var(--b3-transition);
-}
-.b3-snackbar--error .b3-snackbar__content:hover{
+	box-shadow:0px 1px 2px -2px rgba(var(--pc-color-1),.16), 0px 3px 6px 0px rgba(var(--pc-color-1),.12), 0px 5px 12px 4px rgba(var(--pc-color-1),0.09);
 	color: var(--b3-card-error-color);
+	background-color:rgba(251, 220, 217) !important;
+	border:1px solid var(--b3-card-error-color);
 }
+
 
 .b3-snackbar__close:hover{color:var(--b3-card-error-color);}
 .b3-snackbar__close{color:var(--b3-menu-item-background-light);}
@@ -2233,11 +2247,15 @@ div#tooltip {
 
 
 /*插件：番茄工具箱-底部反链字体颜色*/
-[isThisDoc=true].svelte-shn1w3{
+.protyle-wysiwyg .svelte-shn1w3{
   color:rgb(var(--b3-protyle-mainfont)) !important;
 }
 
-
+.buttom-bk-borderedDiv{
+	border:none !important;
+	background-color:var(--quote-background);
+	border-radius:var(--b3-border-radius);
+}
 
 
 /*编辑框：纸质质感
@@ -2245,3 +2263,4 @@ div#tooltip {
 	background-image: url('/appearance/themes/siyuan-theme-darkside/theme/paper.png');
 }
 */
+

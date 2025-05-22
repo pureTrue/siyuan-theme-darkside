@@ -285,7 +285,7 @@
     --b3-dialog-shadow:var(--pc-shadow-1);
 	--b3-button-shadow:var(--pc-shadow-3);
 	
-	--pc-shadow-1:0px 1px 2px -2px rgba(0,0,0,0.16), 0px 3px 6px 0px rgba(0,0,0,0.12), 0px 5px 12px 4px rgba(0,0,0,0.09);
+	--pc-shadow-1:0px 1px 2px -2px rgba(var(--b3-theme-primaryrgb),.16), 0px 3px 6px 0px rgba(var(--b3-theme-primaryrgb),0.12), 0px 5px 12px 4px rgba(var(--b3-theme-primaryrgb),0.09);
 	--pc-shadow-2:0px 3px 6px -4px rgba(0,0,0,0.12), 0px 6px 16px 0px rgba(0,0,0,0.08), 0px 9px 28px 8px rgba(0,0,0,0.05);
 	--pc-shadow-3:0px 6px 16px -8px rgba(0,0,0,0.08), 0px 9px 28px 0px rgba(0,0,0,0.05), 0px 12px 48px 16px rgba(0,0,0,0.03);
 	
@@ -347,7 +347,7 @@
 
 	/*「自定义」特殊引述块 */
 		/* 通用 */
-	--quote-border-width:3px; /* 左边框宽度 */
+	--quote-border-width:.25em; /* 左边框宽度 */
 	--quote-background:rgba(0,0,0,0.05); /* 背景色 */
 		/* 引述块 */
     --quote-border-color:rgba(91, 184, 173,0.6);/* 左边框颜色

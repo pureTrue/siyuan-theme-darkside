@@ -9,21 +9,16 @@
 
 /*顶栏：同样卡片化*/
 .toolbar {
-    background-color:var(--pc-background-color-1) !important;
-	margin:6px 7px 0px 7px;/*左右与区块图标对齐*/
-	border:1px solid var(--pc-background-color-4) !important;
-	border-radius:8px;
-	height: 32px;
-    line-height: 32px;
+    border:0px solid var(--pc-background-color-4) !important;
 }
 	/*顶栏内边框位置调整*/
 body.body--win32 .toolbar{
-	padding: 0px 0px 0px 2px !important;
+	padding: 0px 0px 0px 5px !important;
 }
 #barWorkspace.ariaLabel.toolbar__item.toolbar__item--active {
 	/*顶栏总按钮：淡化*/
-	background-color: var(--pc-background-color-2);
-	border: none;
+	background-color: var(--pc-background-color-4); 
+    border: none;
 }
 
 body:not(.body--mobile,.body--window).fn__flex-column {
@@ -195,7 +190,6 @@ body:not(.body--mobile,.body--window) #layouts {
 /*底部栏：位置修复*/
 #status {
 	bottom: 15px;
-
 }
 
 /*编辑器-面包屑*/
@@ -225,8 +219,8 @@ body:not(.body--mobile,.body--window) #layouts {
 /*双链浮窗：排除*/
 .block__popover,.b3-dialog__body .card__main {
 	.block__icons{
-		background-color:inherit !important;
-		border-radius:var(--b3-border-radius-b);
+		background-color:inherit;
+		border-radius:var(--b3-border-radius-b) var(--b3-border-radius-b) 0 0;
 	}
 	.protyle-content{
 		border:none !important;
@@ -253,5 +247,79 @@ body:not(.body--mobile,.body--window) #layouts {
 	}
 }
 
+/*数据库：修复*/
+.av__container{
+	.layout-tab-bar{
+		border:none !important;
+	}
+}
 
 
+
+/*引述块、嵌入块、代码块样式适配圆角卡片化*/
+	/*引述块*/
+.b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq ,
+.protyle-wysiwyg [data-node-id].bq:not([style*='background-color']){
+	border-left: none;
+	border-radius:var(--b3-border-radius);
+	background-color:var(--quote-background);
+}
+
+
+.b3-typography blockquote::before,
+ .b3-typography .bq::before,
+ .protyle-wysiwyg blockquote::before,
+ .protyle-wysiwyg .bq::before {
+    content: "" !important;
+    background-color: var(--quote-border-color) !important;
+    width: .25em !important;
+    border-radius: var(--b3-border-radius) !important;
+    position: absolute !important;
+    left: .25em;
+    top: .25em;
+    bottom: .25em;
+}
+
+	/*嵌入块*/
+.protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]{
+	border-left: none !important;
+	border-radius:var(--b3-border-radius);
+}
+
+.protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]::before{
+	content: "" !important;
+    background-color: var(--BlockEmbed-border-color) !important;
+    width: .25em !important;
+    border-radius: var(--b3-border-radius) !important;
+    position: absolute !important;
+    left: .25em;
+    top: .25em;
+    bottom: .25em;
+}
+	/*代码块*/
+.b3-typography .code-block, .protyle-wysiwyg .code-block{
+	border-left: none !important;
+	border-radius:var(--b3-border-radius);
+}
+
+.b3-typography .code-block, .protyle-wysiwyg .code-block::before{
+	content: "" !important;
+    background-color: var(--code-border-color) !important;
+    width: .25em !important;
+    border-radius: var(--b3-border-radius) !important;
+    position: absolute !important;
+    left: .25em;
+    top: .25em;
+    bottom: .25em;
+}
+
+/*图片：圆角*/
+.b3-typography img,
+.protyle-wysiwyg img{
+	border-radius:var(--b3-border-radius) var(--b3-border-radius) 0 0;
+}
+
+.b3-typography .img .protyle-action__title,
+ .protyle-wysiwyg .img .protyle-action__title{
+	border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}
