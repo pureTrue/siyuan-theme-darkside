@@ -39,6 +39,7 @@ const I18N = {
 		PureColorycdl: ' 隐藏顶栏&无框线',
         PureColorczyq: ' 垂直页签',
         PureColorlbfzx: ' 列表子弹线',
+		PureColordzjms: ' 打字机模式',
         PureColorxyps: ' 配色：暮·灰',
         PureColorslps: ' 配色：藻·紫',
         PureColorhyps: ' 配色：类logseq·青',
@@ -57,6 +58,7 @@ const I18N = {
 		PureColorycdl: ' Hide Topbar&Frameless',
         PureColorczyq: ' Vertical Tabs',
         PureColorlbfzx: ' List Bullet Line',
+		PureColordzjms: ' Type Writer',
         PureColorxyps: ' Theme：Evening·Limestone',
         PureColorslps: ' Theme：Algae·Purple',
         PureColorhyps: ' Theme：logseqlike·Green',
@@ -142,6 +144,9 @@ let isChecked12;
 let isChecked13;
 let isChecked14;
 let isChecked15;
+let isChecked16;
+
+
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -340,6 +345,17 @@ function createSettingsWindow() {
     label15.style.fontSize = '14px';
     label15.style.userSelect= 'none';
 	
+	const checkbox16 = document.createElement('input');//打字机模式
+    checkbox16.type = 'checkbox';
+    checkbox16.id = 'PureColordzjms-checkbox';
+    checkbox16.checked = isChecked16;
+
+    const label16 = document.createElement('label');
+    label16.htmlFor = 'PureColordzjms-checkbox';
+    label16.textContent = i18n.PureColordzjms;
+    label16.style.fontSize = '14px';
+    label16.style.userSelect= 'none';
+	
 	
 	// ==== ②.②将复选框及标签组合 ====
     const PureColorfunctionpair1 = document.createElement('div');
@@ -432,6 +448,11 @@ function createSettingsWindow() {
     PureColorfunctionpair15.appendChild(label15);
     PureColorfunctionpair15.style.animation = 'PureColorbounceRight2 0.1s';
 	
+	const PureColorfunctionpair16 = document.createElement('div');
+    PureColorfunctionpair16.className = 'checkbox-label-pair';
+    PureColorfunctionpair16.appendChild(checkbox16);
+    PureColorfunctionpair16.appendChild(label16);
+    PureColorfunctionpair16.style.animation = 'PureColorbounceRight2 0.1s';
 	
 
     // ==== ②.③不同类型按钮间设置「分割线」 ====
@@ -457,6 +478,7 @@ function createSettingsWindow() {
 	settingsWindow.appendChild(PureColorfunctionpair14); //隐藏顶栏
 	settingsWindow.appendChild(PureColorfunctionpair1);  //垂直页签
 	settingsWindow.appendChild(PureColorfunctionpair2); //列表子弹线
+	settingsWindow.appendChild(PureColorfunctionpair16); //打字机模式
 	settingsWindow.appendChild(PureColorfunctionpairdivider1); //以下是主题配色
 	settingsWindow.appendChild(PureColorfunctionpair3);
     settingsWindow.appendChild(PureColorfunctionpair4);
@@ -497,6 +519,7 @@ async function saveConfig() {
 		isChecked13: checkbox13.checked,
 		isChecked14: checkbox14.checked,
 		isChecked15: checkbox15.checked,
+		isChecked16: checkbox16.checked,
 
     })], { type: 'application/json' }), 'PureColor-dark-config.json');
 
@@ -546,6 +569,18 @@ checkbox2.addEventListener('change', async function() {
 });
 
 
+
+// 打字机模式开关
+checkbox16.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColortypewriter() : disablePureColortypewriter();
+    state ? isChecked16 = true : isChecked16 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
 
 
 
@@ -1236,6 +1271,47 @@ function disablePureColorverticaltab() {
 }
 
 
+
+// 开启打字机模式
+function enablePureColortypewriter() {
+    // Initialize typewriter mode
+    const typewriter = typewriteractivate();
+    
+    // Add style for typewriter mode
+    let styleElement = document.getElementById("typewriter-mode-style");
+    if (!styleElement) {
+        styleElement = document.createElement("style");
+        styleElement.id = "typewriter-mode-style";
+        document.head.appendChild(styleElement);
+    }
+    
+    // Store the active editor reference
+    window.typewriterModeActive = true;
+}
+
+// 关闭打字机模式
+function disablePureColortypewriter() {
+    // Remove all typewriter event listeners
+    const editors = document.querySelectorAll('div.protyle:not(.fn__none) div.protyle-wysiwyg');
+    editors.forEach(editor => {
+        editor.onkeyup = null;
+    });
+    
+    // Remove typewriter styles
+    const styleElement = document.getElementById("typewriter-mode-style");
+    if (styleElement) {
+        styleElement.remove();
+    }
+    
+    // Clear the active flag
+    window.typewriterModeActive = false;
+}
+
+
+
+
+
+
 // 读取PureColor-dark-config.json
 async function loadAndCheckConfig() {
     try {
@@ -1361,6 +1437,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked15 === false) {
             disablecardbasedinterface();
             isChecked15 = false;
+        }
+		
+		if (config?.isChecked16 === true) {
+            enablePureColortypewriter();
+            isChecked16 = true;
+        } else if (config?.isChecked16 === false) {
+            disablePureColortypewriter();
+            isChecked16 = false;
         }
 
 
@@ -1742,6 +1826,86 @@ const PureColorlihelp = (function() {
         }
     };
 })();
+
+
+
+
+
+//打字机模式
+	//0.获得焦点所在的块
+function getFocusedBlock() {
+    if (document.activeElement.classList.contains('protyle-wysiwyg')) {
+        /* 光标在编辑区内 */
+        let block = window.getSelection()?.focusNode?.parentElement; // 当前光标
+        while (block != null && block?.dataset?.nodeId == null) block = block.parentElement;
+        return block;
+    }
+    else return null;
+}
+
+//打字机核心模块
+function typewriteractivate() {
+    let protyle_wysiwyg = document.querySelectorAll('div.protyle:not(.fn__none) div.protyle-wysiwyg');
+    if (protyle_wysiwyg.length > 0) {
+        for (let editor of protyle_wysiwyg) {
+            if (editor.onkeyup == null) {
+                editor.onkeyup = (e, t) => {
+                    if (!window.typewriterModeActive) return;
+                    
+                    let block = getFocusedBlock();
+                    let page = editor.parentElement;
+                    if (block == null || page == null) return;
+                    
+                    // Add visual focus class
+                    document.querySelectorAll('.typing-focus').forEach(el => {
+                        el.classList.remove('typing-focus');
+                    });
+                    
+                    // 处理代码块和表格的特殊情况
+                    let focusElement = block;
+                    if (block.dataset.type === "NodeCodeBlock") {
+                        // 对于代码块，聚焦当前行
+                        const selection = window.getSelection();
+                        if (selection && selection.rangeCount > 0) {
+                            const range = selection.getRangeAt(0);
+                            const codeLine = range.startContainer.parentElement.closest('.code-block');
+                            if (codeLine) {
+                                focusElement = codeLine;
+                            }
+                        }
+                    } else if (block.dataset.type === "NodeTable") {
+                        // 对于表格，聚焦当前行
+                        const selection = window.getSelection();
+                        if (selection && selection.rangeCount > 0) {
+                            const range = selection.getRangeAt(0);
+                            const tableRow = range.startContainer.parentElement.closest('table tr');
+                            if (tableRow) {
+                                focusElement = tableRow;
+                            }
+                        }
+                    }
+                    
+                    focusElement.classList.add('typing-focus');
+                    
+                    // Calculate and perform scroll
+                    let block_height = focusElement.clientHeight;
+                    let block_bottom = focusElement.getBoundingClientRect().bottom;
+                    let page_height = page.clientHeight;
+                    let page_bottom = page.getBoundingClientRect().bottom;
+                    
+                    page.style.scrollBehavior = "smooth";
+					const scrollStep = 0.3; // 调整这个系数可改进滚动速度 (慢0.1-1.0快)
+                    page.scrollBy(0, -((page_bottom - page_height / 2) - (block_bottom - block_height / 2)));
+                };
+            }
+        }
+    }
+    return { 
+        disable: () => disableTypewriter() 
+    };
+}
+
+
 
 
 // 右键菜单PureColor自定义属性

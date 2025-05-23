@@ -120,27 +120,20 @@
 /* 通用滚动条 （v2.2.0：改回官方主题的细滚动条）*/
 
 ::-webkit-scrollbar {
-	/*width:6px;*/
+	width:6px;
 }
 ::-webkit-scrollbar-thumb{
 	/*background-color:var(--b3-scroll-color);*/
+	background-color: rgba(0,0,0,0.05);
+	opacity:1 !important;
 	border-radius: 0px;
 	transition:var(--b3-transition)
 }
 ::-webkit-scrollbar-thumb:hover{  
-	background-color: var(--b3-menu-item-background-light);
+	background-color: rgba(0,0,0,0.05);
 }
 
 
-/* 边栏滚动条 */
-/*
-#layouts>.fn__flex-1>.fn__flex-column ::-webkit-scrollbar-thumb{
-	background-color: var(--column-scrollbar-background);
-}
-#layouts>.fn__flex-1>.fn__flex-column ::-webkit-scrollbar-thumb:hover{
-	background-color: var(--column-scrollbar-hover-background);
-}
-*/
 
 
 /************** 3 文档编辑区 **************************/
@@ -442,7 +435,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 .protyle-wysiwyg [data-node-id].hr>div:after{
 	top:2px;
 	border-bottom: 2px dashed var(--b3-menu-item-background-light);
-	background-color:var(--b3-theme-background);
+	background-color:inherit;
 	height:2px; 
 }
 
@@ -484,12 +477,10 @@ tem, .protyle-breadcrumb__text--ellipsis{
 /************ 6 其他 ************/
 /* 大文件分页加载条 */
 .protyle-scroll{
-    opacity: 0;
     transition: var(--page-scrollbar-transition);
 }
 .protyle-scroll:hover{
     visibility: visible;
-    opacity: 1;
 }
 
 /* 编辑器光标颜色 */
@@ -971,6 +962,14 @@ span[data-type="inline-math"] .katex{
     border-radius: 0px;
     background-color: var(--b3-code-background) !important;
 	border-left:var(--quote-border-width) solid var(--code-border-color);/*var(--inline-code-color)*/
+	
+	
+	position: relative;
+    overflow-y: auto;
+	display:flex;
+	flex-direction:column;
+	flex:1;
+    max-height: 50vh;
 }
 
 
@@ -987,6 +986,10 @@ span[data-type="inline-math"] .katex{
 	border-radius:0px;
 	border-left:var(--quote-border-width) solid var(--BlockEmbed-border-color) !important;/*zhs*/
 	border:none;
+	
+	position: relative;
+    overflow-y: auto;
+    max-height: 50vh;
 }
 
 

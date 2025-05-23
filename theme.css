@@ -120,7 +120,7 @@
 	--b3-menu-item-background-black:rgba(0,0,0,0.1);
 	--b3-menu-item-background-light:rgba(0,0,0,0.05);
 	
-	
+	--b3-scroll-color:var(--b3-menu-item-background-light);
 	
 	/*背景色：编辑器 */
 	--b3-theme-background: var(--pc-background-color-1);/*编辑器正文栏*/
@@ -381,6 +381,8 @@
 .b3-typography .h1,.b3-typography h1,.b3-typography .h2,.b3-typography h2,.b3-typography .h3,.b3-typography h3,.b3-typography .h4,.b3-typography h4,.b3-typography .h5,.b3-typography h5,.b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h1,.protyle-wysiwyg h1,.protyle-wysiwyg .h2,.protyle-wysiwyg h2,.protyle-wysiwyg .h3,.protyle-wysiwyg h3,.protyle-wysiwyg .h4,.protyle-wysiwyg h4,.protyle-wysiwyg .h5,.protyle-wysiwyg h5,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 {
     opacity:1;			
 } 
+
+
 
 
 
