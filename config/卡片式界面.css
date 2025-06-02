@@ -1,4 +1,3 @@
-
 /* 卡片式界面 */
 .layout__empty .b3-list-item:hover {
     color: var(--b3-theme-primary);
@@ -39,13 +38,13 @@ body:not(.body--mobile,.body--window) #layouts {
 /*编辑器-页签*/
 #layouts .fn__flex.layout-tab-bar {  
     border-top-left-radius: var(--b3-border-radius-b);
-	border-top:1px solid var(--pc-background-color-4);
-	border-left:1px solid var(--pc-background-color-4);
+	border-top:var(--pc-border-3) solid var(--pc-background-color-4);
+	border-left:var(--pc-border-3) solid var(--pc-background-color-4);
 }
 #layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {
     border-top-right-radius: var(--b3-border-radius-b);
-	border-top:1px solid var(--pc-background-color-4);
-	border-right:1px solid var(--pc-background-color-4);
+	border-top:var(--pc-border-3) solid var(--pc-background-color-4);
+	border-right:var(--pc-border-3) solid var(--pc-background-color-4);
 }
 #layouts .layout__center .layout-tab-container {
     border-radius: 0 0 var(--b3-border-radius-b) var(--b3-border-radius-b);
@@ -58,7 +57,7 @@ body:not(.body--mobile,.body--window) #layouts {
 #layouts .fn__flex-column:not(.layout__center) .fn__flex .layout-tab-container {
     border-radius: var(--b3-border-radius-b);
     background-color: var(--b3-theme-background);
-	border:1px solid var(--pc-background-color-4);
+	border:var(--pc-border-3) solid var(--pc-background-color-4);
 }
 .file-tree:is(.sy__graph, .sy__globalGraph) canvas {
     background-color: var(--b3-theme-background);
@@ -75,7 +74,7 @@ body:not(.body--mobile,.body--window) #layouts {
 /*编辑器-正文区*/
 .protyle-content{
 	border-top:none !important;
-	border:1px solid var(--pc-background-color-4);
+	border:var(--pc-border-3) solid var(--pc-background-color-4);
 	border-radius:0px 0px var(--b3-border-radius-b) var(--b3-border-radius-b) ;
 }
 
@@ -172,14 +171,14 @@ body:not(.body--mobile,.body--window) #layouts {
 	padding:6px 4px !important;
 	border-radius:0px 12px 0px 0px;
 	border-bottom:none !important;/*解决垂直页签边框线问题*/
-	border-right:1px solid var(--pc-background-color-4);
+	border-right:var(--pc-border-3) solid var(--pc-background-color-4);
 }
 
 #layouts .layout__center .PureColorwndthe1 > .fn__flex > .layout-tab-bar--readonly {
 	background-color:var(--pc-background-color-1);
-	border-radius:0px 0px 12px 12px;
+	border-radius:0px 0px var(--b3-border-radius-b) var(--b3-border-radius-b);
 	border-top:none !important;/*解决垂直页签边框线问题*/
-	border:1px solid var(--pc-background-color-4);
+	border:var(--pc-border-3) solid var(--pc-background-color-4);
 }
 
 #layouts .layout__center .PureColorwndthe1 > .layout-tab-container {
@@ -189,16 +188,16 @@ body:not(.body--mobile,.body--window) #layouts {
 
 /*底部栏：位置修复*/
 #status {
-	bottom: 15px;
+	bottom: 17px;
+	right: -6px;
 }
 
 /*编辑器-面包屑*/
-
 .protyle-breadcrumb{
 	border-radius:0px !important;/*「修复」面包屑：导致的界面圆角错误*/
 	
-	border-left:1px solid var(--pc-background-color-4);
-	border-right:1px solid var(--pc-background-color-4);
+	border-left:var(--pc-border-3) solid var(--pc-background-color-4);
+	border-right:var(--pc-border-3) solid var(--pc-background-color-4);
 }
 
 
@@ -232,10 +231,10 @@ body:not(.body--mobile,.body--window) #layouts {
 
 /*闪卡界面：修复*/
 .card__main{
-	border-left:1px solid var(--pc-background-color-4);
-	border-right:1px solid var(--pc-background-color-4);
-	border-bottom:1px solid var(--pc-background-color-4);
-	border-radius:0 0 12px 12px;
+	border-left:var(--pc-border-3) solid var(--pc-background-color-4);
+	border-right:var(--pc-border-3) solid var(--pc-background-color-4);
+	border-bottom:var(--pc-border-3) solid var(--pc-background-color-4);
+	border-radius:0 0 var(--b3-border-radius-b) var(--b3-border-radius-b);
 	.block__icons{
 		border-radius:0px;
 	}

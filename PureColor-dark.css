@@ -2,16 +2,6 @@
 
 /**** 0 字体 ****/
 @font-face{
-	font-family:'霞鹜文楷mono';
-	src:url("fonts/LXGWWenKaiMonoLite-Regular.woff2");
-}
-
-@font-face{
-	font-family:'霞鹜新晰黑';
-	src:url("fonts/LXGWNeoXiHei.woff2");
-}
-
-@font-face{
 	font-family:'Twemoji';
 	src:url("fonts/Twemoji.woff2");
 }
@@ -30,16 +20,6 @@
   to {
     left: 100%;
   }
-}
-
-
-@keyframes BounceRight2 {
-    0% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0);
-    }
 }
 
 
@@ -72,9 +52,9 @@
 
 
 	/****============= 1.2 字体 ================****/
-	--b3-font-family: Consolas, Helvetica,"Luxi Sans", "DejaVu Sans",arial, "Hiragino Sans GB","PingFang SC","Source Han Sans SC","霞鹜新晰黑", "Microsoft Yahei",  sans-serif,var(--b3-font-family-emoji);
+	--b3-font-family: Consolas, Helvetica,"Luxi Sans", "DejaVu Sans",arial, "Hiragino Sans GB","PingFang SC","Source Han Sans SC","Microsoft Yahei",system-ui, sans-serif,var(--b3-font-family-emoji);
 	--b3-font-family-protyle: var(--b3-font-family);
-    --b3-font-family-code: 霞鹜文楷mono,mononoki, Consolas,  "Liberation Mono",var(--b3-font-family-emoji); 
+    --b3-font-family-code: 霞鹜文楷等宽,"JetBrainsMono-Regular",mononoki, Consolas, "Liberation Mono",monaco,monospace,var(--b3-font-family); 
     --b3-font-family-graph: var(--b3-font-family-code);
 	--b3-font-family-math: KaTeX_Math,Times New Roman, serift; 
 	--b3-font-family-emoji: "Twemoji", "Emojis Additional", "Emojis Reset",emojis;
@@ -278,7 +258,12 @@
     --b3-switch-checked-hover: #fff;
     --b3-switch-checked-hover2: var(--b3-menu-item-background-light);
 
-
+	
+	/*自定义：边框*/
+	--pc-border-1: 2px;
+	--pc-border-2: 1.5px;
+	--pc-border-3: 1px;
+	
 
     /* 阴影 */
     --b3-point-shadow:var(--pc-shadow-2);

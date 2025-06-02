@@ -1,15 +1,6 @@
 @import url("config/通用.css");
 
 /**** 0 字体 ****/
-@font-face{
-	font-family:'霞鹜文楷mono';
-	src:url("fonts/LXGWWenKaiMonoLite-Regular.woff2");
-}
-
-@font-face{
-	font-family:'霞鹜新晰黑';
-	src:url("fonts/LXGWNeoXiHei.woff2");
-}
 
 @font-face{
 	font-family:'Twemoji';
@@ -33,14 +24,6 @@
 }
 
 
-@keyframes BounceRight2 {
-    0% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
 
 
 
@@ -70,9 +53,9 @@
 
 
 	/****============= 1.2 字体 ================****/
-	--b3-font-family: Consolas, Helvetica,"Luxi Sans", "DejaVu Sans",arial, "Hiragino Sans GB","PingFang SC","Source Han Sans SC","霞鹜新晰黑", "Microsoft Yahei",  sans-serif,var(--b3-font-family-emoji);
+	--b3-font-family: Consolas, Helvetica,"Luxi Sans", "DejaVu Sans",arial, "Hiragino Sans GB","PingFang SC","Source Han Sans SC","Microsoft Yahei",system-ui, sans-serif,var(--b3-font-family-emoji);
 	--b3-font-family-protyle: var(--b3-font-family);
-    --b3-font-family-code: 霞鹜文楷mono,mononoki, Consolas,  "Liberation Mono",var(--b3-font-family-emoji); 
+    --b3-font-family-code: 霞鹜文楷等宽,"JetBrainsMono-Regular",mononoki, Consolas, "Liberation Mono",monaco,monospace,var(--b3-font-family); 
     --b3-font-family-graph: var(--b3-font-family-code);
 	--b3-font-family-math: KaTeX_Math,Times New Roman, serift; 
 	--b3-font-family-emoji: "Twemoji", "Emojis Additional", "Emojis Reset",emojis;
@@ -120,6 +103,7 @@
 	--b3-menu-item-background-black:rgba(0,0,0,0.1);
 	--b3-menu-item-background-light:rgba(0,0,0,0.05);
 	
+	/* 滚动条 */
 	--b3-scroll-color:var(--b3-menu-item-background-light);
 	
 	/*背景色：编辑器 */
@@ -165,8 +149,7 @@
     --b3-border-radius-s: 3px;
     --b3-border-radius-b: 12px;
 
-	/* 滚动条 */
-    --b3-scroll-color: var(--b3-menu-item-background);
+	
 
     /* 列表 */
     --b3-list-hover: var(--b3-menu-item-background-light);/*侧边栏-列表覆盖*/
@@ -270,7 +253,12 @@
     --b3-switch-checked-hover: #fff;
     --b3-switch-checked-hover2: var(--b3-menu-item-background-light);
 
-
+	
+	/*自定义：边框*/
+	--pc-border-1: 2px;
+	--pc-border-2: 1.5px;
+	--pc-border-3: 1px;
+	
 
     /* 阴影 */
     --b3-point-shadow:var(--pc-shadow-2);
@@ -279,8 +267,7 @@
 	
 	--pc-shadow-1:0px 1px 2px -2px rgba(var(--b3-theme-primaryrgb),.16), 0px 3px 6px 0px rgba(var(--b3-theme-primaryrgb),0.12), 0px 5px 12px 4px rgba(var(--b3-theme-primaryrgb),0.09);
 	--pc-shadow-2:0px 3px 6px -4px rgba(var(--b3-theme-primaryrgb),0.12), 0px 6px 16px 0px rgba(var(--b3-theme-primaryrgb),0.08), 0px 9px 28px 8px rgba(var(--b3-theme-primaryrgb),0.05);
-	--pc-shadow-3:0px 6px 16px -8px rgba(0,0,0,0.08), 0px 9px 28px 0px rgba(0,0,0,0.05), 0px 12px 48px 16px rgba(0,0,0,0.03);
-	
+	--pc-shadow-3:0px 0.5px 1px -1px rgba(var(--b3-theme-primaryrgb),.16), 0px 1.5px 3px 0px rgba(var(--b3-theme-primaryrgb),.16), 0px 2.5px 6px 2px rgba(var(--b3-theme-primaryrgb),.16);
 
     /* 图表颜色:照搬默认主题 */
     --b3-graph-p-point: #076f7e;
@@ -381,6 +368,7 @@
 .b3-typography .h1,.b3-typography h1,.b3-typography .h2,.b3-typography h2,.b3-typography .h3,.b3-typography h3,.b3-typography .h4,.b3-typography h4,.b3-typography .h5,.b3-typography h5,.b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h1,.protyle-wysiwyg h1,.protyle-wysiwyg .h2,.protyle-wysiwyg h2,.protyle-wysiwyg .h3,.protyle-wysiwyg h3,.protyle-wysiwyg .h4,.protyle-wysiwyg h4,.protyle-wysiwyg .h5,.protyle-wysiwyg h5,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 {
     opacity:1;			
 } 
+
 
 
 

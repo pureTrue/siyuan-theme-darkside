@@ -9,6 +9,7 @@
 #barWorkspace.ariaLabel.toolbar__item.toolbar__item--active {
 	position: relative;
 	transition: all 0.3s;
+	color:var(--pc-surface-color-1) ;
 	background-color: var(--pc-background-color-4);
 	border: 1px solid var(--b3-menu-item-background-light);
 	overflow: hidden;
@@ -118,19 +119,33 @@
 
 /**** 2.5 滚动条 ****/
 /* 通用滚动条 （v2.2.0：改回官方主题的细滚动条）*/
+.fn__hidescrollbar::-webkit-scrollbar {
+    display: none
+}
 
 ::-webkit-scrollbar {
-	width:6px;
+	width: 10px;
+    height: 10px
 }
-::-webkit-scrollbar-thumb{
-	/*background-color:var(--b3-scroll-color);*/
-	background-color: rgba(0,0,0,0.05);
-	opacity:1 !important;
-	border-radius: 0px;
-	transition:var(--b3-transition)
+
+::-webkit-scrollbar-corner {
+    background-color: rgba(0,0,0,0)
 }
+
+::-webkit-scrollbar-thumb {
+    box-sizing: content-box;
+    border: 4px solid rgba(0,0,0,0);
+    border-radius: 0px;
+    box-shadow: inset 0 0 5px 5px var(--b3-scroll-color)
+}
+
 ::-webkit-scrollbar-thumb:hover{  
-	background-color: rgba(0,0,0,0.05);
+	border-width: 1px
+}
+
+/*页签-滚动条取消*/
+.layout-tab-bar::-webkit-scrollbar {
+    display: none
 }
 
 
@@ -291,7 +306,7 @@
 			height: 10px !important;
 			width: 10px !important;
 			padding:4px;
-			border-radius:4px;
+			border-radius:var(--b3-border-radius-s);
 			background-color: var(--b3-menu-item-background-light);
 		}
 	}
@@ -309,7 +324,7 @@ svg.popover__block{
 		height: 10px !important;
 		width: 10px !important;
 		padding:4px;
-		border-radius:4px;
+		border-radius:var(--b3-border-radius-s);
 		background-color: var(--b3-menu-item-background-light);
 }
 /*面包屑-文本：字体大小*/
@@ -334,7 +349,7 @@ svg.popover__block{
 
 .sy__backlink .protyle-breadcrumb__item:not(:first-child).protyle-breadcrumb__item--active>svg {
 	color: var(--b3-theme-primary);
-	border-radius:4px;
+	border-radius:var(--b3-border-radius-s);
 	padding:3px 3px; 
 }
 
@@ -402,7 +417,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 /**** 3.3浮出工具栏 ****/
 .protyle-toolbar{
     padding-left:3px;
-	border-radius:8px;
+	border-radius:8px;/*为使工具栏与栏内按钮圆角相适配*/
 	-webkit-box-shadow:var(--pc-shadow-1);
 	box-shadow:var(--pc-shadow-1);
 	transition:0.15s ease-in-out;
@@ -411,7 +426,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 
 .protyle-toolbar .protyle-toolbar__item{
 	margin:3px 3px 3px 0px;
-	border-radius:6px;
+	border-radius:var(--b3-border-radius);
 }
 
 .protyle-toolbar .protyle-toolbar__item:hover{
@@ -682,7 +697,7 @@ tem, .protyle-breadcrumb__text--ellipsis{
 .b3-typography kbd, .b3-typography span[data-type~=kbd], .protyle-wysiwyg kbd, .protyle-wysiwyg span[data-type~=kbd]{
     font-size: 80%;
 	font-family:var(--b3-font-family-code) !important;
-	border-radius:4px;
+	border-radius:var(--b3-border-radius-s);
 	border: solid 1px var(--pc-surface-color-4);
 	box-shadow: inset 0 -1.5px 0 var(--pc-surface-color-4); 
 	color:var(--pc-surface-color-2);
@@ -766,7 +781,7 @@ span[data-type="inline-math"] .katex{
 	font-size:110%;
 	background-color:var(--b3-menu-item-background-black);
 	padding:2px 4px;
-	border-radius:6px;
+	border-radius:var(--b3-border-radius);
 }
 
 
@@ -778,7 +793,7 @@ span[data-type="inline-math"] .katex{
     word-spacing:   0px; /* 词间距 */
     word-break: normal;
     word-wrap:  break-word;
-	border-radius:4px;
+	border-radius:var(--b3-border-radius-s);
 }
 
 
@@ -986,10 +1001,8 @@ span[data-type="inline-math"] .katex{
 	border-radius:0px;
 	border-left:var(--quote-border-width) solid var(--BlockEmbed-border-color) !important;/*zhs*/
 	border:none;
+	padding: 0em 0.7em;
 	
-	position: relative;
-    overflow-y: auto;
-    max-height: 50vh;
 }
 
 
@@ -1217,7 +1230,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
         svg {
             color: var(--pc-surface-color-2);
             padding:0 5px;
-            border-radius:6px;
+            border-radius:var(--b3-border-radius);
             height: 24px!important;
         }
         &[data-type="fold"] svg {
@@ -1253,7 +1266,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 .pdf__util.b3-menu.pdf__util--hide {
 	padding:2px;
 	box-shadow:var(--pc-shadow-1) !important;
-	border-radius:6px;
+	border-radius:var(--b3-border-radius);
 }
 .pdf__util.b3-menu .fn__flex {
 
@@ -1320,10 +1333,10 @@ body{
 
 /*32.focus、hover框添加圆角*/
 .b3-list-item--focus{
-	border-radius:6px;
+	border-radius:var(--b3-border-radius);
 }
 .b3-list-item:hover{
-	border-radius:6px;
+	border-radius:var(--b3-border-radius);
 }
 
 
@@ -1332,7 +1345,7 @@ body{
 .protyle-select{
 	max-width:100vw;
 	background-color:var(--b3-theme-primary-lightest);
-	border-radius:6px;
+	border-radius:var(--b3-border-radius);
 } 
 
 
@@ -1420,7 +1433,7 @@ body{
     text-shadow:none !important;
 	padding: 0.5px 2.5px;
     margin:  0px -2.5px;
-	border-radius:4px;
+	border-radius:var(--b3-border-radius-s);
 }
 
 /* 不同背景色，针对性修改样式 */
@@ -1629,10 +1642,10 @@ body{
 	position: fixed;
 	backface-visibility: hidden;
 	transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;
-	bottom: 6px;
+	bottom: 8px;
 	border-radius: var(--b3-border-radius);
 	height: 26px !important;
-	right: -8px;/*++*/
+	right: -7px;/*++*/
 	overflow: hidden;
 	z-index: 3;
 	border: 1px solid var(--b3-theme-surface-lighter);
@@ -1699,7 +1712,7 @@ body{
 /*88.插件-enhance-底部反链-筛选界面*/
 .backlinkSearchArea[data-v-07f88ef5] .arco-card-body{
 	background-color:rgba(46, 61, 67);
-	border-radius:3px;
+	border-radius:var(--b3-border-radius-s);
 }
 
 
@@ -1827,7 +1840,7 @@ div.docs-flow__doc.svelte-1x3krj2{
 	display:flex;
 	flex-wrap:wrap;
 	margin:10px;
-	border-radius:8px;
+	border-radius:var(--b3-border-radius-b);
 	outline: 1px solid var(--b3-menu-item-background-light);
 }
 .b3-card:hover{
@@ -1871,7 +1884,7 @@ div.docs-flow__doc.svelte-1x3krj2{
 .protyle-wysiwyg .code-block:not(pre) .protyle-action .protyle-action__language{
 	color:var(--inline-code-color);
 	font-family: var(--b3-font-family-code);
-	border-radius:4px;
+	border-radius:var(--b3-border-radius-s);
 	opacity:1;
 }
 
@@ -1914,13 +1927,13 @@ div.docs-flow__doc.svelte-1x3krj2{
 
 /*116.tooltip 悬浮提示条*/
 div#tooltip {
-	box-shadow:var(--pc-shadow-1);
-	border: 1px solid var(--b3-theme-surface-lighter);
+	border: 1px solid var(--pc-background-color-4);
+	box-shadow:none;
 }
 	/*划线工具栏の提示条*/
 .b3-tooltips::after {
-	border: 1px solid var(--b3-theme-surface-lighter);
-	box-shadow:var(--pc-shadow-2);
+	border: 1px solid var(--pc-background-color-4);
+	box-shadow:none;
 }
 	/*隐藏部分提示条「类聊天框」气泡箭头*/
 .b3-tooltips__s::before, .b3-tooltips__se::before, .b3-tooltips__sw::before,.b3-tooltips__n::before, .b3-tooltips__ne::before, .b3-tooltips__nw::before,.b3-tooltips__e::before,.b3-tooltips__w::before{
@@ -2005,7 +2018,7 @@ div#tooltip {
 			background-color: var(--pc-background-color-2);
 			font-size: .8em;
 			line-height: 20px;
-			border-radius:4px;
+			border-radius:var(--b3-border-radius-s);
 			padding:0 4px;
 			margin-right:4px;
 			max-width:34vw;

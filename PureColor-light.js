@@ -35,44 +35,48 @@ async function getFile(path) {
 const I18N = {
     zh_CN: {
         PureColorztsz: ' PureColor主题设置',
-		PureColorkpsjm: ' ☆卡片式界面☆',
-		PureColorycdl: ' 隐藏顶栏&无框线',
-        PureColorczyq: ' 垂直页签',
-        PureColorlbfzx: ' 列表子弹线',
-		PureColordzjms: ' 打字机模式',
-        PureColorxyps: ' 配色：前卫·灰',
-        PureColorslps: ' 配色：原木·黄',
-        PureColorhyps: ' 配色：松翠·绿',
-		PureColorps4: ' 配色：办公·蓝',
-		PureColorps5: ' 配色：湖漪·青',
-		PureColorps6: ' 配色：桃夭·粉',
-		PureColorps7: ' 配色：暮霞·紫',
-		PureColorps8: ' 配色：奔放·红',
-		PureColorps9: ' 配色：青柠·绿',
-		PureColorps10: ' 配色：生机·绿',
+		PureColorkpsjm: ' ⏺ 卡片式界面',
+		PureColorzjsjm: ' ⏹ 直角式界面',
+		PureColorycdl: ' 😇 隐藏顶栏&无框线',
+        PureColorczyq: ' 🧱 垂直页签',
+        PureColorlbfzx: ' 🔫 列表子弹线',
+		PureColordzjms: ' ⌨ 打字机模式',
+        PureColorxyps: ' 前卫·灰',
+        PureColorslps: ' 原木·黄',
+        PureColorhyps: ' 松翠·绿',
+		PureColorps4: ' 办公·蓝',
+		PureColorps5: ' 湖漪·青',
+		PureColorps6: ' 桃夭·粉',
+		PureColorps7: ' 暮霞·紫',
+		PureColorps8: ' 奔放·红',
+		PureColorps9: ' 青柠·绿',
+		PureColorps10: ' 生机·绿',
+		PureColorps11:' 黑白调-直角拍档',
     },
     en_US: {
         PureColorztsz: ' PureColor Settings',
-		PureColorkpsjm: ' ☆Card-based interface☆',
-		PureColorycdl: ' Hide Topbar&Frameless',
-        PureColorczyq: ' Vertical Tabs',
-        PureColorlbfzx: ' List Bullet Line',
-		PureColordzjms: ' Type Writer',
-        PureColorxyps: ' Theme：Avant-garde·Grey',
-        PureColorslps: ' Theme：Solid wood·Yellow',
-        PureColorhyps: ' Theme：Turquoise·Green',
-		PureColorps4: ' Theme：Office·Blue',
-		PureColorps5: ' Theme：Lake Ripples·Azure',
-		PureColorps6: ' Theme：Peach Blossom·Pink',
-		PureColorps7: ' Theme：Twilight Haze·Purple',
-		PureColorps8: ' Theme：Exuberant·Red',
-		PureColorps9: ' Theme：Lemon·Green',
-		PureColorps10: ' Theme：Vitality·Green',
+		PureColorkpsjm: ' ⏺ Card-based interface',
+		PureColorzjsjm: ' ⏹ Right-angle interface',
+		PureColorycdl: ' 😇 Hide Topbar&Frameless',
+        PureColorczyq: ' 🧱 Vertical Tabs',
+        PureColorlbfzx: ' 🔫 List Bullet Line',
+		PureColordzjms: ' ⌨ Type Writer',
+        PureColorxyps: ' Avant-garde·Grey',
+        PureColorslps: ' Solid wood·Yellow',
+        PureColorhyps: ' Turquoise·Green',
+		PureColorps4: ' Office·Blue',
+		PureColorps5: ' Lake Ripples·Azure',
+		PureColorps6: ' Peach Blossom·Pink',
+		PureColorps7: ' Twilight Haze·Purple',
+		PureColorps8: ' Exuberant·Red',
+		PureColorps9: ' Lemon·Green',
+		PureColorps10: ' Vitality·Green',
+		PureColorps11:'Black and white tone',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
 
-// 添加「主题设置」按钮
+// ==== ①添加顶栏「主题设置」按钮 ====
 (function() {
     addThemeToolBar();
 })();
@@ -125,8 +129,71 @@ function addThemeToolBar() {
 
 
 
-// 设置窗口
+	// 添加创建二级菜单的函数
+function createSubMenu(items, title) {
+    const subMenuContainer = document.createElement('div');
+    subMenuContainer.className = 'submenu-container';
+    subMenuContainer.style.position = 'relative';
+    
+    // 创建主菜单项
+    const subMenuTrigger = document.createElement('div');
+    subMenuTrigger.className = 'submenu-trigger';
+    subMenuTrigger.textContent = title;
+    subMenuTrigger.style.padding = '4px 8px';
+    subMenuTrigger.style.cursor = 'pointer';
+    subMenuTrigger.style.userSelect = 'none';
+    subMenuTrigger.style.display = 'flex';
+    subMenuTrigger.style.alignItems = 'center';
+    subMenuTrigger.style.justifyContent = 'space-between';
+    
+    // 添加箭头图标
+    const arrowIcon = document.createElement('span');
+    arrowIcon.innerHTML = '▶';
+    arrowIcon.style.fontSize = '10px';
+    arrowIcon.style.marginLeft = '8px';
+    arrowIcon.style.transition = 'transform 0.2s';
+    subMenuTrigger.appendChild(arrowIcon);
+    
+    // 创建子菜单容器
+    const subMenu = document.createElement('div');
+    subMenu.className = 'submenu';
+    subMenu.style.position = 'absolute';
+    subMenu.style.left = '100%';
+    subMenu.style.top = '0';
+    subMenu.style.minWidth = '150px';
+    subMenu.style.backdropFilter = 'var(--PureColor-Aero-filter)';
+    subMenu.style.backgroundColor = 'var(--b3-menu-background)';
+    subMenu.style.padding = '8px';
+    subMenu.style.border = '1px solid var(--b3-theme-surface-lighter)';
+    subMenu.style.boxShadow = 'var(--b3-dialog-shadow)';
+    subMenu.style.borderRadius = 'var(--b3-border-radius-b)';
+    subMenu.style.display = 'none';
+    subMenu.style.zIndex = '1001';
+    
+    // 添加所有子菜单项
+    items.forEach(item => {
+        subMenu.appendChild(item);
+    });
+    
+    // 鼠标悬停事件
+    subMenuTrigger.addEventListener('mouseenter', () => {
+        subMenu.style.display = 'block';
+        arrowIcon.style.transform = 'rotate(90deg)';
+    });
+    
+    subMenuContainer.addEventListener('mouseleave', () => {
+        subMenu.style.display = 'none';
+        arrowIcon.style.transform = 'rotate(0deg)';
+    });
+    
+    subMenuContainer.appendChild(subMenuTrigger);
+    subMenuContainer.appendChild(subMenu);
+    
+    return subMenuContainer;
+}
 
+
+// ==== ②设置窗口 ====
 let isChecked1;
 let isChecked2;
 let isChecked3;
@@ -142,6 +209,8 @@ let isChecked12;
 let isChecked13;
 let isChecked14;
 let isChecked15;
+let isChecked16;
+let isChecked17;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -170,8 +239,8 @@ function createSettingsWindow() {
     console.error('错误');
     }
 
-    // 创建复选框和标签
-    const checkbox1 = document.createElement('input');
+	// ==== ②.①创建复选框及标签 ====
+    const checkbox1 = document.createElement('input');//垂直页签
     checkbox1.type = 'checkbox';
     checkbox1.id = 'PureColorlverticaltab-checkbox';
     checkbox1.checked = isChecked1;
@@ -183,7 +252,7 @@ function createSettingsWindow() {
     label1.style.userSelect= 'none';
 
 
-    const checkbox2 = document.createElement('input');
+    const checkbox2 = document.createElement('input');//子弹线
     checkbox2.type = 'checkbox';
     checkbox2.id = 'PureColorlihelp-checkbox';
     checkbox2.checked = isChecked2;
@@ -195,7 +264,7 @@ function createSettingsWindow() {
     label2.style.userSelect= 'none';
 	
 	
-    const checkbox3 = document.createElement('input');
+    const checkbox3 = document.createElement('input');//主题配色1
     checkbox3.type = 'checkbox';
     checkbox3.id = 'PureColorsunset-checkbox';
     checkbox3.checked = isChecked3;
@@ -205,9 +274,10 @@ function createSettingsWindow() {
     label3.textContent = i18n.PureColorxyps;
     label3.style.fontSize = '14px';
     label3.style.userSelect= 'none';
+	label3.style.backgroundColor  = 'rgba(239, 241, 245)';
 
 
-    const checkbox4 = document.createElement('input');
+    const checkbox4 = document.createElement('input');//主题配色2
     checkbox4.type = 'checkbox';
     checkbox4.id = 'PureColorforest-checkbox';
     checkbox4.checked = isChecked4;
@@ -217,9 +287,9 @@ function createSettingsWindow() {
     label4.textContent = i18n.PureColorslps;
     label4.style.fontSize = '14px';
     label4.style.userSelect= 'none';
+	label4.style.backgroundColor  = 'rgba(254, 238, 203)';
 
-
-    const checkbox5 = document.createElement('input');
+    const checkbox5 = document.createElement('input');//主题配色3
     checkbox5.type = 'checkbox';
     checkbox5.id = 'PureColorocean-checkbox';
     checkbox5.checked = isChecked5;
@@ -229,8 +299,9 @@ function createSettingsWindow() {
     label5.textContent = i18n.PureColorhyps;
     label5.style.fontSize = '14px';
     label5.style.userSelect= 'none';
+	label5.style.backgroundColor  = 'rgba(191, 238, 226)';
 	
-    const checkbox6 = document.createElement('input');
+    const checkbox6 = document.createElement('input');//主题配色4
     checkbox6.type = 'checkbox';
     checkbox6.id = 'PureColorps4-checkbox';
     checkbox6.checked = isChecked6;
@@ -240,8 +311,9 @@ function createSettingsWindow() {
     label6.textContent = i18n.PureColorps4;
     label6.style.fontSize = '14px';
     label6.style.userSelect= 'none';
+	label6.style.backgroundColor  = 'rgba(184, 216, 255)';
 	
-    const checkbox7 = document.createElement('input');
+    const checkbox7 = document.createElement('input');//主题配色5
     checkbox7.type = 'checkbox';
     checkbox7.id = 'PureColorps5-checkbox';
     checkbox7.checked = isChecked7;
@@ -250,9 +322,10 @@ function createSettingsWindow() {
     label7.htmlFor = 'PureColorps5-checkbox';
     label7.textContent = i18n.PureColorps5;
     label7.style.fontSize = '14px';
-    label7.style.userSelect= 'none';	
+    label7.style.userSelect= 'none';
+	label7.style.backgroundColor  = 'rgba(195, 233, 235)';
 	
-	const checkbox8 = document.createElement('input');
+	const checkbox8 = document.createElement('input');//主题配色6
     checkbox8.type = 'checkbox';
     checkbox8.id = 'PureColorps6-checkbox';
     checkbox8.checked = isChecked8;
@@ -262,8 +335,9 @@ function createSettingsWindow() {
     label8.textContent = i18n.PureColorps6;
     label8.style.fontSize = '14px';
     label8.style.userSelect= 'none';
+	label8.style.backgroundColor  = 'rgba(253, 202, 216)';
 	
-	const checkbox9 = document.createElement('input');
+	const checkbox9 = document.createElement('input');//主题配色7
     checkbox9.type = 'checkbox';
     checkbox9.id = 'PureColorps7-checkbox';
     checkbox9.checked = isChecked9;
@@ -273,8 +347,9 @@ function createSettingsWindow() {
     label9.textContent = i18n.PureColorps7;
     label9.style.fontSize = '14px';
     label9.style.userSelect= 'none';
+	label9.style.backgroundColor  = 'rgba(219, 197, 245)';
 	
-	const checkbox10 = document.createElement('input');
+	const checkbox10 = document.createElement('input');//主题配色8
     checkbox10.type = 'checkbox';
     checkbox10.id = 'PureColorps8-checkbox';
     checkbox10.checked = isChecked10;
@@ -284,8 +359,9 @@ function createSettingsWindow() {
     label10.textContent = i18n.PureColorps8;
     label10.style.fontSize = '14px';
     label10.style.userSelect= 'none';
+	label10.style.backgroundColor  = 'rgba(253, 195, 197)';
 	
-	const checkbox11 = document.createElement('input');
+	const checkbox11 = document.createElement('input');//主题配色9
     checkbox11.type = 'checkbox';
     checkbox11.id = 'PureColorps9-checkbox';
     checkbox11.checked = isChecked11;
@@ -295,8 +371,9 @@ function createSettingsWindow() {
     label11.textContent = i18n.PureColorps9;
     label11.style.fontSize = '14px';
     label11.style.userSelect= 'none';
+	label11.style.backgroundColor  = 'rgba(232, 247, 183)';
 	
-	const checkbox12 = document.createElement('input');
+	const checkbox12 = document.createElement('input');//主题配色10
     checkbox12.type = 'checkbox';
     checkbox12.id = 'PureColorps10-checkbox';
     checkbox12.checked = isChecked12;
@@ -306,6 +383,7 @@ function createSettingsWindow() {
     label12.textContent = i18n.PureColorps10;
     label12.style.fontSize = '14px';
     label12.style.userSelect= 'none';
+	label12.style.backgroundColor  = 'rgba(210, 242, 190)';
 	
 	const checkbox13 = document.createElement('input');//打字机模式
     checkbox13.type = 'checkbox';
@@ -340,137 +418,211 @@ function createSettingsWindow() {
     label15.style.fontSize = '14px';
     label15.style.userSelect= 'none';
 	
+	const checkbox16 = document.createElement('input');//直角式界面
+    checkbox16.type = 'checkbox';
+    checkbox16.id = 'PureColorzjsjm-checkbox';
+    checkbox16.checked = isChecked16;
+
+    const label16 = document.createElement('label');
+    label16.htmlFor = 'PureColorzjsjm-checkbox';
+    label16.textContent = i18n.PureColorzjsjm;
+    label16.style.fontSize = '14px';
+    label16.style.userSelect= 'none';
+	
+	const checkbox17 = document.createElement('input');//主题配色11
+    checkbox17.type = 'checkbox';
+    checkbox17.id = 'PureColorps11-checkbox';
+    checkbox17.checked = isChecked17;
+
+    const label17 = document.createElement('label');
+    label17.htmlFor = 'PureColorps11-checkbox';
+    label17.textContent = i18n.PureColorps11;
+    label17.style.fontSize = '14px';
+    label17.style.userSelect= 'none';
 
 	
+		// 美化：为所有 checkbox-label-pair 添加统一的间距样式
+    const checkboxLabelStyle = `
+        margin: 8px 0;  // 上下间距从默认增加到6px
+        transition: background-color 0.2s;  // 添加悬停效果
+    `;
+    const hoverStyle = `
+        &:hover {
+            background-color: var(--b3-menu-item-background-light);
+        }
+    `;
 	
-    // 将复选框和标签组合
+		// 修改：更新所有 PureColorfunctionpair 的样式
+    const updatePairStyle = (pairElement) => {
+        pairElement.style.cssText = checkboxLabelStyle;
+        pairElement.addEventListener('mouseenter', () => {
+            pairElement.style.backgroundColor = 'var(--b3-menu-item-background-light)';
+        });
+        pairElement.addEventListener('mouseleave', () => {
+            pairElement.style.backgroundColor = '';
+        });
+    };
+	
+	
+	
+    // ==== ②.②将复选框及标签组合 ====
     const PureColorfunctionpair1 = document.createElement('div');
     PureColorfunctionpair1.className = 'checkbox-label-pair';
     PureColorfunctionpair1.appendChild(checkbox1);
     PureColorfunctionpair1.appendChild(label1);
-    PureColorfunctionpair1.style.animation = 'PureColorbounceRight2 0.1s';
+	updatePairStyle(PureColorfunctionpair1);
 
     const PureColorfunctionpair2 = document.createElement('div');
     PureColorfunctionpair2.className = 'checkbox-label-pair';
     PureColorfunctionpair2.appendChild(checkbox2);
     PureColorfunctionpair2.appendChild(label2);
-    PureColorfunctionpair2.style.animation = 'PureColorbounceRight2 0.1s';
+    updatePairStyle(PureColorfunctionpair2);
 
     const PureColorfunctionpair3 = document.createElement('div');
     PureColorfunctionpair3.className = 'checkbox-label-pair';
     PureColorfunctionpair3.appendChild(checkbox3);
     PureColorfunctionpair3.appendChild(label3);
-    PureColorfunctionpair3.style.animation = 'PureColorbounceRight2 0.1s';
+    updatePairStyle(PureColorfunctionpair3);
 
     const PureColorfunctionpair4 = document.createElement('div');
     PureColorfunctionpair4.className = 'checkbox-label-pair';
     PureColorfunctionpair4.appendChild(checkbox4);
     PureColorfunctionpair4.appendChild(label4);
-    PureColorfunctionpair4.style.animation = 'PureColorbounceRight2 0.1s';
+    updatePairStyle(PureColorfunctionpair4);
 
     const PureColorfunctionpair5 = document.createElement('div');
     PureColorfunctionpair5.className = 'checkbox-label-pair';
     PureColorfunctionpair5.appendChild(checkbox5);
     PureColorfunctionpair5.appendChild(label5);
-    PureColorfunctionpair5.style.animation = 'PureColorbounceRight2 0.1s';
+    updatePairStyle(PureColorfunctionpair5);
 	
 	const PureColorfunctionpair6 = document.createElement('div');
     PureColorfunctionpair6.className = 'checkbox-label-pair';
     PureColorfunctionpair6.appendChild(checkbox6);
     PureColorfunctionpair6.appendChild(label6);
-    PureColorfunctionpair6.style.animation = 'PureColorbounceRight2 0.1s';
+    updatePairStyle(PureColorfunctionpair6);
 
 	const PureColorfunctionpair7 = document.createElement('div');
     PureColorfunctionpair7.className = 'checkbox-label-pair';
     PureColorfunctionpair7.appendChild(checkbox7);
     PureColorfunctionpair7.appendChild(label7);
-    PureColorfunctionpair7.style.animation = 'PureColorbounceRight2 0.1s';
+    updatePairStyle(PureColorfunctionpair7);
 	
 	const PureColorfunctionpair8 = document.createElement('div');
     PureColorfunctionpair8.className = 'checkbox-label-pair';
     PureColorfunctionpair8.appendChild(checkbox8);
     PureColorfunctionpair8.appendChild(label8);
-    PureColorfunctionpair8.style.animation = 'PureColorbounceRight2 0.1s';
+	updatePairStyle(PureColorfunctionpair8);
 
 	const PureColorfunctionpair9 = document.createElement('div');
     PureColorfunctionpair9.className = 'checkbox-label-pair';
     PureColorfunctionpair9.appendChild(checkbox9);
     PureColorfunctionpair9.appendChild(label9);
-    PureColorfunctionpair9.style.animation = 'PureColorbounceRight2 0.1s';	
+	updatePairStyle(PureColorfunctionpair9);
 	
 	const PureColorfunctionpair10 = document.createElement('div');
     PureColorfunctionpair10.className = 'checkbox-label-pair';
     PureColorfunctionpair10.appendChild(checkbox10);
     PureColorfunctionpair10.appendChild(label10);
-    PureColorfunctionpair10.style.animation = 'PureColorbounceRight2 0.1s';	
+	updatePairStyle(PureColorfunctionpair10);
 	
 	const PureColorfunctionpair11 = document.createElement('div');
     PureColorfunctionpair11.className = 'checkbox-label-pair';
     PureColorfunctionpair11.appendChild(checkbox11);
     PureColorfunctionpair11.appendChild(label11);
-    PureColorfunctionpair11.style.animation = 'PureColorbounceRight2 0.1s';	
+	updatePairStyle(PureColorfunctionpair11);
 	
 	const PureColorfunctionpair12 = document.createElement('div');
     PureColorfunctionpair12.className = 'checkbox-label-pair';
     PureColorfunctionpair12.appendChild(checkbox12);
     PureColorfunctionpair12.appendChild(label12);
-    PureColorfunctionpair12.style.animation = 'PureColorbounceRight2 0.1s';	
+	updatePairStyle(PureColorfunctionpair12);
 	
 	const PureColorfunctionpair13 = document.createElement('div');
     PureColorfunctionpair13.className = 'checkbox-label-pair';
     PureColorfunctionpair13.appendChild(checkbox13);
     PureColorfunctionpair13.appendChild(label13);
-    PureColorfunctionpair13.style.animation = 'PureColorbounceRight2 0.1s';
+	updatePairStyle(PureColorfunctionpair13);
 	
 	const PureColorfunctionpair14 = document.createElement('div');
     PureColorfunctionpair14.className = 'checkbox-label-pair';
     PureColorfunctionpair14.appendChild(checkbox14);
     PureColorfunctionpair14.appendChild(label14);
-    PureColorfunctionpair14.style.animation = 'PureColorbounceRight2 0.1s';
+	updatePairStyle(PureColorfunctionpair14);
 	
 	const PureColorfunctionpair15 = document.createElement('div');
     PureColorfunctionpair15.className = 'checkbox-label-pair';
     PureColorfunctionpair15.appendChild(checkbox15);
     PureColorfunctionpair15.appendChild(label15);
-    PureColorfunctionpair15.style.animation = 'PureColorbounceRight2 0.1s';
+	updatePairStyle(PureColorfunctionpair15);
 	
+	const PureColorfunctionpair16 = document.createElement('div');
+    PureColorfunctionpair16.className = 'checkbox-label-pair';
+    PureColorfunctionpair16.appendChild(checkbox16);
+    PureColorfunctionpair16.appendChild(label16);
+	updatePairStyle(PureColorfunctionpair16);
+	
+	const PureColorfunctionpair17 = document.createElement('div');
+    PureColorfunctionpair17.className = 'checkbox-label-pair';
+    PureColorfunctionpair17.appendChild(checkbox17);
+    PureColorfunctionpair17.appendChild(label17);
+	updatePairStyle(PureColorfunctionpair17);
 
-    //分割线
+
+	// ==== ②.③不同类型按钮间设置「分割线」 ====
     const PureColorfunctionpairdivider1 = document.createElement('hr');
     PureColorfunctionpairdivider1.style.cssText = `
+        height: 1px;
         margin: 8px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.03);
+        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-surface-lighter) 40%, var(--b3-theme-surface-lighter) 80%, transparent 100% );
+        border: none;
         width: 100%;
     `;
+	
     const PureColorfunctionpairdivider2 = document.createElement('hr');
     PureColorfunctionpairdivider2.style.cssText = `
         height: 1px;
-        margin: 5px 0;
-        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
+        margin: 8px 0;
+        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-surface-lighter) 40%, var(--b3-theme-surface-lighter) 80%, transparent 100% );
         border: none;
         width: 100%;
     `;
 
 
+	// 创建二级菜单（可以若干个）
+    const subMenu1 = createSubMenu([
+        PureColorfunctionpair15,//卡片式界面
+		PureColorfunctionpair16,//直角式界面
+        PureColorfunctionpair14,//隐藏顶栏
+        PureColorfunctionpair1  //垂直页签
+    ], i18n.PureColorMenu1 || "🌏 界面相关");
+    
+    const subMenu2 = createSubMenu([
+        PureColorfunctionpair2,   //列表子弹线
+        PureColorfunctionpair13   //打字机模式
+    ], i18n.PureColorMenu2 || "🛠 功能增强");
+    
+    const subMenu3 = createSubMenu([   //以下是主题配色
+        PureColorfunctionpair3,
+        PureColorfunctionpair4,
+        PureColorfunctionpair5,
+        PureColorfunctionpair6,
+        PureColorfunctionpair7,
+        PureColorfunctionpair8,
+        PureColorfunctionpair9,
+        PureColorfunctionpair10,
+        PureColorfunctionpair11,
+        PureColorfunctionpair12,
+		PureColorfunctionpair17
+    ], i18n.PureColorMenu3 || "🎨 主题配色");
 
-    // 将复选框和标签添加到设置窗口
-	settingsWindow.appendChild(PureColorfunctionpair15); //卡片式界面
-	settingsWindow.appendChild(PureColorfunctionpair14); //隐藏顶栏
-	settingsWindow.appendChild(PureColorfunctionpair1);  //垂直页签
-	settingsWindow.appendChild(PureColorfunctionpair2); //列表子弹线
-	settingsWindow.appendChild(PureColorfunctionpair13); //打字机模式
-	settingsWindow.appendChild(PureColorfunctionpairdivider1); //以下是主题配色
-	settingsWindow.appendChild(PureColorfunctionpair3);
-    settingsWindow.appendChild(PureColorfunctionpair4);
-    settingsWindow.appendChild(PureColorfunctionpair5);
-	settingsWindow.appendChild(PureColorfunctionpair6);
-	settingsWindow.appendChild(PureColorfunctionpair7);
-	settingsWindow.appendChild(PureColorfunctionpair8);
-	settingsWindow.appendChild(PureColorfunctionpair9);
-	settingsWindow.appendChild(PureColorfunctionpair10);
-	settingsWindow.appendChild(PureColorfunctionpair11);
-	settingsWindow.appendChild(PureColorfunctionpair12);
 
+	// ==== ②.④将二级菜单、分割线、复选框和标签添加到设置窗口 ====
+	settingsWindow.appendChild(subMenu1);
+	settingsWindow.appendChild(PureColorfunctionpairdivider1);
+    settingsWindow.appendChild(subMenu2);
+    settingsWindow.appendChild(PureColorfunctionpairdivider2);
+    settingsWindow.appendChild(subMenu3);
 // 将设置窗口添加到body
 document.body.appendChild(settingsWindow);
 
@@ -496,6 +648,8 @@ async function saveConfig() {
 		isChecked13: checkbox13.checked,
 		isChecked14: checkbox14.checked,
 		isChecked15: checkbox15.checked,
+		isChecked16: checkbox16.checked,
+		isChecked17: checkbox17.checked,
 
     })], { type: 'application/json' }), 'PureColor-light-config.json');
 
@@ -509,6 +663,21 @@ checkbox15.addEventListener('change', async function() {
     const state = this.checked;
     state ? enablecardbasedinterface() : disablecardbasedinterface();
     state ? isChecked15 = true : isChecked15 = false;
+	if (isChecked16 === true) { checkbox16.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+// 直角式界面开关
+checkbox16.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablerightangleinterface() : disablerightangleinterface();
+    state ? isChecked16 = true : isChecked16 = false;
+	if (isChecked15 === true) { checkbox15.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -574,6 +743,7 @@ checkbox3.addEventListener('change', async function() {
 	if (isChecked10 === true) { checkbox10.click(); }
 	if (isChecked11 === true) { checkbox11.click(); }
 	if (isChecked12 === true) { checkbox12.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -595,6 +765,7 @@ checkbox4.addEventListener('change', async function() {
 	if (isChecked10 === true) { checkbox10.click(); }
 	if (isChecked11 === true) { checkbox11.click(); }
 	if (isChecked12 === true) { checkbox12.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -616,6 +787,7 @@ checkbox5.addEventListener('change', async function() {
 	if (isChecked10 === true) { checkbox10.click(); }
 	if (isChecked11 === true) { checkbox11.click(); }
 	if (isChecked12 === true) { checkbox12.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -638,6 +810,7 @@ checkbox6.addEventListener('change', async function() {
 	if (isChecked10 === true) { checkbox10.click(); }
 	if (isChecked11 === true) { checkbox11.click(); }
 	if (isChecked12 === true) { checkbox12.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -660,6 +833,7 @@ checkbox7.addEventListener('change', async function() {
 	if (isChecked10 === true) { checkbox10.click(); }
 	if (isChecked11 === true) { checkbox11.click(); }
 	if (isChecked12 === true) { checkbox12.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -681,6 +855,7 @@ checkbox8.addEventListener('change', async function() {
 	if (isChecked10 === true) { checkbox10.click(); }
 	if (isChecked11 === true) { checkbox11.click(); }
 	if (isChecked12 === true) { checkbox12.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -702,6 +877,7 @@ checkbox9.addEventListener('change', async function() {
 	if (isChecked10 === true) { checkbox10.click(); }
 	if (isChecked11 === true) { checkbox11.click(); }
 	if (isChecked12 === true) { checkbox12.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -724,6 +900,7 @@ checkbox10.addEventListener('change', async function() {
 	if (isChecked9 === true) { checkbox9.click(); }
 	if (isChecked11 === true) { checkbox11.click(); }
 	if (isChecked12 === true) { checkbox12.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -746,6 +923,7 @@ checkbox11.addEventListener('change', async function() {
 	if (isChecked9 === true) { checkbox9.click(); }
 	if (isChecked10 === true) { checkbox10.click(); }
 	if (isChecked12 === true) { checkbox12.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -768,6 +946,30 @@ checkbox12.addEventListener('change', async function() {
 	if (isChecked9 === true) { checkbox9.click(); }
 	if (isChecked10 === true) { checkbox10.click(); }
 	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked17 === true) { checkbox17.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+// light11配色开关
+checkbox17.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorps11() : disablePureColorps11();
+    state ? isChecked17 = true : isChecked17 = false;
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked4 === true) { checkbox4.click(); }
+	if (isChecked5 === true) { checkbox5.click(); }
+	if (isChecked6 === true) { checkbox6.click(); }
+	if (isChecked7 === true) { checkbox7.click(); }
+	if (isChecked8 === true) { checkbox8.click(); }
+	if (isChecked9 === true) { checkbox9.click(); }
+	if (isChecked10 === true) { checkbox10.click(); }
+	if (isChecked11 === true) { checkbox11.click(); }
+	if (isChecked12 === true) { checkbox12.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -855,7 +1057,11 @@ function enabletoolbarhidden() {
         }
 		:root[data-theme-mode=light],:root[data-theme-mode=dark]{
 			--b3-border-color: var(--b3-theme-surface);
+			--pc-border-1: 0px;
+			--pc-border-2: 0px;
+			--pc-border-3: 0px;
 		}
+		
     `;
 }
 
@@ -1151,9 +1357,29 @@ function disablePureColorps10() {
             linkElement.remove();
         }, 300);
     }
-}   
+}
 
+// 开启light-11配色
+function enablePureColorps11() {
+    let linkElement = document.getElementById("PureColorps11-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorps11-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/theme/light-11.css";
+        document.head.appendChild(linkElement);
+    }
+}
 
+// 关闭light-11配色
+function disablePureColorps11() {
+    const linkElement = document.getElementById("PureColorps11-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
 
 
 
@@ -1179,6 +1405,29 @@ function disablecardbasedinterface() {
     }
 }
 
+
+
+// 开启直角式界面
+function enablerightangleinterface() {
+    let linkElement = document.getElementById("rightangleinterface-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "rightangleinterface-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/直角式界面.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭直角式界面
+function disablerightangleinterface() {
+    const linkElement = document.getElementById("rightangleinterface-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
 
 
 // 开启垂直页签
@@ -1297,7 +1546,7 @@ async function loadAndCheckConfig() {
             isChecked5 = false;
         }
 
-        if (config?.isChecked6 === true) {
+		if (config?.isChecked6 === true) {
             enablePureColorps4();
             isChecked6 = true;
         } else if (config?.isChecked6 === false) {
@@ -1375,6 +1624,22 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked15 === false) {
             disablecardbasedinterface();
             isChecked15 = false;
+        }
+		
+		if (config?.isChecked16 === true) {
+            enablerightangleinterface();
+            isChecked16 = true;
+        } else if (config?.isChecked16 === false) {
+            disablerightangleinterface();
+            isChecked16 = false;
+        }
+		
+		if (config?.isChecked17 === true) {
+            enablePureColorps11();
+            isChecked17 = true;
+        } else if (config?.isChecked17 === false) {
+            disablePureColorps11();
+            isChecked17 = false;
         }
 		
 
@@ -1796,7 +2061,7 @@ function typewriteractivate() {
                     let page_bottom = page.getBoundingClientRect().bottom;
                     
                     page.style.scrollBehavior = "smooth";
-					const scrollStep = 0.3; // 调整这个系数可改进滚动速度 (慢0.1-1.0快)
+					const scrollStep = 0.7; // 调整这个系数可改进滚动速度 (慢0.1-1.0快)
                     page.scrollBy(0, -((page_bottom - page_height / 2) - (block_bottom - block_height / 2)));
                 };
             }

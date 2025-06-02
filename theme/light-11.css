@@ -1,0 +1,60 @@
+:root[data-theme-mode="light"] {
+
+	/* 主色（黑·白） */
+	--b3-theme-primaryrgb:0, 0, 0;
+	--b3-theme-primary:         rgba(var(--b3-theme-primaryrgb));
+	--b3-theme-primary-light:   rgba(var(--b3-theme-primaryrgb), 0.54);
+	--b3-theme-primary-lighter: rgba(var(--b3-theme-primaryrgb), 0.38);
+	--b3-theme-primary-lightest:rgba(var(--b3-theme-primaryrgb), 0.12);
+
+	/*「配色」background-color（由浅到深）*/
+	--pc-background-color-1:#ffffff;
+	--pc-background-color-2:#ffffff;
+	--pc-background-color-3:#ffffff;
+	--pc-background-color-4:#000000;
+	
+	/*「配色」surface-color（由深到浅）*/
+	--b3-protyle-mainfont:0, 0, 0;/*编辑器字体颜色*/
+	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
+	--pc-surface-color-2:rgba(var(--b3-protyle-mainfont),.7);
+	--pc-surface-color-3:rgba(var(--b3-protyle-mainfont),.55);
+	--pc-surface-color-4:rgba(var(--b3-protyle-mainfont),.4);
+	
+	
+	
+	/**** 专属根定义 ****/
+		/*按钮、框线等赋色*/
+	--b3-theme-surface-lighter:var(--pc-surface-color-4);
+	
+		/*自定义：边框*/
+	--pc-border-1: 2px !important;/*防止被隐藏顶栏影响*/
+	--pc-border-2: 1.5px !important;
+	--pc-border-3: 1px !important;
+}
+
+/*顶栏-左上角主按钮*/
+#barWorkspace.ariaLabel.toolbar__item.toolbar__item--active {
+	background-color: var(--pc-background-color-2) !important;
+}
+
+#barWorkspace.ariaLabel.toolbar__item.toolbar__item--active:hover{
+	border-color:var(--b3-menu-item-background-light);
+	background-color: var(--pc-background-color-3) !important;
+}
+
+/*侧边栏-活动按钮*/
+.dock__item:hover:not(.dock__item--activefocus), .dock__item--active{
+	color:white !important;
+}
+/*页签（活动）-文字*/
+.layout-tab-bar .item--focus .item__text{
+	color:white
+}
+.layout__wnd--active .layout-tab-bar .item--focus>.item__text{
+	color:white !important;
+}
+/*页签：非活动*/
+.layout-tab-bar .item:not(:last-child){
+	border:1px solid black;
+}
+
