@@ -1,0 +1,22 @@
+{
+  "name": "siyuan-theme-darkside",
+  "author": "pureTure",
+  "url": "https://github.com/pureTrue/siyuan-theme-darkside",
+  "version": "3.3.0",
+  "displayName": {
+    "default": "PureColor",
+    "zh_CN": "PureColor"
+  },
+ "description": {
+    "default": "Through blooms I wander, not a glance behind,Half for the path divine, half for thee enshrined.",
+    "zh_CN": "取次花丛懒回顾，半缘修道半缘君。"
+  },
+  "readme": {
+    "default": "README.md",
+    "zh_CN": "README_zh_CN.md"
+  },
+  "modes": [
+    "light",
+    "dark"
+  ]
+}
