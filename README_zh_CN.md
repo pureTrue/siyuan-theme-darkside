@@ -4,18 +4,11 @@ PureColor 是一款精简美观的思源笔记主题。
 
 ## 最近主要更新
 
-### v3.3.0-v3.3.1
+### v3.3.2
 
-- ☆新增「**直角式界面**」：并且新增1款明亮模式主题「黑白调」与之搭配，风格独特！
-- ☆优化「主题功能按钮」浏览体验
-
-  - 实现「二级菜单」，将主题功能区分为界面相关、功能增强、主题配色三类；
-  - 菜单上下间距增加；
-  - 功能按钮新增emoji前缀，主题配色按钮增加背景色；
-
-- ☆新增标题h1-h6前缀图标，取消标题字体配色，标题字号从1.1em提高到1.2em；[22]([https://github.com/pureTrue/siyuan-theme-darkside/issues/22](https://github.com/pureTrue/siyuan-theme-darkside/issues/22))
-- 隐藏顶栏&无框线：包括卡片式界面与直角式界面；
-- 字体：取消内置霞鹜家族字体，`--b3-font-family`进行微调；
+- 页签-关闭按钮放置在文字上层尾端，以节省页签栏空间；
+- 标题h1-h6字体大小调整为：1.4em-1.15em；
+- 卡片式界面滚动条增加圆角[23]([https://github.com/pureTrue/siyuan-theme-darkside/issues/23](https://github.com/pureTrue/siyuan-theme-darkside/issues/23))
 
 ## 🥰主题特性，生而简洁
 
@@ -45,6 +38,19 @@ PureColor 是一款精简美观的思源笔记主题。
 - [Github（国外网络）](https://github.com/pureTrue/siyuan-theme-darkside/issues)；
 
 ## 😇更新日志
+
+### v3.3.0-v3.3.1
+
+- ☆新增「**直角式界面**」：并且新增1款明亮模式主题「黑白调」与之搭配，风格独特！
+- ☆优化「主题功能按钮」浏览体验
+
+  - 实现「二级菜单」，将主题功能区分为界面相关、功能增强、主题配色三类；
+  - 菜单上下间距增加；
+  - 功能按钮新增emoji前缀，主题配色按钮增加背景色；
+
+- ☆新增标题h1-h6前缀图标，取消标题字体配色，标题字号从1.1em提高到1.2em；[22]([https://github.com/pureTrue/siyuan-theme-darkside/issues/22](https://github.com/pureTrue/siyuan-theme-darkside/issues/22))
+- 隐藏顶栏&无框线：包括卡片式界面与直角式界面；
+- 字体：取消内置霞鹜家族字体，`--b3-font-family`进行微调；
 
 ### v3.2.0
 

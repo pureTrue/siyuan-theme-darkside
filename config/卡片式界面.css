@@ -322,3 +322,8 @@ body:not(.body--mobile,.body--window) #layouts {
  .protyle-wysiwyg .img .protyle-action__title{
 	border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
 }
+
+/*滚动条：圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: var(--b3-border-radius-b);
+}

@@ -156,7 +156,7 @@
 /**** 3.1 页签栏 ****/
 /* 通用设置 */ 
 .layout-tab-bar{
-    padding-left: 4px;
+    padding:0 4px;
 	border: none;/*页签下部有条线*/
 }
 .layout-tab-bar .item{
@@ -185,7 +185,6 @@
 
 .layout-tab-bar .item--focus{
     background-color: var(--pc-background-color-4) !important;
-    opacity: 1; 
 	border:1px solid var(--b3-theme-primary-lighter) !important;
 	.item__text{
 		color:var(--b3-theme-primary);
@@ -274,12 +273,31 @@
 /* 页签-关闭按钮 */
 .layout-tab-bar .item__close{
 	padding: 4px 2px 4px 2px;
+	
 }
-
 
 .layout-tab-bar .item__close:hover svg{
 	background-color:var(--b3-card-error-color);
 	color:white;
+}
+
+
+/*页签-关闭按钮:放置在文本上层尾端（节省空间）；*/
+.layout__center .layout-tab-bar .item__close {
+	position: absolute !important;/* 覆盖在.item__text上 */
+	right: 0;/* 关闭按钮放在右侧 */
+}
+
+.layout__center .layout-tab-bar .item.item--focus .item__close svg{
+	opacity:0;/*活动页面不显示关闭图标*/
+}
+.layout__center .layout-tab-bar .item:hover .item__close svg{
+	opacity:1;/*普通页面鼠标覆盖时，显示关闭图标*/
+}
+
+.layout__center .layout-tab-bar .item:not(.item--pin):hover .item__text {
+	/*给关闭按钮下方的文字加个遮罩*/
+	mask-image: linear-gradient(to right, black 0%, black calc(100% - 40px), transparent 100%);
 }
 
 
@@ -816,9 +834,23 @@ span[data-type="inline-math"] .katex{
 
 
 /**** 8.4 标题 ****/
-.b3-typography .h1,.b3-typography h1,.b3-typography .h2,.b3-typography h2,.b3-typography .h3,.b3-typography h3,.b3-typography .h4,.b3-typography h4,.b3-typography .h5,.b3-typography h5,.b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h1,.protyle-wysiwyg h1,.protyle-wysiwyg .h2,.protyle-wysiwyg h2,.protyle-wysiwyg .h3,.protyle-wysiwyg h3,.protyle-wysiwyg .h4,.protyle-wysiwyg h4,.protyle-wysiwyg .h5,.protyle-wysiwyg h5,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 {
+.b3-typography .h1, .b3-typography h1, .protyle-wysiwyg .h1, .protyle-wysiwyg h1{
+	font-size: 1.4em;
+}
+.b3-typography .h2, .b3-typography h2, .protyle-wysiwyg .h2, .protyle-wysiwyg h2{
+	font-size: 1.35em;
+}
+.b3-typography .h3, .b3-typography h3, .protyle-wysiwyg .h3, .protyle-wysiwyg h3{
+	font-size: 1.3em;
+}
+.b3-typography .h4, .b3-typography h4, .protyle-wysiwyg .h4, .protyle-wysiwyg h4{
+    font-size: 1.25em;
+}
+.b3-typography .h5, .b3-typography h5, .protyle-wysiwyg .h5, .protyle-wysiwyg h5{
     font-size: 1.2em;
-    opacity:0.9;			
+}
+.b3-typography .h6, .b3-typography h6, .protyle-wysiwyg .h6, .protyle-wysiwyg h6{
+    font-size: 1.15em;
 }
 
 /*标题-折叠*/
@@ -839,16 +871,16 @@ span[data-type="inline-math"] .katex{
     background-position:left center;
     background-repeat: no-repeat;
     vertical-align: middle;
-	left: -0.7em;
+	left: -0.5em;
     bottom: 0.6em;
-	 
+	
 	opacity:0.6;
 }
 
 
 .h1 > :first-child,.h2 > :first-child,.h3 > :first-child,.h4 > :first-child,.h5 > :first-child,.h6 > :first-child{
     position: relative;
-	padding-left:0.1em;
+	padding-left:0.3em;
 }
 
 /* 标题前图标 */
@@ -1215,15 +1247,7 @@ div[data-type='NodeBlockQueryEmbed'] .ft__secondary {
 /* 14.超级块 */
 .protyle-wysiwyg>.sb{
 	background-color:var(--quote-background);/*超级块背景颜色加深*/
-}
-	/*超级块：统一为左边框样式*/
-.protyle-wysiwyg>.sb[data-sb-layout="col"]{
-	  border-radius:0px;
-}
-.protyle-wysiwyg>.sb[data-sb-layout="row"],
-.protyle-wysiwyg>.sb[data-sb-layout="col"]>.sb[data-sb-layout="row"]{
-	border-left:3px solid var(--b3-menu-item-background-light);
-	border-radius:0px;
+	border-radius:var(--b3-border-radius);
 }
 
 
@@ -2302,3 +2326,23 @@ div#tooltip {
 }
 */
 
+
+
+
+
+/*左上角windows最小、最大、关闭按钮样式与顶栏其他按钮统一*/
+:is(#minWindow, #restoreWindow #closeWindow) svg{
+	width: 13.5px !important;
+    height: 13.5px !important;
+}
+
+#minWindow, #restoreWindow,#closeWindow{
+    border-radius: var(--b3-border-radius);
+    padding: 5px;
+    margin: 2px;
+    width: 23.5px;
+    height: 23.5px;
+}
+.toolbar #windowControls{
+    margin-right: 2px;
+}
