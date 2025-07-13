@@ -35,8 +35,8 @@ async function getFile(path) {
 const I18N = {
     zh_CN: {
         PureColorztsz: ' PureColor主题设置',
-		PureColorkpsjm: ' ⏺ 卡片式界面',
-		PureColorzjsjm: ' ⏹ 直角式界面',
+		PureColorkpsjm: ' ⏺ 框架：卡片式界面',
+		PureColorzjsjm: ' ⏹ 框架：直角式界面',
 		PureColorycdl: ' 😇 隐藏顶栏&无框线',
         PureColorczyq: ' 🧱 垂直页签',
         PureColorlbfzx: ' 🔫 列表子弹线',
@@ -51,12 +51,38 @@ const I18N = {
 		PureColorps8: ' 奔放·红',
 		PureColorps9: ' 青柠·绿',
 		PureColorps10: ' 生机·绿',
-		PureColorps11:' 黑白调-直角拍档',
+		PureColorps11:' 探索·蓝',
+		PureColorjmxgjmcj1:' 三段式界面',
+		PureColorjmxgjmcj2:' 纯线框界面',
+		PureColorjmxgjmcj3:' 沉淀式界面',
+		PureColorjmxgyjh1:' 侧边栏·卡片化',
+		PureColorjmxgyjh2:' 编辑器·卡片化',
+		PureColorjmxgyjh3:' 🚫施工中',//圆角·页签
+		PureColorjmxgyjh4:' 圆角·标题前缀图标',
+		PureColorjmxgyjh5:' 🚫施工中',//圆角·行级元素
+		PureColorjmxgzjh1:' 🚫施工中',//侧边栏·便签化
+		PureColorjmxgzjh2:' ',//编辑器·便签化
+		PureColorjmxgzjh3:' 直角·标题前缀图标',
+		PureColorjmxgzjh4:' 直角·行级元素',
+		PureColorjmxgqcls1:' 多彩·标题/文档树/大纲树',
+		PureColorjmxgqcls2:' 🚫施工中',//LED柔光板·标题
+		PureColorjmxgqcls3:' 🚫施工中',//旋转灯·引述块
+		PureColorjmxgqcls4:' 🚫施工中',//光影·编辑器元素
+		PureColorjmxgqcls5:' 🚫施工中',//光影台阶
+		PureColorjmxgnwh1:' 🚫施工中',//拟物化界面敬请期待
+		PureColorgnzqsjyd1:' 文档树/大纲树列表线',
+		PureColorztpspscj1:' 寡淡I',
+		PureColorztpspscj2:' 鲜艳III',
+		PureColorpzhdtjtc1:' 🚫施工中',//黑白调
+		PureColorpzhdtjtc2:' 🚫施工中',//三栏界面
+		PureColorpzhdtjtc3:' 🚫施工中',//直角大满足
+		PureColorpzhdtjtc4:' 🚫施工中',//圆角大满足
+		
     },
     en_US: {
         PureColorztsz: ' PureColor Settings',
-		PureColorkpsjm: ' ⏺ Card-based interface',
-		PureColorzjsjm: ' ⏹ Right-angle interface',
+		PureColorkpsjm: ' ⏺ Framework:Card-based interface',
+		PureColorzjsjm: ' ⏹ Framework:Right-angle interface',
 		PureColorycdl: ' 😇 Hide Topbar&Frameless',
         PureColorczyq: ' 🧱 Vertical Tabs',
         PureColorlbfzx: ' 🔫 List Bullet Line',
@@ -71,7 +97,32 @@ const I18N = {
 		PureColorps8: ' Exuberant·Red',
 		PureColorps9: ' Lemon·Green',
 		PureColorps10: ' Vitality·Green',
-		PureColorps11:'Black and white tone',
+		PureColorps11:' Seek·Blue',
+		PureColorjmxgjmcj1: ' Three-panel interface',
+		PureColorjmxgjmcj2: ' Pure wireframe interface',
+		PureColorjmxgjmcj3: ' Sedimentation-style interface',
+		PureColorjmxgyjh1: ' Sidebar · Card-style',
+		PureColorjmxgyjh2: ' Editor · Card-style',
+		PureColorjmxgyjh3: ' Rounded corners · Tabs',
+		PureColorjmxgyjh4: ' Rounded corners · Title prefix icon',
+		PureColorjmxgyjh5: ' Rounded corners · Editor elements',
+		PureColorjmxgzjh1: ' Sidebar · Note-style',
+		PureColorjmxgzjh2: ' Editor · Note-style',
+		PureColorjmxgzjh3: ' Square corners · Title prefix icon',
+		PureColorjmxgzjh4: ' Square corners · Editor elements',
+		PureColorjmxgqcls1: ' Multicolor · Titles/Document tree/Outline tree',
+		PureColorjmxgqcls2: ' LED light panel · Titles',
+		PureColorjmxgqcls3: ' Rotating light · Blockquotes',
+		PureColorjmxgqcls4: ' Light and shadow · Editor elements',
+		PureColorjmxgqcls5: ' Light and shadow steps',
+		PureColorjmxgnwh1: ' Skeuomorphic interface',
+		PureColorgnzqsjyd1: ' Document tree/Outline tree list lines',
+		PureColorztpspscj1: ' Subtle I',
+		PureColorztpspscj2: ' Vibrant III',
+		PureColorpzhdtjtc1: ' Monochrome theme',
+		PureColorpzhdtjtc2: ' Three-column interface',
+		PureColorpzhdtjtc3: ' Square corner delight',
+		PureColorpzhdtjtc4: ' Rounded corner delight',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -139,36 +190,27 @@ function createSubMenu(items, title) {
     const subMenuTrigger = document.createElement('div');
     subMenuTrigger.className = 'submenu-trigger';
     subMenuTrigger.textContent = title;
-    subMenuTrigger.style.padding = '4px 8px';
-    subMenuTrigger.style.cursor = 'pointer';
-    subMenuTrigger.style.userSelect = 'none';
-    subMenuTrigger.style.display = 'flex';
-    subMenuTrigger.style.alignItems = 'center';
-    subMenuTrigger.style.justifyContent = 'space-between';
+
     
     // 添加箭头图标
     const arrowIcon = document.createElement('span');
-    arrowIcon.innerHTML = '▶';
+			arrowIcon.innerHTML = `
+		  <svg class="icon" aria-hidden="true">
+			<use xlink:href="#iconRight"></use>
+		  </svg>
+		`;
+		// 设置SVG图标的大小
+		arrowIcon.querySelector('svg').style.width = '12px';
+		arrowIcon.querySelector('svg').style.height = '12px';
     arrowIcon.style.fontSize = '10px';
     arrowIcon.style.marginLeft = '8px';
     arrowIcon.style.transition = 'transform 0.2s';
     subMenuTrigger.appendChild(arrowIcon);
     
-    // 创建子菜单容器
+    // 创建子菜单容器（二级菜单，样式在css里调整）
     const subMenu = document.createElement('div');
     subMenu.className = 'submenu';
-    subMenu.style.position = 'absolute';
-    subMenu.style.left = '100%';
-    subMenu.style.top = '0';
-    subMenu.style.minWidth = '150px';
-    subMenu.style.backdropFilter = 'var(--PureColor-Aero-filter)';
-    subMenu.style.backgroundColor = 'var(--b3-menu-background)';
-    subMenu.style.padding = '8px';
-    subMenu.style.border = '1px solid var(--b3-theme-surface-lighter)';
-    subMenu.style.boxShadow = 'var(--b3-dialog-shadow)';
-    subMenu.style.borderRadius = 'var(--b3-border-radius-b)';
-    subMenu.style.display = 'none';
-    subMenu.style.zIndex = '1001';
+
     
     // 添加所有子菜单项
     items.forEach(item => {
@@ -211,6 +253,32 @@ let isChecked14;
 let isChecked15;
 let isChecked16;
 let isChecked17;
+let isChecked18;
+let isChecked19;
+let isChecked20;
+let isChecked21;
+let isChecked22;
+let isChecked23;
+let isChecked24;
+let isChecked25;
+let isChecked26;
+let isChecked27;
+let isChecked28;
+let isChecked29;
+let isChecked30;
+let isChecked31;
+let isChecked32;
+let isChecked33;
+let isChecked34;
+let isChecked35;
+let isChecked36;
+let isChecked37;
+let isChecked38;
+let isChecked40;
+let isChecked41;
+let isChecked42;
+let isChecked43;
+
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -240,7 +308,7 @@ function createSettingsWindow() {
     }
 
 	// ==== ②.①创建复选框及标签 ====
-    const checkbox1 = document.createElement('input');//垂直页签
+const checkbox1 = document.createElement('input');//垂直页签
     checkbox1.type = 'checkbox';
     checkbox1.id = 'PureColorlverticaltab-checkbox';
     checkbox1.checked = isChecked1;
@@ -254,11 +322,11 @@ function createSettingsWindow() {
 
     const checkbox2 = document.createElement('input');//子弹线
     checkbox2.type = 'checkbox';
-    checkbox2.id = 'PureColorlihelp-checkbox';
+    checkbox2.id = 'PureColorlbzdx-checkbox';
     checkbox2.checked = isChecked2;
 
     const label2 = document.createElement('label');
-    label2.htmlFor = 'PureColorlihelp-checkbox';
+    label2.htmlFor = 'PureColorlbzdx-checkbox';
     label2.textContent = i18n.PureColorlbfzx;
     label2.style.fontSize = '14px';
     label2.style.userSelect= 'none';
@@ -439,12 +507,293 @@ function createSettingsWindow() {
     label17.textContent = i18n.PureColorps11;
     label17.style.fontSize = '14px';
     label17.style.userSelect= 'none';
+	label17.style.backgroundColor  = 'rgba(133, 165, 255)';
+	
+	const checkbox18 = document.createElement('input');//三段式界面
+    checkbox18.type = 'checkbox';
+    checkbox18.id = 'PureColorjmxgjmcj1-checkbox';
+    checkbox18.checked = isChecked18;
+
+    const label18 = document.createElement('label');
+    label18.htmlFor = 'PureColorjmxgjmcj1-checkbox';
+    label18.textContent = i18n.PureColorjmxgjmcj1;
+    label18.style.fontSize = '14px';
+    label18.style.userSelect= 'none';
+	
+	const checkbox19 = document.createElement('input');//纯线框界面
+    checkbox19.type = 'checkbox';
+    checkbox19.id = 'PureColorjmxgjmcj2-checkbox';
+    checkbox19.checked = isChecked19;
+
+    const label19 = document.createElement('label');
+    label19.htmlFor = 'PureColorjmxgjmcj2-checkbox';
+    label19.textContent = i18n.PureColorjmxgjmcj2;
+    label19.style.fontSize = '14px';
+    label19.style.userSelect= 'none';
+	
+	const checkbox20 = document.createElement('input');//沉淀式界面
+    checkbox20.type = 'checkbox';
+    checkbox20.id = 'PureColorjmxgjmcj3-checkbox';
+    checkbox20.checked = isChecked20;
+
+    const label20 = document.createElement('label');
+    label20.htmlFor = 'PureColorjmxgjmcj3-checkbox';
+    label20.textContent = i18n.PureColorjmxgjmcj3;
+    label20.style.fontSize = '14px';
+    label20.style.userSelect= 'none';
+	
+	const checkbox21 = document.createElement('input');//侧边栏·卡片化
+    checkbox21.type = 'checkbox';
+    checkbox21.id = 'PureColorjmxgyjh1-checkbox';
+    checkbox21.checked = isChecked21;
+
+    const label21 = document.createElement('label');
+    label21.htmlFor = 'PureColorjmxgyjh1-checkbox';
+    label21.textContent = i18n.PureColorjmxgyjh1;
+    label21.style.fontSize = '14px';
+    label21.style.userSelect= 'none';
+	
+	const checkbox22 = document.createElement('input');//编辑器·卡片化
+    checkbox22.type = 'checkbox';
+    checkbox22.id = 'PureColorjmxgyjh2-checkbox';
+    checkbox22.checked = isChecked22;
+
+    const label22 = document.createElement('label');
+    label22.htmlFor = 'PureColorjmxgyjh2-checkbox';
+    label22.textContent = i18n.PureColorjmxgyjh2;
+    label22.style.fontSize = '14px';
+    label22.style.userSelect= 'none';
+	
+	const checkbox23 = document.createElement('input');//圆角·页签
+    checkbox23.type = 'checkbox';
+    checkbox23.id = 'PureColorjmxgyjh3-checkbox';
+    checkbox23.checked = isChecked23;
+
+    const label23 = document.createElement('label');
+    label23.htmlFor = 'PureColorjmxgyjh3-checkbox';
+    label23.textContent = i18n.PureColorjmxgyjh3;
+    label23.style.fontSize = '14px';
+    label23.style.userSelect= 'none';
+	
+	const checkbox24 = document.createElement('input');//圆角·标题前缀图标
+    checkbox24.type = 'checkbox';
+    checkbox24.id = 'PureColorjmxgyjh4-checkbox';
+    checkbox24.checked = isChecked24;
+
+    const label24 = document.createElement('label');
+    label24.htmlFor = 'PureColorjmxgyjh4-checkbox';
+    label24.textContent = i18n.PureColorjmxgyjh4;
+    label24.style.fontSize = '14px';
+    label24.style.userSelect= 'none';
+	
+	const checkbox25 = document.createElement('input');//圆角·编辑器元素
+    checkbox25.type = 'checkbox';
+    checkbox25.id = 'PureColorjmxgyjh5-checkbox';
+    checkbox25.checked = isChecked25;
+
+    const label25 = document.createElement('label');
+    label25.htmlFor = 'PureColorjmxgyjh5-checkbox';
+    label25.textContent = i18n.PureColorjmxgyjh5;
+    label25.style.fontSize = '14px';
+    label25.style.userSelect= 'none';
+	
+	const checkbox26 = document.createElement('input');//侧边栏·便签化
+    checkbox26.type = 'checkbox';
+    checkbox26.id = 'PureColorjmxgzjh1-checkbox';
+    checkbox26.checked = isChecked26;
+
+    const label26 = document.createElement('label');
+    label26.htmlFor = 'PureColorjmxgzjh1-checkbox';
+    label26.textContent = i18n.PureColorjmxgzjh1;
+    label26.style.fontSize = '14px';
+    label26.style.userSelect= 'none';
+	
+	const checkbox27 = document.createElement('input');//'编辑器·便签化
+    checkbox27.type = 'checkbox';
+    checkbox27.id = 'PureColorjmxgzjh2-checkbox';
+    checkbox27.checked = isChecked27;
+
+    const label27 = document.createElement('label');
+    label27.htmlFor = 'PureColorjmxgzjh2-checkbox';
+    label27.textContent = i18n.PureColorjmxgzjh2;
+    label27.style.fontSize = '14px';
+    label27.style.userSelect= 'none';
+	
+	const checkbox28 = document.createElement('input');//'直角·标题前缀图标
+    checkbox28.type = 'checkbox';
+    checkbox28.id = 'PureColorjmxgzjh3-checkbox';
+    checkbox28.checked = isChecked28;
+
+    const label28 = document.createElement('label');
+    label28.htmlFor = 'PureColorjmxgzjh3-checkbox';
+    label28.textContent = i18n.PureColorjmxgzjh3;
+    label28.style.fontSize = '14px';
+    label28.style.userSelect= 'none';
+	
+	const checkbox29 = document.createElement('input');//'直角·编辑器元素
+    checkbox29.type = 'checkbox';
+    checkbox29.id = 'PureColorjmxgzjh4-checkbox';
+    checkbox29.checked = isChecked29;
+
+    const label29 = document.createElement('label');
+    label29.htmlFor = 'PureColorjmxgzjh4-checkbox';
+    label29.textContent = i18n.PureColorjmxgzjh4;
+    label29.style.fontSize = '14px';
+    label29.style.userSelect= 'none';
+	
+	const checkbox30 = document.createElement('input');//'多彩·标题/文档树/大纲树
+    checkbox30.type = 'checkbox';
+    checkbox30.id = 'PureColorjmxgqcls1-checkbox';
+    checkbox30.checked = isChecked30;
+
+    const label30 = document.createElement('label');
+    label30.htmlFor = 'PureColorjmxgqcls1-checkbox';
+    label30.textContent = i18n.PureColorjmxgqcls1;
+    label30.style.fontSize = '14px';
+    label30.style.userSelect= 'none';
+	
+	const checkbox31 = document.createElement('input');//'LED柔光板·标题
+    checkbox31.type = 'checkbox';
+    checkbox31.id = 'PureColorjmxgqcls2-checkbox';
+    checkbox31.checked = isChecked31;
+
+    const label31 = document.createElement('label');
+    label31.htmlFor = 'PureColorjmxgqcls2-checkbox';
+    label31.textContent = i18n.PureColorjmxgqcls2;
+    label31.style.fontSize = '14px';
+    label31.style.userSelect= 'none';
+	
+	const checkbox32 = document.createElement('input');//'旋转灯·引述块
+    checkbox32.type = 'checkbox';
+    checkbox32.id = 'PureColorjmxgqcls3-checkbox';
+    checkbox32.checked = isChecked32;
+
+    const label32 = document.createElement('label');
+    label32.htmlFor = 'PureColorjmxgqcls3-checkbox';
+    label32.textContent = i18n.PureColorjmxgqcls3;
+    label32.style.fontSize = '14px';
+    label32.style.userSelect= 'none';
+	
+	const checkbox33 = document.createElement('input');//'光影·编辑器元素
+    checkbox33.type = 'checkbox';
+    checkbox33.id = 'PureColorjmxgqcls4-checkbox';
+    checkbox33.checked = isChecked33;
+
+    const label33 = document.createElement('label');
+    label33.htmlFor = 'PureColorjmxgqcls4-checkbox';
+    label33.textContent = i18n.PureColorjmxgqcls4;
+    label33.style.fontSize = '14px';
+    label33.style.userSelect= 'none';
+	
+	const checkbox34 = document.createElement('input');//'光影台阶
+    checkbox34.type = 'checkbox';
+    checkbox34.id = 'PureColorjmxgqcls5-checkbox';
+    checkbox34.checked = isChecked34;
+
+    const label34 = document.createElement('label');
+    label34.htmlFor = 'PureColorjmxgqcls5-checkbox';
+    label34.textContent = i18n.PureColorjmxgqcls5;
+    label34.style.fontSize = '14px';
+    label34.style.userSelect= 'none';
+	
+	const checkbox35 = document.createElement('input');//'拟物化界面
+    checkbox35.type = 'checkbox';
+    checkbox35.id = 'PureColorjmxgnwh1-checkbox';
+    checkbox35.checked = isChecked35;
+
+    const label35 = document.createElement('label');
+    label35.htmlFor = 'PureColorjmxgnwh1-checkbox';
+    label35.textContent = i18n.PureColorjmxgnwh1;
+    label35.style.fontSize = '14px';
+    label35.style.userSelect= 'none';
+	
+	const checkbox36 = document.createElement('input');//'文档树/大纲树列表线
+    checkbox36.type = 'checkbox';
+    checkbox36.id = 'PureColorgnzqsjyd1-checkbox';
+    checkbox36.checked = isChecked36;
+
+    const label36 = document.createElement('label');
+    label36.htmlFor = 'PureColorgnzqsjyd1-checkbox';
+    label36.textContent = i18n.PureColorgnzqsjyd1;
+    label36.style.fontSize = '14px';
+    label36.style.userSelect= 'none';
+	
+	const checkbox37 = document.createElement('input');//'寡淡I
+    checkbox37.type = 'checkbox';
+    checkbox37.id = 'PureColorztpspscj1-checkbox';
+    checkbox37.checked = isChecked37;
+
+    const label37 = document.createElement('label');
+    label37.htmlFor = 'PureColorztpspscj1-checkbox';
+    label37.textContent = i18n.PureColorztpspscj1;
+    label37.style.fontSize = '14px';
+    label37.style.userSelect= 'none';
+	
+	const checkbox38 = document.createElement('input');//'鲜艳II
+    checkbox38.type = 'checkbox';
+    checkbox38.id = 'PureColorztpspscj2-checkbox';
+    checkbox38.checked = isChecked38;
+
+    const label38 = document.createElement('label');
+    label38.htmlFor = 'PureColorztpspscj2-checkbox';
+    label38.textContent = i18n.PureColorztpspscj2;
+    label38.style.fontSize = '14px';
+    label38.style.userSelect= 'none';
+	
+	
+	const checkbox40 = document.createElement('input');//'黑白调
+    checkbox40.type = 'checkbox';
+    checkbox40.id = 'PureColorpzhdtjtc1-checkbox';
+    checkbox40.checked = isChecked40;
+
+    const label40 = document.createElement('label');
+    label40.htmlFor = 'PureColorpzhdtjtc1-checkbox';
+    label40.textContent = i18n.PureColorpzhdtjtc1;
+    label40.style.fontSize = '14px';
+    label40.style.userSelect= 'none';
+	
+	const checkbox41 = document.createElement('input');//'三栏界面
+    checkbox41.type = 'checkbox';
+    checkbox41.id = 'PureColorpzhdtjtc2-checkbox';
+    checkbox41.checked = isChecked41;
+
+    const label41 = document.createElement('label');
+    label41.htmlFor = 'PureColorpzhdtjtc2-checkbox';
+    label41.textContent = i18n.PureColorpzhdtjtc2;
+    label41.style.fontSize = '14px';
+    label41.style.userSelect= 'none';
+	
+	const checkbox42 = document.createElement('input');//'直角大满足
+    checkbox42.type = 'checkbox';
+    checkbox42.id = 'PureColorpzhdtjtc3-checkbox';
+    checkbox42.checked = isChecked42;
+
+    const label42 = document.createElement('label');
+    label42.htmlFor = 'PureColorpzhdtjtc3-checkbox';
+    label42.textContent = i18n.PureColorpzhdtjtc3;
+    label42.style.fontSize = '14px';
+    label42.style.userSelect= 'none';
+	
+	const checkbox43 = document.createElement('input');//'圆角大满足
+    checkbox43.type = 'checkbox';
+    checkbox43.id = 'PureColorpzhdtjtc4-checkbox';
+    checkbox43.checked = isChecked43;
+
+    const label43 = document.createElement('label');
+    label43.htmlFor = 'PureColorpzhdtjtc4-checkbox';
+    label43.textContent = i18n.PureColorpzhdtjtc4;
+    label43.style.fontSize = '14px';
+    label43.style.userSelect= 'none';
+
+
+
 
 	
 		// 美化：为所有 checkbox-label-pair 添加统一的间距样式
     const checkboxLabelStyle = `
-        margin: 8px 0;  // 上下间距从默认增加到6px
-        transition: background-color 0.2s;  // 添加悬停效果
+        padding: 4px 8px;  // 上下间距从默认增加到6px
+        border-radius:var(--b3-border-radius);
+		transition: background-color 0.2s;  // 添加悬停效果
     `;
     const hoverStyle = `
         &:hover {
@@ -462,6 +811,8 @@ function createSettingsWindow() {
             pairElement.style.backgroundColor = '';
         });
     };
+	
+
 	
 	
 	
@@ -567,9 +918,182 @@ function createSettingsWindow() {
     PureColorfunctionpair17.appendChild(checkbox17);
     PureColorfunctionpair17.appendChild(label17);
 	updatePairStyle(PureColorfunctionpair17);
+	
+	const PureColorfunctionpair18 = document.createElement('div');
+    PureColorfunctionpair18.className = 'checkbox-label-pair';
+    PureColorfunctionpair18.appendChild(checkbox18);
+    PureColorfunctionpair18.appendChild(label18);
+	updatePairStyle(PureColorfunctionpair18);
+	
+	const PureColorfunctionpair19 = document.createElement('div');
+    PureColorfunctionpair19.className = 'checkbox-label-pair';
+    PureColorfunctionpair19.appendChild(checkbox19);
+    PureColorfunctionpair19.appendChild(label19);
+    updatePairStyle(PureColorfunctionpair19);
 
 
-	// ==== ②.③不同类型按钮间设置「分割线」 ====
+	const PureColorfunctionpair20 = document.createElement('div');
+    PureColorfunctionpair20.className = 'checkbox-label-pair';
+    PureColorfunctionpair20.appendChild(checkbox20);
+    PureColorfunctionpair20.appendChild(label20);
+    updatePairStyle(PureColorfunctionpair20);
+
+
+	const PureColorfunctionpair21 = document.createElement('div');
+    PureColorfunctionpair21.className = 'checkbox-label-pair';
+    PureColorfunctionpair21.appendChild(checkbox21);
+    PureColorfunctionpair21.appendChild(label21);
+    updatePairStyle(PureColorfunctionpair21);
+
+
+const PureColorfunctionpair22 = document.createElement('div');
+    PureColorfunctionpair22.className = 'checkbox-label-pair';
+    PureColorfunctionpair22.appendChild(checkbox22);
+    PureColorfunctionpair22.appendChild(label22);
+    updatePairStyle(PureColorfunctionpair22);
+
+
+const PureColorfunctionpair23 = document.createElement('div');
+    PureColorfunctionpair23.className = 'checkbox-label-pair';
+    PureColorfunctionpair23.appendChild(checkbox23);
+    PureColorfunctionpair23.appendChild(label23);
+    updatePairStyle(PureColorfunctionpair23);
+
+
+const PureColorfunctionpair24 = document.createElement('div');
+    PureColorfunctionpair24.className = 'checkbox-label-pair';
+    PureColorfunctionpair24.appendChild(checkbox24);
+    PureColorfunctionpair24.appendChild(label24);
+    updatePairStyle(PureColorfunctionpair24);
+
+
+const PureColorfunctionpair25 = document.createElement('div');
+    PureColorfunctionpair25.className = 'checkbox-label-pair';
+    PureColorfunctionpair25.appendChild(checkbox25);
+    PureColorfunctionpair25.appendChild(label25);
+    updatePairStyle(PureColorfunctionpair25);
+
+
+const PureColorfunctionpair26 = document.createElement('div');
+    PureColorfunctionpair26.className = 'checkbox-label-pair';
+    PureColorfunctionpair26.appendChild(checkbox26);
+    PureColorfunctionpair26.appendChild(label26);
+    updatePairStyle(PureColorfunctionpair26);
+
+
+const PureColorfunctionpair27 = document.createElement('div');
+    PureColorfunctionpair27.className = 'checkbox-label-pair';
+    PureColorfunctionpair27.appendChild(checkbox27);
+    PureColorfunctionpair27.appendChild(label27);
+    updatePairStyle(PureColorfunctionpair27);
+
+
+const PureColorfunctionpair28 = document.createElement('div');
+    PureColorfunctionpair28.className = 'checkbox-label-pair';
+    PureColorfunctionpair28.appendChild(checkbox28);
+    PureColorfunctionpair28.appendChild(label28);
+    updatePairStyle(PureColorfunctionpair28);
+
+
+const PureColorfunctionpair29 = document.createElement('div');
+    PureColorfunctionpair29.className = 'checkbox-label-pair';
+    PureColorfunctionpair29.appendChild(checkbox29);
+    PureColorfunctionpair29.appendChild(label29);
+    updatePairStyle(PureColorfunctionpair29);
+
+
+const PureColorfunctionpair30 = document.createElement('div');
+    PureColorfunctionpair30.className = 'checkbox-label-pair';
+    PureColorfunctionpair30.appendChild(checkbox30);
+    PureColorfunctionpair30.appendChild(label30);
+    updatePairStyle(PureColorfunctionpair30);
+
+
+const PureColorfunctionpair31 = document.createElement('div');
+    PureColorfunctionpair31.className = 'checkbox-label-pair';
+    PureColorfunctionpair31.appendChild(checkbox31);
+    PureColorfunctionpair31.appendChild(label31);
+    updatePairStyle(PureColorfunctionpair31);
+
+
+const PureColorfunctionpair32 = document.createElement('div');
+    PureColorfunctionpair32.className = 'checkbox-label-pair';
+    PureColorfunctionpair32.appendChild(checkbox32);
+    PureColorfunctionpair32.appendChild(label32);
+    updatePairStyle(PureColorfunctionpair32);
+
+
+const PureColorfunctionpair33 = document.createElement('div');
+    PureColorfunctionpair33.className = 'checkbox-label-pair';
+    PureColorfunctionpair33.appendChild(checkbox33);
+    PureColorfunctionpair33.appendChild(label33);
+    updatePairStyle(PureColorfunctionpair33);
+
+
+const PureColorfunctionpair34 = document.createElement('div');
+    PureColorfunctionpair34.className = 'checkbox-label-pair';
+    PureColorfunctionpair34.appendChild(checkbox34);
+    PureColorfunctionpair34.appendChild(label34);
+    updatePairStyle(PureColorfunctionpair34);
+
+
+const PureColorfunctionpair35 = document.createElement('div');
+    PureColorfunctionpair35.className = 'checkbox-label-pair';
+    PureColorfunctionpair35.appendChild(checkbox35);
+    PureColorfunctionpair35.appendChild(label35);
+    updatePairStyle(PureColorfunctionpair35);
+
+
+const PureColorfunctionpair36 = document.createElement('div');
+    PureColorfunctionpair36.className = 'checkbox-label-pair';
+    PureColorfunctionpair36.appendChild(checkbox36);
+    PureColorfunctionpair36.appendChild(label36);
+    updatePairStyle(PureColorfunctionpair36);
+
+
+const PureColorfunctionpair37 = document.createElement('div');
+    PureColorfunctionpair37.className = 'checkbox-label-pair';
+    PureColorfunctionpair37.appendChild(checkbox37);
+    PureColorfunctionpair37.appendChild(label37);
+    updatePairStyle(PureColorfunctionpair37);
+
+
+const PureColorfunctionpair38 = document.createElement('div');
+    PureColorfunctionpair38.className = 'checkbox-label-pair';
+    PureColorfunctionpair38.appendChild(checkbox38);
+    PureColorfunctionpair38.appendChild(label38);
+    updatePairStyle(PureColorfunctionpair38);
+
+
+const PureColorfunctionpair40 = document.createElement('div');
+    PureColorfunctionpair40.className = 'checkbox-label-pair';
+    PureColorfunctionpair40.appendChild(checkbox40);
+    PureColorfunctionpair40.appendChild(label40);
+    updatePairStyle(PureColorfunctionpair40);
+
+
+const PureColorfunctionpair41 = document.createElement('div');
+    PureColorfunctionpair41.className = 'checkbox-label-pair';
+    PureColorfunctionpair41.appendChild(checkbox41);
+    PureColorfunctionpair41.appendChild(label41);
+    updatePairStyle(PureColorfunctionpair41);
+
+
+const PureColorfunctionpair42 = document.createElement('div');
+    PureColorfunctionpair42.className = 'checkbox-label-pair';
+    PureColorfunctionpair42.appendChild(checkbox42);
+    PureColorfunctionpair42.appendChild(label42);
+    updatePairStyle(PureColorfunctionpair42);
+
+
+const PureColorfunctionpair43 = document.createElement('div');
+    PureColorfunctionpair43.className = 'checkbox-label-pair';
+    PureColorfunctionpair43.appendChild(checkbox43);
+    PureColorfunctionpair43.appendChild(label43);
+    updatePairStyle(PureColorfunctionpair43);
+
+
+	// ==== ②.③创建「分割线」 ====
     const PureColorfunctionpairdivider1 = document.createElement('hr');
     PureColorfunctionpairdivider1.style.cssText = `
         height: 1px;
@@ -587,22 +1111,78 @@ function createSettingsWindow() {
         border: none;
         width: 100%;
     `;
+	
+	function createDivider() {
+    const divider = document.createElement('hr');
+    divider.style.cssText = `
+        height: 1px;
+        margin: 8px 0;
+        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-surface-lighter) 40%, var(--b3-theme-surface-lighter) 80%, transparent 100% );
+        border: none;
+        width: 100%;
+    `;
+    return divider;
+}
 
 
 	// 创建二级菜单（可以若干个）
     const subMenu1 = createSubMenu([
         PureColorfunctionpair15,//卡片式界面
+		PureColorfunctionpair21,//'侧边栏·卡片化
+		PureColorfunctionpair22,//'编辑器·卡片化
+		PureColorfunctionpair23,//'圆角·页签
+		PureColorfunctionpair24,//'圆角·标题前缀图标
+		PureColorfunctionpair25,//'圆角·编辑器元素
+    ], i18n.PureColorMenu1 || "风格：圆角化");
+    
+	const subMenu2 = createSubMenu([
 		PureColorfunctionpair16,//直角式界面
-        PureColorfunctionpair14,//隐藏顶栏
-        PureColorfunctionpair1  //垂直页签
-    ], i18n.PureColorMenu1 || "🌏 界面相关");
-    
-    const subMenu2 = createSubMenu([
+		PureColorfunctionpair26,//'侧边栏·便签化
+		PureColorfunctionpair27,//'编辑器·便签化
+		PureColorfunctionpair28,//'直角·标题前缀图标
+		PureColorfunctionpair29,//'直角·编辑器元素
+    ], i18n.PureColorMenu2 || "风格：直角化");
+	
+	const subMenu3 = createSubMenu([
+		PureColorfunctionpair18,//'三段式界面
+		PureColorfunctionpair19,//'纯线框界面
+		PureColorfunctionpair20,//'沉淀式界面（左边栏浮起）
+    ], i18n.PureColorMenu3 || "界面层级");
+	
+	const subMenu4 = createSubMenu([
+		PureColorfunctionpair30,//'多彩·标题/文档树/大纲树
+		PureColorfunctionpair31,//'LED柔光板·标题
+		PureColorfunctionpair32,//'旋转灯·引述块
+		PureColorfunctionpair33,//'光影·编辑器元素
+		PureColorfunctionpair34,//'光影台阶
+    ], i18n.PureColorMenu4 || "风格：七彩流苏");
+	
+	const subMenu5 = createSubMenu([
+		PureColorfunctionpair35,//'拟物化界面
+    ], i18n.PureColorMenu5 || "🚫施工中");//风格：拟物化
+	
+	const subMenu6 = createSubMenu([
+		PureColorfunctionpair14,//隐藏顶栏
+		//+顶栏融合
+    ], i18n.PureColorMenu6 || "顶栏");
+	
+    const subMenu7 = createSubMenu([
         PureColorfunctionpair2,   //列表子弹线
-        PureColorfunctionpair13   //打字机模式
-    ], i18n.PureColorMenu2 || "🛠 功能增强");
+        PureColorfunctionpair13,   //打字机模式
+    ], i18n.PureColorMenu7 || "编辑体验");
     
-    const subMenu3 = createSubMenu([   //以下是主题配色
+	const subMenu8 = createSubMenu([
+		PureColorfunctionpair1,  //垂直页签
+		PureColorfunctionpair36,//文档树、大纲树列表线
+    ], i18n.PureColorMenu8 || "视觉引导");
+	
+	const subMenu9 = createSubMenu([
+		PureColorfunctionpair37,//'寡淡I
+		document.createTextNode("     默认/Default II"),
+		PureColorfunctionpair38,//鲜艳II
+    ], i18n.PureColorMenu9 || "配色层级");
+	
+    const subMenu10 = createSubMenu([   //以下是主题配色
         PureColorfunctionpair3,
         PureColorfunctionpair4,
         PureColorfunctionpair5,
@@ -613,18 +1193,58 @@ function createSettingsWindow() {
         PureColorfunctionpair10,
         PureColorfunctionpair11,
         PureColorfunctionpair12,
-		PureColorfunctionpair17
-    ], i18n.PureColorMenu3 || "🎨 主题配色");
-
-
-	// ==== ②.④将二级菜单、分割线、复选框和标签添加到设置窗口 ====
-	settingsWindow.appendChild(subMenu1);
-	settingsWindow.appendChild(PureColorfunctionpairdivider1);
-    settingsWindow.appendChild(subMenu2);
-    settingsWindow.appendChild(PureColorfunctionpairdivider2);
-    settingsWindow.appendChild(subMenu3);
+		PureColorfunctionpair17,
+    ], i18n.PureColorMenu10 || "配色系列：纯净·单色");
+	
+	const subMenu11 = createSubMenu([
+		//多款撞色
+    ], i18n.PureColorMenu11 || "🚫施工中");//配色系列：混搭·拼色
+	
+	const subMenu12 = createSubMenu([
+		PureColorfunctionpair40,//'黑白调
+		PureColorfunctionpair41,//'三栏界面
+		PureColorfunctionpair42,//'直角大满足
+		PureColorfunctionpair43,//'圆角大满足
+    ], i18n.PureColorMenu12 || "🚫施工中");//推荐套餐
+	
+	const subMenu13 = createSubMenu([
+		
+    ], i18n.PureColorMenu13 || "🚫施工中");//保存配置
+	
+	// ==== ②.④设置窗口创建标题文本 ====
+	function createMenuTitle(text) {
+    const title = document.createElement('div');
+    title.textContent = text;
+    title.className = 'menu-title';
+    return title;
+}
+	
+	
+	// ==== ②.⑤将二级菜单、分割线、复选框和标签添加到设置窗口 ====
+	settingsWindow.appendChild(createMenuTitle('🌏 界面相关'));
+	settingsWindow.appendChild(subMenu3);//界面层级
+	settingsWindow.appendChild(subMenu1);//框架：圆角化
+	settingsWindow.appendChild(subMenu2);//框架：直角化
+	settingsWindow.appendChild(subMenu4);//风格：七彩流苏（light）
+	settingsWindow.appendChild(subMenu5);//风格：拟物化
+	settingsWindow.appendChild(subMenu6);//顶栏
+	settingsWindow.appendChild(createDivider());
+	settingsWindow.appendChild(createMenuTitle('🛠 功能增强'));
+    settingsWindow.appendChild(subMenu7);//编辑体验
+	settingsWindow.appendChild(subMenu8);//视觉引导
+	settingsWindow.appendChild(createDivider());
+	settingsWindow.appendChild(createMenuTitle('🎨 主题配色'));
+    settingsWindow.appendChild(subMenu9);//配色层级
+	settingsWindow.appendChild(subMenu10);//配色系列：纯净·单色
+	settingsWindow.appendChild(subMenu11);//配色系列：混搭·拼色
+	settingsWindow.appendChild(createDivider());
+	settingsWindow.appendChild(createMenuTitle('🚫施工中'));//🛍 配置混搭
+	settingsWindow.appendChild(subMenu12);//推荐套餐
+	settingsWindow.appendChild(subMenu13);//保存配置
+	
 // 将设置窗口添加到body
 document.body.appendChild(settingsWindow);
+
 
 // 保存配置到PureColor-light-config.json
 async function saveConfig() {
@@ -650,6 +1270,31 @@ async function saveConfig() {
 		isChecked15: checkbox15.checked,
 		isChecked16: checkbox16.checked,
 		isChecked17: checkbox17.checked,
+		isChecked18: checkbox18.checked,
+		isChecked19: checkbox19.checked,
+		isChecked20: checkbox20.checked,
+		isChecked21: checkbox21.checked,
+		isChecked22: checkbox22.checked,
+		isChecked23: checkbox23.checked,
+		isChecked24: checkbox24.checked,
+		isChecked25: checkbox25.checked,
+		isChecked26: checkbox26.checked,
+		isChecked27: checkbox27.checked,
+		isChecked28: checkbox28.checked,
+		isChecked29: checkbox29.checked,
+		isChecked30: checkbox30.checked,
+		isChecked31: checkbox31.checked,
+		isChecked32: checkbox32.checked,
+		isChecked33: checkbox33.checked,
+		isChecked34: checkbox34.checked,
+		isChecked35: checkbox35.checked,
+		isChecked36: checkbox36.checked,
+		isChecked37: checkbox37.checked,
+		isChecked38: checkbox38.checked,
+		isChecked40: checkbox40.checked,
+		isChecked41: checkbox41.checked,
+		isChecked42: checkbox42.checked,
+		isChecked43: checkbox43.checked,
 
     })], { type: 'application/json' }), 'PureColor-light-config.json');
 
@@ -702,7 +1347,7 @@ checkbox14.addEventListener('change', async function() {
 // 列表子弹线开关
 checkbox2.addEventListener('change', async function() {
     const state = this.checked;
-    state ? enablePureColorlihelp() : disablePureColorlihelp();
+    state ? enablePureColorlbzdx() : disablePureColorlbzdx();
     state ? isChecked2 = true : isChecked2 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
@@ -723,10 +1368,6 @@ checkbox13.addEventListener('change', async function() {
         this.checked = !state;
     }
 });
-
-
-
-
 
 
 // light1配色开关
@@ -994,7 +1635,372 @@ checkbox1.addEventListener('change', async function() {
 });
 
 
-    // ESC键关闭
+
+
+// 开关:'三段式界面
+checkbox18.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgjmcj1() : disablePureColorjmxgjmcj1();
+    state ? isChecked18 = true : isChecked18 = false;
+    if (isChecked19 === true) { checkbox19.click(); }
+    if (isChecked20 === true) { checkbox20.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'纯线框界面
+checkbox19.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgjmcj2() : disablePureColorjmxgjmcj2();
+    state ? isChecked19 = true : isChecked19 = false;
+    if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked20 === true) { checkbox20.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'沉淀式界面（左边栏浮起）
+checkbox20.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgjmcj3() : disablePureColorjmxgjmcj3();
+    state ? isChecked20 = true : isChecked20 = false;
+    if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+// 开关:'侧边栏·卡片化
+checkbox21.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgyjh1() : disablePureColorjmxgyjh1();
+    state ? isChecked21 = true : isChecked21 = false;
+    if (isChecked26 === true) { checkbox26.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+// 开关:'侧边栏·便签化
+checkbox26.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgzjh1() : disablePureColorjmxgzjh1();
+    state ? isChecked26 = true : isChecked26 = false;
+    if (isChecked21 === true) { checkbox21.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'编辑器·卡片化
+checkbox22.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgyjh2() : disablePureColorjmxgyjh2();
+    state ? isChecked22 = true : isChecked22 = false;
+    if (isChecked27 === true) { checkbox27.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'编辑器·便签化
+checkbox27.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgzjh2() : disablePureColorjmxgzjh2();
+    state ? isChecked27 = true : isChecked27 = false;
+    if (isChecked22 === true) { checkbox22.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'圆角·标题前缀图标
+checkbox24.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgyjh4() : disablePureColorjmxgyjh4();
+    state ? isChecked24 = true : isChecked24 = false;
+    if (isChecked28 === true) { checkbox28.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'直角·标题前缀图标
+checkbox28.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgzjh3() : disablePureColorjmxgzjh3();
+    state ? isChecked28 = true : isChecked28 = false;
+    if (isChecked24 === true) { checkbox24.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'圆角·编辑器元素
+checkbox25.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgyjh5() : disablePureColorjmxgyjh5();
+    state ? isChecked25 = true : isChecked25 = false;
+    if (isChecked29 === true) { checkbox29.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'直角·编辑器元素
+checkbox29.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgzjh4() : disablePureColorjmxgzjh4();
+    state ? isChecked29 = true : isChecked29 = false;
+    if (isChecked25 === true) { checkbox25.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'圆角·页签
+checkbox23.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgyjh3() : disablePureColorjmxgyjh3();
+    state ? isChecked23 = true : isChecked23 = false;
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'多彩·标题/文档树/大纲树
+checkbox30.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgqcls1() : disablePureColorjmxgqcls1();
+    state ? isChecked30 = true : isChecked30 = false;
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'LED柔光板·标题
+checkbox31.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgqcls2() : disablePureColorjmxgqcls2();
+    state ? isChecked31 = true : isChecked31 = false;
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'旋转灯·引述块
+checkbox32.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgqcls3() : disablePureColorjmxgqcls3();
+    state ? isChecked32 = true : isChecked32 = false;
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'光影·编辑器元素
+checkbox33.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgqcls4() : disablePureColorjmxgqcls4();
+    state ? isChecked33 = true : isChecked33 = false;
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'光影台阶
+checkbox34.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgqcls5() : disablePureColorjmxgqcls5();
+    state ? isChecked34 = true : isChecked34 = false;
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'拟物化界面
+checkbox35.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorjmxgnwh1() : disablePureColorjmxgnwh1();
+    state ? isChecked35 = true : isChecked35 = false;
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'文档树/大纲树列表线
+checkbox36.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorgnzqsjyd1() : disablePureColorgnzqsjyd1();
+    state ? isChecked36 = true : isChecked36 = false;
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+
+// 开关:'黑白调
+checkbox40.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorpzhdtjtc1() : disablePureColorpzhdtjtc1();
+    state ? isChecked40 = true : isChecked40 = false;
+    if (isChecked41 === true) { checkbox41.click(); }
+    if (isChecked42 === true) { checkbox42.click(); }
+	if (isChecked43 === true) { checkbox43.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+// 开关:'三栏界面
+checkbox41.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorpzhdtjtc2() : disablePureColorpzhdtjtc2();
+    state ? isChecked41 = true : isChecked41 = false;
+    if (isChecked40 === true) { checkbox40.click(); }
+    if (isChecked42 === true) { checkbox42.click(); }
+	if (isChecked43 === true) { checkbox43.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'直角大满足
+checkbox42.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorpzhdtjtc3() : disablePureColorpzhdtjtc3();
+    state ? isChecked42 = true : isChecked42 = false;
+    if (isChecked40 === true) { checkbox40.click(); }
+    if (isChecked41 === true) { checkbox41.click(); }
+	if (isChecked43 === true) { checkbox43.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'圆角大满足
+checkbox43.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorpzhdtjtc4() : disablePureColorpzhdtjtc4();
+    state ? isChecked43 = true : isChecked43 = false;
+    if (isChecked40 === true) { checkbox40.click(); }
+    if (isChecked41 === true) { checkbox41.click(); }
+	if (isChecked42 === true) { checkbox42.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+
+// 开关:'寡淡I
+checkbox37.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorztpspscj1() : disablePureColorztpspscj1();
+    state ? isChecked37 = true : isChecked37 = false;
+    if (isChecked38 === true) { checkbox38.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 开关:'鲜艳II
+checkbox38.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablePureColorztpspscj2() : disablePureColorztpspscj2();
+    state ? isChecked38 = true : isChecked38 = false;
+    if (isChecked37 === true) { checkbox37.click(); }
+
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+
+
+// ☆☆☆ESC键关闭
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             closeSettingsWindow();
@@ -1006,7 +2012,8 @@ checkbox1.addEventListener('change', async function() {
     });
 }
 
- // 点击空白处关闭设置窗口
+
+ // ☆☆☆点击空白处关闭设置窗口
 document.addEventListener('click', function(event) {
     var targetElement = event.target; // clicked element
     var settingsWindow = document.getElementById('settingsWindow');
@@ -1114,32 +2121,30 @@ function disabletoolbarhidden() {
 
 
 
-// 开启列表子弹线
-function enablePureColorlihelp() {
-    PureColorlihelp.start();
+// 开/关：列表子弹线
+function enablePureColorlbzdx() {
+    PureColorlbzdx.start();
 
-    let linkElement = document.getElementById("PureColorlihelp-style");
+    let linkElement = document.getElementById("PureColorlbzdx-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
-        linkElement.id = "PureColorlihelp-style";
+        linkElement.id = "PureColorlbzdx-style";
         linkElement.rel = "stylesheet";
         linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/列表子弹线.css";
         document.head.appendChild(linkElement);
     }
 }
+function disablePureColorlbzdx() {
+    PureColorlbzdx.stop();
 
-// 关闭列表子弹线
-function disablePureColorlihelp() {
-    PureColorlihelp.stop();
-
-    const linkElement = document.getElementById("PureColorlihelp-style");
+    const linkElement = document.getElementById("PureColorlbzdx-style");
     if (linkElement) {
         linkElement.remove();
     }
 }
 
 
-// 开启light1配色
+// 开/关：light1配色
 function enablePureColorsunset() {
     let linkElement = document.getElementById("PureColorsunset-style");
     if (!linkElement) {
@@ -1150,8 +2155,6 @@ function enablePureColorsunset() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light1配色
 function disablePureColorsunset() {
     const linkElement = document.getElementById("PureColorsunset-style");
     if (linkElement) {
@@ -1161,7 +2164,7 @@ function disablePureColorsunset() {
     }
 }
 
-// 开启light-2配色
+// 开/关：light-2配色
 function enablePureColorforest() {
     let linkElement = document.getElementById("PureColorforest-style");
     if (!linkElement) {
@@ -1172,8 +2175,6 @@ function enablePureColorforest() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-2配色
 function disablePureColorforest() {
     const linkElement = document.getElementById("PureColorforest-style");
     if (linkElement) {
@@ -1182,7 +2183,8 @@ function disablePureColorforest() {
         }, 300);
     }
 }
-// 开启light-3配色
+
+// 开/关：light-3配色
 function enablePureColorocean() {
     let linkElement = document.getElementById("PureColorocean-style");
     if (!linkElement) {
@@ -1193,8 +2195,6 @@ function enablePureColorocean() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-3配色
 function disablePureColorocean() {
     const linkElement = document.getElementById("PureColorocean-style");
     if (linkElement) {
@@ -1204,7 +2204,7 @@ function disablePureColorocean() {
     }
 }   
 
-// 开启light-4配色
+// 开/关：light-4配色
 function enablePureColorps4() {
     let linkElement = document.getElementById("PureColorps4-style");
     if (!linkElement) {
@@ -1215,8 +2215,6 @@ function enablePureColorps4() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-4配色
 function disablePureColorps4() {
     const linkElement = document.getElementById("PureColorps4-style");
     if (linkElement) {
@@ -1226,7 +2224,7 @@ function disablePureColorps4() {
     }
 }   
 
-// 开启light-5配色
+// 开/关：light-5配色
 function enablePureColorps5() {
     let linkElement = document.getElementById("PureColorps5-style");
     if (!linkElement) {
@@ -1237,8 +2235,6 @@ function enablePureColorps5() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-5配色
 function disablePureColorps5() {
     const linkElement = document.getElementById("PureColorps5-style");
     if (linkElement) {
@@ -1248,7 +2244,7 @@ function disablePureColorps5() {
     }
 }   
 
-// 开启light-6配色
+// 开/关：light-6配色
 function enablePureColorps6() {
     let linkElement = document.getElementById("PureColorps6-style");
     if (!linkElement) {
@@ -1259,8 +2255,6 @@ function enablePureColorps6() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-6配色
 function disablePureColorps6() {
     const linkElement = document.getElementById("PureColorps6-style");
     if (linkElement) {
@@ -1270,7 +2264,7 @@ function disablePureColorps6() {
     }
 }   
 
-// 开启light-7配色
+// 开/关：light-7配色
 function enablePureColorps7() {
     let linkElement = document.getElementById("PureColorps7-style");
     if (!linkElement) {
@@ -1281,8 +2275,6 @@ function enablePureColorps7() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-7配色
 function disablePureColorps7() {
     const linkElement = document.getElementById("PureColorps7-style");
     if (linkElement) {
@@ -1292,7 +2284,7 @@ function disablePureColorps7() {
     }
 }   
 
-// 开启light-8配色
+// 开/关：light-8配色
 function enablePureColorps8() {
     let linkElement = document.getElementById("PureColorps8-style");
     if (!linkElement) {
@@ -1303,8 +2295,6 @@ function enablePureColorps8() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-8配色
 function disablePureColorps8() {
     const linkElement = document.getElementById("PureColorps8-style");
     if (linkElement) {
@@ -1314,7 +2304,7 @@ function disablePureColorps8() {
     }
 }   
 
-// 开启light-9配色
+// 开/关：light-9配色
 function enablePureColorps9() {
     let linkElement = document.getElementById("PureColorps9-style");
     if (!linkElement) {
@@ -1325,8 +2315,6 @@ function enablePureColorps9() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-9配色
 function disablePureColorps9() {
     const linkElement = document.getElementById("PureColorps9-style");
     if (linkElement) {
@@ -1337,7 +2325,7 @@ function disablePureColorps9() {
 }   
 
 
-// 开启light-10配色
+// 开/关：light-10配色
 function enablePureColorps10() {
     let linkElement = document.getElementById("PureColorps10-style");
     if (!linkElement) {
@@ -1348,8 +2336,6 @@ function enablePureColorps10() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-10配色
 function disablePureColorps10() {
     const linkElement = document.getElementById("PureColorps10-style");
     if (linkElement) {
@@ -1359,7 +2345,7 @@ function disablePureColorps10() {
     }
 }
 
-// 开启light-11配色
+// 开/关：light-11配色
 function enablePureColorps11() {
     let linkElement = document.getElementById("PureColorps11-style");
     if (!linkElement) {
@@ -1370,8 +2356,6 @@ function enablePureColorps11() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭light-11配色
 function disablePureColorps11() {
     const linkElement = document.getElementById("PureColorps11-style");
     if (linkElement) {
@@ -1382,8 +2366,7 @@ function disablePureColorps11() {
 }
 
 
-
-// 开启卡片式界面
+// 开/关：卡片式界面
 function enablecardbasedinterface() {
     let linkElement = document.getElementById("cardbasedinterface-style");
     if (!linkElement) {
@@ -1394,8 +2377,6 @@ function enablecardbasedinterface() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭卡片式界面
 function disablecardbasedinterface() {
     const linkElement = document.getElementById("cardbasedinterface-style");
     if (linkElement) {
@@ -1406,8 +2387,7 @@ function disablecardbasedinterface() {
 }
 
 
-
-// 开启直角式界面
+// 开/关：直角式界面
 function enablerightangleinterface() {
     let linkElement = document.getElementById("rightangleinterface-style");
     if (!linkElement) {
@@ -1418,8 +2398,6 @@ function enablerightangleinterface() {
         document.head.appendChild(linkElement);
     }
 }
-
-// 关闭直角式界面
 function disablerightangleinterface() {
     const linkElement = document.getElementById("rightangleinterface-style");
     if (linkElement) {
@@ -1429,8 +2407,7 @@ function disablerightangleinterface() {
     }
 }
 
-
-// 开启垂直页签
+// 开/关：垂直页签
 function enablePureColorverticaltab() {
     setTimeout(PureColorwnd.start, 300);
 
@@ -1443,8 +2420,6 @@ function enablePureColorverticaltab() {
           document.head.appendChild(linkElement);
       }
 }
-
-// 关闭垂直页签
 function disablePureColorverticaltab() {
     PureColorwnd.stop();
 
@@ -1455,7 +2430,7 @@ function disablePureColorverticaltab() {
 }
 
 
-// 开启打字机模式
+// 开/关：打字机模式
 function enablePureColortypewriter() {
     // Initialize typewriter mode
     const typewriter = typewriteractivate();
@@ -1472,7 +2447,6 @@ function enablePureColortypewriter() {
     window.typewriterModeActive = true;
 }
 
-// 关闭打字机模式
 function disablePureColortypewriter() {
     // Remove all typewriter event listeners
     const editors = document.querySelectorAll('div.protyle:not(.fn__none) div.protyle-wysiwyg');
@@ -1492,11 +2466,507 @@ function disablePureColortypewriter() {
 
 
 
+// 开启\关闭：'三段式界面
+function enablePureColorjmxgjmcj1() {
+    let linkElement = document.getElementById("PureColorjmxgjmcj1-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgjmcj1-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/三段式界面.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgjmcj1() {
+    const linkElement = document.getElementById("PureColorjmxgjmcj1-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：'纯线框界面
+function enablePureColorjmxgjmcj2() {
+    let linkElement = document.getElementById("PureColorjmxgjmcj2-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgjmcj2-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/纯线框界面.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgjmcj2() {
+    const linkElement = document.getElementById("PureColorjmxgjmcj2-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：沉淀式界面（左边栏浮起）
+function enablePureColorjmxgjmcj3() {
+    let linkElement = document.getElementById("PureColorjmxgjmcj3-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgjmcj3-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/沉淀式界面.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgjmcj3() {
+    const linkElement = document.getElementById("PureColorjmxgjmcj3-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：侧边栏·卡片化
+function enablePureColorjmxgyjh1() {
+    let linkElement = document.getElementById("PureColorjmxgyjh1-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgyjh1-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/侧边栏卡片化.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgyjh1() {
+    const linkElement = document.getElementById("PureColorjmxgyjh1-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：编辑器·卡片化
+function enablePureColorjmxgyjh2() {
+    let linkElement = document.getElementById("PureColorjmxgyjh2-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgyjh2-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/编辑器卡片化.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgyjh2() {
+    const linkElement = document.getElementById("PureColorjmxgyjh2-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：圆角·页签
+function enablePureColorjmxgyjh3() {
+    let linkElement = document.getElementById("PureColorjmxgyjh3-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgyjh3-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/圆角页签.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgyjh3() {
+    const linkElement = document.getElementById("PureColorjmxgyjh3-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：圆角·标题前缀图标
+function enablePureColorjmxgyjh4() {
+    let linkElement = document.getElementById("PureColorjmxgyjh4-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgyjh4-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/圆角标题前缀图标.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgyjh4() {
+    const linkElement = document.getElementById("PureColorjmxgyjh4-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：圆角·编辑器元素
+function enablePureColorjmxgyjh5() {
+    let linkElement = document.getElementById("PureColorjmxgyjh5-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgyjh5-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/圆角行级元素.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgyjh5() {
+    const linkElement = document.getElementById("PureColorjmxgyjh5-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：侧边栏·便签化
+function enablePureColorjmxgzjh1() {
+    let linkElement = document.getElementById("PureColorjmxgzjh1-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgzjh1-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/侧边栏便签化.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgzjh1() {
+    const linkElement = document.getElementById("PureColorjmxgzjh1-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：编辑器·便签化
+function enablePureColorjmxgzjh2() {
+    let linkElement = document.getElementById("PureColorjmxgzjh2-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgzjh2-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/编辑器便签化.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgzjh2() {
+    const linkElement = document.getElementById("PureColorjmxgzjh2-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：直角·编辑器元素
+function enablePureColorjmxgzjh3() {
+    let linkElement = document.getElementById("PureColorjmxgzjh3-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgzjh3-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/直角标题前缀图标.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgzjh3() {
+    const linkElement = document.getElementById("PureColorjmxgzjh3-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：直角·编辑器元素
+function enablePureColorjmxgzjh4() {
+    let linkElement = document.getElementById("PureColorjmxgzjh4-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgzjh4-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/直角行级元素.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgzjh4() {
+    const linkElement = document.getElementById("PureColorjmxgzjh4-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：多彩标题文档树大纲树
+function enablePureColorjmxgqcls1() {
+    let linkElement = document.getElementById("PureColorjmxgqcls1-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgqcls1-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/多彩标题文档树大纲树.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgqcls1() {
+    const linkElement = document.getElementById("PureColorjmxgqcls1-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：LED柔光板标题
+function enablePureColorjmxgqcls2() {
+    let linkElement = document.getElementById("PureColorjmxgqcls2-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgqcls2-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/LED柔光板标题.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgqcls2() {
+    const linkElement = document.getElementById("PureColorjmxgqcls2-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：旋转灯·引述块
+function enablePureColorjmxgqcls3() {
+    let linkElement = document.getElementById("PureColorjmxgqcls3-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgqcls3-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/旋转灯引述块.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgqcls3() {
+    const linkElement = document.getElementById("PureColorjmxgqcls3-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：光影·编辑器元素
+function enablePureColorjmxgqcls4() {
+    let linkElement = document.getElementById("PureColorjmxgqcls4-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgqcls4-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/光影编辑器元素.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgqcls4() {
+    const linkElement = document.getElementById("PureColorjmxgqcls4-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：光影台阶
+function enablePureColorjmxgqcls5() {
+    let linkElement = document.getElementById("PureColorjmxgqcls5-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgqcls5-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/光影台阶.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgqcls5() {
+    const linkElement = document.getElementById("PureColorjmxgqcls5-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：拟物化界面
+function enablePureColorjmxgnwh1() {
+    let linkElement = document.getElementById("PureColorjmxgnwh1-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorjmxgnwh1-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/拟物化界面.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorjmxgnwh1() {
+    const linkElement = document.getElementById("PureColorjmxgnwh1-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：文档树大纲树列表线
+function enablePureColorgnzqsjyd1() {
+    let linkElement = document.getElementById("PureColorgnzqsjyd1-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorgnzqsjyd1-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/文档树大纲树列表线.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorgnzqsjyd1() {
+    const linkElement = document.getElementById("PureColorgnzqsjyd1-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：寡淡I
+function enablePureColorztpspscj1() {
+    let linkElement = document.getElementById("PureColorztpspscj1-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorztpspscj1-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/寡淡I.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorztpspscj1() {
+    const linkElement = document.getElementById("PureColorztpspscj1-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：鲜艳II
+function enablePureColorztpspscj2() {
+    let linkElement = document.getElementById("PureColorztpspscj2-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorztpspscj2-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/鲜艳II.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorztpspscj2() {
+    const linkElement = document.getElementById("PureColorztpspscj2-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
 
 
 
+// 开启\关闭：套餐黑白调
+function enablePureColorpzhdtjtc1() {
+    let linkElement = document.getElementById("PureColorpzhdtjtc1-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorpzhdtjtc1-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/套餐黑白调.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorpzhdtjtc1() {
+    const linkElement = document.getElementById("PureColorpzhdtjtc1-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
 
+// 开启\关闭：套餐三栏界面
+function enablePureColorpzhdtjtc2() {
+    let linkElement = document.getElementById("PureColorpzhdtjtc2-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorpzhdtjtc2-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/套餐三栏界面.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorpzhdtjtc2() {
+    const linkElement = document.getElementById("PureColorpzhdtjtc2-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
 
+// 开启\关闭：套餐直角大满足
+function enablePureColorpzhdtjtc3() {
+    let linkElement = document.getElementById("PureColorpzhdtjtc3-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorpzhdtjtc3-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/套餐直角大满足.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorpzhdtjtc3() {
+    const linkElement = document.getElementById("PureColorpzhdtjtc3-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启\关闭：套餐圆角大满足
+function enablePureColorpzhdtjtc4() {
+    let linkElement = document.getElementById("PureColorpzhdtjtc4-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "PureColorpzhdtjtc4-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/siyuan-theme-darkside/config/套餐圆角大满足.css";
+        document.head.appendChild(linkElement);
+    }
+}
+function disablePureColorpzhdtjtc4() {
+    const linkElement = document.getElementById("PureColorpzhdtjtc4-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
 
 
 // 读取PureColor-light-config.json
@@ -1515,10 +2985,10 @@ async function loadAndCheckConfig() {
         }
 
         if (config?.isChecked2 === true) {
-            enablePureColorlihelp();
+            enablePureColorlbzdx();
             isChecked2 = true;
         } else if (config?.isChecked2 === false) {
-            disablePureColorlihelp();
+            disablePureColorlbzdx();
             isChecked2 = false;
         }
 
@@ -1642,6 +3112,182 @@ async function loadAndCheckConfig() {
             isChecked17 = false;
         }
 		
+		if (config?.isChecked18 === true) {
+			enablePureColorjmxgjmcj1();
+			isChecked18 = true;
+		} else if (config?.isChecked18 === false) {
+			disablePureColorjmxgjmcj1();
+			isChecked18 = false;
+		}
+		if (config?.isChecked19 === true) {
+			enablePureColorjmxgjmcj2();
+			isChecked19 = true;
+		} else if (config?.isChecked19 === false) {
+			disablePureColorjmxgjmcj2();
+			isChecked19 = false;
+		}
+		if (config?.isChecked20 === true) {
+			enablePureColorjmxgjmcj3();
+			isChecked20 = true;
+		} else if (config?.isChecked20 === false) {
+			disablePureColorjmxgjmcj3();
+			isChecked20 = false;
+		}
+		if (config?.isChecked21 === true) {
+			enablePureColorjmxgyjh1();
+			isChecked21 = true;
+		} else if (config?.isChecked21 === false) {
+			disablePureColorjmxgyjh1();
+			isChecked21 = false;
+		}
+		if (config?.isChecked22 === true) {
+			enablePureColorjmxgyjh2();
+			isChecked22 = true;
+		} else if (config?.isChecked22 === false) {
+			disablePureColorjmxgyjh2();
+			isChecked22 = false;
+		}
+		if (config?.isChecked23 === true) {
+			enablePureColorjmxgyjh3();
+			isChecked23 = true;
+		} else if (config?.isChecked23 === false) {
+			disablePureColorjmxgyjh3();
+			isChecked23 = false;
+		}
+		if (config?.isChecked24 === true) {
+			enablePureColorjmxgyjh4();
+			isChecked24 = true;
+		} else if (config?.isChecked24 === false) {
+			disablePureColorjmxgyjh4();
+			isChecked24 = false;
+		}
+		if (config?.isChecked25 === true) {
+			enablePureColorjmxgyjh5();
+			isChecked25 = true;
+		} else if (config?.isChecked25 === false) {
+			disablePureColorjmxgyjh5();
+			isChecked25 = false;
+		}
+		if (config?.isChecked26 === true) {
+			enablePureColorjmxgzjh1();
+			isChecked26 = true;
+		} else if (config?.isChecked26 === false) {
+			disablePureColorjmxgzjh1();
+			isChecked26 = false;
+		}
+		if (config?.isChecked27 === true) {
+			enablePureColorjmxgzjh2();
+			isChecked27 = true;
+		} else if (config?.isChecked27 === false) {
+			disablePureColorjmxgzjh2();
+			isChecked27 = false;
+		}
+		if (config?.isChecked28 === true) {
+			enablePureColorjmxgzjh3();
+			isChecked28 = true;
+		} else if (config?.isChecked28 === false) {
+			disablePureColorjmxgzjh3();
+			isChecked28 = false;
+		}
+		if (config?.isChecked29 === true) {
+			enablePureColorjmxgzjh4();
+			isChecked29 = true;
+		} else if (config?.isChecked29 === false) {
+			disablePureColorjmxgzjh4();
+			isChecked29 = false;
+		}
+		if (config?.isChecked30 === true) {
+			enablePureColorjmxgqcls1();
+			isChecked30 = true;
+		} else if (config?.isChecked30 === false) {
+			disablePureColorjmxgqcls1();
+			isChecked30 = false;
+		}
+		if (config?.isChecked31 === true) {
+			enablePureColorjmxgqcls2();
+			isChecked31 = true;
+		} else if (config?.isChecked31 === false) {
+			disablePureColorjmxgqcls2();
+			isChecked31 = false;
+		}
+		if (config?.isChecked32 === true) {
+			enablePureColorjmxgqcls3();
+			isChecked32 = true;
+		} else if (config?.isChecked32 === false) {
+			disablePureColorjmxgqcls3();
+			isChecked32 = false;
+		}
+		if (config?.isChecked33 === true) {
+			enablePureColorjmxgqcls4();
+			isChecked33 = true;
+		} else if (config?.isChecked33 === false) {
+			disablePureColorjmxgqcls4();
+			isChecked33 = false;
+		}
+		if (config?.isChecked34 === true) {
+			enablePureColorjmxgqcls5();
+			isChecked34 = true;
+		} else if (config?.isChecked34 === false) {
+			disablePureColorjmxgqcls5();
+			isChecked34 = false;
+		}
+		if (config?.isChecked35 === true) {
+			enablePureColorjmxgnwh1();
+			isChecked35 = true;
+		} else if (config?.isChecked35 === false) {
+			disablePureColorjmxgnwh1();
+			isChecked35 = false;
+		}
+		if (config?.isChecked36 === true) {
+			enablePureColorgnzqsjyd1();
+			isChecked36 = true;
+		} else if (config?.isChecked36 === false) {
+			disablePureColorgnzqsjyd1();
+			isChecked36 = false;
+		}
+		if (config?.isChecked37 === true) {
+			enablePureColorztpspscj1();
+			isChecked37 = true;
+		} else if (config?.isChecked37 === false) {
+			disablePureColorztpspscj1();
+			isChecked37 = false;
+		}
+		if (config?.isChecked38 === true) {
+			enablePureColorztpspscj2();
+			isChecked38 = true;
+		} else if (config?.isChecked38 === false) {
+			disablePureColorztpspscj2();
+			isChecked38 = false;
+		}
+
+		if (config?.isChecked40 === true) {
+			enablePureColorpzhdtjtc1();
+			isChecked40 = true;
+		} else if (config?.isChecked40 === false) {
+			disablePureColorpzhdtjtc1();
+			isChecked40 = false;
+		}
+		if (config?.isChecked41 === true) {
+			enablePureColorpzhdtjtc2();
+			isChecked41 = true;
+		} else if (config?.isChecked41 === false) {
+			disablePureColorpzhdtjtc2();
+			isChecked41 = false;
+		}
+		if (config?.isChecked42 === true) {
+			enablePureColorpzhdtjtc3();
+			isChecked42 = true;
+		} else if (config?.isChecked42 === false) {
+			disablePureColorpzhdtjtc3();
+			isChecked42 = false;
+		}
+		if (config?.isChecked43 === true) {
+			enablePureColorpzhdtjtc4();
+			isChecked43 = true;
+		} else if (config?.isChecked43 === false) {
+			disablePureColorpzhdtjtc4();
+			isChecked43 = false;
+		}
 
     } catch (e) {
         console.error("加载配置失败:", e);
@@ -1934,7 +3580,7 @@ PureColorStatusInitialize();
 
 
 //列表子弹线
-const PureColorlihelp = (function() {
+const PureColorlbzdx = (function() {
     let allListItemNode = [];
     let isActive = false;
     let selectionChangeHandler = null;

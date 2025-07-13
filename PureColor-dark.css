@@ -85,9 +85,9 @@
 	/*「配色」surface-color（由深到浅）*/
 	--b3-protyle-mainfont:225, 225, 225;/*编辑器字体颜色*/
 	--pc-surface-color-1:rgb(var(--b3-protyle-mainfont));
-	--pc-surface-color-2:#ffffffb2;
-	--pc-surface-color-3:#ffffff8c;
-	--pc-surface-color-4:#ffffff4c;
+	--pc-surface-color-2:rgba(var(--b3-protyle-mainfont),.7);
+	--pc-surface-color-3:rgba(var(--b3-protyle-mainfont),.55);
+	--pc-surface-color-4:rgba(var(--b3-protyle-mainfont),.4);
 	
 	/*「配色」color-六配色*/
 	--pc-color-1:235, 80, 66;
@@ -145,6 +145,7 @@
     --b3-border-radius: 6px;
     --b3-border-radius-s: 3px;
     --b3-border-radius-b: 12px;
+	--b3-border-radius-sb:10px;
 
 	/* 滚动条 */
     --b3-scroll-color: var(--b3-menu-item-background-light);
@@ -159,7 +160,7 @@
     /* 提示 */
 	--b3-tooltips-background: var(--b3-theme-background);
     --b3-tooltips-color:var(--pc-surface-color-2);/*主题悬浮提示条*/
-	--b3-tooltips-shadow:var(shadow-1);
+	--b3-tooltips-shadow:var(--pc-shadow-1);
 		
 
 	/* 为空提示（如：搜索框） */
@@ -412,3 +413,5 @@
 .b3-typography .h1,.b3-typography h1,.b3-typography .h2,.b3-typography h2,.b3-typography .h3,.b3-typography h3,.b3-typography .h4,.b3-typography h4,.b3-typography .h5,.b3-typography h5,.b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h1,.protyle-wysiwyg h1,.protyle-wysiwyg .h2,.protyle-wysiwyg h2,.protyle-wysiwyg .h3,.protyle-wysiwyg h3,.protyle-wysiwyg .h4,.protyle-wysiwyg h4,.protyle-wysiwyg .h5,.protyle-wysiwyg h5,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 {
     opacity:0.9;			
 } 
+
+

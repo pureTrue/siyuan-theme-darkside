@@ -1,0 +1,39 @@
+:root{
+	--block__icons-svg-background:var(--pc-background-color-1) !important;
+}
+.dock#dockLeft{
+	background-color: var(--pc-background-color-4) !important;
+}
+
+.dock#dockRight{
+	background-color: var(--pc-background-color-1) !important;
+	border:none !important;
+}
+
+.dock__item:hover:not(.dock__item--activefocus), .dock__item--active{
+	background-color:var(--pc-background-color-3);
+}
+
+.layout__dockr,.layout__dockb{
+	border:none !important;
+	.block__icons,.fn__flex-1{
+		background-color:var(--pc-background-color-1) !important;
+	}
+	
+}
+
+/*其他*/
+.layout-tab-container:hover{
+	.block__icons{
+		background-color:var(--pc-background-color-2) !important;
+	}
+}
+
+/*107.侧边栏图标*/
+.dock__item{
+	color:var(--b3-toolbar-color);
+	padding:5px;
+	margin:6px;
+}
+/*侧边栏与顶栏统一*/
+.dock{width: 36px;}

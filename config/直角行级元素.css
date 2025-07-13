@@ -1,0 +1,90 @@
+/*双链：样式*/
+.protyle-wysiwyg [data-node-id] span[data-type="block-ref"]{
+	cursor:pointer;
+	color: inherit;
+	background-position: 0% 100%;
+	background-repeat: repeat-x;
+	background-size: 5px 5px;
+	text-decoration: none;
+	transition: all 400ms ease;
+	border-bottom: none !important;
+	background-image: linear-gradient(
+	to bottom, 
+	rgba(var(--block-ref-bottomline),0.45) 0%,
+	rgba(var(--block-ref-bottomline),0.45) 100%
+  );
+}
+
+.protyle-wysiwyg [data-node-id] span[data-type="block-ref"]:hover{
+	background-image: linear-gradient(
+	to bottom,
+	rgba(var(--block-ref-bottomline),0.45) 0%,
+	rgba(var(--block-ref-bottomline),0.45) 100%
+	);
+	background-size: 4px 50px;
+	border-bottom: none;
+	color: white !important;
+}
+
+
+
+
+/*网络链接*/
+.b3-typography a,
+.protyle-wysiwyg [data-node-id] span[data-type="a"],
+.av__celltext.av__celltext--url{
+	cursor:pointer;
+	color: inherit;
+	background-position: 0% 100%;
+	background-repeat: repeat-x;
+	background-size: 5px 5px;
+	text-decoration: none;
+	transition: all 400ms ease;
+	border-bottom: none !important;
+	background-image: linear-gradient(
+	to bottom, 
+	rgba(0, 141, 90,0.45) 0%,
+	rgba(0, 141, 90,0.45) 100%
+  );
+}
+
+.b3-typography a:hover,
+.protyle-wysiwyg [data-node-id] span[data-type="a"]:hover,
+.av__celltext.av__celltext--url:hover{
+	background-image: linear-gradient(
+	to bottom,
+	rgba(0, 141, 90,0.45) 0%,
+	rgba(0, 141, 90,0.45) 100%
+	);
+	background-size: 4px 50px;
+	border-bottom: none;
+	color: white !important;
+}
+
+/*PDF摘录*/
+.protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']{
+	cursor:pointer;
+	color: inherit;
+	background-position: 0% 100%;
+	background-repeat: repeat-x;
+	background-size: 5px 5px;
+	text-decoration: none;
+	transition: all 400ms ease;
+	border-bottom: none !important;
+	background-image: linear-gradient(
+	to bottom, 
+	rgba(146, 65, 218,0.45) 0%,
+	rgba(146, 65, 218,0.45) 100%
+	);
+}
+
+.protyle-wysiwyg [data-node-id] span[data-type='file-annotation-ref']:hover{
+	background-image: linear-gradient(
+	to bottom,
+	rgba(146, 65, 218,0.45) 0%,
+	rgba(146, 65, 218,0.45) 100%
+	);
+	background-size: 4px 50px;
+	border-bottom: none;
+	color: white !important;
+}

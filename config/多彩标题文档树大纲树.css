@@ -1,0 +1,125 @@
+/*文档树-“多彩文档树”*/
+.file-tree.sy__file .fn__flex-1{
+	margin-top:4px;
+}
+.file-tree.sy__file .fn__flex-1 > ul {
+	border-radius: var(--b3-border-radius);
+	margin: 0 5px 5px 5px;
+	padding:4px;
+}
+
+.file-tree.sy__file .fn__flex-1 [data-type="navigation-root"] {
+	margin: 0;
+	
+}
+.file-tree.sy__file .fn__flex-1 > ul:has(>ul) > [data-type="navigation-root"] {
+	margin-bottom: 1px;
+	border-radius: var(--b3-border-radius);
+}
+.file-tree.sy__file .fn__flex-1 [data-type="navigation-file"] {
+	margin-left: 0;
+	margin-right: 0;
+	
+}
+
+.file-tree.sy__file .fn__flex-1 > ul:has(>ul) {
+	padding-bottom: 1px;
+}
+
+.sy__file .b3-list--background:nth-child(6n-5){
+	background-color: rgba(var(--pc-color-1),0.05) !important;
+    border-radius: var(--b3-border-radius-sb) !important;
+	box-shadow: 0 0 0 1px rgba(var(--pc-color-1),0.04) inset;
+	[data-type="navigation-root"]{
+		background-color: rgba(var(--pc-color-1),0.15);
+	}
+}
+.sy__file .b3-list--background:nth-child(6n-4){
+	background-color: rgba(var(--pc-color-2),0.05) !important;
+    border-radius: var(--b3-border-radius-sb) !important;
+	box-shadow: 0 0 0 1px rgba(var(--pc-color-2),0.04) inset;
+	[data-type="navigation-root"]{
+		background-color: rgba(var(--pc-color-2),0.15);
+	}
+}
+.sy__file .b3-list--background:nth-child(6n-3){
+	background-color: rgba(var(--pc-color-3),0.05) !important;
+    border-radius: var(--b3-border-radius-sb) !important;
+	box-shadow: 0 0 0 1px rgba(var(--pc-color-3),0.04) inset;
+	[data-type="navigation-root"]{
+		background-color: rgba(var(--pc-color-3),0.15);
+		
+	}
+}
+.sy__file .b3-list--background:nth-child(6n-2){
+	background-color: rgba(var(--pc-color-4),0.05) !important;
+    border-radius: var(--b3-border-radius-sb) !important;
+	box-shadow: 0 0 0 1px rgba(var(--pc-color-4),0.04) inset;
+	[data-type="navigation-root"]{
+		background-color: rgba(var(--pc-color-4),0.15);
+	}
+}
+
+.sy__file .b3-list--background:nth-child(6n-1){
+	background-color: rgba(var(--pc-color-5),0.05) !important;
+    border-radius: var(--b3-border-radius-sb) !important;
+	box-shadow: 0 0 0 1px rgba(var(--pc-color-5),0.04) inset;
+	[data-type="navigation-root"]{
+		background-color: rgba(var(--pc-color-5),0.15);
+	}
+}
+
+.sy__file .b3-list--background:nth-child(6n){
+	background-color: rgba(var(--pc-color-6),0.05) !important;
+    border-radius: var(--b3-border-radius-sb) !important;
+	box-shadow: 0 0 0 1px rgba(var(--pc-color-6),0.04) inset;
+	[data-type="navigation-root"]{
+		background-color: rgba(var(--pc-color-6),0.15);
+	}
+}
+
+
+
+
+/*多彩标题、大纲树*/
+[data-subtype="h1"] {
+	color: var(--b3-font-color1);
+	& .b3-list-item__text {
+		color: var(--b3-font-color1);
+	}
+}
+
+[data-subtype="h2"] {
+	color: var(--b3-font-color2);
+	& .b3-list-item__text {
+		color: var(--b3-font-color2);
+	}
+}
+
+[data-subtype="h3"] {
+	color: var(--b3-font-color3);
+	& .b3-list-item__text {
+		color: var(--b3-font-color3);
+	}
+}
+
+[data-subtype="h4"] {
+	color: var(--b3-font-color4);
+	& .b3-list-item__text {
+		color: var(--b3-font-color4);
+	}
+}
+
+[data-subtype="h5"] {
+	color: var(--b3-font-color5);
+	& .b3-list-item__text {
+		color: var(--b3-font-color5);
+	}
+}
+
+[data-subtype="h6"] {
+	color: var(--b3-font-color6);
+	& .b3-list-item__text {
+		color: var(--b3-font-color6);
+	}
+}

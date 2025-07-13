@@ -27,7 +27,7 @@
    inkscape:cy="10.717405"
    inkscape:window-width="1600"
    inkscape:window-height="938"
-   inkscape:window-x="-6"
+   inkscape:window-x="2553"
    inkscape:window-y="-6"
    inkscape:window-maximized="1"
    inkscape:current-layer="SVGRoot" />
@@ -45,22 +45,24 @@ g.prefab path {
 </style>
 
 <g
-   id="g53"
-   transform="scale(0.5)"><circle
-     style="fill:#eb5042;fill-opacity:1;stroke-width:1.02489"
-     id="path51-4"
-     cx="21"
-     cy="15"
-     r="3" /><circle
-     style="fill:#eb5042;fill-opacity:1;stroke-width:1.02489"
-     id="path51-4-2"
-     cx="15"
-     cy="21"
-     r="3" /><rect
+   id="g1"
+   transform="matrix(0.49999991,0,0,0.49999991,1.425971e-6,4.5940293e-7)"><rect
      style="fill:#eb5042;fill-opacity:1;stroke:none;stroke-width:1.45774;stroke-opacity:0.112554"
-     id="rect53"
+     id="rect53-7-3"
      width="6"
      height="9.0553484"
-     x="22.464153"
-     y="-4.614912"
-     transform="rotate(45.089312)" /></g></svg>
+     x="21.190815"
+     y="-0.45347881"
+     transform="rotate(29.941783)" /><circle
+     style="fill:#eb5042;fill-opacity:1;stroke-width:1.02489"
+     id="path51-5-2"
+     cx="17.758276"
+     cy="16.420832"
+     r="3"
+     transform="rotate(-13.014252)" /><circle
+     style="fill:#eb5042;fill-opacity:1;stroke-width:1.02489"
+     id="path51-4-2-5"
+     cx="11.60566"
+     cy="23.004408"
+     r="3"
+     transform="rotate(-13.014252)" /></g></svg>

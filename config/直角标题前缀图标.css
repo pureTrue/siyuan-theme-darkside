@@ -1,0 +1,48 @@
+/*标题前缀图标*/
+	/* 为所有标题伪元素图标设置相同的一些属性 */
+.h1 > :first-child::before,.h2 > :first-child::before,.h3 > :first-child::before,.h4 > :first-child::before,.h5 > :first-child::before,.h6 > :first-child::before{
+	/*限制图标大小*/
+	height: 21px;
+	width: 14.7px;
+    display:inline-block;
+    position: absolute;
+    content: "";
+    background-position:left center;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+	left: -0.35em;
+    bottom: 0.4em;
+	
+	opacity:0.6;
+}
+
+
+.h1 > :first-child,.h2 > :first-child,.h3 > :first-child,.h4 > :first-child,.h5 > :first-child,.h6 > :first-child{
+    position: relative;
+	padding-left:12px;
+}
+
+/* 标题前图标 */
+.h1 > :first-child::before{
+    background: url('../theme/h1-zj.svg');
+}
+
+.h2 > :first-child::before{ 
+    background: url('../theme/h2-zj.svg');
+}
+
+.h3 > :first-child::before{
+    background: url('../theme/h3-zj.svg');
+}
+
+.h4 > :first-child::before{
+    background: url('../theme/h4-zj.svg');
+}
+
+.h5 > :first-child::before{
+    background: url('../theme/h5-zj.svg');
+}
+
+.h6 > :first-child::before{
+    background: url('../theme/h6-zj.svg');
+}

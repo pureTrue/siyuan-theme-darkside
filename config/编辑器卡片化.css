@@ -1,0 +1,91 @@
+/**** 1、圆角化表格 ****/
+.b3-typography .table table,
+.b3-typography table,
+.protyle-wysiwyg .table table,
+.protyle-wysiwyg table{
+	font-family:var(--b3-font-family);
+	padding:4px;
+	border:1px solid var(--pc-background-color-2);
+	border-radius:var(--b3-border-radius-sb);
+} 
+
+.b3-typography table tr:hover,
+.protyle-wysiwyg table tr:hover {
+	/* 鼠标悬浮行 */
+	background-color:var(--b3-theme-primary-lightest);
+}
+.b3-typography table tr th:hover,
+.protyle-wysiwyg table tr th:hover,
+.b3-typography table tr td:hover,
+.protyle-wysiwyg table tr td:hover {
+	/* 鼠标悬浮单元格 */
+	background-color:var(--b3-theme-primary-lightest);
+}
+
+	/*表格首行样式：圆角化*/
+.protyle-wysiwyg [data-node-id].table table thead tr th:first-child,
+.b3-typography table thead tr th:first-child {
+    border-radius:var(--b3-border-radius) 0 0 var(--b3-border-radius);
+}
+.protyle-wysiwyg [data-node-id].table table thead tr th:last-child,
+.b3-typography table thead tr th:last-child {
+    border-radius:0 var(--b3-border-radius) var(--b3-border-radius) 0;
+}
+	/*表格首行：背景色*/
+.protyle-wysiwyg [data-node-id].table table thead tr,
+.b3-typography table thead tr{
+	background-color:var(--pc-background-color-3) !important;
+}
+
+.b3-typography table tbody th:first-child,
+ .b3-typography table tbody td:first-child,
+ .protyle-wysiwyg table tbody th:first-child,
+ .protyle-wysiwyg table tbody td:first-child{
+	border-radius:var(--b3-border-radius) 0 0 var(--b3-border-radius);
+ }
+ 
+ .b3-typography table tbody th:last-child,
+ .b3-typography table tbody td:last-child,
+ .protyle-wysiwyg table tbody th:last-child,
+ .protyle-wysiwyg table tbody td:last-child{
+	border-radius:0 var(--b3-border-radius) var(--b3-border-radius) 0;
+ }
+
+	/*表格：分割线*/
+.b3-typography table td,
+ .b3-typography table th,
+ .protyle-wysiwyg table td,
+ .protyle-wysiwyg table th {
+	border:none;/*取消默认分割线（有外边框）*/
+}
+
+
+
+
+/*2、嵌入块编辑器内容：圆角化*/
+.protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]>.protyle-wysiwyg__embed{
+	margin:0px 4px 4px 4px;
+	border-top:0;
+	border-radius:var(--b3-border-radius);
+	background-color:var(--pc-background-color-1);
+}
+
+
+	/*嵌入块本体*/
+.protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]{
+	border-left: none !important;
+	border-radius:var(--b3-border-radius-sb);
+	padding: .75em 0em 0em 0em;
+}
+	/*嵌入块伪元素*/
+.protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]::before{
+    content: "" !important;
+    background-color: var(--BlockEmbed-border-color) !important;
+    height: .25em !important; /* 改为固定高度 */
+    border-radius: var(--b3-border-radius) !important;
+    position: absolute !important;
+    left: .5em;
+	right:.5em;
+    top: .25em;   /* 顶部对齐 */
+    bottom: auto; /* 取消底部定位 */
+}

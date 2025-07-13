@@ -1,0 +1,27 @@
+:root{
+	/*1、背景色（由浅到深）*/
+	--pc-background-color-1:var(--pc-background-color-gd-1) !important;
+	--pc-background-color-2:var(--pc-background-color-gd-2) !important;
+	--pc-background-color-3:var(--pc-background-color-gd-3) !important;
+	--pc-background-color-4:var(--pc-background-color-gd-4) !important;
+	/*2、 主色 */
+	--b3-theme-primaryrgb:var(--b3-theme-primaryrgb-gd) !important;
+	/*3、表面色（surface-color）*/
+	--b3-protyle-mainfont:var(--b3-protyle-mainfont-gd) !important;
+	
+	
+	/*「配色」color-六配色*/
+	--pc-color-1:var(--pc-color-gd-1) !important;
+	--pc-color-2:var(--pc-color-gd-2) !important;
+	--pc-color-3:var(--pc-color-gd-3) !important;
+	--pc-color-4:var(--pc-color-gd-4) !important;
+	--pc-color-5:var(--pc-color-gd-5) !important;
+	--pc-color-6:var(--pc-color-gd-6) !important;
+	
+	
+	
+	/*其他：*/
+	--b3-menu-item-background-light:rgba(var(--b3-theme-primaryrgb-gd),.1) !important;
+	
+	--quote-background:rgba(var(--b3-theme-primaryrgb-gd),.04) !important;
+}

@@ -1,0 +1,75 @@
+:root{
+	/*沉淀式界面*/
+	
+	
+	/*背景色：编辑器 */
+	--b3-theme-background: var(--pc-background-color-1) !important;/*编辑器正文栏*/
+	
+	/* 背景色b2：侧边栏 */
+    --b3-theme-surface:var(--pc-background-color-2) !important;/*侧边栏：原2b3a41 同上*/
+    --b3-theme-surface-light: red !important;/*rgba(230, 233, 239,.8)*/
+    --b3-theme-surface-lighter: var(--pc-background-color-3) !important;
+    
+	/* 背景色b3：顶栏 */	
+	--b3-toolbar-background:var(--pc-background-color-1) !important;/*顶栏*/
+	--b3-block__icons:var(--pc-background-color-1) !important;/*侧边栏的顶栏*/
+	
+	/* 背景色4：按钮、hover */	
+	--b3-theme-background-light:var(--pc-background-color-3) !important;
+	--block__icons-svg-background:var(--pc-background-color-3) !important;/*~面包屑-覆盖*/
+	
+	
+	/*隐藏框线*/
+	--b3-border-color: var(--b3-theme-surface) !important;
+	--pc-border-1: 0px !important;
+	--pc-border-2: 0px !important;
+	--pc-border-3: 0px !important;
+}
+
+
+
+/*顶栏*/
+.toolbar{
+	border-bottom: 0px solid var(--b3-border-color) !important;
+}
+
+.layout__dockr,.layout__dockb{
+	border:none !important;
+	.block__icons,.fn__flex-1{
+		background-color:var(--pc-background-color-1) !important;
+	}
+	
+}
+
+.dock#dockLeft,.dock#dockRight {
+	background-color: var(--pc-background-color-1) !important;
+	border:none !important;
+}
+
+body:not(.body--mobile,.body--window) #layouts {
+    border: none !important;
+    background-color: var(--pc-background-color-1);
+	
+    min-height: 50%;
+} 
+
+/*侧边栏*/
+.layout__dockl .fn__flex-column:first-child .layout-tab-container {
+    border-radius: var(--b3-border-radius-b);
+	margin:7px 0px 7px 7px;
+	border:1px solid var(--pc-background-color-4) !important;
+	
+}
+
+
+/*页面分割线*/
+.layout__resize,.layout__resize--lr{
+	opacity:0;
+}
+
+/*其他*/
+.layout-tab-container:hover{
+	.block__icons{
+		background-color:var(--pc-background-color-2) !important;
+	}
+}

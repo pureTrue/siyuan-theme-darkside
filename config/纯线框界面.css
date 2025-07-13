@@ -1,0 +1,117 @@
+:root{
+	/*纯线框模式*/
+	
+	
+
+
+	/*「配色」background-color（由浅到深）*/
+	--pc-background-color-1:#ffffff !important;
+	--pc-background-color-2:#ffffff !important;
+	--pc-background-color-3:#ffffff !important;
+	--pc-background-color-4:rgba(var(--b3-theme-primaryrgb)) !important;
+	
+	/*「配色」surface-color（由深到浅）*/
+	
+	
+	
+	/**** 专属根定义 ****/
+		/*按钮、框线等赋色*/
+	--b3-theme-surface-lighter:var(--pc-surface-color-4) !important;
+	
+		/*自定义：边框*/
+	--pc-border-1: 2px !important;/*防止被隐藏顶栏影响*/
+	--pc-border-2: 1.5px !important;
+	--pc-border-3: 1px !important;
+	
+	/*阴影：全直角化*/
+	--pc-shadow-1:3px 3px 0px var(--pc-background-color-4) !important;
+	--pc-shadow-2:6px 6px 0px var(--pc-background-color-4) !important;
+	--pc-shadow-3:1.5px 1.5px 0px var(--pc-background-color-4) !important;
+
+}
+
+/*顶栏-左上角主按钮*/
+#barWorkspace.ariaLabel.toolbar__item.toolbar__item--active {
+	background-color: var(--pc-background-color-2) !important;
+	border:1px solid var(--pc-background-color-4) !important;
+}
+
+#barWorkspace.ariaLabel.toolbar__item.toolbar__item--active:hover{
+	border-color:var(--b3-menu-item-background-light);
+	background-color: var(--pc-background-color-3) !important;
+}
+
+/*侧边栏-活动按钮*/
+.dock__item:hover:not(.dock__item--activefocus), .dock__item--active{
+	color:var(--pc-background-color-2) !important;
+}
+
+.layout__wnd--active .layout-tab-bar .item--focus>.item__text{
+	color:var(--pc-background-color-2) !important;
+}
+/*页签：非活动*/
+.layout-tab-bar .item{
+	border:1px solid var(--pc-background-color-4);
+}
+/*页签：活动*/
+.layout-tab-bar .item--focus{
+    background-color: var(--pc-background-color-4) !important;
+	border:1px solid var(--b3-menu-item-background-light) !important;
+	.item__text{
+		color:var(--pc-background-color-2) !important;
+		font-weight:600;
+		-webkit-mask-image:none;/*取消：字体末端边缘发虚*/
+	}
+}
+/*设置-侧边栏-页签*/
+.config__panel > .b3-tab-bar {
+    .b3-list-item--focus {
+        background-color: inherit !important;
+		border: 1px solid var(--pc-background-color-4);
+    }
+}
+
+
+/*tooltip 悬浮提示条*/
+div#tooltip {
+	border: 1px solid var(--pc-background-color-4);
+}
+
+	/*划线工具栏の提示条*/
+.b3-tooltips::after {
+	border: 1px solid var(--pc-background-color-4);
+}
+
+
+
+/*引用块*/
+.b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq, .protyle-wysiwyg [data-node-id].bq:not([style*='background-color']){
+	background-color:var(--pc-background-color-1) !important;
+	border:1.5px solid var(--quote-border-color);
+}
+/*嵌入块*/
+.protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]{
+	background-color:var(--pc-background-color-1) !important;
+	border:1.5px solid var(--BlockEmbed-border-color);
+}
+
+/*代码块*/
+.b3-typography .code-block, .protyle-wysiwyg .code-block{
+	background-color:var(--pc-background-color-1) !important;
+	border:1.5px solid var(--code-border-color);
+}
+/*分割线*/
+.protyle-wysiwyg [data-node-id].hr>div:after{
+	border-bottom: 1.5px dashed rgba(var(--b3-theme-primaryrgb));
+}
+
+/* 超级块 */
+
+.protyle-wysiwyg [data-node-id].sb[data-sb-layout=col]{
+	background-color:var(--pc-background-color-1) !important;
+	border:1.5px solid rgba(var(--b3-theme-primaryrgb));
+}
+
+.av__container .av__gallery-cover{
+	border:1px solid rgba(var(--b3-theme-primaryrgb));
+}

@@ -1,0 +1,64 @@
+
+/*左右侧边栏大面板圆角框化*/
+.layout__dockl,
+ .layout__dockr,
+ .layout__dockb{
+	& .block__icons{
+		background-color:var(--pc-background-color-2) !important;
+	}
+	& .layout-tab-container{
+		background-color:var(--pc-background-color-2) !important;
+		
+		& .backlinkList:not(.fn__space),
+		.backlinkMList:not(.fn__space),
+		.file-tree .fn__flex-1:not(.fn__space)
+		{
+			margin:0px 4px 4px 4px;
+			border:1px solid var(--pc-background-color-3);
+			border-radius:var(--b3-border-radius-sb);
+			background-color:var(--pc-background-color-1) !important;
+			& .b3-list--background{
+				margin-top:6px;
+			}
+		}
+		& .backlinkList{
+			margin:0px 4px 0px 4px;
+		}
+		& .backlinkMList{/*下半部分*/
+			margin:0px 4px 4px 4px;
+		}
+		& .file-tree .block__icons .fn__flex-1{
+				background-color:var(--pc-background-color-2) !important;
+				border:0 !important;
+				/*.block__icons 侧边顶栏有一条横线，修复之*/
+			}
+		& .sy__bookmark,.sy__tag{ .fn__flex-1{
+			margin-bottom:4px !important;
+		}}
+	}
+ }
+ 
+ 
+ 
+/* 反链浮窗：初始尺寸限定、圆角卡片化 */
+.block__popover{
+	background-color:var(--pc-background-color-2);
+	& .block__icons{
+		background-color:var(--pc-background-color-2) !important;
+	}
+	& .block__edit{
+		border-radius:var(--b3-border-radius-sb);
+	}
+	& .protyle{
+		margin:0px 4px 4px 4px;
+		border:1px solid var(--pc-background-color-3);
+	}
+}
+
+/*取消鼠标覆盖顶栏深色*/
+.layout-tab-container:hover {
+    .block__icons {
+        background-color: var(--pc-background-color-2) !important;
+    }
+}
+

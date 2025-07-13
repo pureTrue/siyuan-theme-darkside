@@ -1,0 +1,78 @@
+:root {
+	--purecolor-indent-1: 13px;
+	--purecolor-indent-2: 26px;
+	--purecolor-indent-3: 44px;
+	--purecolor-indent-4: 62px;
+	--purecolor-indent-5: 80px;
+	--purecolor-indent-6: 98px;
+	--purecolor-indent-7: 116px;
+	--purecolor-indent-8: 134px;
+	--purecolor-indent-9: 152px;
+	--purecolor-indent-10: 170px;
+	--purecolor-indent-11: 188px;
+	--purecolor-indent-12: 206px;
+	--purecolor-indent-13: 224px;
+	--purecolor-indent-14: 242px;
+	--purecolor-indent-15: 260px;
+}
+.file-tree>.fn__flex-1>ul>ul {
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-1), var(--b3-menu-item-background-light) var(--purecolor-indent-1) calc(var(--purecolor-indent-1) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-1) + 1px) 100%) 
+}
+.file-tree>.fn__flex-1>ul>ul>ul {
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-2), var(--b3-menu-item-background-light) var(--purecolor-indent-2) calc(var(--purecolor-indent-2) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-2) + 1px) 100%)
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul {
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-3), var(--b3-menu-item-background-light) var(--purecolor-indent-3) calc(var(--purecolor-indent-3) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-3) + 1px) 100%)
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul {
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-4), var(--b3-menu-item-background-light) var(--purecolor-indent-4) calc(var(--purecolor-indent-4) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-4) + 1px) 100%)
+	}
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-5), var(--b3-menu-item-background-light) var(--purecolor-indent-5) calc(var(--purecolor-indent-5) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-5) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-6), var(--b3-menu-item-background-light) var(--purecolor-indent-6) calc(var(--purecolor-indent-6) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-6) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-7), var(--b3-menu-item-background-light) var(--purecolor-indent-7) calc(var(--purecolor-indent-7) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-7) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-8), var(--b3-menu-item-background-light) var(--purecolor-indent-8) calc(var(--purecolor-indent-8) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-8) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-9), var(--b3-menu-item-background-light) var(--purecolor-indent-9) calc(var(--purecolor-indent-9) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-9) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-10), var(--b3-menu-item-background-light) var(--purecolor-indent-10) calc(var(--purecolor-indent-10) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-10) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-11), var(--b3-menu-item-background-light) var(--purecolor-indent-11) calc(var(--purecolor-indent-11) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-11) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-12), var(--b3-menu-item-background-light) var(--purecolor-indent-12) calc(var(--purecolor-indent-12) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-12) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-13), var(--b3-menu-item-background-light) var(--purecolor-indent-13) calc(var(--purecolor-indent-13) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-13) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-14), var(--b3-menu-item-background-light) var(--purecolor-indent-14) calc(var(--purecolor-indent-14) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-14) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-15), var(--b3-menu-item-background-light) var(--purecolor-indent-15) calc(var(--purecolor-indent-15) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-15) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-8), var(--b3-menu-item-background-light) var(--purecolor-indent-8) calc(var(--purecolor-indent-8) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-8) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-9), var(--b3-menu-item-background-light) var(--purecolor-indent-9) calc(var(--purecolor-indent-9) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-9) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-10), var(--b3-menu-item-background-light) var(--purecolor-indent-10) calc(var(--purecolor-indent-10) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-10) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-11), var(--b3-menu-item-background-light) var(--purecolor-indent-11) calc(var(--purecolor-indent-11) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-11) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-12), var(--b3-menu-item-background-light) var(--purecolor-indent-12) calc(var(--purecolor-indent-12) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-12) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-13), var(--b3-menu-item-background-light) var(--purecolor-indent-13) calc(var(--purecolor-indent-13) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-13) + 1px) 100%) }
+
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--purecolor-indent-14), var(--b3-menu-item-background-light) var(--purecolor-indent-14) calc(var(--purecolor-indent-14) + 1px), rgba(0, 0, 0, 0) calc(var(--purecolor-indent-14) + 1px) 100%) }
+
+
+/*无子文档的父文档前缀圆点·：*/
+.b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
+    content: "";
+    width: 0.25em;
+    height: 0.25em;
+    border-radius: 20px;
+    background-color: var(--pc-surface-color-4);
+    position: absolute;
+    visibility: visible;
+    margin-left: 3px;
+}
