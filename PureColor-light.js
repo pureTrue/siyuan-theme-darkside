@@ -61,12 +61,12 @@ const I18N = {
 		PureColorjmxgyjh4:' 圆角·标题前缀图标',
 		PureColorjmxgyjh5:' 🚫施工中',//圆角·行级元素
 		PureColorjmxgzjh1:' 🚫施工中',//侧边栏·便签化
-		PureColorjmxgzjh2:' ',//编辑器·便签化
+		PureColorjmxgzjh2:' 🚫施工中',//编辑器·便签化
 		PureColorjmxgzjh3:' 直角·标题前缀图标',
 		PureColorjmxgzjh4:' 直角·行级元素',
 		PureColorjmxgqcls1:' 多彩·标题/文档树/大纲树',
 		PureColorjmxgqcls2:' 🚫施工中',//LED柔光板·标题
-		PureColorjmxgqcls3:' 🚫施工中',//旋转灯·引述块
+		PureColorjmxgqcls3:' 💝旋转灯·引述块',//旋转灯·引述块
 		PureColorjmxgqcls4:' 🚫施工中',//光影·编辑器元素
 		PureColorjmxgqcls5:' 🚫施工中',//光影台阶
 		PureColorjmxgnwh1:' 🚫施工中',//拟物化界面敬请期待
