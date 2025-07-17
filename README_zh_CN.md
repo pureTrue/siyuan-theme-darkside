@@ -13,6 +13,10 @@ PureColor 是一款精简美观的思源笔记主题。
 - 配色系列：探索·蓝修复
 - 近期更新内容详见：[v3.4更新内容]([https://ld246.com/article/1752464520022](https://ld246.com/article/1752464520022))
 
+![]()
+
+<img src="https://github.com/pureTrue/photos/blob/main/0aee477f-9fec-4bb7-9aba-4b3b7c8ed8d9.png?raw=true" alt="" height="342" />
+
 ## 🥰主题特性，生而简洁
 
 - 🎨**美观界面**：细细打磨11款明亮、11款暗黑模式界面配色，耐看护眼；
