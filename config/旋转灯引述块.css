@@ -1,0 +1,83 @@
+/*旋转灯：引述块*/
+.b3-typography blockquote,
+ .b3-typography .bq,
+ .protyle-wysiwyg blockquote,
+ .protyle-wysiwyg .bq ,
+.protyle-wysiwyg [data-node-id].bq:not([style*='background-color']){
+	border-left: none;
+	border-radius:var(--b3-border-radius);
+	background-color:var(--quote-border-color-3);
+}
+
+
+.b3-typography blockquote::before,
+ .b3-typography .bq::before,
+ .protyle-wysiwyg blockquote::before, 
+ .protyle-wysiwyg .bq::before {
+    content: "" !important;
+	background: repeating-linear-gradient(
+		45deg,
+		var(--quote-border-color) 0 25%,
+		var(--quote-border-color-2) 25% 50%,
+		var(--quote-border-color) 50% 75%,
+		var(--quote-border-color-2) 75% 100%
+	) !important;
+	background-size: 20px 20px !important;
+    width: .25em !important;
+    border-radius: var(--b3-border-radius) !important;
+    position: absolute !important;
+    left: .25em;
+    top: .25em;
+    bottom: .25em;
+}
+
+
+/*旋转灯：嵌入块*/
+.protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]{
+	border-left: none !important;
+	border-radius:var(--b3-border-radius);
+	background-color:var(--BlockEmbed-border-color-3);
+}
+
+.protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed]::before{
+	content: "" !important;
+	background: repeating-linear-gradient(
+		45deg,
+		var(--BlockEmbed-border-color) 0 25%,
+		var(--BlockEmbed-border-color-2) 25% 50%,
+		var(--BlockEmbed-border-color) 50% 75%,
+		var(--BlockEmbed-border-color-2) 75% 100%
+	) !important;
+	background-size: 20px 20px !important;
+    width: .25em !important;
+    border-radius: var(--b3-border-radius) !important;
+    position: absolute !important;
+    left: .25em;
+    top: .25em;
+    bottom: .25em;
+}
+
+	/*代码块*/
+.b3-typography .code-block, .protyle-wysiwyg .code-block{
+	border-left: none !important;
+	border-radius:var(--b3-border-radius);
+	background-color:var(--code-border-color-3) !important;
+}
+
+.b3-typography .code-block, .protyle-wysiwyg .code-block::before{
+	content: "" !important;
+	background: repeating-linear-gradient(
+		45deg,
+		var(--code-border-color) 0 25%,
+		var(--code-border-color-2) 25% 50%,
+		var(--code-border-color) 50% 75%,
+		var(--code-border-color-2) 75% 100%
+	) !important;
+	background-size: 20px 20px !important;
+    width: .25em !important;
+    border-radius: var(--b3-border-radius) !important;
+    position: absolute !important;
+    left: .25em;
+    top: .25em;
+    bottom: .25em;
+}

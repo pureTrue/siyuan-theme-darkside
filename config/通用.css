@@ -1690,9 +1690,6 @@ body{
 
 
 /* 80.底部栏浮动 */
-#savorToolbar button{
-    display: block!important;/*显示主题切换按钮们*/
-}
 #status {
 	position: fixed;
 	backface-visibility: hidden;

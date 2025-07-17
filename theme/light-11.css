@@ -1,0 +1,39 @@
+:root[data-theme-mode="light"] {
+		/* 单色：深蓝色 */
+	
+		/****  寡淡I  ****/
+		/*1、背景色（由浅到深）*/
+	--pc-background-color-gd-1:rgba(234,238,246);
+	--pc-background-color-gd-2:rgba(206,215,233);
+	--pc-background-color-gd-3:rgba(179,191,221);
+	--pc-background-color-gd-4:rgba(151,167,208);
+		/*2、 主色 */
+	--b3-theme-primaryrgb-gd:59,77,155;
+		/*3、表面色（surface-color）*/
+	--b3-protyle-mainfont-gd:24,26,57;
+		
+	
+	/****  默认  ****/
+		/*1、背景色（由浅到深）*/
+	--pc-background-color-1:rgba(232,238,250);
+	--pc-background-color-2:rgba(202,214,242);
+	--pc-background-color-3:rgba(172,189,234);
+	--pc-background-color-4:rgba(141,165,226);
+		/*2、 主色 */
+	--b3-theme-primaryrgb:35,62,179;
+		/*3、表面色（surface-color）*/
+	--b3-protyle-mainfont:16,18,66;	/*编辑器字体颜色*/
+	
+	
+	/****  鲜艳II  ****/
+		/*1、背景色（由浅到深）*/
+	--pc-background-color-xy-1:rgba(230, 238, 255);
+	--pc-background-color-xy-2:rgba(196, 213, 252);
+	--pc-background-color-xy-3:rgba(163, 187, 250);
+	--pc-background-color-xy-4:rgba(129, 162, 247);
+		/*2、 主色 */
+	--b3-theme-primaryrgb-xy:8,45,208;
+		/*3、表面色（surface-color）*/
+	--b3-protyle-mainfont-xy:6,10,76;
+
+} 

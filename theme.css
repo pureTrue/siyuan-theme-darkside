@@ -391,12 +391,18 @@
 	--quote-background:rgba(var(--b3-theme-primaryrgb-gd),.06); /* 背景色 */
 		/* 引述块 */
     --quote-border-color:rgba(0, 141, 90,0.5);/* 左边框颜色27,180,154*/
+	--quote-border-color-2:rgba(0, 141, 90,0.2);
+	--quote-border-color-3:rgba(0, 141, 90,0.05);
     --quote-color:var(--pc-surface-color-1) ; /* 文字颜色 */
 	--b3-bq-background:var(--quote-background);/*背景色*/
 		/* 代码块 */
 	--code-border-color:rgba(146, 65, 218,0.5);/*左边框颜色*/
+	--code-border-color-2:rgba(146, 65, 218,0.2);
+	--code-border-color-3:rgba(146, 65, 218,0.05);
 		/*嵌入块*/
 	--BlockEmbed-border-color:rgba(69,95,243,0.5);/*左边框颜色*/
+	--BlockEmbed-border-color-2:rgba(69,95,243,0.2);
+	--BlockEmbed-border-color-3:rgba(69,95,243,0.05);
 	--b3-embed-background: var(--quote-background);	/*背景色*/
 
 	/*「自定义」双链计数 */
@@ -430,4 +436,4 @@
 
 .config__panel>.b3-tab-bar{}
 
-
+ 
